@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<body>
+    <h2>User Registration</h2>
+
+    <!-- メッセージを表示 -->
+    {% if messages %}
+        <ul>
+            {% for message in messages %}
+                <li>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- 登録フォーム -->
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}  <!-- フォームを段落形式で表示 -->
+        <button type="submit">Register</button>
+    </form>
+
+    <!-- フォーム全体のエラー -->
+    {% if form.non_field_errors %}
+        <ul>
+            {% for error in form.non_field_errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</body>
+</html>

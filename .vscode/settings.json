@@ -1,0 +1,38 @@
+{
+    // フォーマッター設定
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.formatOnSave": false,
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    },
+    
+    // エディタの表示設定
+    "editor.folding": false,
+    "editor.showFoldingControls": "never",
+    "editor.foldingStrategy": "indentation",
+    "editor.guides.folding": false,
+    "editor.foldingHighlight": false,
+    
+    // HTML固有の設定
+    "html.autoClosingTags": false,
+    "html.format.wrapLineLength": 0,
+    "html.format.wrapAttributes": "auto",
+    "html.format.extraLiners": "",
+    
+    // 追加の表示設定
+    "editor.renderWhitespace": "all",
+    "editor.minimap.enabled": false,
+    "editor.wordWrap": "on",
+    "[postcss]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    }
+}

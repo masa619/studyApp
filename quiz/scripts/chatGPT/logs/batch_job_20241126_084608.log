@@ -1,0 +1,5 @@
+2024-11-26 08:46:09,288 - exec_batchAPI - INFO - ジョブ作成成功 - ジョブID: batch_67450c41259881909241f8a066a3928b
+2024-11-26 08:46:09,496 - exec_batchAPI - INFO - ジョブステータス取得: validating
+2024-11-26 08:46:09,496 - exec_batchAPI - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 08:46:39,731 - exec_batchAPI - INFO - ジョブステータス取得: failed
+2024-11-26 08:46:39,731 - exec_batchAPI - ERROR - ジョブが失敗しました: 不明なエラーが発生しました

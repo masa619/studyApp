@@ -1,0 +1,1552 @@
+2024-11-24 17:17:14,224 - An error occurred while processing the file: 'id'
+2024-11-24 17:21:42,585 - ERROR - Input file batch_translate_requests.jsonl not found
+2024-11-24 17:23:54,648 - ERROR - Line 1: Invalid JSONL format - Expecting value: line 2 column 1 (char 2)
+2024-11-24 17:23:54,648 - ERROR - Line 2: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 4)
+2024-11-24 17:23:54,648 - ERROR - Line 3: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:23:54,648 - ERROR - Line 4: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:23:54,648 - ERROR - Line 5: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:23:54,648 - ERROR - Line 6: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:23:54,648 - ERROR - Line 7: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:23:54,648 - ERROR - Line 8: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:23:54,648 - ERROR - Line 9: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:23:54,648 - ERROR - Line 10: Invalid JSONL format - Extra data: line 1 column 17 (char 16)
+2024-11-24 17:23:54,648 - ERROR - Line 11: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:23:54,648 - ERROR - Line 12: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:23:54,648 - ERROR - Line 13: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:23:54,648 - ERROR - Line 14: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 12)
+2024-11-24 17:23:54,648 - ERROR - Line 15: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:23:54,648 - ERROR - Line 16: Invalid JSONL format - Extra data: line 1 column 22 (char 21)
+2024-11-24 17:23:54,648 - ERROR - Line 17: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:23:54,648 - ERROR - Line 18: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:23:54,648 - ERROR - Line 19: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:23:54,648 - ERROR - Line 20: Invalid JSONL format - Expecting value: line 1 column 13 (char 12)
+2024-11-24 17:23:54,648 - ERROR - Line 21: Invalid JSONL format - Extra data: line 1 column 23 (char 22)
+2024-11-24 17:23:54,648 - ERROR - Line 22: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:23:54,648 - ERROR - Line 23: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:23:54,648 - ERROR - Line 24: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:23:54,648 - ERROR - Line 25: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:23:54,648 - ERROR - Line 26: Invalid JSONL format - Extra data: line 1 column 26 (char 25)
+2024-11-24 17:23:54,648 - ERROR - Line 27: Invalid JSONL format - Extra data: line 1 column 30 (char 29)
+2024-11-24 17:23:54,648 - ERROR - Line 28: Invalid JSONL format - Extra data: line 1 column 25 (char 24)
+2024-11-24 17:23:54,649 - ERROR - Line 29: Invalid JSONL format - Extra data: line 1 column 34 (char 33)
+2024-11-24 17:23:54,649 - ERROR - Line 30: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:23:54,649 - ERROR - Line 31: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:23:54,649 - ERROR - Line 32: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:23:54,649 - ERROR - Line 33: Invalid JSONL format - Extra data: line 1 column 38 (char 37)
+2024-11-24 17:23:54,649 - ERROR - Line 34: Invalid JSONL format - Extra data: line 1 column 31 (char 30)
+2024-11-24 17:23:54,649 - ERROR - Line 35: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:23:54,649 - ERROR - Line 36: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:23:54,649 - ERROR - Line 37: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:23:54,649 - ERROR - Line 38: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:23:54,649 - ERROR - Line 39: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:23:54,649 - ERROR - Line 40: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:23:54,649 - ERROR - Line 41: Invalid JSONL format - Expecting value: line 1 column 7 (char 6)
+2024-11-24 17:23:54,649 - ERROR - Line 42: Invalid JSONL format - Expecting value: line 1 column 5 (char 4)
+2024-11-24 17:23:54,649 - ERROR - Line 43: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:23:54,649 - ERROR - Line 44: Invalid JSONL format - Expecting value: line 1 column 3 (char 2)
+2024-11-24 17:23:54,649 - ERROR - Line 45: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 4)
+2024-11-24 17:23:54,649 - ERROR - Line 46: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:23:54,649 - ERROR - Line 47: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:23:54,649 - ERROR - Line 48: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:23:54,649 - ERROR - Line 49: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:23:54,649 - ERROR - Line 50: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:23:54,649 - ERROR - Line 51: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:23:54,649 - ERROR - Line 52: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:23:54,649 - ERROR - Line 53: Invalid JSONL format - Extra data: line 1 column 17 (char 16)
+2024-11-24 17:23:54,649 - ERROR - Line 54: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:23:54,649 - ERROR - Line 55: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:23:54,649 - ERROR - Line 56: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:23:54,649 - ERROR - Line 57: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 12)
+2024-11-24 17:23:54,649 - ERROR - Line 58: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:23:54,649 - ERROR - Line 59: Invalid JSONL format - Extra data: line 1 column 22 (char 21)
+2024-11-24 17:23:54,649 - ERROR - Line 60: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:23:54,649 - ERROR - Line 61: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:23:54,649 - ERROR - Line 62: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:23:54,649 - ERROR - Line 63: Invalid JSONL format - Expecting value: line 1 column 13 (char 12)
+2024-11-24 17:23:54,649 - ERROR - Line 64: Invalid JSONL format - Extra data: line 1 column 23 (char 22)
+2024-11-24 17:23:54,649 - ERROR - Line 65: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:23:54,649 - ERROR - Line 66: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:23:54,649 - ERROR - Line 67: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:23:54,649 - ERROR - Line 68: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:23:54,649 - ERROR - Line 69: Invalid JSONL format - Extra data: line 1 column 26 (char 25)
+2024-11-24 17:23:54,649 - ERROR - Line 70: Invalid JSONL format - Extra data: line 1 column 30 (char 29)
+2024-11-24 17:23:54,649 - ERROR - Line 71: Invalid JSONL format - Extra data: line 1 column 25 (char 24)
+2024-11-24 17:23:54,649 - ERROR - Line 72: Invalid JSONL format - Extra data: line 1 column 34 (char 33)
+2024-11-24 17:23:54,649 - ERROR - Line 73: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:23:54,649 - ERROR - Line 74: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:23:54,649 - ERROR - Line 75: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:23:54,649 - ERROR - Line 76: Invalid JSONL format - Extra data: line 1 column 38 (char 37)
+2024-11-24 17:23:54,649 - ERROR - Line 77: Invalid JSONL format - Extra data: line 1 column 31 (char 30)
+2024-11-24 17:23:54,649 - ERROR - Line 78: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:23:54,649 - ERROR - Line 79: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:23:54,649 - ERROR - Line 80: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:23:54,649 - ERROR - Line 81: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:23:54,649 - ERROR - Line 82: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:23:54,649 - ERROR - Line 83: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:23:54,649 - ERROR - Line 84: Invalid JSONL format - Expecting value: line 1 column 7 (char 6)
+2024-11-24 17:23:54,649 - ERROR - Line 85: Invalid JSONL format - Expecting value: line 1 column 5 (char 4)
+2024-11-24 17:23:54,649 - ERROR - Line 86: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:23:54,649 - ERROR - Line 87: Invalid JSONL format - Expecting value: line 1 column 3 (char 2)
+2024-11-24 17:23:54,649 - ERROR - Line 88: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 4)
+2024-11-24 17:23:54,649 - ERROR - Line 89: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:23:54,649 - ERROR - Line 90: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:23:54,649 - ERROR - Line 91: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:23:54,649 - ERROR - Line 92: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:23:54,649 - ERROR - Line 93: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:23:54,649 - ERROR - Line 94: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:23:54,649 - ERROR - Line 95: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:23:54,649 - ERROR - Line 96: Invalid JSONL format - Extra data: line 1 column 17 (char 16)
+2024-11-24 17:23:54,649 - ERROR - Line 97: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:23:54,649 - ERROR - Line 98: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:23:54,649 - ERROR - Line 99: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:23:54,649 - ERROR - Line 100: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 12)
+2024-11-24 17:23:54,649 - ERROR - Line 101: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:23:54,649 - ERROR - Line 102: Invalid JSONL format - Extra data: line 1 column 22 (char 21)
+2024-11-24 17:23:54,649 - ERROR - Line 103: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:23:54,649 - ERROR - Line 104: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:23:54,649 - ERROR - Line 105: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:23:54,649 - ERROR - Line 106: Invalid JSONL format - Expecting value: line 1 column 13 (char 12)
+2024-11-24 17:23:54,649 - ERROR - Line 107: Invalid JSONL format - Extra data: line 1 column 23 (char 22)
+2024-11-24 17:23:54,649 - ERROR - Line 108: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:23:54,649 - ERROR - Line 109: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:23:54,649 - ERROR - Line 110: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:23:54,650 - ERROR - Line 111: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:23:54,650 - ERROR - Line 112: Invalid JSONL format - Extra data: line 1 column 26 (char 25)
+2024-11-24 17:23:54,650 - ERROR - Line 113: Invalid JSONL format - Extra data: line 1 column 30 (char 29)
+2024-11-24 17:23:54,650 - ERROR - Line 114: Invalid JSONL format - Extra data: line 1 column 25 (char 24)
+2024-11-24 17:23:54,650 - ERROR - Line 115: Invalid JSONL format - Extra data: line 1 column 34 (char 33)
+2024-11-24 17:23:54,650 - ERROR - Line 116: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:23:54,650 - ERROR - Line 117: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:23:54,650 - ERROR - Line 118: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:23:54,650 - ERROR - Line 119: Invalid JSONL format - Extra data: line 1 column 38 (char 37)
+2024-11-24 17:23:54,650 - ERROR - Line 120: Invalid JSONL format - Extra data: line 1 column 31 (char 30)
+2024-11-24 17:23:54,650 - ERROR - Line 121: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:23:54,650 - ERROR - Line 122: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:23:54,650 - ERROR - Line 123: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:23:54,650 - ERROR - Line 124: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:23:54,650 - ERROR - Line 125: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:23:54,650 - ERROR - Line 126: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:23:54,650 - ERROR - Line 127: Invalid JSONL format - Expecting value: line 1 column 7 (char 6)
+2024-11-24 17:23:54,650 - ERROR - Line 128: Invalid JSONL format - Expecting value: line 1 column 5 (char 4)
+2024-11-24 17:23:54,650 - ERROR - Line 129: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:23:54,650 - ERROR - Line 130: Invalid JSONL format - Expecting value: line 1 column 3 (char 2)
+2024-11-24 17:23:54,650 - ERROR - Line 131: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 4)
+2024-11-24 17:23:54,650 - ERROR - Line 132: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:23:54,650 - ERROR - Line 133: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:23:54,650 - ERROR - Line 134: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:23:54,650 - ERROR - Line 135: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:23:54,650 - ERROR - Line 136: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:23:54,650 - ERROR - Line 137: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:23:54,650 - ERROR - Line 138: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:23:54,650 - ERROR - Line 139: Invalid JSONL format - Extra data: line 1 column 17 (char 16)
+2024-11-24 17:23:54,650 - ERROR - Line 140: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:23:54,650 - ERROR - Line 141: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:23:54,650 - ERROR - Line 142: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:23:54,650 - ERROR - Line 143: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 12)
+2024-11-24 17:23:54,650 - ERROR - Line 144: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:23:54,650 - ERROR - Line 145: Invalid JSONL format - Extra data: line 1 column 22 (char 21)
+2024-11-24 17:23:54,650 - ERROR - Line 146: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:23:54,650 - ERROR - Line 147: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:23:54,650 - ERROR - Line 148: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:23:54,650 - ERROR - Line 149: Invalid JSONL format - Expecting value: line 1 column 13 (char 12)
+2024-11-24 17:23:54,650 - ERROR - Line 150: Invalid JSONL format - Extra data: line 1 column 23 (char 22)
+2024-11-24 17:23:54,650 - ERROR - Line 151: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:23:54,650 - ERROR - Line 152: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:23:54,650 - ERROR - Line 153: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:23:54,650 - ERROR - Line 154: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:23:54,650 - ERROR - Line 155: Invalid JSONL format - Extra data: line 1 column 26 (char 25)
+2024-11-24 17:23:54,650 - ERROR - Line 156: Invalid JSONL format - Extra data: line 1 column 30 (char 29)
+2024-11-24 17:23:54,650 - ERROR - Line 157: Invalid JSONL format - Extra data: line 1 column 25 (char 24)
+2024-11-24 17:23:54,650 - ERROR - Line 158: Invalid JSONL format - Extra data: line 1 column 34 (char 33)
+2024-11-24 17:23:54,650 - ERROR - Line 159: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:23:54,650 - ERROR - Line 160: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:23:54,650 - ERROR - Line 161: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:23:54,650 - ERROR - Line 162: Invalid JSONL format - Extra data: line 1 column 38 (char 37)
+2024-11-24 17:23:54,650 - ERROR - Line 163: Invalid JSONL format - Extra data: line 1 column 31 (char 30)
+2024-11-24 17:23:54,650 - ERROR - Line 164: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:23:54,650 - ERROR - Line 165: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:23:54,650 - ERROR - Line 166: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:23:54,650 - ERROR - Line 167: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:23:54,650 - ERROR - Line 168: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:23:54,650 - ERROR - Line 169: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:23:54,650 - ERROR - Line 170: Invalid JSONL format - Expecting value: line 1 column 7 (char 6)
+2024-11-24 17:23:54,650 - ERROR - Line 171: Invalid JSONL format - Expecting value: line 1 column 5 (char 4)
+2024-11-24 17:23:54,650 - ERROR - Line 172: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:23:54,650 - ERROR - Line 173: Invalid JSONL format - Expecting value: line 1 column 3 (char 2)
+2024-11-24 17:23:54,650 - ERROR - Line 174: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 4)
+2024-11-24 17:23:54,650 - ERROR - Line 175: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:23:54,650 - ERROR - Line 176: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:23:54,650 - ERROR - Line 177: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:23:54,650 - ERROR - Line 178: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:23:54,650 - ERROR - Line 179: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:23:54,650 - ERROR - Line 180: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:23:54,650 - ERROR - Line 181: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:23:54,650 - ERROR - Line 182: Invalid JSONL format - Extra data: line 1 column 17 (char 16)
+2024-11-24 17:23:54,650 - ERROR - Line 183: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:23:54,650 - ERROR - Line 184: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:23:54,650 - ERROR - Line 185: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:23:54,650 - ERROR - Line 186: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 12)
+2024-11-24 17:23:54,650 - ERROR - Line 187: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:23:54,650 - ERROR - Line 188: Invalid JSONL format - Extra data: line 1 column 22 (char 21)
+2024-11-24 17:23:54,650 - ERROR - Line 189: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:23:54,650 - ERROR - Line 190: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:23:54,650 - ERROR - Line 191: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:23:54,650 - ERROR - Line 192: Invalid JSONL format - Expecting value: line 1 column 13 (char 12)
+2024-11-24 17:23:54,650 - ERROR - Line 193: Invalid JSONL format - Extra data: line 1 column 23 (char 22)
+2024-11-24 17:23:54,650 - ERROR - Line 194: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:23:54,650 - ERROR - Line 195: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:23:54,650 - ERROR - Line 196: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:23:54,650 - ERROR - Line 197: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:23:54,650 - ERROR - Line 198: Invalid JSONL format - Extra data: line 1 column 26 (char 25)
+2024-11-24 17:23:54,650 - ERROR - Line 199: Invalid JSONL format - Extra data: line 1 column 30 (char 29)
+2024-11-24 17:23:54,650 - ERROR - Line 200: Invalid JSONL format - Extra data: line 1 column 25 (char 24)
+2024-11-24 17:23:54,650 - ERROR - Line 201: Invalid JSONL format - Extra data: line 1 column 34 (char 33)
+2024-11-24 17:23:54,650 - ERROR - Line 202: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:23:54,650 - ERROR - Line 203: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:23:54,650 - ERROR - Line 204: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:23:54,650 - ERROR - Line 205: Invalid JSONL format - Extra data: line 1 column 38 (char 37)
+2024-11-24 17:23:54,650 - ERROR - Line 206: Invalid JSONL format - Extra data: line 1 column 31 (char 30)
+2024-11-24 17:23:54,650 - ERROR - Line 207: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:23:54,650 - ERROR - Line 208: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:23:54,650 - ERROR - Line 209: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:23:54,650 - ERROR - Line 210: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:23:54,650 - ERROR - Line 211: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:23:54,650 - ERROR - Line 212: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:23:54,650 - ERROR - Line 213: Invalid JSONL format - Expecting value: line 1 column 7 (char 6)
+2024-11-24 17:23:54,650 - ERROR - Line 214: Invalid JSONL format - Expecting value: line 1 column 5 (char 4)
+2024-11-24 17:23:54,651 - ERROR - Line 215: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:23:54,651 - ERROR - Line 216: Invalid JSONL format - Expecting value: line 1 column 3 (char 2)
+2024-11-24 17:23:54,651 - ERROR - Line 217: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:23:54,651 - ERROR - No valid data was extracted
+2024-11-24 17:24:09,156 - ERROR - Line 1: Invalid JSONL format - Expecting value: line 2 column 1 (char 2)
+2024-11-24 17:24:09,156 - ERROR - Line 2: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 4)
+2024-11-24 17:24:09,156 - ERROR - Line 3: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:24:09,156 - ERROR - Line 4: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:24:09,156 - ERROR - Line 5: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:24:09,156 - ERROR - Line 6: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:24:09,156 - ERROR - Line 7: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:24:09,156 - ERROR - Line 8: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:24:09,156 - ERROR - Line 9: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:24:09,156 - ERROR - Line 10: Invalid JSONL format - Extra data: line 1 column 17 (char 16)
+2024-11-24 17:24:09,156 - ERROR - Line 11: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:24:09,156 - ERROR - Line 12: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:24:09,156 - ERROR - Line 13: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:24:09,156 - ERROR - Line 14: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 12)
+2024-11-24 17:24:09,156 - ERROR - Line 15: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:24:09,156 - ERROR - Line 16: Invalid JSONL format - Extra data: line 1 column 22 (char 21)
+2024-11-24 17:24:09,156 - ERROR - Line 17: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:24:09,156 - ERROR - Line 18: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:24:09,156 - ERROR - Line 19: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:24:09,156 - ERROR - Line 20: Invalid JSONL format - Expecting value: line 1 column 13 (char 12)
+2024-11-24 17:24:09,156 - ERROR - Line 21: Invalid JSONL format - Extra data: line 1 column 23 (char 22)
+2024-11-24 17:24:09,157 - ERROR - Line 22: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:24:09,157 - ERROR - Line 23: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:24:09,157 - ERROR - Line 24: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:24:09,157 - ERROR - Line 25: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:24:09,157 - ERROR - Line 26: Invalid JSONL format - Extra data: line 1 column 26 (char 25)
+2024-11-24 17:24:09,157 - ERROR - Line 27: Invalid JSONL format - Extra data: line 1 column 30 (char 29)
+2024-11-24 17:24:09,157 - ERROR - Line 28: Invalid JSONL format - Extra data: line 1 column 25 (char 24)
+2024-11-24 17:24:09,157 - ERROR - Line 29: Invalid JSONL format - Extra data: line 1 column 34 (char 33)
+2024-11-24 17:24:09,157 - ERROR - Line 30: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:24:09,157 - ERROR - Line 31: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:24:09,157 - ERROR - Line 32: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:24:09,157 - ERROR - Line 33: Invalid JSONL format - Extra data: line 1 column 38 (char 37)
+2024-11-24 17:24:09,157 - ERROR - Line 34: Invalid JSONL format - Extra data: line 1 column 31 (char 30)
+2024-11-24 17:24:09,157 - ERROR - Line 35: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:24:09,157 - ERROR - Line 36: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:24:09,157 - ERROR - Line 37: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:24:09,157 - ERROR - Line 38: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:24:09,157 - ERROR - Line 39: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:24:09,157 - ERROR - Line 40: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:24:09,157 - ERROR - Line 41: Invalid JSONL format - Expecting value: line 1 column 7 (char 6)
+2024-11-24 17:24:09,157 - ERROR - Line 42: Invalid JSONL format - Expecting value: line 1 column 5 (char 4)
+2024-11-24 17:24:09,157 - ERROR - Line 43: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:24:09,157 - ERROR - Line 44: Invalid JSONL format - Expecting value: line 1 column 3 (char 2)
+2024-11-24 17:24:09,157 - ERROR - Line 45: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 4)
+2024-11-24 17:24:09,157 - ERROR - Line 46: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:24:09,157 - ERROR - Line 47: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:24:09,157 - ERROR - Line 48: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:24:09,157 - ERROR - Line 49: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:24:09,157 - ERROR - Line 50: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:24:09,157 - ERROR - Line 51: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:24:09,157 - ERROR - Line 52: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:24:09,157 - ERROR - Line 53: Invalid JSONL format - Extra data: line 1 column 17 (char 16)
+2024-11-24 17:24:09,157 - ERROR - Line 54: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:24:09,157 - ERROR - Line 55: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:24:09,157 - ERROR - Line 56: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:24:09,157 - ERROR - Line 57: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 12)
+2024-11-24 17:24:09,157 - ERROR - Line 58: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:24:09,157 - ERROR - Line 59: Invalid JSONL format - Extra data: line 1 column 22 (char 21)
+2024-11-24 17:24:09,157 - ERROR - Line 60: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:24:09,157 - ERROR - Line 61: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:24:09,157 - ERROR - Line 62: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:24:09,157 - ERROR - Line 63: Invalid JSONL format - Expecting value: line 1 column 13 (char 12)
+2024-11-24 17:24:09,157 - ERROR - Line 64: Invalid JSONL format - Extra data: line 1 column 23 (char 22)
+2024-11-24 17:24:09,157 - ERROR - Line 65: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:24:09,157 - ERROR - Line 66: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:24:09,157 - ERROR - Line 67: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:24:09,157 - ERROR - Line 68: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:24:09,157 - ERROR - Line 69: Invalid JSONL format - Extra data: line 1 column 26 (char 25)
+2024-11-24 17:24:09,157 - ERROR - Line 70: Invalid JSONL format - Extra data: line 1 column 30 (char 29)
+2024-11-24 17:24:09,157 - ERROR - Line 71: Invalid JSONL format - Extra data: line 1 column 25 (char 24)
+2024-11-24 17:24:09,157 - ERROR - Line 72: Invalid JSONL format - Extra data: line 1 column 34 (char 33)
+2024-11-24 17:24:09,157 - ERROR - Line 73: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:24:09,157 - ERROR - Line 74: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:24:09,157 - ERROR - Line 75: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:24:09,157 - ERROR - Line 76: Invalid JSONL format - Extra data: line 1 column 38 (char 37)
+2024-11-24 17:24:09,157 - ERROR - Line 77: Invalid JSONL format - Extra data: line 1 column 31 (char 30)
+2024-11-24 17:24:09,157 - ERROR - Line 78: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:24:09,157 - ERROR - Line 79: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:24:09,157 - ERROR - Line 80: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:24:09,157 - ERROR - Line 81: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:24:09,157 - ERROR - Line 82: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:24:09,157 - ERROR - Line 83: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:24:09,157 - ERROR - Line 84: Invalid JSONL format - Expecting value: line 1 column 7 (char 6)
+2024-11-24 17:24:09,157 - ERROR - Line 85: Invalid JSONL format - Expecting value: line 1 column 5 (char 4)
+2024-11-24 17:24:09,157 - ERROR - Line 86: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:24:09,157 - ERROR - Line 87: Invalid JSONL format - Expecting value: line 1 column 3 (char 2)
+2024-11-24 17:24:09,157 - ERROR - Line 88: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 4)
+2024-11-24 17:24:09,157 - ERROR - Line 89: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:24:09,157 - ERROR - Line 90: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:24:09,157 - ERROR - Line 91: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:24:09,157 - ERROR - Line 92: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:24:09,157 - ERROR - Line 93: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:24:09,157 - ERROR - Line 94: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:24:09,157 - ERROR - Line 95: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:24:09,157 - ERROR - Line 96: Invalid JSONL format - Extra data: line 1 column 17 (char 16)
+2024-11-24 17:24:09,157 - ERROR - Line 97: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:24:09,157 - ERROR - Line 98: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:24:09,157 - ERROR - Line 99: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:24:09,157 - ERROR - Line 100: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 12)
+2024-11-24 17:24:09,157 - ERROR - Line 101: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:24:09,157 - ERROR - Line 102: Invalid JSONL format - Extra data: line 1 column 22 (char 21)
+2024-11-24 17:24:09,157 - ERROR - Line 103: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:24:09,157 - ERROR - Line 104: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:24:09,157 - ERROR - Line 105: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:24:09,157 - ERROR - Line 106: Invalid JSONL format - Expecting value: line 1 column 13 (char 12)
+2024-11-24 17:24:09,157 - ERROR - Line 107: Invalid JSONL format - Extra data: line 1 column 23 (char 22)
+2024-11-24 17:24:09,157 - ERROR - Line 108: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:24:09,157 - ERROR - Line 109: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:24:09,158 - ERROR - Line 110: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:24:09,158 - ERROR - Line 111: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:24:09,158 - ERROR - Line 112: Invalid JSONL format - Extra data: line 1 column 26 (char 25)
+2024-11-24 17:24:09,158 - ERROR - Line 113: Invalid JSONL format - Extra data: line 1 column 30 (char 29)
+2024-11-24 17:24:09,158 - ERROR - Line 114: Invalid JSONL format - Extra data: line 1 column 25 (char 24)
+2024-11-24 17:24:09,158 - ERROR - Line 115: Invalid JSONL format - Extra data: line 1 column 34 (char 33)
+2024-11-24 17:24:09,158 - ERROR - Line 116: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:24:09,158 - ERROR - Line 117: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:24:09,158 - ERROR - Line 118: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:24:09,158 - ERROR - Line 119: Invalid JSONL format - Extra data: line 1 column 38 (char 37)
+2024-11-24 17:24:09,158 - ERROR - Line 120: Invalid JSONL format - Extra data: line 1 column 31 (char 30)
+2024-11-24 17:24:09,158 - ERROR - Line 121: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:24:09,158 - ERROR - Line 122: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:24:09,158 - ERROR - Line 123: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:24:09,158 - ERROR - Line 124: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:24:09,158 - ERROR - Line 125: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:24:09,158 - ERROR - Line 126: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:24:09,158 - ERROR - Line 127: Invalid JSONL format - Expecting value: line 1 column 7 (char 6)
+2024-11-24 17:24:09,158 - ERROR - Line 128: Invalid JSONL format - Expecting value: line 1 column 5 (char 4)
+2024-11-24 17:24:09,158 - ERROR - Line 129: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:24:09,158 - ERROR - Line 130: Invalid JSONL format - Expecting value: line 1 column 3 (char 2)
+2024-11-24 17:24:09,158 - ERROR - Line 131: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 4)
+2024-11-24 17:24:09,158 - ERROR - Line 132: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:24:09,158 - ERROR - Line 133: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:24:09,158 - ERROR - Line 134: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:24:09,158 - ERROR - Line 135: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:24:09,158 - ERROR - Line 136: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:24:09,158 - ERROR - Line 137: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:24:09,158 - ERROR - Line 138: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:24:09,158 - ERROR - Line 139: Invalid JSONL format - Extra data: line 1 column 17 (char 16)
+2024-11-24 17:24:09,158 - ERROR - Line 140: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:24:09,158 - ERROR - Line 141: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:24:09,158 - ERROR - Line 142: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:24:09,158 - ERROR - Line 143: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 12)
+2024-11-24 17:24:09,158 - ERROR - Line 144: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:24:09,158 - ERROR - Line 145: Invalid JSONL format - Extra data: line 1 column 22 (char 21)
+2024-11-24 17:24:09,158 - ERROR - Line 146: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:24:09,158 - ERROR - Line 147: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:24:09,158 - ERROR - Line 148: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:24:09,158 - ERROR - Line 149: Invalid JSONL format - Expecting value: line 1 column 13 (char 12)
+2024-11-24 17:24:09,158 - ERROR - Line 150: Invalid JSONL format - Extra data: line 1 column 23 (char 22)
+2024-11-24 17:24:09,158 - ERROR - Line 151: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:24:09,158 - ERROR - Line 152: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:24:09,158 - ERROR - Line 153: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:24:09,158 - ERROR - Line 154: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:24:09,158 - ERROR - Line 155: Invalid JSONL format - Extra data: line 1 column 26 (char 25)
+2024-11-24 17:24:09,158 - ERROR - Line 156: Invalid JSONL format - Extra data: line 1 column 30 (char 29)
+2024-11-24 17:24:09,158 - ERROR - Line 157: Invalid JSONL format - Extra data: line 1 column 25 (char 24)
+2024-11-24 17:24:09,158 - ERROR - Line 158: Invalid JSONL format - Extra data: line 1 column 34 (char 33)
+2024-11-24 17:24:09,158 - ERROR - Line 159: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:24:09,158 - ERROR - Line 160: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:24:09,158 - ERROR - Line 161: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:24:09,158 - ERROR - Line 162: Invalid JSONL format - Extra data: line 1 column 38 (char 37)
+2024-11-24 17:24:09,158 - ERROR - Line 163: Invalid JSONL format - Extra data: line 1 column 31 (char 30)
+2024-11-24 17:24:09,158 - ERROR - Line 164: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:24:09,158 - ERROR - Line 165: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:24:09,158 - ERROR - Line 166: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:24:09,158 - ERROR - Line 167: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:24:09,158 - ERROR - Line 168: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:24:09,158 - ERROR - Line 169: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:24:09,158 - ERROR - Line 170: Invalid JSONL format - Expecting value: line 1 column 7 (char 6)
+2024-11-24 17:24:09,158 - ERROR - Line 171: Invalid JSONL format - Expecting value: line 1 column 5 (char 4)
+2024-11-24 17:24:09,158 - ERROR - Line 172: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:24:09,158 - ERROR - Line 173: Invalid JSONL format - Expecting value: line 1 column 3 (char 2)
+2024-11-24 17:24:09,158 - ERROR - Line 174: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 4)
+2024-11-24 17:24:09,158 - ERROR - Line 175: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:24:09,158 - ERROR - Line 176: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:24:09,158 - ERROR - Line 177: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:24:09,158 - ERROR - Line 178: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:24:09,158 - ERROR - Line 179: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:24:09,158 - ERROR - Line 180: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:24:09,158 - ERROR - Line 181: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:24:09,158 - ERROR - Line 182: Invalid JSONL format - Extra data: line 1 column 17 (char 16)
+2024-11-24 17:24:09,158 - ERROR - Line 183: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:24:09,158 - ERROR - Line 184: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:24:09,158 - ERROR - Line 185: Invalid JSONL format - Extra data: line 1 column 18 (char 17)
+2024-11-24 17:24:09,158 - ERROR - Line 186: Invalid JSONL format - Expecting property name enclosed in double quotes: line 2 column 1 (char 12)
+2024-11-24 17:24:09,158 - ERROR - Line 187: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:24:09,158 - ERROR - Line 188: Invalid JSONL format - Extra data: line 1 column 22 (char 21)
+2024-11-24 17:24:09,158 - ERROR - Line 189: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:24:09,158 - ERROR - Line 190: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:24:09,158 - ERROR - Line 191: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:24:09,158 - ERROR - Line 192: Invalid JSONL format - Expecting value: line 1 column 13 (char 12)
+2024-11-24 17:24:09,158 - ERROR - Line 193: Invalid JSONL format - Extra data: line 1 column 23 (char 22)
+2024-11-24 17:24:09,158 - ERROR - Line 194: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:24:09,158 - ERROR - Line 195: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:24:09,158 - ERROR - Line 196: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:24:09,158 - ERROR - Line 197: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:24:09,158 - ERROR - Line 198: Invalid JSONL format - Extra data: line 1 column 26 (char 25)
+2024-11-24 17:24:09,158 - ERROR - Line 199: Invalid JSONL format - Extra data: line 1 column 30 (char 29)
+2024-11-24 17:24:09,158 - ERROR - Line 200: Invalid JSONL format - Extra data: line 1 column 25 (char 24)
+2024-11-24 17:24:09,158 - ERROR - Line 201: Invalid JSONL format - Extra data: line 1 column 34 (char 33)
+2024-11-24 17:24:09,158 - ERROR - Line 202: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:24:09,159 - ERROR - Line 203: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:24:09,159 - ERROR - Line 204: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:24:09,159 - ERROR - Line 205: Invalid JSONL format - Extra data: line 1 column 38 (char 37)
+2024-11-24 17:24:09,159 - ERROR - Line 206: Invalid JSONL format - Extra data: line 1 column 31 (char 30)
+2024-11-24 17:24:09,159 - ERROR - Line 207: Invalid JSONL format - Extra data: line 1 column 27 (char 26)
+2024-11-24 17:24:09,159 - ERROR - Line 208: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:24:09,159 - ERROR - Line 209: Invalid JSONL format - Extra data: line 1 column 41 (char 40)
+2024-11-24 17:24:09,159 - ERROR - Line 210: Invalid JSONL format - Expecting value: line 1 column 11 (char 10)
+2024-11-24 17:24:09,159 - ERROR - Line 211: Invalid JSONL format - Expecting value: line 1 column 9 (char 8)
+2024-11-24 17:24:09,159 - ERROR - Line 212: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:24:09,159 - ERROR - Line 213: Invalid JSONL format - Expecting value: line 1 column 7 (char 6)
+2024-11-24 17:24:09,159 - ERROR - Line 214: Invalid JSONL format - Expecting value: line 1 column 5 (char 4)
+2024-11-24 17:24:09,159 - ERROR - Line 215: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:24:09,159 - ERROR - Line 216: Invalid JSONL format - Expecting value: line 1 column 3 (char 2)
+2024-11-24 17:24:09,159 - ERROR - Line 217: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:24:09,159 - ERROR - No valid data was extracted
+2024-11-24 17:25:27,030 - ERROR - Line 1: Invalid JSONL format - Expecting value: line 1 column 2 (char 1)
+2024-11-24 17:25:27,031 - ERROR - Line 2: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:25:27,031 - ERROR - Line 3: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:25:27,031 - ERROR - Line 4: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:25:27,031 - ERROR - Line 5: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:25:27,031 - ERROR - Line 6: Invalid JSONL format - Extra data: line 1 column 14 (char 13)
+2024-11-24 17:25:27,031 - ERROR - Line 7: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:25:27,031 - ERROR - Line 8: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:25:27,031 - ERROR - Line 9: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:25:27,031 - ERROR - Line 10: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:25:27,031 - ERROR - Line 11: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,031 - ERROR - Line 12: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,031 - ERROR - Line 13: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,031 - ERROR - Line 14: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:25:27,031 - ERROR - Line 15: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,031 - ERROR - Line 16: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,031 - ERROR - Line 17: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:25:27,031 - ERROR - Line 18: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,031 - ERROR - Line 19: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,031 - ERROR - Line 20: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,031 - ERROR - Line 21: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:25:27,031 - ERROR - Line 22: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:25:27,031 - ERROR - Line 23: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,031 - ERROR - Line 24: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,031 - ERROR - Line 25: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,031 - ERROR - Line 26: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:25:27,031 - ERROR - Line 27: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:25:27,031 - ERROR - Line 28: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:25:27,031 - ERROR - Line 29: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:25:27,031 - ERROR - Line 30: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:25:27,031 - ERROR - Line 31: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:25:27,031 - ERROR - Line 32: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,031 - ERROR - Line 33: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:25:27,031 - ERROR - Line 34: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:25:27,031 - ERROR - Line 35: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:25:27,031 - ERROR - Line 36: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:25:27,031 - ERROR - Line 37: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:25:27,031 - ERROR - Line 38: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,031 - ERROR - Line 39: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,031 - ERROR - Line 40: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:25:27,031 - ERROR - Line 41: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,031 - ERROR - Line 42: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,031 - ERROR - Line 43: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,031 - ERROR - Line 44: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,031 - ERROR - Line 45: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:25:27,031 - ERROR - Line 46: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:25:27,031 - ERROR - Line 47: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:25:27,031 - ERROR - Line 48: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:25:27,031 - ERROR - Line 49: Invalid JSONL format - Extra data: line 1 column 14 (char 13)
+2024-11-24 17:25:27,031 - ERROR - Line 50: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:25:27,031 - ERROR - Line 51: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:25:27,031 - ERROR - Line 52: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:25:27,031 - ERROR - Line 53: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:25:27,031 - ERROR - Line 54: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,031 - ERROR - Line 55: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,031 - ERROR - Line 56: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,031 - ERROR - Line 57: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:25:27,031 - ERROR - Line 58: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,031 - ERROR - Line 59: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,031 - ERROR - Line 60: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:25:27,031 - ERROR - Line 61: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,031 - ERROR - Line 62: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,031 - ERROR - Line 63: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,031 - ERROR - Line 64: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:25:27,031 - ERROR - Line 65: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:25:27,031 - ERROR - Line 66: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,031 - ERROR - Line 67: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,031 - ERROR - Line 68: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,031 - ERROR - Line 69: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:25:27,031 - ERROR - Line 70: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:25:27,031 - ERROR - Line 71: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:25:27,031 - ERROR - Line 72: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:25:27,031 - ERROR - Line 73: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:25:27,032 - ERROR - Line 74: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:25:27,032 - ERROR - Line 75: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 76: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:25:27,032 - ERROR - Line 77: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:25:27,032 - ERROR - Line 78: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:25:27,032 - ERROR - Line 79: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:25:27,032 - ERROR - Line 80: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:25:27,032 - ERROR - Line 81: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 82: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 83: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:25:27,032 - ERROR - Line 84: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 85: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 86: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,032 - ERROR - Line 87: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 88: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:25:27,032 - ERROR - Line 89: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:25:27,032 - ERROR - Line 90: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:25:27,032 - ERROR - Line 91: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:25:27,032 - ERROR - Line 92: Invalid JSONL format - Extra data: line 1 column 14 (char 13)
+2024-11-24 17:25:27,032 - ERROR - Line 93: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:25:27,032 - ERROR - Line 94: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:25:27,032 - ERROR - Line 95: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:25:27,032 - ERROR - Line 96: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:25:27,032 - ERROR - Line 97: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,032 - ERROR - Line 98: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,032 - ERROR - Line 99: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,032 - ERROR - Line 100: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:25:27,032 - ERROR - Line 101: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,032 - ERROR - Line 102: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,032 - ERROR - Line 103: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:25:27,032 - ERROR - Line 104: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,032 - ERROR - Line 105: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,032 - ERROR - Line 106: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 107: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:25:27,032 - ERROR - Line 108: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:25:27,032 - ERROR - Line 109: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 110: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 111: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,032 - ERROR - Line 112: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:25:27,032 - ERROR - Line 113: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:25:27,032 - ERROR - Line 114: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:25:27,032 - ERROR - Line 115: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:25:27,032 - ERROR - Line 116: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:25:27,032 - ERROR - Line 117: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:25:27,032 - ERROR - Line 118: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 119: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:25:27,032 - ERROR - Line 120: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:25:27,032 - ERROR - Line 121: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:25:27,032 - ERROR - Line 122: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:25:27,032 - ERROR - Line 123: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:25:27,032 - ERROR - Line 124: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 125: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 126: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:25:27,032 - ERROR - Line 127: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 128: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 129: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,032 - ERROR - Line 130: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 131: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:25:27,032 - ERROR - Line 132: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:25:27,032 - ERROR - Line 133: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:25:27,032 - ERROR - Line 134: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:25:27,032 - ERROR - Line 135: Invalid JSONL format - Extra data: line 1 column 14 (char 13)
+2024-11-24 17:25:27,032 - ERROR - Line 136: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:25:27,032 - ERROR - Line 137: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:25:27,032 - ERROR - Line 138: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:25:27,032 - ERROR - Line 139: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:25:27,032 - ERROR - Line 140: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,032 - ERROR - Line 141: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,032 - ERROR - Line 142: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,032 - ERROR - Line 143: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:25:27,032 - ERROR - Line 144: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,032 - ERROR - Line 145: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,032 - ERROR - Line 146: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:25:27,032 - ERROR - Line 147: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,032 - ERROR - Line 148: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,032 - ERROR - Line 149: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 150: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:25:27,032 - ERROR - Line 151: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:25:27,032 - ERROR - Line 152: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 153: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 154: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,032 - ERROR - Line 155: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:25:27,032 - ERROR - Line 156: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:25:27,032 - ERROR - Line 157: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:25:27,032 - ERROR - Line 158: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:25:27,032 - ERROR - Line 159: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:25:27,032 - ERROR - Line 160: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:25:27,032 - ERROR - Line 161: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,032 - ERROR - Line 162: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:25:27,033 - ERROR - Line 163: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:25:27,033 - ERROR - Line 164: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:25:27,033 - ERROR - Line 165: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:25:27,033 - ERROR - Line 166: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:25:27,033 - ERROR - Line 167: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,033 - ERROR - Line 168: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,033 - ERROR - Line 169: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:25:27,033 - ERROR - Line 170: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,033 - ERROR - Line 171: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,033 - ERROR - Line 172: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,033 - ERROR - Line 173: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,033 - ERROR - Line 174: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:25:27,033 - ERROR - Line 175: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:25:27,033 - ERROR - Line 176: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:25:27,033 - ERROR - Line 177: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:25:27,033 - ERROR - Line 178: Invalid JSONL format - Extra data: line 1 column 14 (char 13)
+2024-11-24 17:25:27,033 - ERROR - Line 179: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:25:27,033 - ERROR - Line 180: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:25:27,033 - ERROR - Line 181: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:25:27,033 - ERROR - Line 182: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:25:27,033 - ERROR - Line 183: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,033 - ERROR - Line 184: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,033 - ERROR - Line 185: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,033 - ERROR - Line 186: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:25:27,033 - ERROR - Line 187: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,033 - ERROR - Line 188: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,033 - ERROR - Line 189: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:25:27,033 - ERROR - Line 190: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,033 - ERROR - Line 191: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:25:27,033 - ERROR - Line 192: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,033 - ERROR - Line 193: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:25:27,033 - ERROR - Line 194: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:25:27,033 - ERROR - Line 195: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,033 - ERROR - Line 196: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,033 - ERROR - Line 197: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,033 - ERROR - Line 198: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:25:27,033 - ERROR - Line 199: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:25:27,033 - ERROR - Line 200: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:25:27,033 - ERROR - Line 201: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:25:27,033 - ERROR - Line 202: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:25:27,033 - ERROR - Line 203: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:25:27,033 - ERROR - Line 204: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,033 - ERROR - Line 205: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:25:27,033 - ERROR - Line 206: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:25:27,033 - ERROR - Line 207: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:25:27,033 - ERROR - Line 208: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:25:27,033 - ERROR - Line 209: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:25:27,033 - ERROR - Line 210: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,033 - ERROR - Line 211: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,033 - ERROR - Line 212: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:25:27,033 - ERROR - Line 213: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,033 - ERROR - Line 214: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,033 - ERROR - Line 215: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:25:27,033 - ERROR - Line 216: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,033 - ERROR - Line 217: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:25:27,033 - ERROR - No valid data was extracted
+2024-11-24 17:26:31,959 - ERROR - M. Line 1: Invalid JSONL format - Expecting value: line 1 column 2 (char 1)
+2024-11-24 17:26:31,959 - ERROR - M. Line 2: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:26:31,959 - ERROR - M. Line 3: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:26:31,959 - ERROR - M. Line 4: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:26:31,959 - ERROR - M. Line 5: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:26:31,959 - ERROR - M. Line 6: Invalid JSONL format - Extra data: line 1 column 14 (char 13)
+2024-11-24 17:26:31,959 - ERROR - M. Line 7: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:26:31,959 - ERROR - M. Line 8: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:26:31,959 - ERROR - M. Line 9: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:26:31,959 - ERROR - M. Line 10: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:26:31,959 - ERROR - M. Line 11: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,959 - ERROR - M. Line 12: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,959 - ERROR - M. Line 13: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,959 - ERROR - M. Line 14: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:26:31,959 - ERROR - M. Line 15: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,959 - ERROR - M. Line 16: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,959 - ERROR - M. Line 17: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:26:31,959 - ERROR - M. Line 18: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,959 - ERROR - M. Line 19: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,959 - ERROR - M. Line 20: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,959 - ERROR - M. Line 21: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:26:31,959 - ERROR - M. Line 22: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:26:31,959 - ERROR - M. Line 23: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,959 - ERROR - M. Line 24: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,959 - ERROR - M. Line 25: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,959 - ERROR - M. Line 26: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:26:31,959 - ERROR - M. Line 27: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:26:31,959 - ERROR - M. Line 28: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:26:31,959 - ERROR - M. Line 29: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:26:31,959 - ERROR - M. Line 30: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:26:31,959 - ERROR - M. Line 31: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:26:31,959 - ERROR - M. Line 32: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,959 - ERROR - M. Line 33: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:26:31,959 - ERROR - M. Line 34: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:26:31,959 - ERROR - M. Line 35: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:26:31,959 - ERROR - M. Line 36: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:26:31,959 - ERROR - M. Line 37: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:26:31,959 - ERROR - M. Line 38: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,959 - ERROR - M. Line 39: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,959 - ERROR - M. Line 40: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:26:31,959 - ERROR - M. Line 41: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,959 - ERROR - M. Line 42: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,959 - ERROR - M. Line 43: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,959 - ERROR - M. Line 44: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,959 - ERROR - M. Line 45: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:26:31,959 - ERROR - M. Line 46: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:26:31,960 - ERROR - M. Line 47: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:26:31,960 - ERROR - M. Line 48: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:26:31,960 - ERROR - M. Line 49: Invalid JSONL format - Extra data: line 1 column 14 (char 13)
+2024-11-24 17:26:31,960 - ERROR - M. Line 50: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:26:31,960 - ERROR - M. Line 51: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:26:31,960 - ERROR - M. Line 52: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:26:31,960 - ERROR - M. Line 53: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:26:31,960 - ERROR - M. Line 54: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,960 - ERROR - M. Line 55: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,960 - ERROR - M. Line 56: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,960 - ERROR - M. Line 57: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:26:31,960 - ERROR - M. Line 58: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,960 - ERROR - M. Line 59: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,960 - ERROR - M. Line 60: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:26:31,960 - ERROR - M. Line 61: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,960 - ERROR - M. Line 62: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,960 - ERROR - M. Line 63: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,960 - ERROR - M. Line 64: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:26:31,960 - ERROR - M. Line 65: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:26:31,960 - ERROR - M. Line 66: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,960 - ERROR - M. Line 67: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,960 - ERROR - M. Line 68: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,960 - ERROR - M. Line 69: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:26:31,960 - ERROR - M. Line 70: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:26:31,960 - ERROR - M. Line 71: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:26:31,960 - ERROR - M. Line 72: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:26:31,960 - ERROR - M. Line 73: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:26:31,960 - ERROR - M. Line 74: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:26:31,960 - ERROR - M. Line 75: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,960 - ERROR - M. Line 76: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:26:31,960 - ERROR - M. Line 77: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:26:31,960 - ERROR - M. Line 78: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:26:31,960 - ERROR - M. Line 79: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:26:31,960 - ERROR - M. Line 80: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:26:31,960 - ERROR - M. Line 81: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,960 - ERROR - M. Line 82: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,960 - ERROR - M. Line 83: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:26:31,960 - ERROR - M. Line 84: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,960 - ERROR - M. Line 85: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,960 - ERROR - M. Line 86: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,960 - ERROR - M. Line 87: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,960 - ERROR - M. Line 88: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:26:31,960 - ERROR - M. Line 89: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:26:31,960 - ERROR - M. Line 90: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:26:31,960 - ERROR - M. Line 91: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:26:31,960 - ERROR - M. Line 92: Invalid JSONL format - Extra data: line 1 column 14 (char 13)
+2024-11-24 17:26:31,960 - ERROR - M. Line 93: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:26:31,960 - ERROR - M. Line 94: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:26:31,960 - ERROR - M. Line 95: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:26:31,960 - ERROR - M. Line 96: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:26:31,960 - ERROR - M. Line 97: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,960 - ERROR - M. Line 98: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,960 - ERROR - M. Line 99: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,960 - ERROR - M. Line 100: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:26:31,960 - ERROR - M. Line 101: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,960 - ERROR - M. Line 102: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,960 - ERROR - M. Line 103: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:26:31,960 - ERROR - M. Line 104: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,960 - ERROR - M. Line 105: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,960 - ERROR - M. Line 106: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,960 - ERROR - M. Line 107: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:26:31,960 - ERROR - M. Line 108: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:26:31,960 - ERROR - M. Line 109: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,960 - ERROR - M. Line 110: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,960 - ERROR - M. Line 111: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,960 - ERROR - M. Line 112: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:26:31,960 - ERROR - M. Line 113: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:26:31,961 - ERROR - M. Line 114: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:26:31,961 - ERROR - M. Line 115: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:26:31,961 - ERROR - M. Line 116: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:26:31,961 - ERROR - M. Line 117: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:26:31,961 - ERROR - M. Line 118: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 119: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:26:31,961 - ERROR - M. Line 120: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:26:31,961 - ERROR - M. Line 121: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:26:31,961 - ERROR - M. Line 122: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:26:31,961 - ERROR - M. Line 123: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:26:31,961 - ERROR - M. Line 124: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 125: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 126: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:26:31,961 - ERROR - M. Line 127: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 128: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 129: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,961 - ERROR - M. Line 130: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 131: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:26:31,961 - ERROR - M. Line 132: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:26:31,961 - ERROR - M. Line 133: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:26:31,961 - ERROR - M. Line 134: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:26:31,961 - ERROR - M. Line 135: Invalid JSONL format - Extra data: line 1 column 14 (char 13)
+2024-11-24 17:26:31,961 - ERROR - M. Line 136: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:26:31,961 - ERROR - M. Line 137: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:26:31,961 - ERROR - M. Line 138: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:26:31,961 - ERROR - M. Line 139: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:26:31,961 - ERROR - M. Line 140: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,961 - ERROR - M. Line 141: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,961 - ERROR - M. Line 142: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,961 - ERROR - M. Line 143: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:26:31,961 - ERROR - M. Line 144: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,961 - ERROR - M. Line 145: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,961 - ERROR - M. Line 146: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:26:31,961 - ERROR - M. Line 147: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,961 - ERROR - M. Line 148: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,961 - ERROR - M. Line 149: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 150: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:26:31,961 - ERROR - M. Line 151: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:26:31,961 - ERROR - M. Line 152: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 153: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 154: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,961 - ERROR - M. Line 155: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:26:31,961 - ERROR - M. Line 156: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:26:31,961 - ERROR - M. Line 157: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:26:31,961 - ERROR - M. Line 158: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:26:31,961 - ERROR - M. Line 159: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:26:31,961 - ERROR - M. Line 160: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:26:31,961 - ERROR - M. Line 161: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 162: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:26:31,961 - ERROR - M. Line 163: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:26:31,961 - ERROR - M. Line 164: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:26:31,961 - ERROR - M. Line 165: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:26:31,961 - ERROR - M. Line 166: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:26:31,961 - ERROR - M. Line 167: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 168: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 169: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:26:31,961 - ERROR - M. Line 170: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 171: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 172: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,961 - ERROR - M. Line 173: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 174: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:26:31,961 - ERROR - M. Line 175: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:26:31,961 - ERROR - M. Line 176: Invalid JSONL format - Extra data: line 1 column 12 (char 11)
+2024-11-24 17:26:31,961 - ERROR - M. Line 177: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:26:31,961 - ERROR - M. Line 178: Invalid JSONL format - Extra data: line 1 column 14 (char 13)
+2024-11-24 17:26:31,961 - ERROR - M. Line 179: Invalid JSONL format - Extra data: line 1 column 13 (char 12)
+2024-11-24 17:26:31,961 - ERROR - M. Line 180: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:26:31,961 - ERROR - M. Line 181: Invalid JSONL format - Extra data: line 1 column 5 (char 4)
+2024-11-24 17:26:31,961 - ERROR - M. Line 182: Invalid JSONL format - Extra data: line 1 column 9 (char 8)
+2024-11-24 17:26:31,961 - ERROR - M. Line 183: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,961 - ERROR - M. Line 184: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,961 - ERROR - M. Line 185: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,961 - ERROR - M. Line 186: Invalid JSONL format - Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
+2024-11-24 17:26:31,961 - ERROR - M. Line 187: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,961 - ERROR - M. Line 188: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,961 - ERROR - M. Line 189: Invalid JSONL format - Extra data: line 1 column 7 (char 6)
+2024-11-24 17:26:31,961 - ERROR - M. Line 190: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,961 - ERROR - M. Line 191: Invalid JSONL format - Extra data: line 1 column 10 (char 9)
+2024-11-24 17:26:31,961 - ERROR - M. Line 192: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,961 - ERROR - M. Line 193: Invalid JSONL format - Extra data: line 1 column 11 (char 10)
+2024-11-24 17:26:31,962 - ERROR - M. Line 194: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:26:31,962 - ERROR - M. Line 195: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,962 - ERROR - M. Line 196: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,962 - ERROR - M. Line 197: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,962 - ERROR - M. Line 198: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:26:31,962 - ERROR - M. Line 199: Invalid JSONL format - Extra data: line 1 column 20 (char 19)
+2024-11-24 17:26:31,962 - ERROR - M. Line 200: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:26:31,962 - ERROR - M. Line 201: Invalid JSONL format - Extra data: line 1 column 24 (char 23)
+2024-11-24 17:26:31,962 - ERROR - M. Line 202: Invalid JSONL format - Extra data: line 1 column 16 (char 15)
+2024-11-24 17:26:31,962 - ERROR - M. Line 203: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:26:31,962 - ERROR - M. Line 204: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,962 - ERROR - M. Line 205: Invalid JSONL format - Extra data: line 1 column 28 (char 27)
+2024-11-24 17:26:31,962 - ERROR - M. Line 206: Invalid JSONL format - Extra data: line 1 column 19 (char 18)
+2024-11-24 17:26:31,962 - ERROR - M. Line 207: Invalid JSONL format - Extra data: line 1 column 15 (char 14)
+2024-11-24 17:26:31,962 - ERROR - M. Line 208: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:26:31,962 - ERROR - M. Line 209: Invalid JSONL format - Extra data: line 1 column 29 (char 28)
+2024-11-24 17:26:31,962 - ERROR - M. Line 210: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,962 - ERROR - M. Line 211: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,962 - ERROR - M. Line 212: Invalid JSONL format - Extra data: line 1 column 21 (char 20)
+2024-11-24 17:26:31,962 - ERROR - M. Line 213: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,962 - ERROR - M. Line 214: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,962 - ERROR - M. Line 215: Invalid JSONL format - Extra data: line 1 column 8 (char 7)
+2024-11-24 17:26:31,962 - ERROR - M. Line 216: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,962 - ERROR - M. Line 217: Invalid JSONL format - Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:26:31,962 - ERROR - S. No valid data was extracted
+2024-11-24 17:28:14,997 - ERROR - I. Record 3: Content is not valid JSON
+2024-11-24 17:31:09,407 - ERROR - I. Record 3: Content is not valid JSON
+2024-11-24 17:37:18,516 - ERROR - Invalid JSON format after conversion: Expecting ',' delimiter: line 1 column 1000 (char 999)
+2024-11-24 17:37:18,516 - ERROR - I. Record 3: Failed to convert content to valid JSON
+2024-11-24 17:39:54,759 - ERROR - Failed to parse content: Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:39:59,754 - ERROR - Failed to parse content: Expecting value: line 1 column 1 (char 0)
+2024-11-24 17:41:33,599 - ERROR - Invalid JSON format after conversion: Invalid control character at: line 4 column 208 (char 234)
+2024-11-24 17:41:33,599 - ERROR - I. Record 1: Failed to convert content to valid JSON
+2024-11-24 17:41:33,599 - ERROR - Invalid JSON format after conversion: Invalid control character at: line 4 column 140 (char 167)
+2024-11-24 17:41:33,599 - ERROR - I. Record 3: Failed to convert content to valid JSON
+2024-11-24 17:41:33,599 - ERROR - Invalid JSON format after conversion: Invalid control character at: line 4 column 317 (char 344)
+2024-11-24 17:41:33,599 - ERROR - I. Record 4: Failed to convert content to valid JSON
+2024-11-24 17:41:33,599 - ERROR - Invalid JSON format after conversion: Invalid control character at: line 4 column 159 (char 186)
+2024-11-24 17:41:33,599 - ERROR - I. Record 5: Failed to convert content to valid JSON
+2024-11-25 14:33:58,219 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 14:33:58,220 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 14:33:58,226 - INFO - JSONLファイルの形式は正常です
+2024-11-25 14:33:58,226 - INFO - ファイルサイズは正常です: 0.02MB
+2024-11-25 14:33:58,986 - INFO - ファイルアップロード成功 - ファイルID: file-Rf2fxVyyWXBAK4Mso3ZeEs
+2024-11-25 14:33:58,986 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-25 14:33:59,995 - INFO - ジョブ作成成功 - ジョブID: batch_67440c47eca881909dc933c7d1594ce7
+2024-11-25 14:34:00,409 - INFO - ジョブステータス取得: in_progress
+2024-11-25 14:34:00,409 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 14:34:30,777 - INFO - ジョブステータス取得: in_progress
+2024-11-25 14:34:30,778 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 14:35:00,999 - INFO - ジョブステータス取得: completed
+2024-11-25 14:35:00,999 - INFO - ジョブが正常に完了しました
+2024-11-25 14:35:00,999 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-25 14:35:01,886 - INFO - バッチジョブの結果が一時ファイルに保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output2.jsonl
+2024-11-25 14:35:01,886 - INFO - Step 5: 結果データの統合とJSONファイルの保存を開始
+2024-11-25 14:35:01,889 - INFO - 結果データが保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/20241125_143501_f0866c17987d4c9fbe00dc4793bf07fe_result.json
+2024-11-25 14:35:01,889 - INFO - ファイル file-Rf2fxVyyWXBAK4Mso3ZeEs を削除しようとしています...
+2024-11-25 14:35:02,473 - INFO - ファイル file-Rf2fxVyyWXBAK4Mso3ZeEs の削除に成功しました。
+2024-11-25 14:50:37,760 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 14:50:37,762 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 14:50:37,767 - INFO - JSONLファイルの形式は正常です
+2024-11-25 14:50:37,767 - INFO - ファイルサイズは正常です: 0.02MB
+2024-11-25 14:50:39,730 - INFO - ファイルアップロード成功 - ファイルID: file-NYuevKKDCRTpaxaDCj761E
+2024-11-25 14:50:39,731 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-25 14:50:40,695 - INFO - ジョブ作成成功 - ジョブID: batch_6744103095e08190a77a1a914589b938
+2024-11-25 14:50:41,039 - INFO - ジョブステータス取得: validating
+2024-11-25 14:50:41,040 - INFO - ジョブステータス: validating - 待機中...
+2024-11-25 14:51:11,728 - INFO - ジョブステータス取得: in_progress
+2024-11-25 14:51:11,729 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 14:51:41,937 - INFO - ジョブステータス取得: in_progress
+2024-11-25 14:51:41,938 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 14:52:12,210 - INFO - ジョブステータス取得: completed
+2024-11-25 14:52:12,211 - INFO - ジョブが正常に完了しました
+2024-11-25 14:52:12,211 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-25 14:52:13,190 - ERROR - 予期しないエラーが発生しました: [Errno 2] No such file or directory: 'path/to/temporary/results_output2.jsonl'
+2024-11-25 14:52:13,190 - INFO - ファイル file-NYuevKKDCRTpaxaDCj761E を削除しようとしています...
+2024-11-25 14:52:13,746 - INFO - ファイル file-NYuevKKDCRTpaxaDCj761E の削除に成功しました。
+2024-11-25 14:52:49,441 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 14:52:49,443 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 14:52:49,447 - INFO - JSONLファイルの形式は正常です
+2024-11-25 14:52:49,448 - INFO - ファイルサイズは正常です: 0.02MB
+2024-11-25 14:52:50,456 - INFO - ファイルアップロード成功 - ファイルID: file-Ww5LawB5FSkX46vaVGynxD
+2024-11-25 14:52:50,457 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-25 14:52:51,237 - INFO - ジョブ作成成功 - ジョブID: batch_674410b322cc8190872e7f47e6ee4134
+2024-11-25 14:52:51,505 - INFO - ジョブステータス取得: validating
+2024-11-25 14:52:51,505 - INFO - ジョブステータス: validating - 待機中...
+2024-11-25 14:53:21,732 - INFO - ジョブステータス取得: in_progress
+2024-11-25 14:53:21,735 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 14:53:51,995 - INFO - ジョブステータス取得: completed
+2024-11-25 14:53:51,995 - INFO - ジョブが正常に完了しました
+2024-11-25 14:53:51,995 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-25 14:53:52,967 - INFO - バッチジョブの結果が一時ファイルに保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output2.jsonl
+2024-11-25 14:53:52,967 - INFO - Step 5: 結果データの統合とJSONファイルの保存を開始
+2024-11-25 14:53:52,969 - INFO - 結果データが統合され、保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/result_20241125_145352_9e5a60a3206f452cbbbda7da7cca9db1.json
+2024-11-25 14:53:52,969 - INFO - ファイル file-Ww5LawB5FSkX46vaVGynxD を削除しようとしています...
+2024-11-25 14:53:53,482 - INFO - ファイル file-Ww5LawB5FSkX46vaVGynxD の削除に成功しました。
+2024-11-25 14:59:45,896 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 14:59:45,897 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 14:59:45,903 - INFO - JSONLファイルの形式は正常です
+2024-11-25 14:59:45,903 - INFO - ファイルサイズは正常です: 0.02MB
+2024-11-25 14:59:46,736 - INFO - ファイルアップロード成功 - ファイルID: file-7AsGNRwCqSQ9Ch7A4aDX2h
+2024-11-25 14:59:46,736 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-25 14:59:47,419 - INFO - ジョブ作成成功 - ジョブID: batch_6744125349dc8190b154013f678bbcd2
+2024-11-25 14:59:47,619 - INFO - ジョブステータス取得: validating
+2024-11-25 14:59:47,619 - INFO - ジョブステータス: validating - 待機中...
+2024-11-25 15:00:17,850 - INFO - ジョブステータス取得: in_progress
+2024-11-25 15:00:17,850 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 15:00:48,076 - INFO - ジョブステータス取得: in_progress
+2024-11-25 15:00:48,076 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 15:01:18,302 - INFO - ジョブステータス取得: in_progress
+2024-11-25 15:01:18,302 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 15:01:48,660 - INFO - ジョブステータス取得: in_progress
+2024-11-25 15:01:48,660 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 15:02:18,940 - INFO - ジョブステータス取得: in_progress
+2024-11-25 15:02:18,941 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 15:02:49,189 - INFO - ジョブステータス取得: in_progress
+2024-11-25 15:02:49,190 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 15:03:19,438 - INFO - ジョブステータス取得: in_progress
+2024-11-25 15:03:19,438 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 15:03:49,659 - INFO - ジョブステータス取得: in_progress
+2024-11-25 15:03:49,660 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 15:04:20,094 - INFO - ジョブステータス取得: finalizing
+2024-11-25 15:04:20,096 - INFO - ジョブステータス: finalizing - 待機中...
+2024-11-25 15:04:50,341 - INFO - ジョブステータス取得: completed
+2024-11-25 15:04:50,342 - INFO - ジョブが正常に完了しました
+2024-11-25 15:04:50,342 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-25 15:04:52,314 - INFO - バッチジョブの結果が一時ファイルに保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output2.jsonl
+2024-11-25 15:04:52,314 - INFO - Step 5: 結果データの統合とJSONファイルの保存を開始
+2024-11-25 15:04:52,317 - INFO - 結果データが統合され、保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/result_20241125_150452_ac47a72240a344a58dbd98bee0d0fe5a.json
+2024-11-25 15:04:52,317 - INFO - ファイル file-7AsGNRwCqSQ9Ch7A4aDX2h を削除しようとしています...
+2024-11-25 15:04:52,882 - INFO - ファイル file-7AsGNRwCqSQ9Ch7A4aDX2h の削除に成功しました。
+2024-11-25 15:06:24,119 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 15:06:24,121 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 15:06:24,126 - INFO - JSONLファイルの形式は正常です
+2024-11-25 15:06:24,126 - INFO - ファイルサイズは正常です: 0.02MB
+2024-11-25 15:06:24,726 - INFO - ファイルアップロード成功 - ファイルID: file-2iXRtCFaiz7cKKwjoN8sbV
+2024-11-25 15:06:24,726 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-25 15:06:25,618 - INFO - ジョブ作成成功 - ジョブID: batch_674413e188cc8190818deee128d1b613
+2024-11-25 15:06:25,804 - INFO - ジョブステータス取得: validating
+2024-11-25 15:06:25,804 - INFO - ジョブステータス: validating - 待機中...
+2024-11-25 15:06:56,344 - INFO - ジョブステータス取得: in_progress
+2024-11-25 15:06:56,345 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 15:07:26,578 - INFO - ジョブステータス取得: in_progress
+2024-11-25 15:07:26,579 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 15:07:56,856 - INFO - ジョブステータス取得: completed
+2024-11-25 15:07:56,857 - INFO - ジョブが正常に完了しました
+2024-11-25 15:07:56,857 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-25 15:07:58,272 - INFO - バッチジョブの結果が一時ファイルに保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output2.jsonl
+2024-11-25 15:07:58,273 - INFO - Step 5: 結果データの統合とJSONファイルの保存を開始
+2024-11-25 15:07:58,274 - ERROR - Invalid JSON format after conversion: Expecting value: line 1 column 1 (char 0)
+2024-11-25 15:07:58,274 - ERROR - I. Record 2: Failed to convert content to valid JSON
+2024-11-25 15:07:58,277 - INFO - 結果データが統合され、保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/result_20241125_150758_902c533ce10e462c8c86dcb0a11a399b.json
+2024-11-25 15:07:58,277 - INFO - ファイル file-2iXRtCFaiz7cKKwjoN8sbV を削除しようとしています...
+2024-11-25 15:07:58,619 - INFO - ファイル file-2iXRtCFaiz7cKKwjoN8sbV の削除に成功しました。
+2024-11-25 15:44:46,199 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 15:44:46,200 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 15:44:46,204 - INFO - JSONLファイルの形式は正常です
+2024-11-25 15:44:46,204 - INFO - ファイルサイズは正常です: 0.03MB
+2024-11-25 15:44:47,107 - INFO - ファイルアップロード成功 - ファイルID: file-TpatbjabGLm56ytyuWZcm1
+2024-11-25 15:44:47,107 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-25 15:44:48,143 - INFO - ジョブ作成成功 - ジョブID: batch_67441ce001808190a8c24b3d8ceb98cd
+2024-11-25 15:44:48,503 - INFO - ジョブステータス取得: in_progress
+2024-11-25 15:44:48,503 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 15:45:18,745 - INFO - ジョブステータス取得: completed
+2024-11-25 15:45:18,747 - INFO - ジョブが正常に完了しました
+2024-11-25 15:45:18,747 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-25 15:45:19,624 - INFO - バッチジョブの結果が一時ファイルに保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output2.jsonl
+2024-11-25 15:45:19,624 - INFO - Step 5: 結果データの統合とJSONファイルの保存を開始
+2024-11-25 15:45:19,626 - INFO - 結果データが統合され、保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/result_20241125_154519_d52f68b29fa047ab9dd23fc846e94fed.json
+2024-11-25 15:45:19,626 - INFO - ファイル file-TpatbjabGLm56ytyuWZcm1 を削除しようとしています...
+2024-11-25 15:45:20,151 - INFO - ファイル file-TpatbjabGLm56ytyuWZcm1 の削除に成功しました。
+2024-11-26 08:19:08,492 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-26 08:19:08,493 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-26 08:19:08,499 - INFO - JSONLファイルの形式は正常です
+2024-11-26 08:19:08,499 - INFO - ファイルサイズは正常です: 0.04MB
+2024-11-26 08:19:09,421 - INFO - ファイルアップロード成功 - ファイルID: file-HXAHdZcjwFsZJokG67fhh1
+2024-11-26 08:19:09,421 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-26 08:19:10,377 - INFO - ジョブ作成成功 - ジョブID: batch_674505ee547c81908d22d0692a500b14
+2024-11-26 08:19:10,770 - INFO - ジョブステータス取得: validating
+2024-11-26 08:19:10,770 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 08:19:41,448 - INFO - ジョブステータス取得: in_progress
+2024-11-26 08:19:41,448 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 08:20:11,681 - INFO - ジョブステータス取得: in_progress
+2024-11-26 08:20:11,682 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 08:20:41,907 - INFO - ジョブステータス取得: completed
+2024-11-26 08:20:41,908 - INFO - ジョブが正常に完了しました
+2024-11-26 08:20:41,909 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-26 08:20:43,025 - INFO - バッチジョブの結果が一時ファイルに保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output2.jsonl
+2024-11-26 08:20:43,025 - INFO - Step 5: 結果データの統合とJSONファイルの保存を開始
+2024-11-26 08:20:43,026 - INFO - 結果データが統合され、保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/result_20241126_082043_8c944cb03bcf4a6aa319e7519ff690b2.json
+2024-11-26 08:20:43,026 - INFO - ファイル file-HXAHdZcjwFsZJokG67fhh1 を削除しようとしています...
+2024-11-26 08:20:43,561 - INFO - ファイル file-HXAHdZcjwFsZJokG67fhh1 の削除に成功しました。
+2024-11-26 08:32:31,125 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-26 08:32:31,139 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-26 08:32:31,151 - INFO - JSONLファイルの形式は正常です
+2024-11-26 08:32:31,151 - INFO - ファイルサイズは正常です: 2.23MB
+2024-11-26 08:32:33,069 - INFO - ファイルアップロード成功 - ファイルID: file-HHJtPXwgjeNkZvDDvJNWKa
+2024-11-26 08:32:33,070 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-26 08:32:34,097 - INFO - ジョブ作成成功 - ジョブID: batch_6745091201d48190a190e3bb40ee852a
+2024-11-26 08:32:34,758 - INFO - ジョブステータス取得: validating
+2024-11-26 08:32:34,758 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 08:33:05,231 - INFO - ジョブステータス取得: failed
+2024-11-26 08:33:05,232 - ERROR - ジョブが失敗しました: None
+2024-11-26 08:33:05,232 - ERROR - ジョブの完了を待機中にエラーが発生しました。
+2024-11-26 08:33:05,233 - INFO - ファイル file-HHJtPXwgjeNkZvDDvJNWKa を削除しようとしています...
+2024-11-26 08:33:05,818 - INFO - ファイル file-HHJtPXwgjeNkZvDDvJNWKa の削除に成功しました。
+2024-11-26 08:36:42,188 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-26 08:36:42,203 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-26 08:36:42,214 - INFO - JSONLファイルの形式は正常です
+2024-11-26 08:36:42,214 - INFO - ファイルサイズは正常です: 2.23MB
+2024-11-26 08:36:43,349 - INFO - ファイルアップロード成功 - ファイルID: file-NcCn5wdG1NX6oMnzQxMHPD
+2024-11-26 08:36:43,349 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-26 08:36:44,602 - INFO - ジョブ作成成功 - ジョブID: batch_67450a0c7fc881908df6142afe1d2084
+2024-11-26 08:36:44,799 - INFO - ジョブステータス取得: validating
+2024-11-26 08:36:44,799 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 08:37:15,270 - INFO - ジョブステータス取得: failed
+2024-11-26 08:37:15,271 - ERROR - 予期しないエラーが発生しました: 'Batch' object has no attribute 'error_message'
+2024-11-26 08:37:15,272 - INFO - ファイル file-NcCn5wdG1NX6oMnzQxMHPD を削除しようとしています...
+2024-11-26 08:37:15,833 - INFO - ファイル file-NcCn5wdG1NX6oMnzQxMHPD の削除に成功しました。
+2024-11-26 08:44:20,897 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-26 08:44:20,912 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-26 08:44:20,924 - INFO - JSONLファイルの形式は正常です
+2024-11-26 08:44:20,924 - INFO - ファイルサイズは正常です: 2.23MB
+2024-11-26 08:44:22,174 - INFO - ファイルアップロード成功 - ファイルID: file-GrxZQTCtURd1cHJtwxW5PK
+2024-11-26 08:44:22,174 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-26 08:44:22,655 - INFO - ジョブ作成成功 - ジョブID: batch_67450bd67e608190932d88e6145d30a6
+2024-11-26 08:44:22,998 - INFO - ジョブステータス取得: validating
+2024-11-26 08:44:22,998 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 08:44:53,259 - INFO - ジョブステータス取得: failed
+2024-11-26 08:44:53,260 - ERROR - 予期しないエラーが発生しました: 'Errors' object has no attribute 'get'
+2024-11-26 08:44:53,260 - INFO - ファイル file-GrxZQTCtURd1cHJtwxW5PK を削除しようとしています...
+2024-11-26 08:44:53,864 - INFO - ファイル file-GrxZQTCtURd1cHJtwxW5PK の削除に成功しました。
+2024-11-26 08:46:06,663 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-26 08:46:06,678 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-26 08:46:06,690 - INFO - JSONLファイルの形式は正常です
+2024-11-26 08:46:06,690 - INFO - ファイルサイズは正常です: 2.23MB
+2024-11-26 08:46:08,299 - INFO - ファイルアップロード成功 - ファイルID: file-PVgZiDsWBTP3Mz8662iwCU
+2024-11-26 08:46:08,299 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-26 08:46:09,288 - INFO - ジョブ作成成功 - ジョブID: batch_67450c41259881909241f8a066a3928b
+2024-11-26 08:46:09,496 - INFO - ジョブステータス取得: validating
+2024-11-26 08:46:09,496 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 08:46:39,731 - INFO - ジョブステータス取得: failed
+2024-11-26 08:46:39,731 - ERROR - ジョブが失敗しました: 不明なエラーが発生しました
+2024-11-26 08:46:39,731 - ERROR - ジョブの完了を待機中にエラーが発生しました。
+2024-11-26 08:46:39,731 - INFO - ファイル file-PVgZiDsWBTP3Mz8662iwCU を削除しようとしています...
+2024-11-26 08:46:40,254 - INFO - ファイル file-PVgZiDsWBTP3Mz8662iwCU の削除に成功しました。
+2024-11-26 08:48:54,527 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-26 08:48:54,543 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-26 08:48:54,555 - INFO - JSONLファイルの形式は正常です
+2024-11-26 08:48:54,555 - INFO - ファイルサイズは正常です: 2.23MB
+2024-11-26 08:48:56,719 - INFO - ファイルアップロード成功 - ファイルID: file-LRBqhpuzCgVQWVMMRFNNHN
+2024-11-26 08:48:56,719 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-26 08:48:57,498 - INFO - ジョブ作成成功 - ジョブID: batch_67450ce96abc8190894225196ca09541
+2024-11-26 08:48:57,707 - INFO - ジョブステータス取得: validating
+2024-11-26 08:48:57,707 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 08:49:28,104 - INFO - ジョブステータス取得: failed
+2024-11-26 08:49:28,104 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 08:49:28,105 - ERROR - ジョブが失敗しました: 不明なエラーが発生しました
+2024-11-26 08:49:28,105 - ERROR - ジョブの完了を待機中にエラーが発生しました。
+2024-11-26 08:49:28,105 - INFO - ファイル file-LRBqhpuzCgVQWVMMRFNNHN を削除しようとしています...
+2024-11-26 08:49:28,669 - INFO - ファイル file-LRBqhpuzCgVQWVMMRFNNHN の削除に成功しました。
+2024-11-26 10:19:36,382 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 10:19:36,405 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 10:19:36,420 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 10:19:36,437 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:19:36,437 - INFO - ファイルサイズは正常です: 0.15MB
+2024-11-26 10:19:37,935 - INFO - ファイルアップロード成功 - ファイルID: file-HP516wJ2Y7vADGqqxJ8oQV
+2024-11-26 10:19:39,331 - INFO - ジョブ作成成功 - ジョブID: batch_6745222b2f5881908e2eb8a0fc6f9ba3
+2024-11-26 10:19:39,748 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:19:39,748 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:20:10,189 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:20:10,189 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:20:40,579 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:20:40,580 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:21:10,810 - INFO - ジョブステータス取得: completed
+2024-11-26 10:21:10,811 - INFO - ジョブが正常に完了しました
+2024-11-26 10:21:12,804 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 10:21:12,807 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:21:12,807 - INFO - ファイルサイズは正常です: 0.15MB
+2024-11-26 10:21:13,621 - INFO - ファイルアップロード成功 - ファイルID: file-EaC4wCjZraxMgm6gNrkxvp
+2024-11-26 10:21:14,218 - INFO - ジョブ作成成功 - ジョブID: batch_6745228a25608190b277fda67f7914f5
+2024-11-26 10:21:14,421 - INFO - ジョブステータス取得: validating
+2024-11-26 10:21:14,421 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 10:21:44,669 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:21:44,670 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:22:14,913 - INFO - ジョブステータス取得: completed
+2024-11-26 10:22:14,914 - INFO - ジョブが正常に完了しました
+2024-11-26 10:22:16,588 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_1.jsonl
+2024-11-26 10:22:16,591 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:22:16,591 - INFO - ファイルサイズは正常です: 0.15MB
+2024-11-26 10:22:17,723 - INFO - ファイルアップロード成功 - ファイルID: file-Q8xLEACvZw5Dt9obG62R46
+2024-11-26 10:22:18,753 - INFO - ジョブ作成成功 - ジョブID: batch_674522caa53481908cad0ab88cad18f1
+2024-11-26 10:22:18,964 - INFO - ジョブステータス取得: validating
+2024-11-26 10:22:18,964 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 10:22:49,272 - INFO - ジョブステータス取得: failed
+2024-11-26 10:22:49,274 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 10:22:49,274 - ERROR - ジョブが失敗しました: 不明なエラーが発生しました
+2024-11-26 10:22:49,274 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_2.jsonl. Skipping.
+2024-11-26 10:22:49,275 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_2.jsonl
+2024-11-26 10:22:49,277 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:22:49,277 - INFO - ファイルサイズは正常です: 0.15MB
+2024-11-26 10:22:49,849 - INFO - ファイルアップロード成功 - ファイルID: file-9EvkbgJ5CYtqcBQz81tkpb
+2024-11-26 10:22:50,667 - INFO - ジョブ作成成功 - ジョブID: batch_674522ea8bf08190bfe4ee333be5ee18
+2024-11-26 10:22:50,874 - INFO - ジョブステータス取得: validating
+2024-11-26 10:22:50,874 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 10:23:21,115 - INFO - ジョブステータス取得: failed
+2024-11-26 10:23:21,117 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 10:23:21,117 - ERROR - ジョブが失敗しました: 不明なエラーが発生しました
+2024-11-26 10:23:21,117 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_3.jsonl. Skipping.
+2024-11-26 10:23:21,119 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_3.jsonl
+2024-11-26 10:23:21,122 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:23:21,123 - INFO - ファイルサイズは正常です: 0.15MB
+2024-11-26 10:23:22,406 - INFO - ファイルアップロード成功 - ファイルID: file-NjSGvpCZ2ewU7P5E116Uvo
+2024-11-26 10:23:22,964 - INFO - ジョブ作成成功 - ジョブID: batch_6745230ad96481908e80ba802fa4bd78
+2024-11-26 10:23:23,162 - INFO - ジョブステータス取得: validating
+2024-11-26 10:23:23,162 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 10:23:53,398 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:23:53,399 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:24:23,630 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:24:23,630 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:24:53,847 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:24:53,848 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:25:24,095 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:25:24,097 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:25:54,321 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:25:54,322 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:26:24,548 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:26:24,549 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:26:54,797 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:26:54,798 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:27:25,028 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:27:25,033 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:27:55,250 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:27:55,251 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:28:25,491 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:28:25,492 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:28:55,729 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:28:55,729 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:29:26,214 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:29:26,214 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:29:57,457 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:29:57,457 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:30:27,670 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:30:27,670 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:30:58,194 - INFO - ジョブステータス取得: completed
+2024-11-26 10:30:58,194 - INFO - ジョブが正常に完了しました
+2024-11-26 10:30:59,400 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_4.jsonl
+2024-11-26 10:30:59,403 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:30:59,403 - INFO - ファイルサイズは正常です: 0.15MB
+2024-11-26 10:31:00,120 - INFO - ファイルアップロード成功 - ファイルID: file-JQkSfF8YDGZhgvoMYWUV96
+2024-11-26 10:31:01,911 - INFO - ジョブ作成成功 - ジョブID: batch_674524d5d2748190bb133fe05803861b
+2024-11-26 10:31:02,311 - INFO - ジョブステータス取得: validating
+2024-11-26 10:31:02,311 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 10:31:32,602 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:31:32,602 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:32:02,813 - INFO - ジョブステータス取得: completed
+2024-11-26 10:32:02,814 - INFO - ジョブが正常に完了しました
+2024-11-26 10:32:04,297 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_5.jsonl
+2024-11-26 10:32:04,302 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:32:04,303 - INFO - ファイルサイズは正常です: 0.15MB
+2024-11-26 10:32:05,410 - INFO - ファイルアップロード成功 - ファイルID: file-TwzBwU8uZQwBwbBBZXEvcK
+2024-11-26 10:32:06,418 - INFO - ジョブ作成成功 - ジョブID: batch_674525164d9c8190bb0b0e449127fd37
+2024-11-26 10:32:06,638 - INFO - ジョブステータス取得: validating
+2024-11-26 10:32:06,639 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 10:32:36,882 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:32:36,883 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:33:07,156 - INFO - ジョブステータス取得: completed
+2024-11-26 10:33:07,157 - INFO - ジョブが正常に完了しました
+2024-11-26 10:33:08,899 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_6.jsonl
+2024-11-26 10:33:08,903 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:33:08,903 - INFO - ファイルサイズは正常です: 0.15MB
+2024-11-26 10:33:09,966 - INFO - ファイルアップロード成功 - ファイルID: file-KECbKYYyexk62MK3oNcTz1
+2024-11-26 10:33:10,522 - INFO - ジョブ作成成功 - ジョブID: batch_6745255668408190b5a4b1993f2e33d9
+2024-11-26 10:33:10,700 - INFO - ジョブステータス取得: validating
+2024-11-26 10:33:10,700 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 10:33:40,945 - INFO - ジョブステータス取得: failed
+2024-11-26 10:33:40,945 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 10:33:40,945 - ERROR - ジョブが失敗しました: 不明なエラーが発生しました
+2024-11-26 10:33:40,945 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_7.jsonl. Skipping.
+2024-11-26 10:33:40,947 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_7.jsonl
+2024-11-26 10:33:40,949 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:33:40,949 - INFO - ファイルサイズは正常です: 0.15MB
+2024-11-26 10:33:41,596 - INFO - ファイルアップロード成功 - ファイルID: file-1ppJvjxMHsuurrcvbGZad1
+2024-11-26 10:33:42,227 - INFO - ジョブ作成成功 - ジョブID: batch_674525761c408190b6bbd9c2ec28cd92
+2024-11-26 10:33:42,488 - INFO - ジョブステータス取得: failed
+2024-11-26 10:33:42,489 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 10:33:42,489 - ERROR - ジョブが失敗しました: 不明なエラーが発生しました
+2024-11-26 10:33:42,489 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_8.jsonl. Skipping.
+2024-11-26 10:33:42,490 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_8.jsonl
+2024-11-26 10:33:42,497 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:33:42,498 - INFO - ファイルサイズは正常です: 0.15MB
+2024-11-26 10:33:43,229 - INFO - ファイルアップロード成功 - ファイルID: file-ACs4cvaWqrdzRDYytZdGnR
+2024-11-26 10:33:43,846 - INFO - ジョブ作成成功 - ジョブID: batch_67452577bc248190a58777425025c2bd
+2024-11-26 10:33:44,050 - INFO - ジョブステータス取得: validating
+2024-11-26 10:33:44,050 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 10:34:14,267 - INFO - ジョブステータス取得: failed
+2024-11-26 10:34:14,268 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 10:34:14,268 - ERROR - ジョブが失敗しました: 不明なエラーが発生しました
+2024-11-26 10:34:14,268 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_9.jsonl. Skipping.
+2024-11-26 10:34:14,270 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_9.jsonl
+2024-11-26 10:34:14,273 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:34:14,273 - INFO - ファイルサイズは正常です: 0.15MB
+2024-11-26 10:34:15,599 - INFO - ファイルアップロード成功 - ファイルID: file-YUuKg8tp6dvWh7ptYCh63U
+2024-11-26 10:34:16,178 - INFO - ジョブ作成成功 - ジョブID: batch_67452598140c81908857a56bee1a45bb
+2024-11-26 10:34:16,379 - INFO - ジョブステータス取得: failed
+2024-11-26 10:34:16,379 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 10:34:16,380 - ERROR - ジョブが失敗しました: 不明なエラーが発生しました
+2024-11-26 10:34:16,380 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_10.jsonl. Skipping.
+2024-11-26 10:34:16,381 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_10.jsonl
+2024-11-26 10:34:16,384 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:34:16,385 - INFO - ファイルサイズは正常です: 0.15MB
+2024-11-26 10:34:17,035 - INFO - ファイルアップロード成功 - ファイルID: file-YFdHqxhaMeU8Vvikyt7gZ9
+2024-11-26 10:34:17,326 - INFO - ジョブ作成成功 - ジョブID: batch_67452599400c8190afed3a19ef57978c
+2024-11-26 10:34:17,501 - INFO - ジョブステータス取得: validating
+2024-11-26 10:34:17,501 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 10:34:47,862 - INFO - ジョブステータス取得: failed
+2024-11-26 10:34:47,863 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 10:34:47,863 - ERROR - ジョブが失敗しました: 不明なエラーが発生しました
+2024-11-26 10:34:47,863 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_11.jsonl. Skipping.
+2024-11-26 10:34:47,865 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_11.jsonl
+2024-11-26 10:34:47,869 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:34:47,869 - INFO - ファイルサイズは正常です: 0.15MB
+2024-11-26 10:34:48,914 - INFO - ファイルアップロード成功 - ファイルID: file-GTgPg3LrHVmW3BbhSZLtes
+2024-11-26 10:34:49,960 - INFO - ジョブ作成成功 - ジョブID: batch_674525b93f348190ac377eee6b692620
+2024-11-26 10:34:50,166 - INFO - ジョブステータス取得: validating
+2024-11-26 10:34:50,166 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 10:35:20,396 - INFO - ジョブステータス取得: validating
+2024-11-26 10:35:20,397 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 10:35:50,607 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:35:50,607 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:36:21,088 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:36:21,088 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:36:51,608 - INFO - ジョブステータス取得: in_progress
+2024-11-26 10:36:51,609 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 10:36:55,037 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_12.jsonl
+2024-11-26 10:38:24,132 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 10:38:24,146 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 10:38:24,161 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 10:38:24,178 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:38:24,178 - INFO - ファイルサイズは正常です: 0.08MB
+2024-11-26 10:38:24,855 - INFO - ファイルアップロード成功 - ファイルID: file-BynoWbpKzMvxijbbcPqEyR
+2024-11-26 10:38:25,587 - INFO - ジョブ作成成功 - ジョブID: batch_674526916f1c8190b60389359913b685
+2024-11-26 10:38:25,764 - INFO - ジョブステータス取得: validating
+2024-11-26 10:38:25,765 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 10:38:55,997 - INFO - ジョブステータス取得: failed
+2024-11-26 10:38:55,999 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 10:38:55,999 - ERROR - ジョブが失敗しました: 不明なエラーが発生しました
+2024-11-26 10:38:55,999 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl. Skipping.
+2024-11-26 10:38:56,000 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 10:38:56,002 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:38:56,002 - INFO - ファイルサイズは正常です: 0.07MB
+2024-11-26 10:38:56,817 - INFO - ファイルアップロード成功 - ファイルID: file-F2C8yQRCybDPC7bisRSHCE
+2024-11-26 10:38:57,489 - INFO - ジョブ作成成功 - ジョブID: batch_674526b15c70819091fb4ea0b9e856aa
+2024-11-26 10:38:57,670 - INFO - ジョブステータス取得: validating
+2024-11-26 10:38:57,670 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 10:39:28,201 - INFO - ジョブステータス取得: failed
+2024-11-26 10:39:28,202 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 10:39:28,202 - ERROR - ジョブが失敗しました: 不明なエラーが発生しました
+2024-11-26 10:39:28,202 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_1.jsonl. Skipping.
+2024-11-26 10:39:28,203 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_1.jsonl
+2024-11-26 10:39:28,205 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:39:28,205 - INFO - ファイルサイズは正常です: 0.08MB
+2024-11-26 10:39:29,017 - INFO - ファイルアップロード成功 - ファイルID: file-QJ116D5pJ15b8EQPuNQB8m
+2024-11-26 10:39:29,522 - INFO - ジョブ作成成功 - ジョブID: batch_674526d143308190b8db4bcec72961b6
+2024-11-26 10:39:29,744 - INFO - ジョブステータス取得: validating
+2024-11-26 10:39:29,744 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 10:39:37,024 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_2.jsonl
+2024-11-26 10:59:22,839 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 10:59:22,855 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 10:59:22,865 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 10:59:22,882 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:59:22,882 - INFO - ファイルサイズは正常です: 0.38MB
+2024-11-26 10:59:24,130 - INFO - ファイルアップロード成功 - ファイルID: file-T2up1CtDA7HT8TmuxuGrNw
+2024-11-26 10:59:25,180 - INFO - ジョブ作成成功 - ジョブID: batch_67452b7d04348190aefde1f609b881b1
+2024-11-26 10:59:25,372 - INFO - ジョブステータス取得: validating
+2024-11-26 10:59:25,372 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 10:59:55,619 - INFO - ジョブステータス取得: failed
+2024-11-26 10:59:55,621 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 10:59:55,621 - ERROR - ジョブが失敗しました: 不明なエラーが発生しました
+2024-11-26 10:59:55,621 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl. Skipping.
+2024-11-26 10:59:55,623 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 10:59:58,631 - INFO - JSONLファイルの形式は正常です
+2024-11-26 10:59:58,632 - INFO - ファイルサイズは正常です: 0.37MB
+2024-11-26 10:59:59,742 - INFO - ファイルアップロード成功 - ファイルID: file-Gupkrq6Sz6TjSWqzq6y5z7
+2024-11-26 11:00:00,555 - INFO - ジョブ作成成功 - ジョブID: batch_67452ba04b908190a59a57dce67d736a
+2024-11-26 11:00:00,761 - INFO - ジョブステータス取得: validating
+2024-11-26 11:00:00,762 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 11:00:31,197 - INFO - ジョブステータス取得: failed
+2024-11-26 11:00:31,198 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 11:00:31,198 - ERROR - ジョブが失敗しました: 不明なエラーが発生しました
+2024-11-26 11:00:31,199 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_1.jsonl. Skipping.
+2024-11-26 11:00:31,199 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_1.jsonl
+2024-11-26 11:00:34,210 - INFO - JSONLファイルの形式は正常です
+2024-11-26 11:00:34,210 - INFO - ファイルサイズは正常です: 0.38MB
+2024-11-26 11:00:35,545 - INFO - ファイルアップロード成功 - ファイルID: file-6iJFWUfKWyM6kQ5xCZuBSQ
+2024-11-26 11:00:36,458 - INFO - ジョブ作成成功 - ジョブID: batch_67452bc4224881908523f7256f65ba87
+2024-11-26 11:00:36,667 - INFO - ジョブステータス取得: validating
+2024-11-26 11:00:36,668 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 11:00:53,736 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_2.jsonl
+2024-11-26 11:02:54,194 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 11:02:54,209 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 11:02:54,222 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 11:02:54,240 - INFO - JSONLファイルの形式は正常です
+2024-11-26 11:02:54,240 - INFO - ファイルサイズは正常です: 0.38MB
+2024-11-26 11:02:55,516 - INFO - ファイルアップロード成功 - ファイルID: file-RFoaPPeAhXRZRKemxPw3xP
+2024-11-26 11:02:56,290 - INFO - ジョブ作成成功 - ジョブID: batch_67452c4fce6c8190a3ea9047be55f53b
+2024-11-26 11:02:56,781 - INFO - ジョブステータス取得: validating
+2024-11-26 11:02:56,782 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 11:03:27,189 - INFO - ジョブステータス取得: failed
+2024-11-26 11:03:27,190 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 11:03:27,192 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 11:03:30,197 - ERROR - Unexpected error occurred: 'tuple' object has no attribute 'get'
+2024-11-26 11:05:45,566 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 11:05:45,623 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 11:05:45,643 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 11:05:45,668 - INFO - JSONLファイルの形式は正常です
+2024-11-26 11:05:45,668 - INFO - ファイルサイズは正常です: 0.38MB
+2024-11-26 11:05:47,061 - INFO - ファイルアップロード成功 - ファイルID: file-16s66CnS6eN3bvDmGL292n
+2024-11-26 11:05:47,584 - INFO - ジョブ作成成功 - ジョブID: batch_67452cfb62508190b24835b83714d05a
+2024-11-26 11:05:47,774 - INFO - ジョブステータス取得: validating
+2024-11-26 11:05:47,774 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 11:06:18,076 - INFO - ジョブステータス取得: failed
+2024-11-26 11:06:18,077 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 11:06:18,077 - INFO - トークン制限に達しました。30秒後に再試行します...
+2024-11-26 11:06:48,290 - INFO - ジョブステータス取得: failed
+2024-11-26 11:06:48,291 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 11:06:48,291 - INFO - トークン制限に達しました。30秒後に再試行します...
+2024-11-26 11:07:18,538 - INFO - ジョブステータス取得: failed
+2024-11-26 11:07:18,538 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 11:07:18,539 - INFO - トークン制限に達しました。30秒後に再試行します...
+2024-11-26 11:07:48,789 - INFO - ジョブステータス取得: failed
+2024-11-26 11:07:48,790 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 11:07:48,790 - INFO - トークン制限に達しました。30秒後に再試行します...
+2024-11-26 11:08:19,015 - INFO - ジョブステータス取得: failed
+2024-11-26 11:08:19,016 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 11:08:19,016 - INFO - トークン制限に達しました。30秒後に再試行します...
+2024-11-26 11:08:49,252 - INFO - ジョブステータス取得: failed
+2024-11-26 11:08:49,252 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 11:08:49,253 - INFO - トークン制限に達しました。30秒後に再試行します...
+2024-11-26 11:09:04,450 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 11:32:28,180 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 11:32:28,195 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 11:32:28,208 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 11:32:28,225 - INFO - JSONLファイルの形式は正常です
+2024-11-26 11:32:28,225 - INFO - ファイルサイズは正常です: 0.38MB
+2024-11-26 11:32:29,860 - INFO - ファイルアップロード成功 - ファイルID: file-BRivgnBWNou2XpbbHromHB
+2024-11-26 11:32:30,421 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 11:32:33,426 - ERROR - Unexpected error occurred: 'Batch' object has no attribute 'request_id'
+2024-11-26 11:47:26,359 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 11:47:26,373 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 11:47:26,382 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 11:47:26,399 - INFO - JSONLファイルの形式は正常です
+2024-11-26 11:47:26,399 - INFO - ファイルサイズは正常です: 0.38MB
+2024-11-26 11:47:28,042 - INFO - ファイルアップロード成功 - ファイルID: file-5EQenZUCKGGF93Kpn9VPEr
+2024-11-26 11:47:28,658 - INFO - ジョブ作成成功 - ジョブID: batch_674536c08bac8190a98544db255456c2
+2024-11-26 11:47:28,846 - INFO - ジョブステータス取得: validating
+2024-11-26 11:47:28,846 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 11:47:59,314 - INFO - ジョブステータス取得: failed
+2024-11-26 11:47:59,315 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 11:47:59,315 - ERROR - Batchオブジェクト: Batch(id='batch_674536c08bac8190a98544db255456c2', completion_window='24h', created_at=1732589248, endpoint='/v1/chat/completions', input_file_id='file-5EQenZUCKGGF93Kpn9VPEr', object='batch', status='failed', cancelled_at=None, cancelling_at=None, completed_at=None, error_file_id=None, errors=Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list'), expired_at=None, expires_at=1732675648, failed_at=1732589248, finalizing_at=None, in_progress_at=None, metadata=None, output_file_id=None, request_counts=BatchRequestCounts(completed=0, failed=0, total=0))
+2024-11-26 11:47:59,316 - INFO - トークン制限に達しました。30秒後に再試行します...
+2024-11-26 11:48:29,541 - INFO - ジョブステータス取得: failed
+2024-11-26 11:48:29,543 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 11:48:29,543 - ERROR - Batchオブジェクト: Batch(id='batch_674536c08bac8190a98544db255456c2', completion_window='24h', created_at=1732589248, endpoint='/v1/chat/completions', input_file_id='file-5EQenZUCKGGF93Kpn9VPEr', object='batch', status='failed', cancelled_at=None, cancelling_at=None, completed_at=None, error_file_id=None, errors=Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list'), expired_at=None, expires_at=1732675648, failed_at=1732589248, finalizing_at=None, in_progress_at=None, metadata=None, output_file_id=None, request_counts=BatchRequestCounts(completed=0, failed=0, total=0))
+2024-11-26 11:48:29,543 - INFO - トークン制限に達しました。30秒後に再試行します...
+2024-11-26 11:48:59,786 - INFO - ジョブステータス取得: failed
+2024-11-26 11:48:59,787 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 11:48:59,787 - ERROR - Batchオブジェクト: Batch(id='batch_674536c08bac8190a98544db255456c2', completion_window='24h', created_at=1732589248, endpoint='/v1/chat/completions', input_file_id='file-5EQenZUCKGGF93Kpn9VPEr', object='batch', status='failed', cancelled_at=None, cancelling_at=None, completed_at=None, error_file_id=None, errors=Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list'), expired_at=None, expires_at=1732675648, failed_at=1732589248, finalizing_at=None, in_progress_at=None, metadata=None, output_file_id=None, request_counts=BatchRequestCounts(completed=0, failed=0, total=0))
+2024-11-26 11:48:59,787 - INFO - トークン制限に達しました。30秒後に再試行します...
+2024-11-26 11:49:03,028 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 11:50:08,181 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 11:50:08,196 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 11:50:08,210 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 11:50:08,227 - INFO - JSONLファイルの形式は正常です
+2024-11-26 11:50:08,228 - INFO - ファイルサイズは正常です: 0.37MB
+2024-11-26 11:50:09,293 - INFO - ファイルアップロード成功 - ファイルID: file-JJar8wyRNjg2aUniHLD87s
+2024-11-26 11:50:09,893 - INFO - ジョブ作成成功 - ジョブID: batch_67453761c0d48190a1c04c46a64cbba2
+2024-11-26 11:50:10,113 - INFO - ジョブステータス取得: validating
+2024-11-26 11:50:10,113 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 11:50:40,613 - INFO - ジョブステータス取得: failed
+2024-11-26 11:50:40,613 - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')
+2024-11-26 11:50:40,614 - ERROR - Batchオブジェクト: Batch(id='batch_67453761c0d48190a1c04c46a64cbba2', completion_window='24h', created_at=1732589409, endpoint='/v1/chat/completions', input_file_id='file-JJar8wyRNjg2aUniHLD87s', object='batch', status='failed', cancelled_at=None, cancelling_at=None, completed_at=None, error_file_id=None, errors=Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list'), expired_at=None, expires_at=1732675809, failed_at=1732589410, finalizing_at=None, in_progress_at=None, metadata=None, output_file_id=None, request_counts=BatchRequestCounts(completed=0, failed=0, total=0))
+2024-11-26 11:50:40,614 - INFO - トークン制限に達しました。30秒後に再試行します...
+2024-11-26 11:50:49,351 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 11:51:51,298 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 11:51:51,313 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 11:51:51,323 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 11:51:51,344 - INFO - JSONLファイルの形式は正常です
+2024-11-26 11:51:51,344 - INFO - ファイルサイズは正常です: 0.37MB
+2024-11-26 11:51:52,339 - INFO - ファイルアップロード成功 - ファイルID: file-DvZXhrKm2yeA5qSkBcMhHc
+2024-11-26 11:51:52,899 - INFO - ジョブ作成成功 - ジョブID: batch_674537c8c9cc819081799e42fef233cb
+2024-11-26 11:51:53,072 - INFO - ジョブステータス取得: validating
+2024-11-26 11:51:53,073 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 11:52:23,344 - INFO - ジョブステータス取得: in_progress
+2024-11-26 11:52:23,346 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 11:52:53,623 - INFO - ジョブステータス取得: in_progress
+2024-11-26 11:52:53,624 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 11:53:23,826 - INFO - ジョブステータス取得: completed
+2024-11-26 11:53:23,826 - INFO - ジョブが正常に完了しました
+2024-11-26 11:53:26,020 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 11:53:29,031 - INFO - JSONLファイルの形式は正常です
+2024-11-26 11:53:29,032 - INFO - ファイルサイズは正常です: 0.37MB
+2024-11-26 11:53:29,797 - INFO - ファイルアップロード成功 - ファイルID: file-Ku9kF86MWyvuxbfePiC3k5
+2024-11-26 11:53:30,400 - INFO - ジョブ作成成功 - ジョブID: batch_6745382a172c8190bd838505364eb942
+2024-11-26 11:53:30,868 - INFO - ジョブステータス取得: validating
+2024-11-26 11:53:30,868 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 11:54:01,123 - INFO - ジョブステータス取得: in_progress
+2024-11-26 11:54:01,123 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 11:54:31,388 - INFO - ジョブステータス取得: in_progress
+2024-11-26 11:54:31,390 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 11:55:01,938 - INFO - ジョブステータス取得: in_progress
+2024-11-26 11:55:01,939 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 11:55:32,152 - INFO - ジョブステータス取得: completed
+2024-11-26 11:55:32,153 - INFO - ジョブが正常に完了しました
+2024-11-26 11:55:34,321 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_1.jsonl
+2024-11-26 11:55:37,331 - INFO - JSONLファイルの形式は正常です
+2024-11-26 11:55:37,331 - INFO - ファイルサイズは正常です: 0.38MB
+2024-11-26 11:55:38,292 - INFO - ファイルアップロード成功 - ファイルID: file-8hzDYsTXXw6Y46mtTwYPuR
+2024-11-26 11:55:38,914 - INFO - ジョブ作成成功 - ジョブID: batch_674538aac9a08190b509e174ec96aa93
+2024-11-26 11:55:39,113 - INFO - ジョブステータス取得: validating
+2024-11-26 11:55:39,113 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 11:56:09,346 - INFO - ジョブステータス取得: in_progress
+2024-11-26 11:56:09,346 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 11:56:39,567 - INFO - ジョブステータス取得: in_progress
+2024-11-26 11:56:39,567 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 11:57:09,801 - INFO - ジョブステータス取得: in_progress
+2024-11-26 11:57:09,801 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 11:57:40,064 - INFO - ジョブステータス取得: finalizing
+2024-11-26 11:57:40,064 - INFO - ジョブステータス: finalizing - 待機中...
+2024-11-26 11:58:10,502 - INFO - ジョブステータス取得: completed
+2024-11-26 11:58:10,502 - INFO - ジョブが正常に完了しました
+2024-11-26 11:58:12,287 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_2.jsonl
+2024-11-26 11:58:15,300 - INFO - JSONLファイルの形式は正常です
+2024-11-26 11:58:15,301 - INFO - ファイルサイズは正常です: 0.37MB
+2024-11-26 11:58:16,198 - INFO - ファイルアップロード成功 - ファイルID: file-71YhpNLdwxKz5XNGqvCuge
+2024-11-26 11:58:17,002 - INFO - ジョブ作成成功 - ジョブID: batch_67453948e1488190bd75c8b3f02ad9f3
+2024-11-26 11:58:17,203 - INFO - ジョブステータス取得: validating
+2024-11-26 11:58:17,204 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 11:58:47,499 - INFO - ジョブステータス取得: in_progress
+2024-11-26 11:58:47,499 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 11:59:17,709 - INFO - ジョブステータス取得: in_progress
+2024-11-26 11:59:17,710 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 11:59:47,948 - INFO - ジョブステータス取得: in_progress
+2024-11-26 11:59:47,948 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 12:00:18,291 - INFO - ジョブステータス取得: finalizing
+2024-11-26 12:00:18,292 - INFO - ジョブステータス: finalizing - 待機中...
+2024-11-26 12:00:48,510 - INFO - ジョブステータス取得: completed
+2024-11-26 12:00:48,511 - INFO - ジョブが正常に完了しました
+2024-11-26 12:00:51,648 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_3.jsonl
+2024-11-26 12:00:54,656 - INFO - JSONLファイルの形式は正常です
+2024-11-26 12:00:54,656 - INFO - ファイルサイズは正常です: 0.37MB
+2024-11-26 12:00:55,735 - INFO - ファイルアップロード成功 - ファイルID: file-ET6N2NV1GPVWYjR7KPFMN1
+2024-11-26 12:00:56,099 - INFO - ジョブ作成成功 - ジョブID: batch_674539e7fa048190b85dceca859317ae
+2024-11-26 12:00:56,280 - INFO - ジョブステータス取得: validating
+2024-11-26 12:00:56,281 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 12:01:26,513 - INFO - ジョブステータス取得: finalizing
+2024-11-26 12:01:26,513 - INFO - ジョブステータス: finalizing - 待機中...
+2024-11-26 12:01:56,740 - INFO - ジョブステータス取得: completed
+2024-11-26 12:01:56,741 - INFO - ジョブが正常に完了しました
+2024-11-26 12:01:58,639 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_4.jsonl
+2024-11-26 12:02:01,645 - INFO - JSONLファイルの形式は正常です
+2024-11-26 12:02:01,645 - INFO - ファイルサイズは正常です: 0.36MB
+2024-11-26 12:02:02,712 - INFO - ファイルアップロード成功 - ファイルID: file-EgdQGY7S9DvHhF3u7CTq2s
+2024-11-26 12:02:03,061 - INFO - ジョブ作成成功 - ジョブID: batch_67453a2af3f081909f529a4476004aab
+2024-11-26 12:02:03,247 - INFO - ジョブステータス取得: validating
+2024-11-26 12:02:03,248 - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 12:02:33,734 - INFO - ジョブステータス取得: in_progress
+2024-11-26 12:02:33,735 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 12:03:03,995 - INFO - ジョブステータス取得: completed
+2024-11-26 12:03:03,996 - INFO - ジョブが正常に完了しました
+2024-11-26 12:03:05,629 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_5.jsonl
+2024-11-26 12:03:08,631 - INFO - Step 4: Aggregating results
+2024-11-26 12:03:08,662 - INFO - Aggregated results saved to: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/result_20241126_120308_85b2fc62ff5f440abb92cc8957d82826.json
+2024-11-26 12:11:10,779 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 12:11:10,794 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 12:11:10,800 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 12:11:10,821 - INFO - JSONLファイルの形式は正常です
+2024-11-26 12:11:10,821 - INFO - ファイルサイズは正常です: 2.23MB
+2024-11-26 12:11:11,995 - INFO - ファイルアップロード成功 - ファイルID: file-G1tYtwMGWviWehUfTGJwJc
+2024-11-26 12:11:12,345 - INFO - ジョブ作成成功 - ジョブID: batch_67453c503a208190a1248ba1834effed
+2024-11-26 12:11:12,797 - INFO - ジョブステータス取得: in_progress
+2024-11-26 12:11:12,797 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 12:11:43,037 - INFO - ジョブステータス取得: in_progress
+2024-11-26 12:11:43,039 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 12:12:13,260 - INFO - ジョブステータス取得: in_progress
+2024-11-26 12:12:13,261 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 12:12:43,690 - INFO - ジョブステータス取得: in_progress
+2024-11-26 12:12:43,691 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 12:13:13,922 - INFO - ジョブステータス取得: in_progress
+2024-11-26 12:13:13,922 - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-26 12:13:44,215 - INFO - ジョブステータス取得: finalizing
+2024-11-26 12:13:44,215 - INFO - ジョブステータス: finalizing - 待機中...
+2024-11-26 12:14:14,727 - INFO - ジョブステータス取得: finalizing
+2024-11-26 12:14:14,729 - INFO - ジョブステータス: finalizing - 待機中...
+2024-11-26 12:14:44,956 - INFO - ジョブステータス取得: finalizing
+2024-11-26 12:14:44,957 - INFO - ジョブステータス: finalizing - 待機中...
+2024-11-26 12:15:15,184 - INFO - ジョブステータス取得: finalizing
+2024-11-26 12:15:15,185 - INFO - ジョブステータス: finalizing - 待機中...
+2024-11-26 12:15:45,405 - INFO - ジョブステータス取得: completed
+2024-11-26 12:15:45,405 - INFO - ジョブが正常に完了しました
+2024-11-26 12:15:47,512 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 12:15:50,518 - INFO - Step 4: Aggregating results
+2024-11-26 12:15:50,548 - INFO - Aggregated results saved to: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/result_20241126_121550_377f118d79874b738cd7c761987ca6dd.json

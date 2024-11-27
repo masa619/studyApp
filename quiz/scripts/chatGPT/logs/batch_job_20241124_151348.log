@@ -1,0 +1,1 @@
+2024-11-24 15:13:49,276 - __main__ - ERROR - ジョブ作成エラー: Error code: 400 - {'error': {'message': 'Billing hard limit has been reached', 'type': 'invalid_request_error', 'param': None, 'code': 'billing_hard_limit_reached'}}

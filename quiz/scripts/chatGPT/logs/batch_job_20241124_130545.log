@@ -1,0 +1,1 @@
+2024-11-24 13:05:46,611 - __main__ - ERROR - ジョブ作成エラー: Error code: 400 - {'error': {'message': "File file-Bej94R3Bm6f9BJ2k1bG3xJ has invalid purpose 'assistants', must be 'fine-tune'", 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_file_purpose'}}

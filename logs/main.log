@@ -1,0 +1,197 @@
+2024-11-25 13:06:27,273 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 13:06:27,273 - ERROR - 予期しないエラーが発生しました: name 'output_jsonl' is not defined
+2024-11-25 13:08:06,746 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 13:08:06,747 - ERROR - 予期しないエラーが発生しました: name 'output_jsonl' is not defined
+2024-11-25 13:08:28,195 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 13:08:28,197 - ERROR - 予期しないエラーが発生しました: name 'output_jsonl' is not defined
+2024-11-25 13:08:50,640 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 13:08:50,641 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 13:08:50,641 - ERROR - 予期しないエラーが発生しました: BatchFileUploader.__init__() got an unexpected keyword argument 'log_file'
+2024-11-25 13:09:56,176 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 13:09:56,177 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 13:09:57,250 - ERROR - 予期しないエラーが発生しました: name 'result_file' is not defined
+2024-11-25 13:11:14,526 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 13:11:14,527 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 13:11:15,338 - INFO - 処理が完了したため、アップロードしたファイルを削除します。
+2024-11-25 13:11:15,883 - INFO - ファイル file-314d3UGV7bm6bjDDZC9Pw2 の削除に成功しました。
+2024-11-25 14:03:19,449 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 14:03:19,450 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 14:03:20,194 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-25 14:03:21,143 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-25 14:03:21,613 - ERROR - バッチジョブの結果取得に失敗しました。
+2024-11-25 14:09:47,394 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 14:09:47,394 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 14:09:48,218 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-25 14:11:20,813 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-25 14:11:21,725 - INFO - バッチジョブの結果が保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output2.jsonl
+2024-11-25 14:11:21,726 - INFO - ファイル file-69BJTs2n9tWcx2P9LygYxd を削除しようとしています...
+2024-11-25 14:11:22,072 - INFO - ファイル file-69BJTs2n9tWcx2P9LygYxd の削除に成功しました。
+2024-11-25 14:33:58,219 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 14:33:58,220 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 14:33:58,986 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-25 14:35:00,999 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-25 14:35:01,886 - INFO - バッチジョブの結果が一時ファイルに保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output2.jsonl
+2024-11-25 14:35:01,886 - INFO - Step 5: 結果データの統合とJSONファイルの保存を開始
+2024-11-25 14:35:01,889 - INFO - 結果データが保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/20241125_143501_f0866c17987d4c9fbe00dc4793bf07fe_result.json
+2024-11-25 14:35:01,889 - INFO - ファイル file-Rf2fxVyyWXBAK4Mso3ZeEs を削除しようとしています...
+2024-11-25 14:35:02,473 - INFO - ファイル file-Rf2fxVyyWXBAK4Mso3ZeEs の削除に成功しました。
+2024-11-25 14:50:37,760 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 14:50:37,762 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 14:50:39,731 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-25 14:52:12,211 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-25 14:52:13,190 - ERROR - 予期しないエラーが発生しました: [Errno 2] No such file or directory: 'path/to/temporary/results_output2.jsonl'
+2024-11-25 14:52:13,190 - INFO - ファイル file-NYuevKKDCRTpaxaDCj761E を削除しようとしています...
+2024-11-25 14:52:13,746 - INFO - ファイル file-NYuevKKDCRTpaxaDCj761E の削除に成功しました。
+2024-11-25 14:52:49,441 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 14:52:49,443 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 14:52:50,457 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-25 14:53:51,995 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-25 14:53:52,967 - INFO - バッチジョブの結果が一時ファイルに保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output2.jsonl
+2024-11-25 14:53:52,967 - INFO - Step 5: 結果データの統合とJSONファイルの保存を開始
+2024-11-25 14:53:52,969 - INFO - 結果データが統合され、保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/result_20241125_145352_9e5a60a3206f452cbbbda7da7cca9db1.json
+2024-11-25 14:53:52,969 - INFO - ファイル file-Ww5LawB5FSkX46vaVGynxD を削除しようとしています...
+2024-11-25 14:53:53,482 - INFO - ファイル file-Ww5LawB5FSkX46vaVGynxD の削除に成功しました。
+2024-11-25 14:59:45,896 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 14:59:45,897 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 14:59:46,736 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-25 15:04:50,342 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-25 15:04:52,314 - INFO - バッチジョブの結果が一時ファイルに保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output2.jsonl
+2024-11-25 15:04:52,314 - INFO - Step 5: 結果データの統合とJSONファイルの保存を開始
+2024-11-25 15:04:52,317 - INFO - 結果データが統合され、保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/result_20241125_150452_ac47a72240a344a58dbd98bee0d0fe5a.json
+2024-11-25 15:04:52,317 - INFO - ファイル file-7AsGNRwCqSQ9Ch7A4aDX2h を削除しようとしています...
+2024-11-25 15:04:52,882 - INFO - ファイル file-7AsGNRwCqSQ9Ch7A4aDX2h の削除に成功しました。
+2024-11-25 15:06:24,119 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 15:06:24,121 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 15:06:24,726 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-25 15:07:56,857 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-25 15:07:58,272 - INFO - バッチジョブの結果が一時ファイルに保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output2.jsonl
+2024-11-25 15:07:58,273 - INFO - Step 5: 結果データの統合とJSONファイルの保存を開始
+2024-11-25 15:07:58,277 - INFO - 結果データが統合され、保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/result_20241125_150758_902c533ce10e462c8c86dcb0a11a399b.json
+2024-11-25 15:07:58,277 - INFO - ファイル file-2iXRtCFaiz7cKKwjoN8sbV を削除しようとしています...
+2024-11-25 15:07:58,619 - INFO - ファイル file-2iXRtCFaiz7cKKwjoN8sbV の削除に成功しました。
+2024-11-25 15:44:46,199 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-25 15:44:46,200 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-25 15:44:47,107 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-25 15:45:18,747 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-25 15:45:19,624 - INFO - バッチジョブの結果が一時ファイルに保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output2.jsonl
+2024-11-25 15:45:19,624 - INFO - Step 5: 結果データの統合とJSONファイルの保存を開始
+2024-11-25 15:45:19,626 - INFO - 結果データが統合され、保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/result_20241125_154519_d52f68b29fa047ab9dd23fc846e94fed.json
+2024-11-25 15:45:19,626 - INFO - ファイル file-TpatbjabGLm56ytyuWZcm1 を削除しようとしています...
+2024-11-25 15:45:20,151 - INFO - ファイル file-TpatbjabGLm56ytyuWZcm1 の削除に成功しました。
+2024-11-26 08:19:08,492 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-26 08:19:08,493 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-26 08:19:09,421 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-26 08:20:41,909 - INFO - Step 4: バッチジョブの結果を取得開始
+2024-11-26 08:20:43,025 - INFO - バッチジョブの結果が一時ファイルに保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output2.jsonl
+2024-11-26 08:20:43,025 - INFO - Step 5: 結果データの統合とJSONファイルの保存を開始
+2024-11-26 08:20:43,026 - INFO - 結果データが統合され、保存されました: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/result_20241126_082043_8c944cb03bcf4a6aa319e7519ff690b2.json
+2024-11-26 08:20:43,026 - INFO - ファイル file-HXAHdZcjwFsZJokG67fhh1 を削除しようとしています...
+2024-11-26 08:20:43,561 - INFO - ファイル file-HXAHdZcjwFsZJokG67fhh1 の削除に成功しました。
+2024-11-26 08:32:31,125 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-26 08:32:31,139 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-26 08:32:33,070 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-26 08:33:05,232 - ERROR - ジョブの完了を待機中にエラーが発生しました。
+2024-11-26 08:33:05,233 - INFO - ファイル file-HHJtPXwgjeNkZvDDvJNWKa を削除しようとしています...
+2024-11-26 08:33:05,818 - INFO - ファイル file-HHJtPXwgjeNkZvDDvJNWKa の削除に成功しました。
+2024-11-26 08:36:42,188 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-26 08:36:42,203 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-26 08:36:43,349 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-26 08:37:15,271 - ERROR - 予期しないエラーが発生しました: 'Batch' object has no attribute 'error_message'
+2024-11-26 08:37:15,272 - INFO - ファイル file-NcCn5wdG1NX6oMnzQxMHPD を削除しようとしています...
+2024-11-26 08:37:15,833 - INFO - ファイル file-NcCn5wdG1NX6oMnzQxMHPD の削除に成功しました。
+2024-11-26 08:44:20,897 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-26 08:44:20,912 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-26 08:44:22,174 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-26 08:44:53,260 - ERROR - 予期しないエラーが発生しました: 'Errors' object has no attribute 'get'
+2024-11-26 08:44:53,260 - INFO - ファイル file-GrxZQTCtURd1cHJtwxW5PK を削除しようとしています...
+2024-11-26 08:44:53,864 - INFO - ファイル file-GrxZQTCtURd1cHJtwxW5PK の削除に成功しました。
+2024-11-26 08:46:06,663 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-26 08:46:06,678 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-26 08:46:08,299 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-26 08:46:39,731 - ERROR - ジョブの完了を待機中にエラーが発生しました。
+2024-11-26 08:46:39,731 - INFO - ファイル file-PVgZiDsWBTP3Mz8662iwCU を削除しようとしています...
+2024-11-26 08:46:40,254 - INFO - ファイル file-PVgZiDsWBTP3Mz8662iwCU の削除に成功しました。
+2024-11-26 08:48:54,527 - INFO - Step 1: JSONファイルをJSONL形式に変換開始
+2024-11-26 08:48:54,543 - INFO - Step 2: JSONLファイルをOpenAIにアップロード開始
+2024-11-26 08:48:56,719 - INFO - Step 3: バッチジョブを作成し実行開始
+2024-11-26 08:49:28,105 - ERROR - ジョブの完了を待機中にエラーが発生しました。
+2024-11-26 08:49:28,105 - INFO - ファイル file-LRBqhpuzCgVQWVMMRFNNHN を削除しようとしています...
+2024-11-26 08:49:28,669 - INFO - ファイル file-LRBqhpuzCgVQWVMMRFNNHN の削除に成功しました。
+2024-11-26 10:19:36,382 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 10:19:36,405 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 10:19:36,420 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 10:21:12,804 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 10:22:16,588 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_1.jsonl
+2024-11-26 10:22:49,274 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_2.jsonl. Skipping.
+2024-11-26 10:22:49,275 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_2.jsonl
+2024-11-26 10:23:21,117 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_3.jsonl. Skipping.
+2024-11-26 10:23:21,119 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_3.jsonl
+2024-11-26 10:30:59,400 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_4.jsonl
+2024-11-26 10:32:04,297 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_5.jsonl
+2024-11-26 10:33:08,899 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_6.jsonl
+2024-11-26 10:33:40,945 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_7.jsonl. Skipping.
+2024-11-26 10:33:40,947 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_7.jsonl
+2024-11-26 10:33:42,489 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_8.jsonl. Skipping.
+2024-11-26 10:33:42,490 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_8.jsonl
+2024-11-26 10:34:14,268 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_9.jsonl. Skipping.
+2024-11-26 10:34:14,270 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_9.jsonl
+2024-11-26 10:34:16,380 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_10.jsonl. Skipping.
+2024-11-26 10:34:16,381 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_10.jsonl
+2024-11-26 10:34:47,863 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_11.jsonl. Skipping.
+2024-11-26 10:34:47,865 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_11.jsonl
+2024-11-26 10:36:55,037 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_12.jsonl
+2024-11-26 10:38:24,132 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 10:38:24,146 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 10:38:24,161 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 10:38:55,999 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl. Skipping.
+2024-11-26 10:38:56,000 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 10:39:28,202 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_1.jsonl. Skipping.
+2024-11-26 10:39:28,203 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_1.jsonl
+2024-11-26 10:39:37,024 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_2.jsonl
+2024-11-26 10:59:22,839 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 10:59:22,855 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 10:59:22,865 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 10:59:55,621 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl. Skipping.
+2024-11-26 10:59:55,623 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 11:00:31,199 - ERROR - Error waiting for job completion for /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_1.jsonl. Skipping.
+2024-11-26 11:00:31,199 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_1.jsonl
+2024-11-26 11:00:53,736 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_2.jsonl
+2024-11-26 11:02:54,194 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 11:02:54,209 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 11:02:54,222 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 11:03:27,192 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 11:03:30,197 - ERROR - Unexpected error occurred: 'tuple' object has no attribute 'get'
+2024-11-26 11:05:45,566 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 11:05:45,623 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 11:05:45,643 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 11:09:04,450 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 11:32:28,180 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 11:32:28,195 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 11:32:28,208 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 11:32:30,421 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 11:32:33,426 - ERROR - Unexpected error occurred: 'Batch' object has no attribute 'request_id'
+2024-11-26 11:47:26,359 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 11:47:26,373 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 11:47:26,382 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 11:49:03,028 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 11:50:08,181 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 11:50:08,196 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 11:50:08,210 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 11:50:49,351 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 11:51:51,298 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 11:51:51,313 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 11:51:51,323 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 11:53:26,020 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 11:55:34,321 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_1.jsonl
+2024-11-26 11:58:12,287 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_2.jsonl
+2024-11-26 12:00:51,648 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_3.jsonl
+2024-11-26 12:01:58,639 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_4.jsonl
+2024-11-26 12:03:05,629 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_5.jsonl
+2024-11-26 12:03:08,631 - INFO - Step 4: Aggregating results
+2024-11-26 12:03:08,662 - INFO - Aggregated results saved to: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/result_20241126_120308_85b2fc62ff5f440abb92cc8957d82826.json
+2024-11-26 12:11:10,779 - INFO - Step 1: Converting JSON to JSONL
+2024-11-26 12:11:10,794 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-11-26 12:11:10,800 - INFO - Step 3: Processing each JSONL chunk
+2024-11-26 12:15:47,512 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-11-26 12:15:50,518 - INFO - Step 4: Aggregating results
+2024-11-26 12:15:50,548 - INFO - Aggregated results saved to: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/result_20241126_121550_377f118d79874b738cd7c761987ca6dd.json

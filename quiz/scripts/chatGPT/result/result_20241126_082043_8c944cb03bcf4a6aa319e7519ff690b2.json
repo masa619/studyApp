@@ -1,0 +1,255 @@
+[
+  {
+    "no": "6",
+    "question": "小売企業が、ビジネスパートナーである他社に一連のデータファイルを提供する必要があります。これらのファイルは、小売企業が所有するAccount AのAmazon S3バケットに保存されています。ビジネスパートナー企業は、自社のAWSアカウント(Account B)に所属するIAMユーザーであるUser_DataProcessorがこれらのファイルにアクセスすることを希望しています。 User_DataProcessorがS3バケットに正常にアクセスできるようにするために、両社が取るべき手順の組み合わせはどれですか？ (2つ選択してください)",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Account A の S3 バケットでクロスオリジンリソース共有 (CORS) 機能をオンにする。"
+      },
+      {
+        "key": "B",
+        "text": "Account A 内で、次のようにS3バケットポリシーを設定する: [image_1_0] [image_1_1] [image_1_2]"
+      },
+      {
+        "key": "C",
+        "text": "Account A 内で、次のようにS3バケットポリシーを設定する: [image_1_0] [image_1_1] [image_1_2]"
+      },
+      {
+        "key": "D",
+        "text": "Account B 内で、次のようにUser_DataProcessorの権限を設定する: [image_1_0] [image_1_1] [image_1_2]"
+      },
+      {
+        "key": "E",
+        "text": "Account B 内で、次のようにUser_DataProcessorの権限を設定する: [image_1_0] [image_1_1] [image_1_2]"
+      }
+    ],
+    "answer_key": "D",
+    "explanation_en": [
+      {
+        "answer_and_key_points": "The correct answers are D and C. Account A must modify the S3 bucket policy to allow access for the specific IAM User in Account B. Account B must also provide the necessary permissions for the IAM User_DataProcessor.",
+        "situation_analysis": "The scenario involves two accounts where one owns the S3 bucket and the other needs access. The question emphasizes cross-account permissions management.",
+        "option_analysis": "Option A: Not relevant as CORS pertains to browser-based applications. Option B and C: Provide bucket policies, but only either of them might have the correct principal configuration. Option D/E: Focus on IAM user configuration; D is correct due to direct permissions for User_DataProcessor.",
+        "additional_knowledge": "Shared responsibility practices are essential for secure cross-account access. Ensure to explicitly define resources and actions.",
+        "key_terminology": "Amazon S3, IAM User, Cross-account access, Bucket policy",
+        "overall_assessment": "D correctly reflects necessary IAM permissions for cross-account access. C may likely be a valid bucket policy, though the question images aren't validated."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "正しい回答はDとCである。Account Aは、Account Bの特定のIAMユーザーにアクセスを許可するためにS3バケットポリシーを変更する必要がある。また、Account BはIAMユーザーUser_DataProcessorに必要な権限を付与する必要がある。",
+        "situation_analysis": "このシナリオは、1つのアカウントがS3バケットを所有し、もう1つのアカウントがアクセスを必要とする状況であり、クロスアカウントの権限管理が強調されている。",
+        "option_analysis": "オプションA: CORS設定はブラウザベースのアプリケーションに関連があるため、このシナリオには直接関係しない。オプションBおよびC: バケットポリシーを示しているが、特定のPrincipal設定が正しいかの確認が必要。オプションD/E: IAMユーザー構成を対象としているが、User_DataProcessorに直接権限を与えるDが正しい。",
+        "additional_knowledge": "安全なクロスアカウントアクセスには、共有責任の実践が不可欠である。リソースとアクションを明示的に定義する必要がある。",
+        "key_terminology": "Amazon S3、IAMユーザー、クロスアカウントアクセス、バケットポリシー",
+        "overall_assessment": "Dは、クロスアカウントアクセスのための適切なIAM権限を反映している。Cは、画像内の情報が検証されていないが、バケットポリシーとして正しい可能性がある。"
+      }
+    ],
+    "keywords": [
+      "Amazon S3",
+      "IAM User",
+      "Bucket Policy",
+      "Cross-Account Permissions"
+    ]
+  },
+  {
+    "No": "32",
+    "question": "ある企業がAWS Organizationsを実装する過程で、開発者が使用できるサービスをAmazon EC2、Amazon S3、およびAmazon DynamoDBに制限したいと考えています。開発者アカウントは専用の組織単位(OU)に属しています。ソリューションアーキテクトは、開発者アカウントに以下のSCP（サービスコントロールポリシー）を実装しました:\nこのポリシーが適用されても、開発者アカウントのIAMユーザーがポリシーにリストされていないAWSサービスを依然として使用できる状況です。ソリューションアーキテクトは、ポリシーの範囲外のサービスが使用されないようにするために何をすべきでしょうか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "制約する必要がある各AWSサービスに対して、明示的な拒否ステートメントを作成する。"
+      },
+      {
+        "key": "B",
+        "text": "開発者アカウントのOUからFullAWSAccess SCPを削除する。"
+      },
+      {
+        "key": "C",
+        "text": "FullAWSAccess SCPを変更して、すべてのサービスを明示的に拒否する。"
+      },
+      {
+        "key": "D",
+        "text": "SCPの最後にワイルドカードを使用した明示的な拒否ステートメントを追加する。"
+      }
+    ],
+    "answer_key": "A",
+    "explanation_en": [
+      {
+        "answer_and_key_points": "The correct answer is 'A'. In AWS Organizations, SCPs (Service Control Policies) are used as guardrails to control what services and actions can be used. However, SCPs do not override default permissions unless explicitly stated. Adding explicit Deny statements ensures control over services not listed within the policy.",
+        "situation_analysis": "The problem lies in the default behavior of SCPs. Without explicit Deny rules for other services, AWS users inherit broader permissions (from IAM policies) if not strictly blocked by SCP. The presence of FullAWSAccess SCP may allow unexpected service access.",
+        "option_analysis": "Option A is correct because explicitly denying services not part of the intended scope aligns with KMS and SCP best practices. Option B only removes the FullAWSAccess SCP but might not provide specific restrictions. Option C may cause unintended behavior by completely denying all access. Option D, while feasible, can over-complicate management.",
+        "additional_knowledge": "For developers working with SCP-based governance, ensuring that proper SCPs are well-scoped simplifies multi-account management and prevents unexpected privilege escalation.",
+        "key_terminology": "AWS Organizations, SCP (Service Control Policy), Explicit Deny, FullAWSAccess, IAM Policy.",
+        "overall_assessment": "The question highlights the importance of fine-grained permissions management in multi-account environments. Explicit Deny practices ensure tight permission restrictions as per policy intent."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "正解は『A』である。AWS OrganizationsにおけるSCP（サービスコントロールポリシー）は、使用可能なサービスやアクションを制御するための枠組みである。ただし、SCPはデフォルト許可設定を上書きしない。このため、リスト外サービスを完全に制限するためには明示的なDenyステートメントを追加する必要がある。",
+        "situation_analysis": "問題の核は、SCPがデフォルトでは明示的なDenyを適用しない点にある。明示的な禁止ルールがなければ、IAMポリシーから幅広い権限が継承される可能性がある。FullAWSAccess SCPの存在が予期しないサービスへのアクセスを許容している可能性がある。",
+        "option_analysis": "『A』は正しく、意図されたサービスの範囲外のサービスを明示的にDenyすることがSCPのベストプラクティスに沿っている。『B』の場合FullAWSAccess SCPを削除しても明示的制約が欠如するため意図した制限を完全に実現できない可能性がある。『C』はすべてのアクセスを拒否する極端な結果を引き起こす可能性があり非推奨である。『D』は技術的には可能だが複雑化を招きやすい。",
+        "additional_knowledge": "SCPベースのガバナンスを実践する開発者にとって、適切にスコープされたSCPを保証することで、マルチアカウント管理が簡易化され、予想外の権限エスカレーションを防止できる。",
+        "key_terminology": "AWS Organizations, SCP（サービスコントロールポリシー）, 明示的Deny, FullAWSAccess, IAMポリシー。",
+        "overall_assessment": "この質問は、マルチアカウント環境での詳細な権限管理の重要性を強調している。明示的Denyの実践は、ポリシーの目的に沿った厳密な権限制限を保証する。"
+      }
+    ],
+    "keywords": [
+      "AWS Organizations",
+      "SCP",
+      "IAM Policy",
+      "FullAWSAccess",
+      "Explicit Deny"
+    ]
+  },
+  {
+    "no": "57",
+    "question": "ある企業は複数のAWSアカウントを使用しており、AWS Organizationsとサービスコントロールポリシー（SCP）を利用しています。管理者は以下のSCPを作成し、AWSアカウント1111-1111-1111を含む組織単位（OU）にアタッチしました。\nアカウント1111-1111-1111で作業する開発者たちは、Amazon S3バケットを作成できないと苦情を述べています。この問題を管理者はどのように解決すべきですか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "SCPにs3:CreateBucketの「Allow」エフェクトを追加する。"
+      },
+      {
+        "key": "B",
+        "text": "アカウントをOUから削除し、SCPをアカウント1111-1111-1111に直接アタッチする。"
+      },
+      {
+        "key": "C",
+        "text": "開発者にIAMエンティティにAmazon S3の権限を追加するよう指示する。"
+      },
+      {
+        "key": "D",
+        "text": "アカウント1111-1111-1111からSCPを削除する。"
+      }
+    ],
+    "answer_key": "C",
+    "explanation_en": [
+      {
+        "answer_and_key_points": "The correct answer is C. SCPs only define the maximum permissions an account or entity can have; they do not actually grant permissions. Developers need explicit permissions in their IAM policies to create an Amazon S3 bucket.",
+        "situation_analysis": "Developers working in account 1111-1111-1111 cannot create S3 buckets. This indicates either missing or improperly defined permissions in their IAM policies, rather than an outright restriction by the SCP itself.",
+        "option_analysis": "Option A is incorrect because SCPs only limit permissions; they don’t independently grant any. Even with an updated SCP, IAM permissions must still explicitly allow the operation.\nOption B is incorrect because it does not address the core issue, which is IAM permissions.\nOption D is incorrect as SCPs apply restrictions and removing it negligently might expose resources to unrestricted access without ensuring security measures.\nOption C is correct as adding the appropriate S3 permissions to the developers' IAM entities resolves the issue within the defined SCP's constraints.",
+        "additional_knowledge": "SCPs act as a guardrail to enforce organizational policies and restrict actions. Actions still need to be explicitly allowed in IAM policies for each user, group, or role.",
+        "key_terminology": "SCP (Service Control Policies), IAM (Identity and Access Management), permissions, resource-level permissions, least privilege principle.",
+        "overall_assessment": "This is a foundational AWS question emphasizing the scope and role of SCPs versus IAM permissions. Understanding their interplay is critical for applying AWS security best practices effectively."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "正しい答えはCである。SCPはアカウントやエンティティが持つことができる最大の権限を定義するだけであり、実際の権限を付与するものではない。開発者がAmazon S3バケットを作成するには、IAMポリシーで明示的な許可が必要である。",
+        "situation_analysis": "アカウント1111-1111-1111で作業する開発者がS3バケットを作成できない。この問題はSCP自体による制限ではなく、IAMポリシーでの権限の不足または不適切な設定を示唆している。",
+        "option_analysis": "オプションAは誤り。SCPは権限を制限するだけであり、独立して権限を付与するものではない。SCPを更新しても、依然としてIAMポリシーで操作を明示的に許可する必要がある。\nオプションBは誤り。問題の核心であるIAMの権限を解決しないため無効である。\nオプションDは誤り。SCPは制約を適用するものであり、これを削除すると適切なセキュリティ対策を欠いたままリソースが無制限にアクセスされるリスクがある。\nオプションCが正しい。開発者のIAMエンティティに適切なS3の権限を追加することで、SCPによる制約の範囲内で問題が解決される。",
+        "additional_knowledge": "SCPはガードレールとして機能し、組織ポリシーを強制しアクションを制限する。一方、ユーザー、グループ、またはロールごとに操作を明示的に許可するためにはIAMポリシーが必要である。",
+        "key_terminology": "SCP（サービスコントロールポリシー）、IAM（アイデンティティおよびアクセス管理）、権限、リソースレベルの権限、最小権限の原則。",
+        "overall_assessment": "この質問は、SCPとIAM権限の範囲と役割を強調する基本的なAWSの内容である。それらの相互関係を理解することは、AWSセキュリティのベストプラクティスを効果的に適用するために重要である。"
+      }
+    ],
+    "keywords": [
+      "SCP",
+      "IAM",
+      "Amazon S3",
+      "permissions",
+      "AWS Organizations"
+    ]
+  },
+  {
+    "no": "58",
+    "question": "重要なビジネスアプリケーションであるモノリシックなアプリケーションを所有する企業があります。このアプリケーションは、Amazon Linux 2 を実行する Amazon EC2 インスタンスでホストされています。法律部門から、インスタンスの暗号化された Amazon Elastic Block Store (Amazon EBS) ボリュームのデータを Amazon S3 バケットにバックアップするよう指示されました。アプリケーションチームは、インスタンスへの管理 SSH キーペアを所有していません。また、アプリケーションはユーザーへ引き続きサービスを提供する必要があります。この要件を満たすソリューションはどれですか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Amazon S3 に書き込むための権限を持つロールをインスタンスにアタッチする。AWS Systems Manager Session Manager オプションを使用してアクセスする。"
+      },
+      {
+        "key": "B",
+        "text": "再起動オプションをオフにしてインスタンスのイメージを作成する。このイメージから新しい EC2 インスタンスを起動し、新しいインスタンスに権限を持つロールをアタッチする。"
+      },
+      {
+        "key": "C",
+        "text": "Amazon Data Lifecycle Manager (Amazon DLM) を使用して EBS ボリュームのスナップショットを取得し、そのデータを Amazon S3 にコピーする。"
+      },
+      {
+        "key": "D",
+        "text": "インスタンスのイメージを作成する。このイメージから新しい EC2 インスタンスを起動し、Amazon S3 に書き込むための権限を持つロールを新しいインスタンスにアタッチする。"
+      }
+    ],
+    "answer_key": "A",
+    "explanation_en": [
+      {
+        "answer_and_key_points": "The correct answer is A. The Session Manager capability in AWS Systems Manager allows you to access EC2 instances without needing SSH key pairs. By attaching a role with S3 permissions, the team ensures the backup process continues securely.",
+        "situation_analysis": "The company needs a solution to back up an encrypted EBS volume to S3 without SSH key pairs. The application must remain operational during this process.",
+        "option_analysis": "Option A is correct because Systems Manager allows secure and non-disruptive access to the instance. Option B and D involve creating new instances, which are unnecessary and require downtime. Option C doesn't address the lack of SSH-access and may require direct interaction.",
+        "additional_knowledge": "",
+        "key_terminology": "Amazon EC2, Amazon EBS, Amazon S3, AWS Systems Manager, IAM Role",
+        "overall_assessment": "The question tests understanding of secure access methods and backup solutions leveraging AWS services. Option A's use of Session Manager ensures compliance with requirements efficiently."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "正解はAです。AWS Systems ManagerのSession Manager機能を使用すると、SSHキーペアがなくてもEC2インスタンスにアクセスできます。S3権限を持つロールをアタッチすることで、データのバックアッププロセスを安全に継続することができます。",
+        "situation_analysis": "企業は、暗号化されたEBSボリュームのデータをSSHキーペアなしでS3にバックアップするソリューションを必要としています。さらに、アプリケーションはプロセス中も稼働を続ける必要があります。",
+        "option_analysis": "オプションAは、Systems Managerを利用してインスタンスへの安全で中断のないアクセスを提供するため正解です。オプションBとDは新しいインスタンスの作成を含み、不要なダウンタイムが発生する可能性があります。オプションCはSSHへのアクセスが不要な点には対応しておらず、直接の操作が必要となる場合があります。",
+        "additional_knowledge": "",
+        "key_terminology": "Amazon EC2, Amazon EBS, Amazon S3, AWS Systems Manager, IAM Role",
+        "overall_assessment": "この質問では、AWSサービスを活用した安全なアクセス方法とバックアップソリューションに関する理解をテストしています。オプションAでは、Session Managerを活用することで効率的に要件を満たしています。"
+      }
+    ],
+    "keywords": [
+      "Amazon EC2",
+      "Amazon EBS",
+      "Amazon S3",
+      "AWS Systems Manager",
+      "IAM Role"
+    ]
+  },
+  {
+    "No": "96",
+    "question": "あるソリューションアーキテクトは、新しいAmazon S3バケットに保存されるオブジェクトのクライアント側暗号化メカニズムを実装する必要があります。ソリューションアーキテクトは、この目的のためにAWS Key Management Service (AWS KMS) に保存されているCMKを作成しました。\nソリューションアーキテクトは以下のIAMポリシーを作成し、IAMロールにアタッチしました:\n\nテスト中、ソリューションアーキテクトはS3バケット内の既存テストオブジェクトを正常に取得できましたが、新しいオブジェクトをアップロードしようとした際にはエラーメッセージが表示されました。このエラーメッセージは、その操作は禁止されていると述べています。\n\nすべての要件を満たすために、ソリューションアーキテクトはIAMポリシーにどの操作を追加する必要がありますか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "kms:GenerateDataKey"
+      },
+      {
+        "key": "B",
+        "text": "kms:GetKeyPolicy"
+      },
+      {
+        "key": "C",
+        "text": "kms:GetPublicKey"
+      },
+      {
+        "key": "D",
+        "text": "kms:Sign"
+      }
+    ],
+    "answer_key": "A",
+    "explanation_en": [
+      {
+        "answer_and_key_points": "The correct answer is A (kms:GenerateDataKey). This action is required to enable client-side encryption when uploading objects to Amazon S3. The kms:GenerateDataKey operation generates a unique data encryption key for each object.",
+        "situation_analysis": "The solutions architect needs to implement client-side encryption using AWS KMS for an S3 bucket. The error occurs when uploading an object, which indicates a permissions issue related to data key generation.",
+        "option_analysis": "Option A (kms:GenerateDataKey): Correct. This allows the generation of data keys that are necessary for encrypting objects client-side.\nOption B (kms:GetKeyPolicy): Incorrect. This action retrieves the key policy but does not enable encryption.\nOption C (kms:GetPublicKey): Incorrect. This action is used for asymmetric CMKs.\nOption D (kms:Sign): Incorrect. This action is unrelated to encryption or data key generation.",
+        "additional_knowledge": "The AWS SDKs and tools handle the interaction with AWS KMS and data key generation for client-side encryption. It is critical to ensure that IAM policies are correctly configured to prevent runtime errors related to encryption operations.",
+        "key_terminology": "Client-Side Encryption, CMK, AWS KMS, S3 Buckets, IAM Policy",
+        "overall_assessment": "This question tests understanding of AWS KMS operations and how permissions impact client-side encryption in Amazon S3. The error message correctly guides towards identifying a missing action in the policy."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "正しい回答はA（kms:GenerateDataKey）である。このアクションはAmazon S3にオブジェクトをアップロードする際にクライアント側暗号化を有効にするために必要である。kms:GenerateDataKey操作により、各オブジェクトに対して一意のデータ暗号化キーが生成される。",
+        "situation_analysis": "ソリューションアーキテクトは、AWS KMSを使用したクライアント側暗号化をS3バケットに実装する必要がある。オブジェクトアップロード時にエラーが発生しており、これはデータキー生成に関連する権限の問題を示している。",
+        "option_analysis": "オプションA（kms:GenerateDataKey）：正解。この操作は、クライアント側でオブジェクト暗号化に必要なデータキーを生成することを可能にする。\nオプションB（kms:GetKeyPolicy）：不正解。このアクションはキーのポリシーを取得するためのもので、暗号化を可能にするものではない。\nオプションC（kms:GetPublicKey）：不正解。この操作は非対称CMK向けのものである。\nオプションD（kms:Sign）：不正解。この操作は暗号化やデータキー生成とは無関係である。",
+        "additional_knowledge": "AWS SDKやツールは、AWS KMSとの連携やクライアント側暗号化のためのデータキー生成を処理する。暗号化操作に関連する実行時エラーを防止するためには、IAMポリシーを適切に設定することが重要である。",
+        "key_terminology": "クライアント側暗号化, CMK, AWS KMS, S3 バケット, IAM ポリシー",
+        "overall_assessment": "この問題は、AWS KMS操作に対する理解と、Amazon S3でクライアント側暗号化を行う際の権限の影響をテストする。エラーメッセージはポリシー内の不足しているアクションを特定するために役立つものとなっている。"
+      }
+    ],
+    "keywords": [
+      "AWS KMS",
+      "IAM Policy",
+      "S3 Bucket",
+      "kms:GenerateDataKey",
+      "Client-Side Encryption"
+    ]
+  }
+]

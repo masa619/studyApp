@@ -1,0 +1,298 @@
+[
+  {
+    "No": "6",
+    "question": "小売業者は、ビジネスパートナーである別の会社にデータファイルのシリーズを提供する必要があります。 これらのファイルは、小売業者に属するアカウントAでAmazon S3バケットに保存されています。 ビジネスパートナー会社は、その独自のAWSアカウント（アカウントB）から、User_DataProcessorというIAMユーザーがファイルにアクセスできるようにしたいと考えています。\nUser_DataProcessorがS3バケットに正常にアクセスできるようにするために、企業はどのステップの組み合わせを実施する必要がありますか？（2つ選択してください。）",
+    "choices": [
+      {
+        "key": "A",
+        "text": "アカウントAのS3バケットで、クロスオリジンリソース共有（CORS）機能をオンにします。"
+      },
+      {
+        "key": "B",
+        "text": "アカウントAで、S3バケットポリシーを次のように設定します：[image_1_0] [image_1_1] [image_1_2]"
+      },
+      {
+        "key": "C",
+        "text": "アカウントAで、S3バケットポリシーを次のように設定します：[image_1_0] [image_1_1] [image_1_2]"
+      },
+      {
+        "key": "D",
+        "text": "アカウントBで、User_DataProcessorのアクセス許可を次のように設定します：[image_1_0] [image_1_1] [image_1_2]"
+      },
+      {
+        "key": "E",
+        "text": "アカウントBで、User_DataProcessorのアクセス許可を次のように設定します：[image_1_0] [image_1_1] [image_1_2]"
+      }
+    ],
+    "answer_key": "D",
+    "community_vote_distribution": "C (73%) D (23%)",
+    "page_images": [
+      "image_1_0.png",
+      "image_1_1.png",
+      "image_1_2.png",
+      "image_1_3.png"
+    ],
+    "explanation": {
+      "Answer and Key Points": "正しい答え：D\n主なポイント：User_DataProcessorがS3バケットにアクセスするためには、アカウントBでUser_DataProcessorのアクセス許可を適切に設定する必要があります。",
+      "Situation Analysis": "このシナリオでは、User_DataProcessorがS3バケットにアクセスするために必要な手順について尋ねられています。",
+      "Option Analysis": {
+        "A": "オプションA：クロスオリジンリソース共有（CORS）機能をオンにする必要はありません。",
+        "B": "オプションB：S3バケットのポリシー設定は適切な手順ではありません。",
+        "C": "オプションC：S3バケットのポリシー設定は適切な手順ではありません。",
+        "D": "オプションD：User_DataProcessorのアクセス許可をアカウントBで適切に設定することが必要です。",
+        "E": "オプションE：User_DataProcessorのアクセス許可をアカウントBで適切に設定することが必要です。"
+      },
+      "Additional Knowledge": "User_DataProcessorがS3バケットにアクセスできるようにするためには、適切なIAMポリシーをUser_DataProcessorに割り当てる必要があります。",
+      "Key Terminology": [
+        "Amazon S3 (Amazon S3)",
+        "IAM User (IAMユーザー)",
+        "Bucket Policy (バケットポリシー)",
+        "Access Permissions (アクセス権限)"
+      ],
+      "Overall Assessment": "この問題では、User_DataProcessorが他のAWSアカウントのS3バケットにアクセスするための必要な手順について尋ねられています。正しい答えはオプションDです。Communityの選択肢の分布には過半数がオプションCを選択していますが、実際にはオプションDが正解です。"
+    }
+  },
+  {
+    "No": "32",
+    "question": "会社は、開発者がAmazon EC2、Amazon S3、Amazon DynamoDBのみを使用するように制約するためにAWS Organizationsを実装しています。 開発者のアカウントは専用の組織単位（OU）にあります。 ソリューションアーキテクトは、開発者のアカウントに以下のSCPを実装しました:\nこのポリシーを展開すると、開発者アカウントのIAMユーザーは、ポリシーにリストされていないAWSサービスを使用することができます。\nこのポリシーの範囲外のサービスの使用権限を開発者が排除するために、ソリューションアーキテクトは何をすべきですか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "制約すべき各AWSサービスに対して明示的な拒否ステートメントを作成します。"
+      },
+      {
+        "key": "B",
+        "text": "開発者アカウントのOUからFullAWSAccess SCPを削除します。"
+      },
+      {
+        "key": "C",
+        "text": "FullAWSAccess SCPを修正してすべてのサービスを明示的に拒否します。"
+      },
+      {
+        "key": "D",
+        "text": "SCPの末尾にワイルドカードを使用した明示的な拒否ステートメントを追加します。 [image_2_0]"
+      }
+    ],
+    "answer_key": "A",
+    "community_vote_distribution": "B（81%）その他",
+    "page_images": [
+      "image_2_0.png"
+    ],
+    "explanation": {
+      "Answer and Key Points": {
+        "answer": "A",
+        "key_points": [
+          "開発者がポリシーの範囲外のサービスを使用できる能力を排除するために、各AWSサービスに対して明示的な拒否ステートメントを作成する必要があります。"
+        ]
+      },
+      "Situation Analysis": {
+        "key_requirements": [
+          "開発者をAmazon EC2、Amazon S3、Amazon DynamoDBのみの使用に制約する"
+        ],
+        "constraints": [
+          "現在、ポリシーが展開されても開発者はポリシーにリストされていないAWSサービスを使用できる"
+        ]
+      },
+      "Option Analysis": {
+        "A": {
+          "justification": "このオプションは、開発者がポリシーの範囲外のサービスを使用できる能力を排除するために最も適切です。各AWSサービスに対して明示的な拒否ステートメントを作成することで、制約を実現できます。",
+          "alignment_with_best_practices": "AWSベストプラクティスに従い、必要なサービスに対してのみアクセスを許可すべきであり、安全に使用するための方法を開発者に指示するべきです。"
+        },
+        "B": {
+          "justification": "FullAWSAccess SCPを削除することは、ポリシー全体を削除することと同等であり、開発者が望むサービスにアクセスできるようになります。したがって、このオプションは適切ではありません。"
+        },
+        "C": {
+          "justification": "FullAWSAccess SCPを修正してすべてのサービスを拒否することは、管理の柔軟性を損なう結果を招きます。具体的なサービスに対してのみ拒否ステートメントを作成するのが望ましいです。"
+        },
+        "D": {
+          "justification": "ワイルドカードを使用した明示的な拒否ステートメントを末尾に追加することは、ポリシーの表現力を制限し、管理を複雑にします。明確かつ具体的な制約を加えるためには各AWSサービスに対しての明示的な拒否が必要です。"
+        }
+      },
+      "Additional Knowledge": {
+        "detailed_info": "SCP（サービス制御ポリシー）を適切に設定することで、AWSサービスの使用を細かく制御できます。明示的な許可および拒否ステートメントの設定は、セキュリティとコスト管理の両面で重要です。",
+        "practical_insights": "開発者の行動範囲を正確に制御するために、ポリシーの構築には慎重さが必要です。特定のサービスにだけアクセスを許可するステートメントを作成することで、セキュリティを強化できます。"
+      },
+      "Key Terminology": [
+        "AWS Organizations (AWS組織)",
+        "Service Control Policies (SCP) - サービス制御ポリシー",
+        "IAM (Identity and Access Management) - アイデンティティとアクセス管理",
+        "Explicit deny statement - 明示的な拒否ステートメント"
+      ],
+      "Overall Assessment": {
+        "commentary": "この問題に関して、正しい回答はAです。開発者が望むサービスの範囲外を利用できないように確保するために、各AWSサービスに対して明示的な拒否ステートメントを作成するのが最適な方法です。コミュニティの過半数がBを選択している一方、正解であるAを選んでいる人も多いため、正解となるAを選択することが重要です。"
+      }
+    }
+  },
+  {
+    "No": "57",
+    "question": "複数のAWSアカウントを持つ会社が、AWS Organizationsとサービスコントロールポリシー（SCP）を使用しています。管理者は以下のSCPを作成し、AWSアカウント1111-1111-1111を含む組織単位（OU）に添付しました。\nAWSアカウント1111-1111-1111で作業する開発者たちがAmazon S3バケットを作成できないと苦情を言っています。管理者はこの問題にどのように対処すべきですか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "SCPにs3:CreateBucketと“Allow”効果を追加する。[image_3_0]"
+      },
+      {
+        "key": "B",
+        "text": "アカウントをOUから削除し、SCPを直接アカウント1111-1111-1111に添付します。"
+      },
+      {
+        "key": "C",
+        "text": "開発者にIAMエンティティにAmazon S3権限を追加するように指示します。"
+      },
+      {
+        "key": "D",
+        "text": "SCPをアカウント1111-1111-1111から削除します。"
+      }
+    ],
+    "answer_key": "C",
+    "community_vote_distribution": "C (84%) A (16%)",
+    "page_images": [
+      "image_3_0.png"
+    ],
+    "explanation": {
+      "answer_and_key_points": {
+        "correct_answer": "C",
+        "core_concepts": "この問題では、AWS Organizationsとサービスコントロールポリシー（SCP）を使用して複数のAWSアカウントを管理しています。開発者がAmazon S3バケットを作成できない問題は、SCPによって制約されている可能性があります。",
+        "decision_points": "正しい対処法は、開発者にIAMエンティティにAmazon S3権限を追加するように指示することです。SCPはアカウント全体に影響を与える可能性があるため、SCPから変更を加える前に開発者側での対応を検討する必要があります。"
+      },
+      "situation_analysis": {
+        "key_requirements": "開発者がAmazon S3バケットを作成できない",
+        "constraints": "SCPによる制約が考えられる"
+      },
+      "option_analysis": {
+        "justification": {
+          "correct_answer": "正しい答えは、SCPに変更を加えるのではなく、開発者にIAMエンティティに適切な権限を追加する指示をすることです。SCPは全体を規制するため、個別のアクセス権を持つ開発者が対応するのが適切です。",
+          "incorrect_answers": [
+            {
+              "option": "A",
+              "explanation": "誤った選択肢です。SCPを変更することで他のアカウントにも影響を及ぼす可能性があるため、開発者に個別の権限を追加するべきです。"
+            },
+            {
+              "option": "B",
+              "explanation": "誤った選択肢です。SCPをアカウントから削除することでセキュリティ上のリスクが増す可能性があります。"
+            },
+            {
+              "option": "D",
+              "explanation": "誤った選択肢です。SCPを削除しても問題を解決することはできません。"
+            }
+          ]
+        }
+      },
+      "additional_knowledge": {
+        "aws_service_information": "AWS Organizationsとサービスコントロールポリシー（SCP）を使用することで、複数のAWSアカウントを集中的に管理し、セキュリティを向上させることができます。開発者に直接必要なアクセス権を与えることで、運用効率を高めることが重要です。",
+        "practical_application_insights": "SCPは全体のセキュリティポリシーを一元管理するため、遵守要件やセキュリティ要件に応じて適切に設計する必要があります。開発者との連携を密に行いながら、適切なアクセス権の付与を行っていくことが重要です。",
+        "alternative_approaches": "SCPの設計を見直し、より細かい単位での制御を行うことで、開発者が必要な機能を確保しつつセキュリティを担保することができます。"
+      },
+      "key_terminology": [
+        "AWS Organizations (AWS組織)",
+        "Service Control Policies (サービスコントロールポリシー)",
+        "Amazon S3 buckets (Amazon S3バケット)",
+        "IAM entities (IAMエンティティ)"
+      ],
+      "overall_assessment": {
+        "commentary": "この問題では、SCPを通じたアクセス制御やIAM権限の重要性が問われています。開発者が必要な作業を円滑に行うためには、適切な権限設定が不可欠です。",
+        "community_vs_official": "Communityの投票結果が84%が選択した選択肢Cが正解であることから、公式回答と一致しています。運用上のセキュリティリスクを最小限に抑えながら、開発者の作業を支援するためにIAM権限の管理は重要です。"
+      }
+    },
+    "keywords": [
+      "AWS Organizations (AWS組織)",
+      "Service Control Policies (サービスコントロールポリシー)",
+      "Amazon S3 buckets (Amazon S3バケット)",
+      "IAM entities (IAMエンティティ)"
+    ]
+  },
+  {
+    "No": "58",
+    "question": "会社は、会社のビジネスに重要なモノリシックアプリケーションを持っています。会社は、Amazon EC2インスタンス上でAmazon Linux 2を実行してアプリケーションをホストしています。会社のアプリケーションチームは、法務部門から、インスタンスの暗号化された Amazon Elastic Block Store（Amazon EBS）ボリュームのデータを Amazon S3 バケットにバックアップするよう指示を受けました。アプリケーションチームには、インスタンスの管理用SSH鍵ペアがありません。アプリケーションは引き続きユーザーに提供する必要があります。これらの要件を満たす解決策はどれですか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Amazon S3 に書き込む権限を持つロールをインスタンスにアタッチします。AWS Systems Manager セッションマネージャーオプションを使用して、インスタンスに管理的にアクセスします。[image_3_0]を参照。"
+      },
+      {
+        "key": "B",
+        "text": "再起動オプションをオンにしたインスタンスのイメージを作成します。そのイメージから新しい EC2 インスタンスを起動します。新しいインスタンスに Amazon S3 に書き込む権限を持つロールをアタッチします。"
+      },
+      {
+        "key": "C",
+        "text": "Amazon Data Lifecycle Manager (Amazon DLM) を使用して EBS ボリュームのスナップショットを取得します。データを Amazon S3 にコピーします。"
+      },
+      {
+        "key": "D",
+        "text": "インスタンスのイメージを作成します。そのイメージから新しい EC2 インスタンスを起動します。新しいインスタンスに Amazon S3 に書き込む権限を持つロールをアタッチします。"
+      }
+    ],
+    "answer_key": "A",
+    "community_vote_distribution": "A (63%) C (36%)",
+    "page_images": [
+      "image_3_0.png"
+    ],
+    "explanation": {
+      "Answer and Key Points": "正しい答えは、運用を中断することなく Amazon S3 にデータをバックアップするために、インスタンスに Amazon S3 に書き込む権限を持つロールをアタッチし、AWS Systems Manager セッションマネージャーオプションを使用して管理的なアクセスを取得することです。",
+      "Situation Analysis": "会社は重要なモノリシックアプリケーションを実行しており、法務部門からインスタンスのデータを Amazon S3 にバックアップするよう指示を受けています。アプリケーションチームには管理用 SSH 鍵がないため、適切なアプローチが必要です。",
+      "Option Analysis": {
+        "A": "適切な解決策であり、他のオプションでは達成できない要件を満たします。AWS のベストプラクティスに準拠しており、データのバックアップを確実に行います。",
+        "B": "再起動オプションを使用して新しいインスタンスを作成する方法は、アプリケーションの運用中断を伴います。また、ロールのアタッチ方法も異なります。",
+        "C": "EBS ボリュームのスナップショットを取る方法であり、インスタンスが運用を維持できるわけではありません。また、直接 Amazon S3 にデータをバックアップする手段ではありません。",
+        "D": "新しいインスタンスを起動してロールをアタッチする方法ですが、運用を中断する必要があります。また、管理的なアクセスも異なります。"
+      },
+      "Additional Knowledge": "AWS Systems Manager セッションマネージャーオプションを使用することで、管理的なアクセスを容易に確立できます。また、Amazon S3 にデータをバックアップするためには、適切な権限が必要です。",
+      "Key Terminology": [
+        "Amazon EC2 (アマゾン イーシーアール イー)",
+        "Amazon S3 (アマゾン エススリー)",
+        "Amazon EBS (アマゾン イービーエス)",
+        "AWS Systems Manager (AWS システムズ マネージャー)"
+      ],
+      "Overall Assessment": "この問題は、AWS 環境でのデータバックアップとアクセス管理に関する重要な要件を扱っており、解答は適切です。コミュニティの投票分布にも合致しています。"
+    },
+    "keywords": [
+      "Amazon EC2 (アマゾン イーシーアール イー)",
+      "Amazon S3 (アマゾン エススリー)",
+      "Amazon EBS (アマゾン イービーエス)",
+      "AWS Systems Manager (AWS システムズ マネージャー)"
+    ]
+  },
+  {
+    "No": "96",
+    "question": "ソリューションアーキテクトは、新しいAmazon S3バケットに保存されるオブジェクトに対してクライアントサイドの暗号化メカニズムを実装する必要があります。ソリューションアーキテクトは、この目的のためにAWS Key Management Service（AWS KMS）に保存されているCMKを作成しました。\n\nソリューションアーキテクトは、次のIAMポリシーを作成し、IAMロールにアタッチしました。\n\nテスト中、ソリューションアーキテクトはS3バケット内の既存のテストオブジェクトを正常に取得できました。しかし、新しいオブジェクトをアップロードしようとすると、エラーメッセージが表示されました。エラーメッセージには、アクションが拒否されたと記載されていました。\n\nすべての要件を満たすために、ソリューションアーキテクトがIAMポリシーに追加する必要があるアクションはどれですか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "kms:GenerateDataKey"
+      },
+      {
+        "key": "B",
+        "text": "kms:GetKeyPolicy"
+      },
+      {
+        "key": "C",
+        "text": "kms:GetPublicKey"
+      },
+      {
+        "key": "D",
+        "text": "kms:Sign"
+      }
+    ],
+    "answer_key": "A",
+    "community_vote_distribution": "A (100%)",
+    "page_images": [
+      "image_4_0.png"
+    ],
+    "explanation": {
+      "Answer and Key Points": "正解は'A'です。新しいオブジェクトをアップロードするには、'kms:GenerateDataKey'アクションをIAMポリシーに追加する必要があります。",
+      "Situation Analysis": "ソリューションアーキテクトは、新しいS3バケットに保存されるオブジェクトに対してクライアントサイドの暗号化を実装する必要があります。",
+      "Option Analysis": {
+        "A": "正しい：新しいオブジェクトの暗号化キーを生成するために必要です。",
+        "B": "不正解：キーのポリシーを取得する権限であり、新しいオブジェクトのアップロードには関連がありません。",
+        "C": "不正解：公開鍵を取得する権限であり、暗号化処理には直接関連しません。",
+        "D": "不正解：サインとは関連のないアクションです。"
+      },
+      "Additional Knowledge": "AWS KMSを使用して新しいオブジェクトを暗号化する場合、'kms:GenerateDataKey'アクションが必要です。これにより、オブジェクトの暗号化キーが生成されます。",
+      "Key Terminology": [
+        "AWS KMS (AWS Key Management Service) - AWS Key Management Service（AWS KMS）",
+        "GenerateDataKey (kms:GenerateDataKey) - 暗号化キーを生成する"
+      ],
+      "Overall Assessment": "この問題における正しい答えは'A'であり、新しいオブジェクトを暗号化するためには'kms:GenerateDataKey'アクションが必要です。解説やコミュニティの投票結果とも一致しています。"
+    }
+  }
+]

@@ -1,0 +1,13 @@
+2024-11-25 09:24:51,183 - ERROR - JSONLファイルの形式が不正です（行: 1）: Unterminated string starting at: line 1 column 155 (char 154)
+2024-11-25 09:45:12,139 - INFO - JSONLファイルの形式は正常です
+2024-11-25 09:45:12,139 - INFO - ファイルサイズは正常です: 0.02MB
+2024-11-25 09:45:12,140 - ERROR - OpenAIエラー: 
+
+You tried to access openai.File, but this is no longer supported in openai>=1.0.0 - see the README at https://github.com/openai/openai-python for the API.
+
+You can run `openai migrate` to automatically upgrade your codebase to use the 1.0.0 interface. 
+
+Alternatively, you can pin your installation to the old version, e.g. `pip install openai==0.28`
+
+A detailed migration guide is available here: https://github.com/openai/openai-python/discussions/742
+

@@ -1,0 +1,5 @@
+2024-11-26 11:02:56,290 - exec_batchAPI - INFO - ジョブ作成成功 - ジョブID: batch_67452c4fce6c8190a3ea9047be55f53b
+2024-11-26 11:02:56,781 - exec_batchAPI - INFO - ジョブステータス取得: validating
+2024-11-26 11:02:56,782 - exec_batchAPI - INFO - ジョブステータス: validating - 待機中...
+2024-11-26 11:03:27,189 - exec_batchAPI - INFO - ジョブステータス取得: failed
+2024-11-26 11:03:27,190 - exec_batchAPI - ERROR - ジョブエラーの詳細: Errors(data=[BatchError(code='token_limit_exceeded', line=None, message='Enqueued token limit reached for gpt-4o-2024-11-20 in organization org-I1RzwRyPZjqKajv71LJjcHPF. Limit: 90,000 enqueued tokens. Please try again once some in_progress batches have been completed.', param=None)], object='list')

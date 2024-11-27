@@ -1,0 +1,311 @@
+[
+  {
+    "No": "6",
+    "question": "小売業者は、ビジネスパートナーである別の会社に一連のデータファイルを提供する必要があります。これらのファイルは、小売業者に属するAccount AのAmazon S3バケットに保存されています。ビジネスパートナー企業は、自身のAWSアカウント（Account B）から、そのIAMユーザーであるUser_DataProcessorがファイルにアクセスできるようにしたいと考えています。\nUser_DataProcessorがS3バケットに正常にアクセスできるようにするには、会社はどの手順の組み合わせを踏む必要がありますか？（2つ選択してください）",
+    "choices": [
+      {
+        "key": "A",
+        "text": "S3バケット内のCORS（クロスオリジンリソース共有）機能を有効にします（Account Aで）。"
+      },
+      {
+        "key": "B",
+        "text": "Account Aで、次のようにS3バケットポリシーを設定します： [image_1_0] [image_1_1] [image_1_2]"
+      },
+      {
+        "key": "C",
+        "text": "Account Aで、次のようにS3バケットポリシーを設定します： [image_1_0] [image_1_1] [image_1_2]"
+      },
+      {
+        "key": "D",
+        "text": "Account Bで、User_DataProcessorの権限を次のように設定します： [image_1_0] [image_1_1] [image_1_2]"
+      },
+      {
+        "key": "E",
+        "text": "Account Bで、User_DataProcessorの権限を次のように設定します： [image_1_0] [image_1_1] [image_1_2]"
+      }
+    ],
+    "answer_key": "D",
+    "community_vote_distribution": "C (73%) D (23%)",
+    "page_images": [
+      "image_1_0.png",
+      "image_1_1.png",
+      "image_1_2.png",
+      "image_1_3.png"
+    ],
+    "explanation": {
+      "Answer and Key Points": {
+        "Correct Answer": "D",
+        "Key Points": [
+          "User_DataProcessor needs to access the S3 bucket in Account A from its own AWS account (Account B).",
+          "The permissions to access the S3 bucket should be set in Account B where the user is located."
+        ]
+      },
+      "Situation Analysis": {
+        "Key Requirements": [
+          "Provide access to S3 bucket in Account A for User_DataProcessor from Account B."
+        ],
+        "Constraints and Considerations": [
+          "Ensuring secure access to the S3 bucket from another AWS account."
+        ]
+      },
+      "Option Analysis": {
+        "A": {
+          "Explanation": "Turning on CORS feature does not directly address the requirement of allowing User_DataProcessor from Account B to access the S3 bucket in Account A. CORS is typically used for web applications.",
+          "Alignment with Best Practices": "Not aligned with best practices for granting cross-account access."
+        },
+        "B": {
+          "Explanation": "Setting the S3 bucket policy in Account A does not grant permissions for User_DataProcessor from Account B to access the bucket.",
+          "Alignment with Best Practices": "Not aligned with best practices for cross-account access."
+        },
+        "C": {
+          "Explanation": "Setting the S3 bucket policy in Account A does not grant permissions for User_DataProcessor from Account B to access the bucket.",
+          "Alignment with Best Practices": "Not aligned with best practices for cross-account access."
+        },
+        "D": {
+          "Explanation": "The correct option is to set the permissions of User_DataProcessor in Account B to access the S3 bucket in Account A. This aligns with the requirement of allowing access from the user's own AWS account.",
+          "Alignment with Best Practices": "Aligns with best practices for granting cross-account access."
+        },
+        "E": {
+          "Explanation": "Setting permissions in Account B does not directly address the requirement of allowing access to the S3 bucket in Account A.",
+          "Alignment with Best Practices": "Not aligned with best practices for cross-account access."
+        }
+      },
+      "Additional Knowledge": {
+        "Detailed Information": "For cross-account access to an S3 bucket, the permissions need to be granted in the account where the user resides, not where the S3 bucket is located.",
+        "Practical Insights": "Always verify and test cross-account access configurations to ensure proper functionality and security.",
+        "Alternative Approaches": "IAM roles could also be considered for cross-account access scenarios."
+      },
+      "Key Terminology": [
+        "Amazon S3 (Amazon Simple Storage Service) - Amazon S3（Amazon Simple Storage Service）",
+        "CORS (Cross-Origin Resource Sharing) - CORS（クロスオリジンリソース共有）",
+        "IAM User - IAMユーザー",
+        "S3 Bucket - S3バケット",
+        "Permissions - 権限",
+        "Cross-Account Access - クロスアカウントアクセス",
+        "IAM Role - IAMロール"
+      ],
+      "Overall Assessment": {
+        "Expert Commentary": "Setting the permissions of User_DataProcessor in Account B is the correct way to allow access to the S3 bucket in Account A. This approach aligns with best practices for granting cross-account access.",
+        "Answer Discrepancy Analysis": "The community vote distribution shows that option C was selected by 73% of voters, which indicates a common misconception. However, the correct approach is to set permissions in the user's own account, Account B."
+      }
+    }
+  },
+  {
+    "No": "32",
+    "question": "ある会社は、開発者がAmazon EC2、Amazon S3、およびAmazon DynamoDBのみを使用するよう制約するために、AWS Organizationsの導入プロセスに取り組んでいます。 開発者アカウントは専用の組織単位（OU）にあります。 ソリューションアーキテクトは、開発者アカウントに以下のSCPを実装しました。 このポリシーが展開されると、開発者アカウントのIAMユーザーは、ポリシーにリストされていないAWSサービスを使用することができます。 このポリシーの範囲外のサービスの使用能力を排除するために、ソリューションアーキテクトは何をすべきですか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "制約すべき各AWSサービスに対して明示的な拒否ステートメントを作成します。"
+      },
+      {
+        "key": "B",
+        "text": "開発者アカウントのOUからFullAWSAccess SCPを削除します。"
+      },
+      {
+        "key": "C",
+        "text": "FullAWSAccess SCPを変更して、すべてのサービスを明示的に拒否します。"
+      },
+      {
+        "key": "D",
+        "text": "SCPの最後にワイルドカードを使用した明示的な拒否ステートメントを追加します。[image_2_0]"
+      }
+    ],
+    "answer_key": "A",
+    "community_vote_distribution": "B (81%) その他",
+    "page_images": [
+      "image_2_0.png"
+    ],
+    "explanation": {
+      "Answer and Key Points": "正解はオプションAです。明示的な拒否ステートメントを各AWSサービスに作成することで、ポリシーの範囲外のサービスの使用を制限できます。",
+      "Situation Analysis": "開発者をAmazon EC2、Amazon S3、およびAmazon DynamoDBのみの使用に制約したいという要件があります。しかし、現在のポリシーではリストされていないAWSサービスも使用できてしまっています。",
+      "Option Analysis": {
+        "A": "各AWSサービスに対して明示的な拒否ステートメントを作成することで、ポリシーの範囲外のサービスの使用を制限できます。これにより、要件を満たすことができます。",
+        "B": "FullAWSAccess SCPを削除することでは、特定のAWSサービスの制約がうまくいかない可能性があります。",
+        "C": "FullAWSAccess SCPを変更してすべてのサービスを明示的に拒否すると、必要なサービスも使用できなくなる可能性があります。",
+        "D": "ワイルドカードを使用した明示的な拒否ステートメントを追加することで、制約が正しく適用されるとは限りません。"
+      },
+      "Additional Knowledge": "AWS Organizationsを使用することで、組織全体でポリシーを中央集権的に管理し、適用することができます。ポリシーごとに適切な範囲を設定し、明示的な許可および拒否ステートメントを活用することが重要です。",
+      "Key Terminology": [
+        "AWS Organizations (AWS組織)",
+        "Amazon EC2 (Amazon Elastic Compute Cloud) - アマゾン イーシーアス",
+        "Amazon S3 (Amazon Simple Storage Service) - アマゾン エススリー",
+        "Amazon DynamoDB - アマゾン ダイナモデータベース",
+        "SCP (Service Control Policies) - サービスコントロールポリシー"
+      ],
+      "Overall Assessment": "この問題において、正しいアプローチはAWS OrganizationsのSCPを適切に構成することです。オプションAが必要な制約を満たしており、最適な選択肢です。コミュニティの回答としてBが81%で選択されていますが、開発者が制限されるべきAWSサービスに対して明示的な拒否ステートメントを作成する必要があります。",
+      "keywords": [
+        "AWS Organizations (AWS組織)",
+        "Amazon EC2 (Amazon Elastic Compute Cloud) - アマゾン イーシーアス",
+        "Amazon S3 (Amazon Simple Storage Service) - アマゾン エススリー",
+        "Amazon DynamoDB - アマゾン ダイナモデータベース",
+        "SCP (Service Control Policies) - サービスコントロールポリシー"
+      ]
+    }
+  },
+  {
+    "No": "57",
+    "question": "AWSアカウントを複数持つ会社がAWS Organizationsとサービス制御ポリシー（SCP）を使用しています。管理者は次のSCPを作成し、AWSアカウント1111-1111-1111を含む組織単位（OU）にアタッチしました:\n\nAWSアカウント1111-1111-1111で作業している開発者から、Amazon S3バケットを作成できないとの苦情が寄せられています。管理者はこの問題にどのように対処すべきですか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "SCPにs3:CreateBucketを“Allow”効果で追加します。 [image_3_0]"
+      },
+      {
+        "key": "B",
+        "text": "AWSアカウントをOUから削除し、SCPを直接AWSアカウント1111-1111-1111にアタッチします。"
+      },
+      {
+        "key": "C",
+        "text": "開発者にIAMエンティティにAmazon S3のアクセス権を追加するよう指示します。"
+      },
+      {
+        "key": "D",
+        "text": "SCPをAWSアカウント1111-1111-1111から削除します。"
+      }
+    ],
+    "answer_key": "C",
+    "community_vote_distribution": "C (84%) A (16%)",
+    "page_images": [
+      "image_3_0.png"
+    ],
+    "explanation": {
+      "answer_and_key_points": {
+        "japanese": "正しい答えは、開発者にIAMエンティティにAmazon S3のアクセス権を追加するよう指示することです。",
+        "english": "The correct answer is to instruct the developers to add Amazon S3 permissions to their IAM entities."
+      },
+      "situation_analysis": {
+        "japanese": "開発者はAWSアカウント1111-1111-1111でAmazon S3バケットを作成できません。SCPが適用されているOUには制限があり、開発者が必要なアクセス権を持っていません。",
+        "english": "Developers working in account 1111-1111-1111 are unable to create Amazon S3 buckets. The OU to which the SCP is applied has restrictions that prevent developers from having the necessary permissions."
+      },
+      "option_analysis": {
+        "japanese": {
+          "A": "誤り。SCPにs3:CreateBucketを追加することは正しいアプローチではありません。",
+          "B": "誤り。OUからAWSアカウントを削除すると、SCPがアカウントに適用されなくなります。",
+          "C": "正解。開発者にIAMエンティティにAmazon S3のアクセス権を追加する指示を出す必要があります。",
+          "D": "誤り。SCPを削除することは問題を解決しません。"
+        },
+        "english": {
+          "A": "Incorrect. Adding s3:CreateBucket to the SCP is not the correct approach.",
+          "B": "Incorrect. Removing the account from the OU will result in the SCP not being applied to the account.",
+          "C": "Correct. It is necessary to instruct the developers to add Amazon S3 permissions to their IAM entities.",
+          "D": "Incorrect. Removing the SCP will not solve the issue."
+        }
+      },
+      "additional_knowledge": {
+        "japanese": "AWS Identity and Access Management（IAM）を使用してIAMエンティティに必要なアクセス権を付与することで、開発者が必要な権限を取得できます。",
+        "english": "By using AWS Identity and Access Management (IAM) to grant the necessary permissions to IAM entities, developers can acquire the required privileges."
+      },
+      "key_terminology": [
+        "AWS Identity and Access Management (IAM) (AWS Identity and Access Management（IAM）)",
+        "Amazon S3 (Amazon S3)"
+      ],
+      "overall_assessment": {
+        "japanese": "問題の質は高く、適切な解決策を見極める必要がありました。コミュニティの投票分布が84%が正解となっており、正しい回答に近い結果と言えます。",
+        "english": "The question is of high quality and required careful consideration to determine the correct solution. The community vote distribution of 84% for the correct answer indicates a result close to the correct answer."
+      }
+    },
+    "keywords": [
+      "AWS Organizations (AWS Organizations)",
+      "Service Control Policies (SCP) (サービス制御ポリシー)",
+      "IAM entities (IAMエンティティ)",
+      "Amazon S3 permissions (Amazon S3のアクセス権)",
+      "AWS Identity and Access Management (IAM) (AWS Identity and Access Management（IAM）)",
+      "Amazon S3 (Amazon S3)"
+    ]
+  },
+  {
+    "No": "58",
+    "question": "企業は、企業のビジネスに不可欠なモノリシックなアプリケーションを持っています。企業は、Amazon EC2で実行されているAmazon Linux 2インスタンスにアプリケーションをホストしています。法務部からの指示を受けたアプリケーションチームは、インスタンスの暗号化されたAmazon Elastic Block Store (Amazon EBS) ボリュームからデータをAmazon S3バケットにバックアップする必要があります。アプリケーションチームには、インスタンスの管理用SSHキーペアがありません。アプリケーションはユーザーにサービスを提供し続ける必要があります。これらの要件を満たすソリューションはどれですか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Amazon S3に書き込む権限を持つロールをインスタンスにアタッチします。 AWS Systems Managerセッションマネージャーオプションを使用して、インスタンスにアクセスします。[image_3_0]"
+      },
+      {
+        "key": "B",
+        "text": "再起動オプションをオンにしてインスタンスのイメージを作成します。そのイメージから新しいEC2インスタンスを起動します。新しいインスタンスにAmazon S3に書き込む権限を持つロールをアタッチします。"
+      },
+      {
+        "key": "C",
+        "text": "Amazon Data Lifecycle Manager (Amazon DLM)を使用してEBSボリュームのスナップショットを取得します。データをAmazon S3にコピーします。"
+      },
+      {
+        "key": "D",
+        "text": "インスタンスのイメージを作成します。そのイメージから新しいEC2インスタンスを起動します。新しいインスタンスにAmazon S3に書き込む権限を持つロールをアタッチします。"
+      }
+    ],
+    "answer_key": "A",
+    "community_vote_distribution": "A (63%) C (36%)",
+    "page_images": [
+      "image_3_0.png"
+    ],
+    "explanation": {
+      "Answer and Key Points": "正解はオプションAです。このソリューションでは、Amazon S3への書き込み権限を持つロールをインスタンスにアタッチし、AWS Systems Managerセッションマネージャーオプションを使用してアクセスできます。",
+      "Situation Analysis": "企業は重要なモノリシックなアプリケーションを運用しており、法務部からデータのバックアップ要件が与えられています。管理者用SSHキーペアがないため、運用を中断せずにデータをバックアップする必要があります。",
+      "Option Analysis": {
+        "A": "正しい答えです。Amazon S3への書き込み権限を持つロールをアタッチし、AWS Systems Managerセッションマネージャーオプションを使用してデータをバックアップします。",
+        "B": "再起動を伴う新しいインスタンスの作成は、アプリケーションの停止を伴うため、要件を満たしません。",
+        "C": "EBSボリュームのスナップショットは取得できますが、データをAmazon S3にバックアップするための手段としては適切ではありません。",
+        "D": "新しいインスタンスの起動は、問題の解決につながらないため、要件を満たしません。"
+      },
+      "Additional Knowledge": "AWS Systems Managerセッションマネージャーを使用することで、SSHキーを使用せずに安全にインスタンスにアクセスできます。",
+      "Key Terminology": [
+        "Amazon EC2 (アマゾン イーシーツー)",
+        "Amazon S3 (アマゾン エススリー)",
+        "Amazon EBS (アマゾン イービーエス)",
+        "AWS Systems Manager (AWS システムズ マネージャー)"
+      ],
+      "Overall Assessment": "この問題に対する解答は正確で適切です。コミュニティの投票結果とも一致しています。"
+    },
+    "keywords": [
+      "Amazon EC2 (アマゾン イーシーツー)",
+      "Amazon S3 (アマゾン エススリー)",
+      "Amazon EBS (アマゾン イービーエス)",
+      "AWS Systems Manager (AWS システムズ マネージャー)"
+    ]
+  },
+  {
+    "No": "96",
+    "question": "ソリューションアーキテクトは、新しいAmazon S3バケットに保存されるオブジェクト用のクライアントサイド暗号化メカニズムを実装する必要があります。この目的のために、ソリューションアーキテクトはAWS Key Management Service（AWS KMS）に格納されたCMKを作成しました。以下のIAMポリシーを作成し、IAMロールにアタッチしました。テスト中、ソリューションアーキテクトはS3バケット内の既存のテストオブジェクトを正常に取得することができました。ただし、新しいオブジェクトをアップロードしようとすると、アクションが拒否されたというエラーメッセージが表示されました。すべての要件を満たすために、ソリューションアーキテクトがIAMポリシーに追加する必要があるアクションはどれですか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "kms:GenerateDataKey"
+      },
+      {
+        "key": "B",
+        "text": "kms:GetKeyPolicy"
+      },
+      {
+        "key": "C",
+        "text": "kms:GetPublicKey"
+      },
+      {
+        "key": "D",
+        "text": "kms:Sign"
+      }
+    ],
+    "answer_key": "A",
+    "community_vote_distribution": "A (100%)",
+    "page_images": [
+      "image_4_0.png"
+    ],
+    "explanation": {
+      "Answer and Key Points": "正解はAです。これは、GenerateDataKeyアクションがオブジェクトを暗号化するために必要であり、新しいオブジェクトをアップロードする際に使用されます。",
+      "Situation Analysis": "ソリューションアーキテクトは、S3バケットにクライアントサイド暗号化メカニズムを実装する必要があります。既存のテストオブジェクトの取得は成功していますが、新しいオブジェクトのアップロードでエラーが発生しています。",
+      "Option Analysis": {
+        "A": "GenerateDataKeyは、オブジェクトを暗号化するために必要なアクションです。従って、正しい選択肢です。",
+        "B": "GetKeyPolicyは、キーのポリシーを取得するためのアクションです。暗号化操作に関するエラーを修正するためには関連性がありません。",
+        "C": "GetPublicKeyは、公開鍵を取得するためのアクションです。加えて、問題を解決するためには不要です。",
+        "D": "Signは、データに署名するためのアクションです。新しいオブジェクトのアップロードには関係ありません。"
+      },
+      "Additional Knowledge": "GenerateDataKeyアクションは、暗号化されたデータキーを生成するために使用され、クライアントサイド暗号化を実装するために重要です。",
+      "Key Terminology": [
+        "GenerateDataKey (データ鍵の生成)",
+        "Client-side encryption (クライアントサイド暗号化)"
+      ],
+      "Overall Assessment": "この問題では、GenerateDataKeyアクションが必要であることが問われており、正解は適切です。Communityの投票結果とも一致しています。"
+    }
+  }
+]

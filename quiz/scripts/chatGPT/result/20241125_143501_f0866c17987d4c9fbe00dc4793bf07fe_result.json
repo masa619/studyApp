@@ -1,0 +1,217 @@
+[
+  {
+    "id": "batch_req_67440c7c2ee081909c389c402aa6d8ae",
+    "custom_id": "request-1",
+    "response": {
+      "status_code": 200,
+      "request_id": "22c1c10eae01ae4141cb5fd68f56d417",
+      "body": {
+        "id": "chatcmpl-AXM1RYl1MhjytyTFwzlL0b5F4FIOk",
+        "object": "chat.completion",
+        "created": 1732512841,
+        "model": "gpt-3.5-turbo-0125",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "[\n    {\n        \"No\": \"6\",\n        \"question\": \"小売業者は、ビジネスパートナーである別の会社に一連のデータファイルを提供する必要があります。これらのファイルは、小売業者に属するアカウントAのAmazon S3バケットに保存されています。ビジネスパートナー企業は、そのIAMユーザーであるUser_DataProcessorが自社のAWSアカウント（アカウントB）からファイルにアクセスできるようにしたいと考えています。\\nUser_DataProcessorがS3バケットに正常にアクセスできるようにするために、企業が取る必要がある手順の組み合わせはどれですか？（選択肢を2つ選択してください。）\",\n        \"choices\": [\n            {\"key\": \"A\", \"text\": \"S3バケットにクロスオリジンリソース共有（CORS）機能をオンにします。\"},\n            {\"key\": \"B\", \"text\": \"アカウントAで、S3バケットポリシーを次のように設定します：[image_1_0] [image_1_1] [image_1_2]\"},\n            {\"key\": \"C\", \"text\": \"アカウントAで、S3バケットポリシーを次のように設定します：[image_1_0] [image_1_1] [image_1_2]\"},\n            {\"key\": \"D\", \"text\": \"アカウントBで、User_DataProcessorのアクセス許可を次のように設定します：[image_1_0] [image_1_1] [image_1_2]\"},\n            {\"key\": \"E\", \"text\": \"アカウントBで、User_DataProcessorのアクセス許可を次のように設定します：[image_1_0] [image_1_1] [image_1_2]\"}\n        ],\n        \"answer_key\": \"D\",\n        \"community_vote_distribution\": \"C (73%) D (23%)\",\n        \"page_images\": [\"image_1_0.png\", \"image_1_1.png\", \"image_1_2.png\", \"image_1_3.png\"],\n        \"explanation\": {\n            \"Answer and Key Points\": \"正しい答えは選択肢Dです。アカウントBでUser_DataProcessorのアクセス許可を設定することで、S3バケットへのアクセスが可能となります。\",\n            \"Situation Analysis\": \"小売業者は、ビジネスパートナー企業のIAMユーザーがS3バケットのファイルにアクセスできるようにする必要があります。\",\n            \"Option Analysis\": {\n                \"A\": \"S3バケットにCORS機能をオンにする必要はありません。\",\n                \"B\": \"S3バケットポリシーの設定内容は関連がありません。\",\n                \"C\": \"アカウントAでのS3バケットポリシーの設定も重要ではありません。\",\n                \"D\": \"User_DataProcessorのアクセス許可をアカウントBで設定することで、目的を達成できます。\",\n                \"E\": \"アカウントBでUser_DataProcessorのアクセス許可を設定することが必要ですが、これは必須ではありません。\"\n            },\n            \"Additional Knowledge\": \"AWSでは、異なるアカウント間でのアクセス管理にIAMロールやクロスアカウントアクセスを使用します。アカウント間のデータ共有をセキュアに行う方法について理解しておくと役立ちます。\",\n            \"Key Terminology\": [\n                \"Amazon S3 (Amazon Simple Storage Service) (Amazon S3（Amazon Simple Storage Service）)\",\n                \"IAM (Identity and Access Management) (IAM（Identity and Access Management）)\",\n                \"CORS (Cross-Origin Resource Sharing) (CORS（Cross-Origin Resource Sharing）)\"\n            ],\n            \"Overall Assessment\": \"この問題において、正しい答えはDです。Communityの投票結果がCとDで異なる傾向が見られますが、正解はDであるため、この問題に関しては適切な説明及び選択肢が提供されています。\"\n        },\n        \"keywords\": [\n            \"Amazon S3 (Amazon Simple Storage Service) (Amazon S3（Amazon Simple Storage Service）)\",\n            \"IAM (Identity and Access Management) (IAM（Identity and Access Management）)\",\n            \"CORS (Cross-Origin Resource Sharing) (CORS（Cross-Origin Resource Sharing）)\"\n        ]\n    }\n]",
+              "refusal": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 1001,
+          "completion_tokens": 1248,
+          "total_tokens": 2249,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "system_fingerprint": null
+      }
+    },
+    "error": null
+  },
+  {
+    "id": "batch_req_67440c7c3f58819093537944edd2398a",
+    "custom_id": "request-2",
+    "response": {
+      "status_code": 200,
+      "request_id": "e0d5ca0d3b501186f1be9400ec7064fd",
+      "body": {
+        "id": "chatcmpl-AXM1bu20GE839SH7jOgtktR1hrSNh",
+        "object": "chat.completion",
+        "created": 1732512851,
+        "model": "gpt-3.5-turbo-0125",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "[\n    {\n        \"No\": \"32\",\n        \"question\": \"会社は、開発者がAmazon EC2、Amazon S3、Amazon DynamoDBのみを使用するよう制限するためにAWS Organizationsの導入を進めています。 開発者アカウントは専用の組織単位（OU）にあります。 ソリューションアーキテクトは、開発者アカウントに次のSCPを実装しました：\\nこのポリシーが展開されると、開発者アカウントのIAMユーザーは、ポリシーにリストされていないAWSサービスを使用することができます。\\nこのポリシーの範囲外のサービスを使用する能力を開発者が排除するために、ソリューションアーキテクトは何をすべきですか？\",\n        \"choices\": [\n            {\"key\": \"A\", \"text\": \"制約すべき各AWSサービスに明示的な拒否ステートメントを作成します。\"},\n            {\"key\": \"B\", \"text\": \"開発者アカウントのOUからFullAWSAccess SCPを削除します。\"},\n            {\"key\": \"C\", \"text\": \"FullAWSAccess SCPを修正して、すべてのサービスを明示的に拒否します。\"},\n            {\"key\": \"D\", \"text\": \"SCPの末尾にワイルドカードを使用した明示的な拒否ステートメントを追加します。 [image_2_0]\"}\n        ],\n        \"answer_key\": \"A\",\n        \"community_vote_distribution\": \"B (81%) その他\",\n        \"page_images\": [\"image_2_0.png\"],\n        \"explanation\": {\n            \"Answer and Key Points\": \"正しい答えはAです。 開発者がポリシーの範囲外のサービスを使用する能力を排除するためには、各制約すべきAWSサービスに対して明示的な拒否ステートメントを作成する必要があります。\",\n            \"Situation Analysis\": \"開発者をAmazon EC2、Amazon S3、Amazon DynamoDBに制約する必要があります。\",\n            \"Option Analysis\": {\n                \"A\": \"正しい：開発者がポリシーの範囲外のサービスを使用する能力を排除する\",\n                \"B\": \"誤り：FullAWSAccess SCPを削除すると、制限の対象から外れます。\",\n                \"C\": \"誤り：組織を明示的に拒否することはすべてのサービスを無効にするため、目的に合いません。\",\n                \"D\": \"誤り：ワイルドカードを使用して明示的な拒否ステートメントを追加することにより、目的を達成できません。\"\n            },\n            \"Additional Knowledge\": \"SCP（Service Control Policies）はAWS Organizationsで使用され、特定のサービスやアクションの使用を制御します。 各AWSサービスに明示的な拒否ステートメントを作成することで、開発者のアクセス範囲を制限します。\",\n            \"Key Terminology\": [\"AWS Organizations (AWS組織)\", \"SCP（Service Control Policies）\", \"IAMユーザー（IAMユーザー）\", \"拒否ステートメント（Deny Statement）\"],\n            \"Overall Assessment\": \"コミュニティの投票では選択肢Bが81%で選ばれていますが、正しい答えはAです。 開発者がポリシーの範囲外のサービスを使用する能力を排除するためには、各AWSサービスに対して明示的な拒否ステートメントを作成する必要があります。\"\n        },\n        \"keywords\": [\"AWS Organizations (AWS組織)\", \"SCP（Service Control Policies）\", \"Amazon EC2\", \"Amazon S3\", \"Amazon DynamoDB\", \"IAMユーザー（IAMユーザー）\", \"拒否ステートメント（Deny Statement）\"]\n    }\n]",
+              "refusal": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 871,
+          "completion_tokens": 1102,
+          "total_tokens": 1973,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "system_fingerprint": null
+      }
+    },
+    "error": null
+  },
+  {
+    "id": "batch_req_67440c7c5168819092e7e795e1e71963",
+    "custom_id": "request-3",
+    "response": {
+      "status_code": 200,
+      "request_id": "be899b0bdd60b5bd6cd364eee1ba806d",
+      "body": {
+        "id": "chatcmpl-AXM1k1FpMrAPN2ez35CPlYd8LvYMB",
+        "object": "chat.completion",
+        "created": 1732512860,
+        "model": "gpt-3.5-turbo-0125",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n    \"No\": \"57\",\n    \"question\": \"複数のAWSアカウントを持つ会社は、AWS Organizationsとサービス制御ポリシー（SCP）を使用しています。管理者は以下のSCPを作成し、AWSアカウント1111-1111-1111を含む組織単位（OU）に添付しました。\\nAWSアカウント1111-1111-1111で作業する開発者は、Amazon S3バケットを作成できないと不満を述べています。管理者はこの問題にどのように対処すべきですか？\",\n    \"choices\": [\n        {\"key\": \"A\", \"text\": \"SCPにs3:CreateBucketを「許可」効果とともに追加します。[image_3_0]\"},\n        {\"key\": \"B\", \"text\": \"アカウントをOUから削除し、SCPを直接アカウント1111-1111-1111に添付します。\"},\n        {\"key\": \"C\", \"text\": \"開発者にIAMエンティティにAmazon S3の権限を追加するよう指示します。\"},\n        {\"key\": \"D\", \"text\": \"SCPをアカウント1111-1111-1111から削除します。\"}\n    ],\n    \"answer_key\": \"C\",\n    \"community_vote_distribution\": \"C (84%) A (16%)\",\n    \"page_images\": [\"image_3_0.png\"],\n    \"explanation\": {\n        \"Answer and Key Points\": {\n            \"answer\": \"C\",\n            \"points\": [\n                \"正しい答えは選択肢Cです。開発者がAmazon S3バケットを作成できない問題は、IAMエンティティにAmazon S3の権限を追加することで解決できます。SCPはOUレベルで適用されるため、IAMエンティティに必要な権限が不足している可能性があります。\"\n            ]\n        },\n        \"Situation Analysis\": {\n            \"requirements\": [\n                \"AWSアカウント1111-1111-1111内の開発者がAmazon S3バケットを作成できない\"\n            ],\n            \"constraints\": [\n                \"SCPはOUに添付されている\"\n            ]\n        },\n        \"Option Analysis\": {\n            \"A\": {\n                \"justification\": \"選択肢Aは不正解です。SCPにs3:CreateBucketを追加しても、問題は開発者のIAMエンティティに権限がない場合には解決されません。\"\n            },\n            \"B\": {\n                \"justification\": \"選択肢Bは不正解です。SCPをアカウントから削除すると、他のアカウントはSCPの保護を受けられなくなります。\"\n            },\n            \"C\": {\n                \"justification\": \"正解である選択肢Cは、開発者にIAMエンティティにAmazon S3の権限を追加するよう指示することで問題を解決します。\"\n            },\n            \"D\": {\n                \"justification\": \"選択肢Dは不正解です。SCPを削除すると、そのSCPによって制限されていたポリシーの保護が削除されます。\"\n            }\n        },\n        \"Additional Knowledge\": {\n            \"details\": \"IAM権限は、SCPによって制限される可能性があるため、IAMエンティティに必要な権限が備わっていることを確認することが重要です。SCPはOUレベルで適用され、個々のアカウントのIAMポリシーとは異なる範囲で適用されます。\"\n        },\n        \"Key Terminology\": {\n            \"terms\": [\n                \"AWS Organizations (AWS組織)\",\n                \"Service Control Policies (SCPs) (サービス制御ポリシー)\",\n                \"Amazon S3 buckets (Amazon S3バケット)\",\n                \"IAM entities (IAMエンティティ)\"\n            ]\n        },\n        \"Overall Assessment\": {\n            \"commentary\": \"この問題では、SCPの適切な適用と開発者のIAM権限が中心となります。正しくIAMエンティティに必要な権限を与えることが重要です。回答キーがCであり、コミュニティの投票結果が84%の高い一致率を示しているため、正しい解決策を選択できています。\"\n        }\n    },\n    \"keywords\": [\n        \"AWS Organizations (AWS組織)\",\n        \"Service Control Policies (SCPs) (サービス制御ポリシー)\",\n        \"Amazon S3 buckets (Amazon S3バケット)\",\n        \"IAM entities (IAMエンティティ)\"\n    ]\n}",
+              "refusal": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 863,
+          "completion_tokens": 1294,
+          "total_tokens": 2157,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "system_fingerprint": null
+      }
+    },
+    "error": null
+  },
+  {
+    "id": "batch_req_67440c7c65488190a80b93ca0601fa3c",
+    "custom_id": "request-4",
+    "response": {
+      "status_code": 200,
+      "request_id": "cb1aa0dd273ad0de38cbf38c5379c63d",
+      "body": {
+        "id": "chatcmpl-AXM1uxtFCDGezgcD9QU5oPJ9YritM",
+        "object": "chat.completion",
+        "created": 1732512870,
+        "model": "gpt-3.5-turbo-0125",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "[\n    {\n        \"No\": \"58\",\n        \"question\": \"企業は、企業のビジネスに重要なモノリシックアプリケーションを持っています。企業は、そのアプリケーションをAmazon Linux 2を実行するAmazon EC2インスタンスにホストしています。企業のアプリケーションチームは、法務部門から、インスタンスの暗号化されたAmazon Elastic Block Store（Amazon EBS）ボリュームからデータをバックアップする指示を受けました。アプリケーションチームは、インスタンスの管理用SSHキーペアを持っていません。アプリケーションは引き続きユーザーにサービスを提供する必要があります。\\nこれらの要件を満たすソリューションはどれですか？\",\n        \"choices\": [\n            {\n                \"key\": \"A\",\n                \"text\": \"Amazon S3に書き込む権限を持つロールをインスタンスにアタッチします。AWS Systems Managerセッションマネージャーオプションを使用して、管理者として入手します。[image_3_0]を使用します。\"\n            },\n            {\n                \"key\": \"B\",\n                \"text\": \"再起動オプションをオンにして、インスタンスのイメージを作成します。イメージから新しいEC2インスタンスを起動します。新しいインスタンスにAmazon S3に書き込む権限を持つロールをアタッチします。\"\n            },\n            {\n                \"key\": \"C\",\n                \"text\": \"Amazon Data Lifecycle Manager（Amazon DLM）を使用してEBSボリュームのスナップショットを取得します。データをAmazon S3にコピーします。\"\n            },\n            {\n                \"key\": \"D\",\n                \"text\": \"インスタンスのイメージを作成します。イメージから新しいEC2インスタンスを起動します。新しいインスタンスにAmazon S3に書き込む権限を持つロールをアタッチします。\"\n            }\n        ],\n        \"answer_key\": \"A\",\n        \"community_vote_distribution\": \"A (63%) C (36%)\",\n        \"page_images\": [\"image_3_0.png\"],\n        \"explanation\": {\n            \"Answer and Key Points\": \"正しい答えは、運用中のEC2インスタンスに対してAWS Systems Managerセッションマネージャーオプションを使用してアクセス権を与え、Amazon S3に書き込むロールをアタッチすることです。これにより、運用を中断することなくデータをバックアップできます。\",\n            \"Situation Analysis\": \"問題では、EC2インスタンスのデータをAmazon S3にバックアップする必要があります。アプリケーションチームはSSHキーペアを持っていないため、運用を中断することなくこの要件を満たす必要があります。\",\n            \"Option Analysis\": {\n                \"A\": \"正しい答え。AWS Systems Managerセッションマネージャーオプションを使用して運用中のインスタンスにアクセスし、Amazon S3に書き込む権限を持つロールをアタッチすることで、要件を満たすことができます。\",\n                \"B\": \"誤った答え。インスタンスの再起動や新しいインスタンスの起動は、運用を一時停止させるため、適切なソリューションではありません。\",\n                \"C\": \"誤った答え。スナップショットやデータのコピーよりも、運用中のインスタンスから直接バックアップする方法が優先されます。\",\n                \"D\": \"誤った答え。イメージから新しいインスタンスを起動する方法は、運用を中断するため、適切なソリューションではありません。\"\n            },\n            \"Additional Knowledge\": \"AWS Systems Managerセッションマネージャーを使用することで、SSHキーペアを持たずにインスタンスにアクセスできます。これにより、セキュアな方法でデータをバックアップできます。\",\n            \"Key Terminology\": [\n                \"Amazon EC2 (アマゾン イーシーツー)\",\n                \"Amazon S3 (アマゾン エススリー)\",\n                \"Amazon EBS (アマゾン イービーエス)\",\n                \"AWS Systems Manager (AWS システムズマネージャー)\",\n                \"SSH key pair (SSHキーペア)\"\n            ],\n            \"Overall Assessment\": \"この問題において、正しい答えはAであり、コミュニティの投票傾向と一致しています。運用中のインスタンスにアクセスし、S3にデータをバックアップするためにAWS Systems Managerセッションマネージャーオプションを使用するのが最適な選択肢です。\"\n        }\n    }\n]",
+              "refusal": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 930,
+          "completion_tokens": 1451,
+          "total_tokens": 2381,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "system_fingerprint": null
+      }
+    },
+    "error": null
+  },
+  {
+    "id": "batch_req_67440c7c78608190bcba8296fb742aec",
+    "custom_id": "request-5",
+    "response": {
+      "status_code": 200,
+      "request_id": "f74009b8a202db72b993b823af3fffd0",
+      "body": {
+        "id": "chatcmpl-AXM26S7WuTN7q329JUOSrJRyJ11qe",
+        "object": "chat.completion",
+        "created": 1732512882,
+        "model": "gpt-3.5-turbo-0125",
+        "choices": [
+          {
+            "index": 0,
+            "message": {
+              "role": "assistant",
+              "content": "{\n  \"No\": \"96\",\n  \"question\": \"ソリューションアーキテクトは、新しいAmazon S3バケットに格納されるオブジェクトのためのクライアント側暗号化メカニズムを実装する必要があります。ソリューションアーキテクトは、この目的のためにAWS Key Management Service（AWS KMS）に保存されているCMKを作成しました。\\n以下のIAMポリシーを作成し、IAMロールにアタッチしました。\\nテスト中、ソリューションアーキテクトはS3バケット内の既存のテストオブジェクトを正常に取得できました。しかし、新しいオブジェクトをアップロードしようとすると、エラーメッセージが表示されました。エラーメッセージには、アクションが拒否されたと記載されています。\\nすべての要件を満たすために、ソリューションアーキテクトがIAMポリシーに追加する必要のあるアクションはどれですか？\",\n  \"choices\": [\n    {\"key\": \"A\", \"text\": \"kms:GenerateDataKey\"},\n    {\"key\": \"B\", \"text\": \"kms:GetKeyPolicy\"},\n    {\"key\": \"C\", \"text\": \"kms:GetPublicKey\"},\n    {\"key\": \"D\", \"text\": \"kms:Sign\"}\n  ],\n  \"answer_key\": \"A\",\n  \"community_vote_distribution\": \"A (100%)\",\n  \"page_images\": [\"image_4_0.png\"],\n  \"explanation\": {\n    \"Answer and Key Points\": {\n      \"answer\": \"A\",\n      \"key_points\": \"要件を満たすためにソリューションアーキテクトがIAMポリシーに追加すべきアクションは「kms:GenerateDataKey」です。\"\n    },\n    \"Situation Analysis\": {\n      \"requirements\": \"新しいAmazon S3バケットに格納されるオブジェクトのクライアント側暗号化メカニズムを実装\",\n      \"constraints\": \"CMKはAWS KMSに保存されている\",\n      \"considerations\": \"既存のテストオブジェクトの取得は成功したが、新しいオブジェクトをアップロードする際にエラーが発生\"\n    },\n    \"Option Analysis\": {\n      \"A\": {\n        \"explanation\": \"「kms:GenerateDataKey」アクションをIAMポリシーに追加することで、S3バケットの新しいオブジェクトを暗号化するために必要なデータキーを生成できます。これにより、要件を満たすことができます。\",\n        \"alignment\": \"AWSベストプラクティスに準拠しており、データのセキュリティを確保するために必要なアクションです。\"\n      },\n      \"B\": {\n        \"explanation\": \"「kms:GetKeyPolicy」アクションは新しいオブジェクトの暗号化には関係なく、この状況では不要です。\"\n      },\n      \"C\": {\n        \"explanation\": \"「kms:GetPublicKey」アクションは公開鍵を取得するためのものであり、新しいオブジェクトの暗号化には不要です。\"\n      },\n      \"D\": {\n        \"explanation\": \"「kms:Sign」アクションはデータに署名を付けるためのものであり、暗号化には直接関係がないため、この要件を満たしません。\"\n      }\n    },\n    \"Additional Knowledge\": {\n      \"information\": \"IAMポリシーには、S3バケットのオブジェクトに対してデータキーを生成するための必要な権限が含まれている必要があります。\",\n      \"insights\": \"適切なアクセス権を持つIAMポリシーを設定することで、暗号化されたオブジェクトの適切な管理と保護が実現できます。\"\n    },\n    \"Key Terminology\": {\n      \"AWS services\": \"Amazon S3、AWS KMS\",\n      \"terms\": \"クライアント側暗号化、CMK、IAMポリシー、データキー\"\n    },\n    \"Overall Assessment\": {\n      \"commentary\": \"この問題では、正しいアクションである「kms:GenerateDataKey」が選択肢（A）として示されています。Communityの投票結果も100%がこの選択肢を支持しており、正解と言えます。\"\n    }\n  }\n}",
+              "refusal": null
+            },
+            "logprobs": null,
+            "finish_reason": "stop"
+          }
+        ],
+        "usage": {
+          "prompt_tokens": 851,
+          "completion_tokens": 1287,
+          "total_tokens": 2138,
+          "prompt_tokens_details": {
+            "cached_tokens": 0,
+            "audio_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0,
+            "audio_tokens": 0,
+            "accepted_prediction_tokens": 0,
+            "rejected_prediction_tokens": 0
+          }
+        },
+        "system_fingerprint": null
+      }
+    },
+    "error": null
+  }
+]

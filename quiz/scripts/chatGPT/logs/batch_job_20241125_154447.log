@@ -1,0 +1,5 @@
+2024-11-25 15:44:48,143 - exec_batchAPI - INFO - ジョブ作成成功 - ジョブID: batch_67441ce001808190a8c24b3d8ceb98cd
+2024-11-25 15:44:48,503 - exec_batchAPI - INFO - ジョブステータス取得: in_progress
+2024-11-25 15:44:48,503 - exec_batchAPI - INFO - ジョブステータス: in_progress - 待機中...
+2024-11-25 15:45:18,745 - exec_batchAPI - INFO - ジョブステータス取得: completed
+2024-11-25 15:45:18,747 - exec_batchAPI - INFO - ジョブが正常に完了しました

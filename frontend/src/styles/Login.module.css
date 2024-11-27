@@ -1,0 +1,157 @@
+/* 背景設定 */
+.background {
+  background-image: url('/images/IMG_1861.JPG');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* コンテナ */
+.container {
+  margin: auto;
+  padding: 4rem 1rem;
+  max-width: 500px;
+}
+
+/* ヘッダー */
+.header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.headerTitle {
+  font-size: 1.875rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.headerSubtitle {
+  color: #94a3b8;
+  font-size: 0.875rem;
+}
+
+/* フォーム */
+.form {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  border: 1px solid #1e293b;
+}
+
+.inputGroup {
+  margin-bottom: 1.25rem;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  margin-bottom: 0.5rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid #1e293b;
+  border-radius: 0.5rem;
+  color: #e2e8f0;
+  transition: all 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
+
+.checkboxContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.checkboxLabel {
+  margin-left: 0.5rem;
+}
+
+.link {
+  color: #3b82f6;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.link:hover {
+  color: #60a5fa;
+}
+
+/* ボタン */
+.button {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.2s;
+}
+
+.button:hover {
+  background: #2563eb;
+}
+
+/* ソーシャルログイン */
+.socialLogin {
+  margin-top: 1.5rem;
+}
+
+.socialLoginButton {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  background: #334155;
+  border-radius: 0.5rem;
+  color: #cbd5e1;
+  font-weight: 600;
+  transition: background-color 0.2s;
+}
+
+.socialLoginButton:hover {
+  background: #475569;
+}
+
+.socialIcon {
+  margin-right: 0.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* 新規登録リンク */
+.register {
+  margin-top: 1.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  color: #94a3b8;
+}
+
+.registerLink {
+  color: #3b82f6;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.registerLink:hover {
+  color: #60a5fa;
+}

@@ -4,9 +4,19 @@ import path from 'path';
 
 export default defineConfig({
   plugins: [react()],
-  resolve: {
-    alias: {
-      '@': path.resolve(__dirname, './src'), // エイリアスを src に設定
+  assetsInclude: ['**/*.JPG'],
+  base: '/static/',
+  build: {
+    manifest: 'manifest.json',
+    outDir: 'dist',
+    rollupOptions: {
+      input: {
+        main: path.resolve(__dirname, 'src/main.tsx'),
+      },
     },
+    assetsDir: 'assets',
+    assetsInlineLimit: 0,
   },
+  publicDir: 'public',
 });
+

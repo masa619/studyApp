@@ -1,7 +1,6 @@
 import React from 'react';
 import { SessionProvider } from './contexts/SessionContext';
 import { Routes, Route } from 'react-router-dom';
-import './styles/index.css';
 import ProtectedRoute from './contexts/ProtectedRoute';
 
 import Login from './pages/Login';

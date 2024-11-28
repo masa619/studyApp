@@ -1,6 +1,5 @@
-
 from pathlib import Path
-
+import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -18,7 +17,7 @@ ALLOWED_HOSTS = []
 
 
 # Application definition
-
+MANIFEST_PATH = BASE_DIR / 'frontend' / 'dist' / 'manifest.json'
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -49,6 +48,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             BASE_DIR / 'templates',
+            BASE_DIR / 'frontend' / 'dist',  # Reactのビルドディレクトリを追加
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -112,7 +112,14 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    # BASE_DIR / 'static',
+    BASE_DIR / 'frontend' / 'dist',  # Reactのビルドディレクトリを追加
+]
+
+# Ensure STATIC_ROOT is set to a valid directory path
+STATIC_ROOT = BASE_DIR / 'staticfiles'  # This should be a directory path
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
@@ -136,7 +143,7 @@ REST_FRAMEWORK = {
 from datetime import timedelta
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(seconds=1),  # アクセストークンの有効期限を30秒に設定
+    'ACCESS_TOKEN_LIFETIME': timedelta(seconds=1),  # アクストークンの有効期限を30秒に設定
     #'REFRESH_TOKEN_LIFETIME': timedelta(seconds=15),  # リフレッシュトークンの有効期限を5分に設定
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7), 
     'ROTATE_REFRESH_TOKENS': True,  # リフレッシュトークンを使用した際に新しいリフレッシュトークンを発行する

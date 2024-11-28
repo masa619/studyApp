@@ -1,6 +1,6 @@
 /* 背景設定 */
 .background {
-  background-image: url('/images/IMG_1861.JPG');
+  background-image: url('../assets/images/IMG_1861.JPG');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

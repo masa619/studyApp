@@ -11,6 +11,8 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 
+from .utils import load_vite_manifest
+
 def register(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
@@ -67,4 +69,7 @@ class LogoutView(APIView):
             return Response({"detail": "Successfully logged out."}, status=200)
         except Exception as e:
             return Response({"detail": str(e)}, status=400)
-        
+
+def index(request):
+    manifest = load_vite_manifest()
+    return render(request, 'index.html', {'manifest': manifest})

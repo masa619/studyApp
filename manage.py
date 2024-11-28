@@ -2,11 +2,19 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-
+from dotenv import load_dotenv
 
 def main():
     """Run administrative tasks."""
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'studyapp.settings')
+    # 開発環境の.envファイルを読み込む
+    if os.path.exists(os.path.join(os.path.dirname(__file__), '.env.development')):
+        load_dotenv('.env.development')
+    else:
+        load_dotenv()  # 本番環境の.envを読み込む
+
+    # 環境変数が設定されていない場合は開発環境をデフォルトとする
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'studyapp.settings.development')
+
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
@@ -16,7 +24,6 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
-
 
 if __name__ == '__main__':
     main()

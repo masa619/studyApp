@@ -4,6 +4,8 @@ import styles from '../styles/Login.module.css';
 import { useGoogleLogin } from '@react-oauth/google';
 import { useNavigate } from 'react-router-dom';
 import { useSession } from '../contexts/SessionContext';
+import backgroundImage from '../assets/images/IMG_1861.JPG';
+
 
 const LoginApp = () => {
     const { setSessionExpired } = useSession();
@@ -11,6 +13,7 @@ const LoginApp = () => {
     const [password, setPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState(''); // エラーメッセージ用の状態
     const navigate = useNavigate();
+    const backgroundImageUrl = backgroundImage;
 
     useEffect(() => {
         setSessionExpired(false);
@@ -40,7 +43,7 @@ const LoginApp = () => {
     });
 
     return (
-        <div className={`${styles.background} min-h-screen text-slate-100 antialiased flex justify-center items-center`}>
+        <div className={styles.background} style={{ backgroundImage: `url(${backgroundImageUrl})` }}>
             <div className="container mx-auto px-4 py-16">
                 <div className="mx-auto max-w-md">
                     {/* ヘッダー部分 */}

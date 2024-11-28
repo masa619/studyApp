@@ -1,0 +1,18 @@
+{
+  "src/assets/images/IMG_1861.JPG": {
+    "file": "assets/IMG_1861-BUQYkBUP.JPG",
+    "src": "src/assets/images/IMG_1861.JPG"
+  },
+  "src/main.tsx": {
+    "file": "assets/main-Bl149ZtQ.js",
+    "name": "main",
+    "src": "src/main.tsx",
+    "isEntry": true,
+    "css": [
+      "assets/main-Cqcr9oY7.css"
+    ],
+    "assets": [
+      "assets/IMG_1861-BUQYkBUP.JPG"
+    ]
+  }
+}

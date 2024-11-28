@@ -1,13 +1,16 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 from . import views
 from .views import RegisterView, LogoutView
 from django.contrib.auth import views as auth_views
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.redirect_to_login, name='redirect_to_login'),
+    path('', views.index, name='index'),
     path('register/', views.register, name='register'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('api/', include([
@@ -18,4 +21,4 @@ urlpatterns = [
         path('token/verify/', TokenVerifyView.as_view(), name='verify'),
         path('logout/', LogoutView.as_view(), name='logout'),
     ])),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

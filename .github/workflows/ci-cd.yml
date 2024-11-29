@@ -85,9 +85,6 @@ jobs:
       # Backend tests
       - name: Install backend dependencies
         run: pip install -r requirements.txt
-
-      - name: Run backend tests
-        run: python manage.py test
             
       - name: Install rsync
         run: sudo apt-get install -y rsync

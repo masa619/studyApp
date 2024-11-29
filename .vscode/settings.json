@@ -23,6 +23,8 @@
     "editor.renderWhitespace": "all",
     "editor.minimap.enabled": false,
     "editor.wordWrap": "on",
+
+    // 言語別フォーマッター設定
     "[postcss]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -34,5 +36,21 @@
     },
     "[python]": {
         "editor.defaultFormatter": "ms-python.python"
-    }
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+
+    // GitHub Actions YAML設定
+    "yaml.customTags": [
+        "!reference sequence",
+        "!reference mapping"
+    ],
+    "github-actions.workflows.pinned.workflows": [
+        ".github/workflows/*.yml"
+    ],
+    "python.analysis.extraPaths": [
+        "${workspaceFolder}"
+    ],
+    "python.analysis.autoImportCompletions": true
 }

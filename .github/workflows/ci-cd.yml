@@ -1,0 +1,116 @@
+name: CI/CD Pipeline
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+      
+      # Node.js setup for frontend
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Cache Node dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.npm
+          key: ${{ runner.OS }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-node-
+
+      # Python setup for backend
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Cache Python dependencies
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pip
+          key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-pip-
+
+      # Install Cloudflared
+      - name: Install Cloudflared
+        run: |
+          wget -q https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
+          sudo dpkg -i cloudflared-linux-amd64.deb
+      
+      # SSH Setup
+      - name: Setup SSH Key
+        env:        
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+      
+      - name: Setup Cloudflare Access SSH
+        env:
+         CF_ACCESS_CLIENT_ID: ${{ secrets.CF_ACCESS_CLIENT_ID }}
+         CF_ACCESS_CLIENT_SECRET: ${{ secrets.CF_ACCESS_CLIENT_SECRET }}
+        run: | 
+          echo "Host ${{ secrets.RASPBERRY_PI_HOST }}
+          ProxyCommand cloudflared access ssh --hostname %h --service-token-id $CF_ACCESS_CLIENT_ID --service-token-secret $CF_ACCESS_CLIENT_SECRET
+          IdentityFile ~/.ssh/id_rsa
+          User ${{ secrets.RASPBERRY_PI_USER }}
+          StrictHostKeyChecking no
+          UserKnownHostsFile=/dev/null" > ~/.ssh/config
+
+      # Frontend build and test
+      - name: Install frontend dependencies
+        working-directory: ./frontend
+        run: npm ci
+      
+      - name: Run frontend tests
+        working-directory: ./frontend
+        run: npm test
+    
+      - name: Build frontend
+        working-directory: ./frontend
+        run: npm run build
+        env:
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
+
+      # Backend tests
+      - name: Install backend dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run backend tests
+        run: python manage.py test
+            
+      - name: Install rsync
+        run: sudo apt-get install -y rsync
+      
+      # Deployment
+      - name: Deploy frontend to Raspberry Pi
+        run: |
+          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" frontend/dist/ ${{ secrets.RASPBERRY_PI_USER }}@${{ secrets.RASPBERRY_PI_HOST }}:/home/masa619/projects/studyapp/frontend/dist/
+
+      - name: Deploy backend to Raspberry Pi
+        run: |
+          ssh ${{ secrets.RASPBERRY_PI_USER }}@${{ secrets.RASPBERRY_PI_HOST }} -o StrictHostKeyChecking=no << 'EOF'
+          cd /home/masa619/projects/studyapp/
+          git pull origin main
+          source /home/masa619/projects/studyapp_env/bin/activate
+          pip install -r requirements.txt
+          python manage.py migrate
+          python manage.py collectstatic --noinput
+          sudo systemctl restart gunicorn
+          sudo systemctl restart nginx
+          EOF
+        

@@ -9,7 +9,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
-
+MANIFEST_PATH = BASE_DIR / 'frontend' / 'dist' / 'manifest.json'
 # データベース設定
 DATABASES = {
     'default': {

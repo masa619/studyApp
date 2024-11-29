@@ -92,7 +92,7 @@ jobs:
       # Deployment
       - name: Deploy frontend to Raspberry Pi
         run: |
-          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" frontend/dist/ ${{ secrets.RASPBERRY_PI_USER }}@${{ secrets.RASPBERRY_PI_HOST }}:/home/masa619/projects/studyapp/frontend/dist/
+          rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" frontend/dist/ ${{ secrets.RASPBERRY_PI_USER }}@${{ secrets.RASPBERRY_PI_HOST }}:/home/masa619/projects/studyApp/frontend/dist/
 
       - name: Deploy backend to Raspberry Pi
         run: |

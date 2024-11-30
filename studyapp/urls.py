@@ -11,8 +11,8 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
-    path('register/', views.register, name='register'),
-    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
+    # path('register/', views.register, name='register'),
+    # path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('api/', include([
         path('', include('quiz.api.urls')),  # quiz関連のAPIを直接includeする
         path('register/', RegisterView.as_view(), name='register'),

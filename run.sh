@@ -1,4 +1,11 @@
-source venv/bin/activate
+# Check if the virtual environment directory exists
+if [ -d "env/bin" ]; then
+    source env/bin/activate
+else
+    echo "Virtual environment not found. Please create it or check the path."
+    exit 1
+fi
+
 # フロントエンドのビルド
 cd frontend
 npm run build
@@ -6,7 +13,7 @@ npm run build
 cd ../
 # 静的ファイルをクリア
 echo "Clearing static files..."
-rm -rf /Users/shipro/Projects/shipro.jp/staticfiles/*
+rm -rf /Users/shipro/Projects/studyapp/staticfiles/*
 # 静的ファイルの収集（確認なしで実行）
 echo "Collecting static files..."
 python manage.py collectstatic --noinput

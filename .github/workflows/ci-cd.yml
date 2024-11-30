@@ -98,6 +98,7 @@ jobs:
         run: |
           ssh ${{ secrets.RASPBERRY_PI_USER }}@${{ secrets.RASPBERRY_PI_HOST }} -o StrictHostKeyChecking=no << 'EOF'
           cd /home/masa619/projects/studyApp/
+          git reset --hard
           git pull origin main
           source /home/masa619/projects/studyApp/env/bin/activate
           pip install -r requirements.txt

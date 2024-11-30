@@ -15,7 +15,7 @@ urlpatterns = [
     # path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('api/', include([
         path('', include('quiz.api.urls')),  # quiz関連のAPIを直接includeする
-        path('register/', RegisterView.as_view(), name='register'),
+        #path('register/', RegisterView.as_view(), name='register'),
         path('token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
         path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
         path('token/verify/', TokenVerifyView.as_view(), name='verify'),

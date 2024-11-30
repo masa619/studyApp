@@ -22,7 +22,7 @@ const QuizDataProvider: React.FC<QuizDataProviderProps> = ({
     const fetchData = async () => {
       try {
         // クエリパラメータにexamId, mode, subModeを指定
-        const response = await apiClient.get('http://127.0.0.1:8000/api/quiz/', {
+        const response = await apiClient.get('/quiz/', {
           params: {
             examId,
             mode,

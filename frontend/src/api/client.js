@@ -41,7 +41,7 @@ async (error) => {
             try {
                 console.info('Attempting token refresh...');
                 originalRequest._retry = true; // 再試行フラグを設定
-                const response = await axios.post('http://127.0.0.1:8000/api/token/refresh/', {
+                const response = await axios.post(`${apiClient.defaults.baseURL}/token/refresh/`, {
                     refresh: refreshToken,
                 });
                 // アクセストークン更新

@@ -4,3 +4,6 @@ from .base import *
 SECURE_SSL_REDIRECT = False
 SESSION_COOKIE_SECURE = False
 CSRF_COOKIE_SECURE = False
+
+# Ensure that the development server allows HTTP connections
+SECURE_PROXY_SSL_HEADER = None

@@ -42,3 +42,7 @@ Thumbs.db
 *.pid
 *.seed
 *.pid.lock 
+
+# 仮想環境
+/venv
+/env

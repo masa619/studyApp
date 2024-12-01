@@ -195,3 +195,13 @@
 2024-11-26 12:15:47,512 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
 2024-11-26 12:15:50,518 - INFO - Step 4: Aggregating results
 2024-11-26 12:15:50,548 - INFO - Aggregated results saved to: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/result_20241126_121550_377f118d79874b738cd7c761987ca6dd.json
+2024-12-01 13:06:10,170 - INFO - Step 1: Converting JSON to JSONL
+2024-12-01 13:06:10,184 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-12-01 13:06:10,189 - INFO - Step 3: Processing each JSONL chunk
+2024-12-01 13:06:54,761 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-12-01 13:08:03,058 - INFO - Step 1: Converting JSON to JSONL
+2024-12-01 13:08:03,073 - INFO - Step 2: Splitting JSONL into smaller chunks
+2024-12-01 13:08:03,078 - INFO - Step 3: Processing each JSONL chunk
+2024-12-01 14:34:05,501 - INFO - Deleted local chunk file: /Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/tmp/output1.jsonl_chunk_0.jsonl
+2024-12-01 14:34:08,509 - INFO - Step 4: Aggregating results
+2024-12-01 14:34:08,525 - ERROR - Unexpected error occurred: argument should be a str or an os.PathLike object where __fspath__ returns a str, not 'list'

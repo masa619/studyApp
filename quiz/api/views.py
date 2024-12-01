@@ -25,19 +25,26 @@ class QuizAPIView(APIView):
     def get(self, request):
         exam_id = request.query_params.get('examId')
         mode = request.query_params.get('mode', 'normal')
-        print(f"mode: {mode}")
+        sub_mode = request.query_params.get('subMode', 'sequential')
+        print(f"mode: {mode}, subMode: {sub_mode}")
 
         if not exam_id:
             return Response({'error': 'examId is required'}, status=400)
         
         VALID_MODES = ['normal', 'unanswered']
+        VALID_SUB_MODES = ['sequential', 'ai']
+        
         if mode not in VALID_MODES:
             return Response({'error': 'Invalid mode value'}, status=400)
+        
+        if sub_mode not in VALID_SUB_MODES:
+            return Response({'error': 'Invalid subMode value'}, status=400)
         
         try:
             questions = self.quiz_service.get_questions(
                 exam_id=exam_id,
                 mode=mode,
+                sub_mode=sub_mode,
                 user=request.user
             )
             

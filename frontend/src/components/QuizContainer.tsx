@@ -114,6 +114,7 @@ const QuizContainer = () => {
             question={currentQuestion}
             selectedAnswer={selectedAnswer}
             setSelectedAnswer={setSelectedAnswer}
+            showResult={showResult}
           />
           <div className="flex justify-end gap-4">
             {!showResult ? (

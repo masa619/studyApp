@@ -7,3 +7,7 @@ CSRF_COOKIE_SECURE = False
 
 # Ensure that the development server allows HTTP connections
 SECURE_PROXY_SSL_HEADER = None
+
+# INSTALLED_APPS += [
+#     'quiz', 
+# ]

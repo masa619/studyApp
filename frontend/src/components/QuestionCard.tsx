@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { RadioGroup, RadioGroupItem } from './ui/radio-group';
 import { Label } from './ui/label';
 import { Button } from './ui/button';
@@ -8,18 +8,33 @@ interface QuestionCardProps {
   question: Question;
   selectedAnswer: string | null;
   setSelectedAnswer: (answer: string) => void;
+  showResult: boolean;
 }
+
+const shuffleArray = (array: any[]) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+};
 
 const QuestionCard: React.FC<QuestionCardProps> = ({
   question,
   selectedAnswer,
   setSelectedAnswer,
+  showResult,
 }) => {
   const [isJapanese, setIsJapanese] = useState(false);
+  const [shuffledChoices, setShuffledChoices] = useState(question.choices);
 
   const toggleLanguage = () => {
     setIsJapanese(!isJapanese);
   };
+
+  useEffect(() => {
+    setShuffledChoices(shuffleArray([...question.choices]));
+  }, [question]);
 
   return (
     <div className="shadow-lg p-6 bg-white rounded">
@@ -41,15 +56,20 @@ const QuestionCard: React.FC<QuestionCardProps> = ({
         onValueChange={setSelectedAnswer}
         className="space-y-4 mt-4"
       >
-        {question.choices.map((choice) => (
+        {shuffledChoices.map((choice) => (
           <div key={choice.key} className="flex items-center space-x-2">
             <RadioGroupItem value={choice.key} id={`choice-${choice.key}`} />
             <Label htmlFor={`choice-${choice.key}`} className="text-base cursor-pointer">
-              {isJapanese ? choice.text_ja : choice.text_en}
+              {showResult && <span className="font-bold">{choice.key}:</span>} {isJapanese ? choice.text_ja : choice.text_en}
             </Label>
           </div>
         ))}
       </RadioGroup>
+      {showResult && selectedAnswer && (
+        <p className="mt-4 text-sm text-gray-600">
+          選択したキー: {selectedAnswer}
+        </p>
+      )}
     </div>
   );
 };

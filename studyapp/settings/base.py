@@ -1,35 +1,32 @@
 from pathlib import Path
 import os
 from datetime import timedelta
-from decouple import Config, Csv
+from dotenv import load_dotenv
 
 # Determine the environment
 ENVIRONMENT = os.environ.get('ENVIRONMENT', 'development')
 
 # Load the appropriate .env file
-if ENVIRONMENT == 'production':
-    config = Config('.env.production')
-else:
-    config = Config('.env.development')
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
+env_file = BASE_DIR / f'.env.{ENVIRONMENT}'
+load_dotenv(dotenv_path=env_file)
 
 # セキュリティ設定
-SECRET_KEY = config('DJANGO_SECRET_KEY')
-DEBUG = config('DEBUG', default=False, cast=bool)
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='', cast=Csv())
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
+DEBUG = os.getenv('DEBUG', 'False').lower() in ('true', '1', 't')
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',')
 print(ALLOWED_HOSTS)
 MANIFEST_PATH = BASE_DIR / 'frontend' / 'dist' / 'manifest.json'
+
 # データベース設定
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASSWORD'),
-        'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT', default='5432'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST'),
+        'PORT': os.getenv('DB_PORT', '5432'),
     }
 }
 
@@ -47,12 +44,12 @@ INSTALLED_APPS = [
 ]
 
 # CORS設定
-CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS', default='', cast=Csv())
+CORS_ALLOWED_ORIGINS = os.getenv('CORS_ALLOWED_ORIGINS', '').split(',')
 
 # JWT設定
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=config('JWT_ACCESS_TOKEN_LIFETIME_MINUTES', default=5, cast=int)),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=config('JWT_REFRESH_TOKEN_LIFETIME_DAYS', default=7, cast=int)),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=int(os.getenv('JWT_ACCESS_TOKEN_LIFETIME_MINUTES', 5))),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=int(os.getenv('JWT_REFRESH_TOKEN_LIFETIME_DAYS', 7))),
     'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
     'ALGORITHM': 'HS256',
@@ -60,8 +57,8 @@ SIMPLE_JWT = {
 }
 
 # リダイレクト設定
-LOGIN_REDIRECT_URL = config('LOGIN_REDIRECT_URL', default=None)
-LOGOUT_REDIRECT_URL = config('LOGOUT_REDIRECT_URL', default='/login/')
+LOGIN_REDIRECT_URL = os.getenv('LOGIN_REDIRECT_URL', None)
+LOGOUT_REDIRECT_URL = os.getenv('LOGOUT_REDIRECT_URL', '/login/')
 
 # Application definition
 MIDDLEWARE = [

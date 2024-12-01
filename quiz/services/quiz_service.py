@@ -6,10 +6,17 @@ class QuizService:
         self.repository = QuizRepository()
         self.alphabet_to_index = {chr(i): i - ord('A') for i in range(ord('A'), ord('Z') + 1)}
 
-    def get_questions(self, exam_id: int, mode: str, user=None):
+    def get_questions(self, exam_id: int, mode: str, sub_mode: str, user=None):
         if mode == 'unanswered':
-            return self.repository.get_unanswered_questions(exam_id, user)
-        return self.repository.get_questions_by_exam(exam_id, user)
+            questions = self.repository.get_unanswered_questions(exam_id, user)
+        else:
+            questions = self.repository.get_questions_by_exam(exam_id, user)
+
+        if sub_mode == 'sequential':
+            questions = questions.order_by('no')  # Sort questions by 'no' in ascending order
+
+        # 'ai' sub_mode is not implemented yet
+        return questions
 
     def format_choice_data(self, choice):
         return {

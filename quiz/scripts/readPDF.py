@@ -81,14 +81,30 @@ class QuestionExtractor:
 
     def extract_choices(self, block: str) -> List[Choice]:
         """質問ブロックから選択肢を抽出"""
+        # 選択肢のパターンを改良
         choice_pattern = r'(?:^|\n)\s*([A-Z0-9])(?:\.|\)|-)\s+(.*?)(?=(?:\n\s*[A-Z0-9](?:\.|\)|-)\s+|\nCorrect Answer:|\nCommunity vote|$))'
         matches = list(re.finditer(choice_pattern, block, re.MULTILINE | re.DOTALL))
 
         choices = []
-        for match in matches:
+        for i, match in enumerate(matches):
             key = match.group(1)
-            text = match.group(2).strip()
-            text = self.text_cleaner.clean(text)
+            text = match.group(2)
+            
+            # 次の選択肢の開始位置までのテキストを取得
+            if i < len(matches) - 1:
+                next_match_start = matches[i + 1].start()
+                text = block[match.start(2):next_match_start]  # match.start(2)を使用して選択肢のテキスト部分の開始位置から取得
+            else:
+                # 最後の選択肢の場合
+                text = block[match.start(2):]  # match.start(2)を使用して選択肢のテキスト部分の開始位置から取得
+                # Correct AnswerとCommunity vote distributionを除去
+                text = re.split(r'\s*(?:Correct Answer:|Community vote)', text)[0]
+            
+            # テキストのクリーニング
+            text = text.strip()
+            text = re.sub(r'\s+', ' ', text)  # 複数の空白を1つに
+            text = text.replace('\n', ' ')     # 改行を空白に置換
+            
             choices.append(Choice(key=key, text=text))
 
         # 画像プレースホルダーを選択肢に挿入

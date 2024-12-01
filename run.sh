@@ -20,4 +20,4 @@ python manage.py collectstatic --noinput
 pip install -r requirements.txt
 
 echo "Starting server..."
-python manage.py runserver
+python manage.py runserver --insecure

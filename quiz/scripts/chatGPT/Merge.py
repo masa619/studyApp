@@ -99,7 +99,7 @@ def merge_json_files(english_path, japanese_path, output_path):
 if __name__ == "__main__":
     # ファイルパスの設定
     english_path = "/Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/input/extracted_data.json"
-    japanese_path = "/Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/recovered_result_20241126_122444_fb642908ab154f16979b589fbf155318.json"
+    japanese_path = "/Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/result/recovery_result_20241201_152654_4ffc9d6b94c34a7c887849eeff88d073.json"
     output_path = os.path.join("/Users/shipro/Projects/StudyApp/quiz/scripts/chatGPT/merged", "merged_output.json")
     
     # 関数の実行

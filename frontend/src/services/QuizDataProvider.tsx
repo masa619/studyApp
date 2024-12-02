@@ -9,7 +9,7 @@ interface QuizDataProviderProps {
   onDataLoaded: (data: Question[]) => void;
 }
 
-const QuizDataProvider: React.FC<QuizDataProviderProps> = ({ 
+export const QuizDataProvider: React.FC<QuizDataProviderProps> = ({ 
   examId, 
   mode = 'normal',
   subMode = 'sequential',

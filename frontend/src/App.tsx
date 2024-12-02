@@ -3,9 +3,9 @@ import { SessionProvider } from './contexts/SessionContext';
 import { Routes, Route } from 'react-router-dom';
 import ProtectedRoute from './contexts/ProtectedRoute';
 
-import Login from './pages/Login';
-import LearningApp from './pages/QuizPage';
-import Menu from './pages/Menu';
+import Login from './components/pages/auth/Login';
+import LearningApp from './components/pages/study/QuizPage';
+import Menu from './components/pages/menu/Menu';
 
 function App() {
     return (

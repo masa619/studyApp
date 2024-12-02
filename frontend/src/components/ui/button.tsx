@@ -1,57 +1,61 @@
 // frontend/src/components/ui/Button.tsx
-import * as React from 'react';
-import { Slot } from '@radix-ui/react-slot';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from '../../lib/utils';
+import * as React from "react";
+import { Button as MUIButton } from "@mui/material";
+import { ButtonProps as MUIButtonProps } from "@mui/material";
 
-// Define button variants using class-variance-authority
-const buttonVariants = cva(
-  'inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50',
-  {
-    variants: {
-      variant: {
-        default: 'bg-primary text-primary-foreground hover:bg-primary/90',
-        destructive: 'bg-destructive text-destructive-foreground hover:bg-destructive/90',
-        outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-        secondary: 'bg-secondary text-secondary-foreground hover:bg-secondary/80',
-        ghost: 'hover:bg-accent hover:text-accent-foreground',
-        link: 'text-primary underline-offset-4 hover:underline',
-      },
-      size: {
-        default: 'h-10 px-4 py-2',
-        sm: 'h-9 rounded-md px-3',
-        lg: 'h-11 rounded-md px-8',
-        icon: 'h-10 w-10',
-      },
-    },
-    defaultVariants: {
-      variant: 'default',
-      size: 'default',
-    },
-  }
-);
+// MUIの標準variantのみを型として定義
+type MUIVariant = "text" | "contained" | "outlined";
+// カスタムvariantを定義
+type CustomVariant = "default" | "destructive" | "outline" | "secondary" | "ghost" | "link" | "primary";
 
-// Extend ButtonProps to include variant and size
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  asChild?: boolean;
+export interface ButtonProps extends Omit<MUIButtonProps, "variant"> {
+  variant?: MUIVariant | CustomVariant;
 }
 
-// Update Button component to use forwardRef and new props
+const variantMapping: Record<CustomVariant, MUIVariant> = {
+  default: "contained",
+  destructive: "contained",
+  outline: "outlined",
+  secondary: "contained",
+  ghost: "text",
+  link: "text",
+  primary: "contained",
+};
+
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
-    const Comp = asChild ? Slot : 'button';
+  ({ variant = "default", color, className, ...props }, ref) => {
+    // variantがMUIの標準バリアントかどうかをチェック
+    const isMuiVariant = ["contained", "outlined", "text"].includes(variant);
+    
+    // MUIの標準バリアントの場合はそのまま使用し、
+    // カスタムバリアントの場合はマッピングを使用
+    const buttonVariant = isMuiVariant ? variant : variantMapping[variant as keyof typeof variantMapping];
+
+    const buttonColor = color || (() => {
+      switch (variant) {
+        case "destructive":
+          return "error";
+        case "secondary":
+          return "secondary";
+        case "primary":
+          return "primary";
+        default:
+          return "primary";
+      }
+    })();
+
     return (
-      <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+      <MUIButton
         ref={ref}
+        variant={buttonVariant as MUIVariant}
+        color={buttonColor}
+        className={className}
         {...props}
       />
     );
   }
 );
 
-Button.displayName = 'Button';
+Button.displayName = "Button";
 
-export { Button, buttonVariants };
+export { Button };

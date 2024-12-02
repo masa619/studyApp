@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import { useState, useEffect } from 'react';
 import apiClient from '../api/client';
-const QuizDataProvider = ({ examId, mode = 'normal', subMode = 'sequential', onDataLoaded }) => {
+export const QuizDataProvider = ({ examId, mode = 'normal', subMode = 'sequential', onDataLoaded }) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     useEffect(() => {

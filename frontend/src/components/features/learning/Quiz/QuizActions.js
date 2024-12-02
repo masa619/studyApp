@@ -1,0 +1,5 @@
+import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
+import { Button } from "@mui/material";
+import { FaForward, FaCheckCircle, FaQuestionCircle, FaPlay } from 'react-icons/fa';
+// アクションボタン群
+export const QuizActions = ({ showResult, selectedAnswer, onSkip, onSubmit, onShowExplanation, onNext }) => (_jsx("div", { className: "flex justify-end gap-4", children: !showResult ? (_jsxs(_Fragment, { children: [_jsxs(Button, { onClick: onSkip, variant: "contained", color: "secondary", children: [_jsx(FaForward, { className: "mr-2" }), "\u30B9\u30AD\u30C3\u30D7"] }), _jsxs(Button, { onClick: onSubmit, variant: "outlined", disabled: !selectedAnswer, color: "success", children: [_jsx(FaCheckCircle, { className: "mr-2" }), "\u56DE\u7B54\u3059\u308B"] })] })) : (_jsxs(_Fragment, { children: [_jsxs(Button, { onClick: onShowExplanation, variant: "outlined", children: [_jsx(FaQuestionCircle, { className: "mr-2" }), "\u89E3\u8AAC\u3092\u898B\u308B"] }), _jsxs(Button, { onClick: onNext, variant: "contained", color: "secondary", children: [_jsx(FaPlay, { className: "mr-2" }), "\u6B21\u306E\u554F\u984C\u3078"] })] })) }));

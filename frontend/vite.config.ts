@@ -6,6 +6,11 @@ export default defineConfig({
   plugins: [react()],
   assetsInclude: ['**/*.JPG'],
   base: '/static/',
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src'),
+    },
+  },
   build: {
     manifest: 'manifest.json',
     outDir: 'dist',

@@ -7,38 +7,24 @@ const SessionContext = createContext<Session | undefined>(undefined);
 
 export const SessionProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [isSessionExpired, setSessionExpired] = useState(false);
-  const [token, setToken] = useState<string | undefined>(undefined);
   const navigate = useNavigate();
 
   useEffect(() => {
     const handleSessionExpired = () => {
       if (!isSessionExpired) {
         setSessionExpired(true);
-        alert('Your session has expired. Please log in again.');
-        navigate('/'); // グローバルなリダイレクト処理
+        alert('セッションが期限切れです。再度ログインしてください。');
+        navigate('/');
       }
     };
 
-    // イベントトリガーの登録
-    document.addEventListener('sessionExpired', handleSessionExpired);
-
-    // 定期的なAPIチェック（セッション有効性検証をグローバルに一元化）
-    const interval = setInterval(async () => {
-      try {
-        if (!isSessionExpired) {
-          const response = await auth.verify()
-          if (response.status === 401) {
-            handleSessionExpired();
-          }
-        }
-      } catch (error) {
-        console.error('Session validation failed', error);
-      }
-    }, 5 * 60 * 1000); // 1分間隔でチェック
+    // sessionExpiredイベントをリッスン
+    const eventListener = () => handleSessionExpired();
+    document.addEventListener('sessionExpired', eventListener);
 
     return () => {
-      document.removeEventListener('sessionExpired', handleSessionExpired);
-      clearInterval(interval); // リソースクリーンアップ
+      // クリーンアップ: イベントリスナーを解除
+      document.removeEventListener('sessionExpired', eventListener);
     };
   }, [isSessionExpired, navigate]);
 

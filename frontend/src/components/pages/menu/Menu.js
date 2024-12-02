@@ -31,7 +31,7 @@ export default function LearningMenu() {
     }, []);
     const handleAuthClick = async () => {
         if (isSessionExpired) {
-            navigate('/login');
+            navigate('/');
         }
         else {
             await auth.logout();

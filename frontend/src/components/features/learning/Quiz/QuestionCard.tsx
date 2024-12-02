@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { RadioGroup, RadioGroupItem } from '../../../ui/radio-group';
 import { Label } from '../../../ui/label';
-import { Button } from '../../../ui/button';
+import { Button } from "@mui/material";
 import { Question } from '../../../../types/question';
+import { colors } from '../../../../styles/colors';
 
 interface QuestionCardProps {
   question: Question;
@@ -37,13 +38,13 @@ export const QuestionCard: React.FC<QuestionCardProps> = ({
   }, [question]);
 
   return (
-    <div className="shadow-lg p-6 bg-white rounded">
+    <div className={`shadow-lg p-6 bg-[${colors.background.paper}] rounded-lg border border-[${colors.primary.light}]`}>
       <div className="flex items-center justify-between mb-2">
         <p className="text-sm text-gray-500">問題 {question.no}</p>
         <Button
           onClick={toggleLanguage}
-          variant="secondary"
-          className="text-sm"
+          variant="outlined"
+          className={`bg-[${colors.secondary.light}] hover:bg-[${colors.secondary.main}] text-[${colors.background.dark}]]`}
         >
           {isJapanese ? 'En' : 'ja'}
         </Button>

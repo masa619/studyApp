@@ -1,0 +1,156 @@
+[
+  {
+    "No": "87",
+    "question": "ある会社では、Amazon EC2インスタンスで実行されるアプリケーションを持っています。ソリューションアーキテクトは、アプリケーションがAmazon Aurora DBクラスターへのアクセスを必要とするAWSリージョンでVPCインフラストラクチャを設計しています。EC2インスタンスはすべて同じセキュリティグループに関連付けられています。DBクラスターには独自のセキュリティグループが関連付けられています。 ソリューションアーキテクトは、アプリケーションにDBクラスターへの最小限の権限でアクセスを提供するために、セキュリティグループにルールを追加する必要があります。これらの要件を満たす手順の組み合わせはどれですか？（2つ選択してください。）",
+    "choices": [
+      {
+        "key": "A",
+        "text": "EC2インスタンスのセキュリティグループにインバウンドルールを追加します。デフォルトのAuroraポートを介してソースとしてDBクラスターのセキュリティグループを指定します。"
+      },
+      {
+        "key": "B",
+        "text": "EC2インスタンスのセキュリティグループにアウトバウンドルールを追加します。デフォルトのAuroraポートを介して、宛先としてDBクラスターのセキュリティグループを指定します。"
+      },
+      {
+        "key": "C",
+        "text": "DBクラスターのセキュリティグループにインバウンドルールを追加します。EC2インスタンスのセキュリティグループをソースとしてデフォルトのAuroraポートを介します。"
+      },
+      {
+        "key": "D",
+        "text": "DBクラスターのセキュリティグループにアウトバウンドルールを追加します。デフォルトのAuroraポートを介して、宛先としてEC2インスタンスのセキュリティグループを指定します。"
+      },
+      {
+        "key": "E",
+        "text": "DBクラスターのセキュリティグループにアウトバウンドルールを追加します。エフェメラルポートを介して、宛先としてEC2インスタンスのセキュリティグループを指定します。"
+      }
+    ],
+    "answer_key": "A",
+    "explanation_en": [
+      {
+        "answer_and_key_points": "Correct answers are C and B. The correct approach is to allow inbound connections to the DB cluster from the EC2 instances, and ensure outbound connectivity from EC2 instances to the DB cluster over the default Aurora port.",
+        "situation_analysis": "The application on EC2 instances needs to access the Aurora DB cluster with minimal access. It involves configuring security group rules that enable communication while adhering to the principle of least privilege.",
+        "option_analysis": "Option A is incorrect because it configures an inbound rule on the EC2 security group instead of the DB cluster. Option B is necessary to permit traffic from EC2 instances to the Aurora cluster. Option C correctly configures the inbound rule for the DB cluster's security group. Option D is incorrect, as outbound rules are not needed on the DB security group. Option E is also incorrect due to the inappropriate use of ephemeral ports.",
+        "additional_knowledge": "The default Aurora port is commonly 3306 for MySQL compatibility and 5432 for PostgreSQL.",
+        "key_terminology": "AWS Security Groups, Amazon EC2, Amazon Aurora, Inbound/Outbound Rules, Least Privilege",
+        "overall_assessment": "Though the community believed BC to be correct due to typical configurations, the correct configuration should involve CB to accurately reflect AWS security best practices. The need for inbound permissions is crucial for database connectivity."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "正解はCとBです。正しいアプローチは、EC2インスタンスからDBクラスターへのインバウンド接続を許可し、デフォルトのAuroraポートを介してEC2インスタンスからDBクラスターへのアウトバウンド接続を確保することです。",
+        "situation_analysis": "EC2インスタンス上のアプリケーションは、必要最小限のアクセスでAurora DBクラスターにアクセスする必要があります。これは、最小特権の原則を守りつつ、通信を可能にするセキュリティグループルールを設定することを含みます。",
+        "option_analysis": "オプションAはEC2のセキュリティグループにインバウンドルールを設定しているため不正確です。オプションBは、EC2インスタンスからAuroraクラスターへのトラフィックを許可するために必要です。オプションCは、DBクラスタのセキュリティグループにインバウンドルールを正しく設定しています。オプションDはDBセキュリティグループにアウトバウンドルールが不要なため不正確です。オプションEは、エフェメラルポートの不適切な使用により不正確です。",
+        "additional_knowledge": "デフォルトのAuroraポートは、MySQL互換では一般的に3306、PostgreSQLでは5432です。",
+        "key_terminology": "AWSセキュリティグループ, Amazon EC2, Amazon Aurora, インバウンド/アウトバウンドルール, 最小の特権",
+        "overall_assessment": "コミュニティは一般的な設定に基づいてBCが正しいと考えていましたが、正しい設定はAWSのセキュリティベストプラクティスを反映するためにCBを含むべきです。データベース接続のためにはインバウンド権限が重要です。"
+      }
+    ],
+    "keywords": [
+      "AWS Security Groups",
+      "Amazon EC2",
+      "Amazon Aurora",
+      "Inbound Rules",
+      "Outbound Rules",
+      "Least Privilege"
+    ]
+  },
+  {
+    "No": "96",
+    "question": "A solutions architect needs to implement a client-side encryption mechanism for objects that will be stored in a new Amazon S3 bucket. The\nsolutions architect created a CMK that is stored in AWS Key Management Service (AWS KMS) for this purpose.\nThe solutions architect created the following IAM policy and attached it to an IAM role:\nDuring tests, the solutions architect was able to successfully get existing test objects in the S3 bucket. However, attempts to upload a new object\nresulted in an error message. The error message stated that the action was forbidden.\nWhich action must the solutions architect add to the IAM policy to meet all the requirements?",
+    "choices": [
+      {
+        "key": "A",
+        "text": "kms:GenerateDataKey"
+      },
+      {
+        "key": "B",
+        "text": "kms:GetKeyPolicy"
+      },
+      {
+        "key": "C",
+        "text": "kms:GetPublicKey"
+      },
+      {
+        "key": "D",
+        "text": "kms:Sign"
+      }
+    ],
+    "answer_key": "A",
+    "explanation_en": [
+      {
+        "answer_and_key_points": "The correct answer is A: kms:GenerateDataKey. The action 'kms:GenerateDataKey' is required when using AWS KMS for client-side encryption because it allows the generation of a data key that can be used to encrypt data on the client-side.",
+        "situation_analysis": "The problem involves storing encrypted objects in Amazon S3 using a client-side encryption mechanism. A Customer Master Key (CMK) in AWS KMS is designated for this purpose, and an IAM policy is attached to the role responsible for encryption operations. The error occurs when attempting to upload a new object, indicating missing permissions.",
+        "option_analysis": "Option A is correct since 'kms:GenerateDataKey' is essential for obtaining a data key for encryption. Option B is not needed for encryption operations. Option C (kms:GetPublicKey) is related to asymmetric encryption, which is not relevant here. Option D (kms:Sign) is used for signing, not encryption keys.",
+        "additional_knowledge": "AWS best practices suggest minimizing the use of sensitive key materials and leveraging KMS for secure key management.",
+        "key_terminology": "AWS KMS, CMK, Client-side encryption, IAM policy",
+        "overall_assessment": "A thorough understanding of AWS KMS and client-side encryption is necessary. 'kms:GenerateDataKey' is a fundamental permission for encrypting data with a KMS CMK."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "正解はA: kms:GenerateDataKeyである。なぜなら、AWS KMSを使用してクライアント側で暗号化を行う際、データを暗号化するためのデータキーを生成するために、'kms:GenerateDataKey'アクションが必要であるからだ。",
+        "situation_analysis": "この問題は、クライアント側暗号化メカニズムを使用してAmazon S3に暗号化されたオブジェクトを格納することに関するものである。AWS KMSに保存されたカスタマーマスターキー(CMK)がこの目的のために指定されており、暗号化操作を行う役割にIAMポリシーが添付されている。新しいオブジェクトをアップロードしようとしたときにエラーが発生し、必要な権限が欠如していることを示唆している。",
+        "option_analysis": "オプションAは正しい。なぜなら、'kms:GenerateDataKey'は、暗号化のためのデータキーを取得するために不可欠であるからである。オプションBは暗号化操作には必要ない。オプションC(kms:GetPublicKey)は非対称暗号に関連しており、ここでは関連しない。オプションD(kms:Sign)は署名に使用するもので、暗号化キーには適用されない。",
+        "additional_knowledge": "AWSのベストプラクティスは、機密キー材料の使用を最小限にし、安全なキー管理のためにKMSを活用することを推奨している。",
+        "key_terminology": "AWS KMS, CMK, クライアント側暗号化, IAMポリシー",
+        "overall_assessment": "AWS KMSおよびクライアント側暗号化について十分な理解が必要である。'kms:GenerateDataKey'は、KMSのCMKを使用してデータを暗号化するための基本的な許可である。"
+      }
+    ],
+    "keywords": [
+      "AWS KMS",
+      "Client-side encryption",
+      "CMK",
+      "IAM policy",
+      "kms:GenerateDataKey"
+    ]
+  },
+  {
+    "no": "211",
+    "question": "会社がAWSへの移行を希望しています。会社はVMware ESXi環境で数千のVMを運用しています。会社には構成管理データベースがなく、VMwareポートフォリオの利用状況についてほとんど知識がありません。ソリューションアーキテクトは、会社に正確なインベントリを提供し、費用対効果の高い移行を計画できるようにする必要があります。最小の運用負荷でこの要件を満たすソリューションはどれですか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "AWS Systems Manager Patch Manager を使用して各VMに Migration Evaluator をデプロイします。収集されたデータを Amazon QuickSight で確認します。使用率の高いサーバーを特定します。移行リストから使用率の高いサーバーを削除します。データを AWS Migration Hub にインポートします。"
+      },
+      {
+        "key": "B",
+        "text": "VMware ポートフォリオを .csv ファイルにエクスポートします。各サーバーのディスク使用率を確認します。使用率の高いサーバーを削除します。データを AWS Application Migration Service にエクスポートします。AWS Server Migration Service（AWS SMS）を使用して残りのサーバーを移行します。"
+      },
+      {
+        "key": "C",
+        "text": "Migration Evaluator のエージェントレスコレクターを ESXi ハイパーバイザーにデプロイします。Migration Evaluator で収集されたデータを確認します。非アクティブなサーバーを特定します。移行リストから非アクティブなサーバーを削除します。データを AWS Migration Hub にインポートします。"
+      },
+      {
+        "key": "D",
+        "text": "AWS Application Migration Service Agent を各VMにデプロイします。データが収集されたら、Amazon Redshift を使用してデータをインポートして分析します。データの可視化には Amazon QuickSight を使用します。"
+      }
+    ],
+    "answer_key": "C",
+    "explanation_en": [
+      {
+        "answer_and_key_points": "The correct answer is C. Deploying the Migration Evaluator agentless collector to the ESXi hypervisor allows for low-overhead collection of inventory data.",
+        "situation_analysis": "The company lacks a configuration management database and detailed knowledge of VM utilization, which requires an efficient and centralized data collection approach.",
+        "option_analysis": "Option C offers a non-invasive, agentless collection method that minimizes manual intervention and operational overhead compared to deploying agents to each VM.",
+        "additional_knowledge": "It's crucial to integrate inventory data efficiently to plan for resource allocation and cost forecasting during migration processes.",
+        "key_terminology": "Migration Evaluator, ESXi hypervisor, agentless data collection, AWS Migration Hub.",
+        "overall_assessment": "Option C optimally addresses the problem statement by offering minimized operational effort and comprehensive data collection with minimal disruption."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "正解はCです。Migration EvaluatorのエージェントレスコレクターをESXiハイパーバイザーにデプロイすることで、運用負荷を最小限に抑えたインベントリデータの収集が可能です。",
+        "situation_analysis": "会社には構成管理データベースもなく、VMの利用状況についての詳細な知識もありません。したがって、効率的で中央集約型のデータ収集アプローチが必要です。",
+        "option_analysis": "オプションCは、各VMにエージェントを配備する場合と比較して、手動による介入と運用負荷を最小限に抑えた非侵襲的なエージェントレス収集方法を提供します。",
+        "additional_knowledge": "移行プロセス中のリソース割り当てとコスト予測を計画するためには、インベントリデータを効率的に統合することが重要です。",
+        "key_terminology": "Migration Evaluator、ESXiハイパーバイザー、エージェントレスデータ収集、AWS Migration Hub。",
+        "overall_assessment": "オプションCは、最小の運用努力で包括的なデータ収集を提供し、問題文を最適に解決します。"
+      }
+    ],
+    "keywords": [
+      "Migration Evaluator",
+      "ESXi hypervisor",
+      "agentless data collection",
+      "AWS Migration Hub"
+    ]
+  }
+]

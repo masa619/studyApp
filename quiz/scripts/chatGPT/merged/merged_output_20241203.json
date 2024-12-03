@@ -1,0 +1,480 @@
+[
+  {
+    "No": "3",
+    "question": "A company uses AWS Organizations with a single OU named Production to manage multiple accounts. All accounts are members of the\nProduction OU. Administrators use deny list SCPs in the root of the organization to manage access to restricted services.\nThe company recently acquired a new business unit and invited the new unit's existing AWS account to the organization. Once onboarded, the\nadministrators of the new business unit discovered that they are not able to update existing AWS Config rules to meet the company's policies.\nWhich option will allow administrators to make changes and continue to enforce the current policies without introducing additional long-term\nmaintenance?",
+    "question_jp": "企業はAWS Organizationsを使い、Productionという単一のOUで複数のアカウントを管理しています。全てのアカウントがProduction OUのメンバーです。管理者は組織のルートで拒否リストのSCPを使って制限されたサービスへのアクセスを管理しています。最近、企業は新しい事業部を買収し、その新しい事業部の既存のAWSアカウントを組織に招待しました。オンボーディング後、その事業部の管理者は、会社のポリシーに合ったAWS Configルールを更新できないことに気づきました。追加の長期的なメンテナンスを導入せずに、管理者が変更を行い、現在のポリシーを維持するためにどのオプションが効果的ですか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Remove the organization's root SCPs that limit access to AWS Config. Create AWS Service Catalog products for the company's standard AWS Config rules and deploy them throughout the organization, including the new account.",
+        "text_jp": "組織のルートからAWS Configへのアクセスを制限するSCPを削除し、AWS Service Catalog製品を会社の標準AWS Configルールとして作成し、新しいアカウントを含む組織全体に展開します。"
+      },
+      {
+        "key": "B",
+        "text": "Create a temporary OU named Onboarding for the new account. Apply an SCP to the Onboarding OU to allow AWS Config actions. Move the new account to the Production OU when adjustments to AWS Config are complete.",
+        "text_jp": "新しいアカウントのためにOnboardingという一時的なOUを作成し、AWS Configアクションを許可するSCPを適用します。AWS Configの調整が完了したら、新しいアカウントをProduction OUに移動します。"
+      },
+      {
+        "key": "C",
+        "text": "Convert the organization's root SCPs from deny list SCPs to allow list SCPs to allow the required services only. Temporarily apply an SCP to the organization's root that allows AWS Config actions for principals only in the new account.",
+        "text_jp": "組織のルートのSCPを拒否リストから許可リストに変更して、必要なサービスのみを許可します。一時的に、新しいアカウントの原則のみにAWS Configアクションを許可するSCPを組織のルートに適用します。"
+      },
+      {
+        "key": "D",
+        "text": "Create a temporary OU named Onboarding for the new account. Apply an SCP to the Onboarding OU to allow AWS Config actions. Move the organization's root SCP to the Production OU. Move the new account to the Production OU when adjustments to AWS Config are complete.",
+        "text_jp": "新しいアカウントのためにOnboardingという一時的なOUを作成し、AWS Configアクションを許可するSCPを適用します。組織のルートSCPをProduction OUに移動し、AWS Configの調整が完了したら新しいアカウントをProduction OUに移動します。"
+      }
+    ],
+    "answer_key": "B",
+    "community_vote_distribution": "D (86%) 14%",
+    "page_images": [],
+    "explanation_en": [
+      {
+        "answer_and_key_points": "The correct answer is B. Creating a temporary OU for the new account and applying an SCP to allow AWS Config actions provides an isolated environment for making necessary adjustments without impacting the existing setup. Moving the account to the Production OU maintains the current policy structure.",
+        "situation_analysis": "The administrators of the new business unit are unable to update AWS Config rules due to existing SCP restrictions. The solution needs to allow updates without significant long-term maintenance changes.",
+        "option_analysis": "Option A is incorrect because removing SCPs increases security risk. Option B is correct as it provides a temporary solution without affecting existing policies. Option C requires significant SCP reconfiguration and risks security policy changes. Option D unnecessarily moves SCPs, increasing complexity.",
+        "additional_knowledge": "In practice, using temporary organizational structures is a recommended method to facilitate onboarding and configuration changes without disturbing the main workflow of existing accounts.",
+        "key_terminology": "AWS Organizations, SCP (Service Control Policies), AWS Config, OU (Organizational Unit)",
+        "overall_assessment": "The question tests understanding of AWS Organizations and SCPs. Despite the community favoring Option D, Option B provides a more streamlined and compliant solution in alignment with AWS best practices."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "正解はBです。新しいアカウントのための一時的なOUを作成し、AWS Configアクションを許可するSCPを適用することで、必要な調整を行うための隔離された環境を提供し、既存の設定に影響を与えません。アカウントをProduction OUに移動することで、現在のポリシー構造を維持します。",
+        "situation_analysis": "新しい事業部の管理者は、既存のSCP制限によりAWS Configルールを更新できません。解決策は、アップデートを許可しつつ長期的なメンテナンス変更を最小限に抑える必要があります。",
+        "option_analysis": "オプションAは、SCPの削除がセキュリティリスクを増大させるため不適です。オプションBは、影響を与えずに一時的な解決を提供するため適切です。オプションCは、SCPの大幅な再構成が必要でセキュリティポリシーの変更を引き起こす可能性があります。オプションDは、SCPを不必要に移動し、複雑さを増すため不適です。",
+        "additional_knowledge": "実際には、一時的な組織構造を使用することは、新しいアカウントのオンボーディングと設定変更をメインのワークフローを乱すことなく促進する推奨手法です。",
+        "key_terminology": "AWS Organizations, SCP（サービスコントロールポリシー）, AWS Config, OU（組織単位）",
+        "overall_assessment": "この質問は、AWS OrganizationsとSCPの理解をテストしています。コミュニティがオプションDを支持しているにもかかわらず、オプションBは、AWSのベストプラクティスと整合するよりスムーズでコンプライアントな解決策を提供します。"
+      }
+    ],
+    "keywords": [
+      "AWS Organizations",
+      "SCP",
+      "AWS Config",
+      "Organizational Unit",
+      "Service Control Policies"
+    ]
+  },
+  {
+    "No": "87",
+    "question": "A company has an application that runs on Amazon EC2 instances. A solutions architect is designing VPC infrastructure in an AWS Region where\nthe application needs to access an Amazon Aurora DB Cluster. The EC2 instances are all associated with the same security group. The DB cluster\nis associated with its own security group.\nThe solutions architect needs to add rules to the security groups to provide the application with least privilege access to the DB Cluster.\nWhich combination of steps will meet these requirements? (Choose two.)",
+    "question_jp": "ある会社では、Amazon EC2インスタンスで実行されるアプリケーションを持っています。ソリューションアーキテクトは、アプリケーションがAmazon Aurora DBクラスターへのアクセスを必要とするAWSリージョンでVPCインフラストラクチャを設計しています。EC2インスタンスはすべて同じセキュリティグループに関連付けられています。DBクラスターには独自のセキュリティグループが関連付けられています。 ソリューションアーキテクトは、アプリケーションにDBクラスターへの最小限の権限でアクセスを提供するために、セキュリティグループにルールを追加する必要があります。これらの要件を満たす手順の組み合わせはどれですか？（2つ選択してください。）",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Add an inbound rule to the EC2 instances' security group. Specify the DB cluster's security group as the source over the default Aurora port.",
+        "text_jp": "EC2インスタンスのセキュリティグループにインバウンドルールを追加します。デフォルトのAuroraポートを介してソースとしてDBクラスターのセキュリティグループを指定します。"
+      },
+      {
+        "key": "B",
+        "text": "Add an outbound rule to the EC2 instances' security group. Specify the DB cluster's security group as the destination over the default Aurora port.",
+        "text_jp": "EC2インスタンスのセキュリティグループにアウトバウンドルールを追加します。デフォルトのAuroraポートを介して、宛先としてDBクラスターのセキュリティグループを指定します。"
+      },
+      {
+        "key": "C",
+        "text": "Add an inbound rule to the DB cluster's security group. Specify the EC2 instances' security group as the source over the default Aurora port.",
+        "text_jp": "DBクラスターのセキュリティグループにインバウンドルールを追加します。EC2インスタンスのセキュリティグループをソースとしてデフォルトのAuroraポートを介します。"
+      },
+      {
+        "key": "D",
+        "text": "Add an outbound rule to the DB cluster's security group. Specify the EC2 instances' security group as the destination over the default Aurora port.",
+        "text_jp": "DBクラスターのセキュリティグループにアウトバウンドルールを追加します。デフォルトのAuroraポートを介して、宛先としてEC2インスタンスのセキュリティグループを指定します。"
+      },
+      {
+        "key": "E",
+        "text": "Add an outbound rule to the DB cluster's security group. Specify the EC2 instances' security group as the destination over the ephemeral ports.",
+        "text_jp": "DBクラスターのセキュリティグループにアウトバウンドルールを追加します。エフェメラルポートを介して、宛先としてEC2インスタンスのセキュリティグループを指定します。"
+      }
+    ],
+    "answer_key": "A",
+    "community_vote_distribution": "BC (76%) AC (24%)",
+    "page_images": [],
+    "explanation_en": [
+      {
+        "answer_and_key_points": "Correct answers are C and B. The correct approach is to allow inbound connections to the DB cluster from the EC2 instances, and ensure outbound connectivity from EC2 instances to the DB cluster over the default Aurora port.",
+        "situation_analysis": "The application on EC2 instances needs to access the Aurora DB cluster with minimal access. It involves configuring security group rules that enable communication while adhering to the principle of least privilege.",
+        "option_analysis": "Option A is incorrect because it configures an inbound rule on the EC2 security group instead of the DB cluster. Option B is necessary to permit traffic from EC2 instances to the Aurora cluster. Option C correctly configures the inbound rule for the DB cluster's security group. Option D is incorrect, as outbound rules are not needed on the DB security group. Option E is also incorrect due to the inappropriate use of ephemeral ports.",
+        "additional_knowledge": "The default Aurora port is commonly 3306 for MySQL compatibility and 5432 for PostgreSQL.",
+        "key_terminology": "AWS Security Groups, Amazon EC2, Amazon Aurora, Inbound/Outbound Rules, Least Privilege",
+        "overall_assessment": "Though the community believed BC to be correct due to typical configurations, the correct configuration should involve CB to accurately reflect AWS security best practices. The need for inbound permissions is crucial for database connectivity."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "正解はCとBです。正しいアプローチは、EC2インスタンスからDBクラスターへのインバウンド接続を許可し、デフォルトのAuroraポートを介してEC2インスタンスからDBクラスターへのアウトバウンド接続を確保することです。",
+        "situation_analysis": "EC2インスタンス上のアプリケーションは、必要最小限のアクセスでAurora DBクラスターにアクセスする必要があります。これは、最小特権の原則を守りつつ、通信を可能にするセキュリティグループルールを設定することを含みます。",
+        "option_analysis": "オプションAはEC2のセキュリティグループにインバウンドルールを設定しているため不正確です。オプションBは、EC2インスタンスからAuroraクラスターへのトラフィックを許可するために必要です。オプションCは、DBクラスタのセキュリティグループにインバウンドルールを正しく設定しています。オプションDはDBセキュリティグループにアウトバウンドルールが不要なため不正確です。オプションEは、エフェメラルポートの不適切な使用により不正確です。",
+        "additional_knowledge": "デフォルトのAuroraポートは、MySQL互換では一般的に3306、PostgreSQLでは5432です。",
+        "key_terminology": "AWSセキュリティグループ, Amazon EC2, Amazon Aurora, インバウンド/アウトバウンドルール, 最小の特権",
+        "overall_assessment": "コミュニティは一般的な設定に基づいてBCが正しいと考えていましたが、正しい設定はAWSのセキュリティベストプラクティスを反映するためにCBを含むべきです。データベース接続のためにはインバウンド権限が重要です。"
+      }
+    ],
+    "keywords": [
+      "AWS Security Groups",
+      "Amazon EC2",
+      "Amazon Aurora",
+      "Inbound Rules",
+      "Outbound Rules",
+      "Least Privilege"
+    ]
+  },
+  {
+    "No": "96",
+    "question": "A solutions architect needs to implement a client-side encryption mechanism for objects that will be stored in a new Amazon S3 bucket. The\nsolutions architect created a CMK that is stored in AWS Key Management Service (AWS KMS) for this purpose.\nThe solutions architect created the following IAM policy and attached it to an IAM role:\nDuring tests, the solutions architect was able to successfully get existing test objects in the S3 bucket. However, attempts to upload a new object\nresulted in an error message. The error message stated that the action was forbidden.\nWhich action must the solutions architect add to the IAM policy to meet all the requirements?",
+    "question_jp": "A solutions architect needs to implement a client-side encryption mechanism for objects that will be stored in a new Amazon S3 bucket. The\nsolutions architect created a CMK that is stored in AWS Key Management Service (AWS KMS) for this purpose.\nThe solutions architect created the following IAM policy and attached it to an IAM role:\nDuring tests, the solutions architect was able to successfully get existing test objects in the S3 bucket. However, attempts to upload a new object\nresulted in an error message. The error message stated that the action was forbidden.\nWhich action must the solutions architect add to the IAM policy to meet all the requirements?",
+    "choices": [
+      {
+        "key": "A",
+        "text": "kms:GenerateDataKey",
+        "text_jp": "kms:GenerateDataKey"
+      },
+      {
+        "key": "B",
+        "text": "kms:GetKeyPolicy",
+        "text_jp": "kms:GetKeyPolicy"
+      },
+      {
+        "key": "C",
+        "text": "kms:GetPublicKey",
+        "text_jp": "kms:GetPublicKey"
+      },
+      {
+        "key": "D",
+        "text": "kms:Sign",
+        "text_jp": "kms:Sign"
+      }
+    ],
+    "answer_key": "A",
+    "community_vote_distribution": "A (100%)",
+    "page_images": [
+      "image_55_0.png"
+    ],
+    "explanation_en": [
+      {
+        "answer_and_key_points": "The correct answer is A: kms:GenerateDataKey. The action 'kms:GenerateDataKey' is required when using AWS KMS for client-side encryption because it allows the generation of a data key that can be used to encrypt data on the client-side.",
+        "situation_analysis": "The problem involves storing encrypted objects in Amazon S3 using a client-side encryption mechanism. A Customer Master Key (CMK) in AWS KMS is designated for this purpose, and an IAM policy is attached to the role responsible for encryption operations. The error occurs when attempting to upload a new object, indicating missing permissions.",
+        "option_analysis": "Option A is correct since 'kms:GenerateDataKey' is essential for obtaining a data key for encryption. Option B is not needed for encryption operations. Option C (kms:GetPublicKey) is related to asymmetric encryption, which is not relevant here. Option D (kms:Sign) is used for signing, not encryption keys.",
+        "additional_knowledge": "AWS best practices suggest minimizing the use of sensitive key materials and leveraging KMS for secure key management.",
+        "key_terminology": "AWS KMS, CMK, Client-side encryption, IAM policy",
+        "overall_assessment": "A thorough understanding of AWS KMS and client-side encryption is necessary. 'kms:GenerateDataKey' is a fundamental permission for encrypting data with a KMS CMK."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "正解はA: kms:GenerateDataKeyである。なぜなら、AWS KMSを使用してクライアント側で暗号化を行う際、データを暗号化するためのデータキーを生成するために、'kms:GenerateDataKey'アクションが必要であるからだ。",
+        "situation_analysis": "この問題は、クライアント側暗号化メカニズムを使用してAmazon S3に暗号化されたオブジェクトを格納することに関するものである。AWS KMSに保存されたカスタマーマスターキー(CMK)がこの目的のために指定されており、暗号化操作を行う役割にIAMポリシーが添付されている。新しいオブジェクトをアップロードしようとしたときにエラーが発生し、必要な権限が欠如していることを示唆している。",
+        "option_analysis": "オプションAは正しい。なぜなら、'kms:GenerateDataKey'は、暗号化のためのデータキーを取得するために不可欠であるからである。オプションBは暗号化操作には必要ない。オプションC(kms:GetPublicKey)は非対称暗号に関連しており、ここでは関連しない。オプションD(kms:Sign)は署名に使用するもので、暗号化キーには適用されない。",
+        "additional_knowledge": "AWSのベストプラクティスは、機密キー材料の使用を最小限にし、安全なキー管理のためにKMSを活用することを推奨している。",
+        "key_terminology": "AWS KMS, CMK, クライアント側暗号化, IAMポリシー",
+        "overall_assessment": "AWS KMSおよびクライアント側暗号化について十分な理解が必要である。'kms:GenerateDataKey'は、KMSのCMKを使用してデータを暗号化するための基本的な許可である。"
+      }
+    ],
+    "keywords": [
+      "AWS KMS",
+      "Client-side encryption",
+      "CMK",
+      "IAM policy",
+      "kms:GenerateDataKey"
+    ]
+  },
+  {
+    "No": "177",
+    "question": "A company is building a call center by using Amazon Connect. The company's operations team is defining a disaster recovery (DR) strategy across\nAWS Regions. The contact center has dozens of contact fiows, hundreds of users, and dozens of claimed phone numbers.\nWhich solution will provide DR with the LOWEST RTO?",
+    "question_jp": "会社はAmazon Connectを使用してコールセンターを構築しています。会社のオペレーションチームはAWSリージョン間でのディザスタリカバリー（DR）戦略を定義しています。コールセンターには多数のコンタクトフロー、数百人のユーザー、および多数の取得された電話番号があります。最も低いRTO（復旧時間目標）を提供するソリューションはどれですか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Create an AWS Lambda function to check the availability of the Amazon Connect instance and to send a notification to the operations team in case of unavailability. Create an Amazon EventBridge rule to invoke the Lambda function every 5 minutes. After notification, instruct the operations team to use the AWS Management Console to provision a new Amazon Connect instance in a second Region. Deploy the contact fiows, users, and claimed phone numbers by using an AWS CloudFormation template.",
+        "text_jp": "Amazon Connectインスタンスの可用性をチェックし、非可用性の場合に運用チームに通知するAWS Lambda関数を作成します。Amazon EventBridgeルールを作成して、Lambda関数を5分ごとに呼び出します。通知後、AWSマネジメントコンソールを使用してオペレーションチームに新しいリージョンで新しいAmazon Connectインスタンスをプロビジョニングするよう指示します。AWS CloudFormationテンプレートを使用してコンタクトフロー、ユーザー、および取得済みの電話番号をデプロイします。"
+      },
+      {
+        "key": "B",
+        "text": "Provision a new Amazon Connect instance with all existing users in a second Region. Create an AWS Lambda function to check the availability of the Amazon Connect instance. Create an Amazon EventBridge rule to invoke the Lambda function every 5 minutes. In the event of an issue, configure the Lambda function to deploy an AWS CloudFormation template that provisions contact fiows and claimed numbers in the second Region.",
+        "text_jp": "新しいAmazon Connectインスタンスを、すべての既存のユーザーと共に第2リージョンにプロビジョニングします。Amazon Connectインスタンスの可用性をチェックするAWS Lambda関数を作成します。5分ごとにLambda関数を呼び出すAmazon EventBridgeルールを作成します。問題が発生した際には、AWS CloudFormationテンプレートをデプロイして第2リージョンにコンタクトフローと取得済みの番号をプロビジョニングするようLambda関数を設定します。"
+      },
+      {
+        "key": "C",
+        "text": "Provision a new Amazon Connect instance with all existing contact fiows and claimed phone numbers in a second Region. Create an Amazon Route 53 health check for the URL of the Amazon Connect instance. Create an Amazon CloudWatch alarm for failed health checks. Create an AWS Lambda function to deploy an AWS CloudFormation template that provisions all users. Configure the alarm to invoke the Lambda function.",
+        "text_jp": "新しいAmazon Connectインスタンスを、第2リージョンにすべての既存のコンタクトフローと取得済みの電話番号と共にプロビジョニングします。Amazon ConnectインスタンスのURLに対してAmazon Route 53ヘルスチェックを作成します。失敗したヘルスチェックに対するAmazon CloudWatchアラームを作成します。AWS CloudFormationテンプレートをデプロイするAWS Lambda関数を作成します。このアラームをLambda関数が起動するように設定します。"
+      },
+      {
+        "key": "D",
+        "text": "Provision a new Amazon Connect instance with all existing users and contact fiows in a second Region. Create an Amazon Route 53 health check for the URL of the Amazon Connect instance. Create an Amazon CloudWatch alarm for failed health checks. Create an AWS Lambda function to deploy an AWS CloudFormation template that provisions claimed phone numbers. Configure the alarm to invoke the Lambda function.",
+        "text_jp": "新しいAmazon Connectインスタンスを、すべての既存のユーザーとコンタクトフローと共に第2リージョンにプロビジョニングします。Amazon ConnectインスタンスのURLに対してAmazon Route 53ヘルスチェックを作成します。失敗したヘルスチェックに対するAmazon CloudWatchアラームを作成します。AWS CloudFormationテンプレートをデプロイするAWS Lambda関数を作成し、取得済みの電話番号をプロビジョニングします。このアラームをLambda関数が起動するように設定します。"
+      }
+    ],
+    "answer_key": "D",
+    "community_vote_distribution": "D (82%) B (18%)",
+    "page_images": [],
+    "explanation_en": [
+      {
+        "answer_and_key_points": "The correct answer is D. The key point here is setting up the new Amazon Connect instance with all necessary configurations in a second Region. This includes users, contact flows, and using Route 53 health checks with CloudWatch alarms for automated failover.",
+        "situation_analysis": "The requirement is to have a disaster recovery plan with the lowest RTO for an Amazon Connect-based call center across multiple AWS Regions. The implementation should be automated to minimize response time.",
+        "option_analysis": "Option D proactively provisions a fully configured Amazon Connect instance in a secondary region. It leverages Route 53 for health checks and CloudWatch along with Lambda for automatic execution, ensuring a fast failover process. Option A relies on manual intervention, causing a delay. Option B doesn't pre-configure contact flows and phone numbers. Option C lacks full automation since it doesn't pre-provision users.",
+        "additional_knowledge": "In scenarios requiring high availability and resilience, leveraging AWS's global infrastructure with services like Route 53 and CloudWatch allows for robust disaster recovery setups.",
+        "key_terminology": "Amazon Connect, Route 53, CloudWatch, AWS Lambda, CloudFormation",
+        "overall_assessment": "This question tests knowledge of AWS's ability to provide automated DR solutions with low RTO. The high community voting for option D suggests consensus on best industry practices for AWS-based DR solutions."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "正解はDです。ここでの重要なポイントは、すべての必要な設定を持った新しいAmazon Connectインスタンスを第2リージョンに設定することです。これにはユーザー、コンタクトフローが含まれ、Route 53のヘルスチェックとCloudWatchアラームを使用して、自動フェールオーバーを実現します。",
+        "situation_analysis": "複数のAWSリージョンにまたがるAmazon Connectベースのコールセンターのために、最低のRTOを持つディザスタリカバリ計画が必要です。実装は自動化され、応答時間を最小限に抑える必要があります。",
+        "option_analysis": "選択肢Dは、第2リージョンに事前に完全に構成されたAmazon Connectインスタンスをプロビジョニングします。Route 53のヘルスチェックと、Lambda付きのCloudWatchを活用して自動実行を行い、迅速なフェールオーバーを確保します。選択肢Aは手動介入に依存しており、遅延が発生します。選択肢Bはコンタクトフローと電話番号を事前構成しません。選択肢Cはユーザーを事前プロビジョニングしていないため、完全な自動化が欠けています。",
+        "additional_knowledge": "高可用性とレジリエンスを必要とするシナリオでは、Route 53やCloudWatchのようなサービスを備えたAWSのグローバルインフラストラクチャを活用することで、強固なディザスタリカバリのセットアップが可能です。",
+        "key_terminology": "Amazon Connect, Route 53, CloudWatch, AWS Lambda, CloudFormation",
+        "overall_assessment": "この質問は、低RTOの自動化されたDRソリューションを提供するAWSの能力に関する知識をテストします。Dの選択肢に多数の投票があることは、AWSベースのDRソリューションの業界最良プラクティスに関するコンセンサスを示唆しています。"
+      }
+    ],
+    "keywords": [
+      "Amazon Connect",
+      "Route 53",
+      "CloudWatch",
+      "AWS Lambda",
+      "CloudFormation"
+    ]
+  },
+  {
+    "No": "191",
+    "question": "A company is planning to migrate an application to AWS. The application runs as a Docker container and uses an NFS version 4 file share.\nA solutions architect must design a secure and scalable containerized solution that does not require provisioning or management of the\nunderlying infrastructure.\nWhich solution will meet these requirements?",
+    "question_jp": "会社はアプリケーションをAWSに移行する計画を立てています。このアプリケーションはDockerコンテナとして実行され、NFSバージョン4のファイル共有を使用します。ソリューションアーキテクトは、基盤となるインフラストラクチャのプロビジョニングや管理を必要としない安全でスケーラブルなコンテナ化されたソリューションを設計しなければなりません。これらの要件を満たすソリューションはどれですか。",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Deploy the application containers by using Amazon Elastic Container Service (Amazon ECS) with the Fargate launch type. Use Amazon Elastic File System (Amazon EFS) for shared storage. Reference the EFS file system ID, container mount point, and EFS authorization IAM role in the ECS task definition.",
+        "text_jp": "Amazon Elastic Container Service (Amazon ECS) を使用してFargate起動タイプでアプリケーションコンテナをデプロイします。共有ストレージにはAmazon Elastic File System (Amazon EFS) を使用します。ECSタスク定義にはEFSファイルシステムID、コンテナのマウントポイント、およびEFS認証IAMロールを参照します。"
+      },
+      {
+        "key": "B",
+        "text": "Deploy the application containers by using Amazon Elastic Container Service (Amazon ECS) with the Fargate launch type. Use Amazon FSx for Lustre for shared storage. Reference the FSx for Lustre file system ID, container mount point, and FSx for Lustre authorization IAM role in the ECS task definition.",
+        "text_jp": "Amazon Elastic Container Service (Amazon ECS) を使用してFargate起動タイプでアプリケーションコンテナをデプロイします。共有ストレージにはAmazon FSx for Lustreを使用します。ECSタスク定義にはFSx for LustreファイルシステムID、コンテナのマウントポイント、およびFSx for Lustre認証IAMロールを参照します。"
+      },
+      {
+        "key": "C",
+        "text": "Deploy the application containers by using Amazon Elastic Container Service (Amazon ECS) with the Amazon EC2 launch type and auto scaling turned on. Use Amazon Elastic File System (Amazon EFS) for shared storage. Mount the EFS file system on the ECS container instances. Add the EFS authorization IAM role to the EC2 instance profile.",
+        "text_jp": "Amazon Elastic Container Service (Amazon ECS) を使用してAmazon EC2起動タイプでオートスケーリングを有効にしてアプリケーションコンテナをデプロイします。共有ストレージにはAmazon Elastic File System (Amazon EFS) を使用します。ECSコンテナインスタンスにEFSファイルシステムをマウントします。EFS認証IAMロールをEC2インスタンスプロファイルに追加します。"
+      },
+      {
+        "key": "D",
+        "text": "Deploy the application containers by using Amazon Elastic Container Service (Amazon ECS) with the Amazon EC2 launch type and auto scaling turned on. Use Amazon Elastic Block Store (Amazon EBS) volumes with Multi-Attach enabled for shared storage. Attach the EBS volumes to ECS container instances. Add the EBS authorization IAM role to an EC2 instance profile.",
+        "text_jp": "Amazon Elastic Container Service (Amazon ECS) を使用してAmazon EC2起動タイプでオートスケーリングを有効にしてアプリケーションコンテナをデプロイします。共有ストレージにはマルチアタッチが有効になったAmazon Elastic Block Store (Amazon EBS) ボリュームを使用します。ECSコンテナインスタンスにEBSボリュームをアタッチします。EBS認証IAMロールをEC2インスタンスプロファイルに追加します。"
+      }
+    ],
+    "answer_key": "A",
+    "community_vote_distribution": "A (100%)",
+    "page_images": [],
+    "explanation_en": [
+      {
+        "answer_and_key_points": "The correct answer is A. By deploying the application containers using Amazon ECS with the Fargate launch type, it eliminates the need for managing underlying infrastructure. Amazon Elastic File System (Amazon EFS) supports NFS version 4 and provides scalable storage, making it suitable for shared storage with containers.",
+        "situation_analysis": "The requirement is a containerized solution that is secure, scalable, and does not require management of infrastructure. The application uses NFSv4 for file sharing, necessitating compatible and resilient storage.",
+        "option_analysis": "Option A uses Amazon ECS with Fargate and Amazon EFS, fulfilling all the requirements. Option B uses FSx for Lustre, which is not necessary nor optimized for the typical use cases of containerized applications needing NFS-backed storage. Options C and D involve using EC2, which requires managing infrastructure contrary to the requirements.",
+        "additional_knowledge": "Amazon EFS is designed for scalability and allows multiple instances or containers to read from and write to a shared file system with NFS support. Fargate launch type in ECS is serverless, meaning AWS manages the underlying computing infrastructure.",
+        "key_terminology": "Amazon Elastic Container Service (ECS), Fargate, Amazon Elastic File System (EFS), NFS, Containerization",
+        "overall_assessment": "The question accurately tests understanding of the serverless features of ECS with Fargate and the benefits of using existing AWS services like EFS for shared storage needs, ensuring infrastructure is abstracted away. The community correctly aligns with the official answer."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "正解はAです。アプリケーションコンテナをAmazon ECSのFargate起動タイプでデプロイすることで、基盤となるインフラストラクチャの管理が不要になります。Amazon Elastic File System（EFS）はNFSバージョン4に対応し、スケーラブルなストレージを提供するため、コンテナとの共有ストレージに適しています。",
+        "situation_analysis": "要件は、安全でスケーラブルかつインフラストラクチャの管理が不要なコンテナ化されたソリューションです。アプリケーションはNFSv4を使用してファイルを共有するため、互換性があり堅牢なストレージが必要です。",
+        "option_analysis": "オプションAはAmazon ECSとFargate、Amazon EFSを使用し、すべての要件を満たします。オプションBはFSx for Lustreを使用しますが、NFSでのストレージ要件には最適ではありません。オプションC及びDはEC2を使用し、インフラ管理が必要となるため、要件に合いません。",
+        "additional_knowledge": "Amazon EFSはスケーラブルに設計されており、複数のインスタンスまたはコンテナが共有ファイルシステムに対して読み書きできます。ECSのFargate起動タイプはサーバーレスであり、AWSが基盤のコンピューティングインフラストラクチャを管理します。",
+        "key_terminology": "Amazon Elastic Container Service (ECS), Fargate, Amazon Elastic File System (EFS), NFS, コンテナ化",
+        "overall_assessment": "この質問はECSのFargateによるサーバーレスの特徴と、AWSの既存サービスであるEFSを共有ストレージに利用する利点を正確にテストしており、インフラを抽象化しています。コミュニティは公式回答と一致しています。"
+      }
+    ],
+    "keywords": [
+      "Amazon ECS",
+      "Fargate",
+      "Amazon EFS",
+      "NFS",
+      "Containerization"
+    ]
+  },
+  {
+    "No": "211",
+    "question": "A company wants to migrate to AWS. The company is running thousands of VMs in a VMware ESXi environment. The company has no\nconfiguration management database and has little knowledge about the utilization of the VMware portfolio.\nA solutions architect must provide the company with an accurate inventory so that the company can plan for a cost-effective migration.\nWhich solution will meet these requirements with the LEAST operational overhead?",
+    "question_jp": "会社がAWSへの移行を希望しています。会社はVMware ESXi環境で数千のVMを運用しています。会社には構成管理データベースがなく、VMwareポートフォリオの利用状況についてほとんど知識がありません。ソリューションアーキテクトは、会社に正確なインベントリを提供し、費用対効果の高い移行を計画できるようにする必要があります。最小の運用負荷でこの要件を満たすソリューションはどれですか？",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Use AWS Systems Manager Patch Manager to deploy Migration Evaluator to each VM. Review the collected data in Amazon QuickSight. Identify servers that have high utilization. Remove the servers that have high utilization from the migration list. Import the data to AWS Migration Hub.",
+        "text_jp": "AWS Systems Manager Patch Manager を使用して各VMに Migration Evaluator をデプロイします。収集されたデータを Amazon QuickSight で確認します。使用率の高いサーバーを特定します。移行リストから使用率の高いサーバーを削除します。データを AWS Migration Hub にインポートします。"
+      },
+      {
+        "key": "B",
+        "text": "Export the VMware portfolio to a .csv file. Check the disk utilization for each server. Remove servers that have high utilization. Export the data to AWS Application Migration Service. Use AWS Server Migration Service (AWS SMS) to migrate the remaining servers.",
+        "text_jp": "VMware ポートフォリオを .csv ファイルにエクスポートします。各サーバーのディスク使用率を確認します。使用率の高いサーバーを削除します。データを AWS Application Migration Service にエクスポートします。AWS Server Migration Service（AWS SMS）を使用して残りのサーバーを移行します。"
+      },
+      {
+        "key": "C",
+        "text": "Deploy the Migration Evaluator agentless collector to the ESXi hypervisor. Review the collected data in Migration Evaluator. Identify inactive servers. Remove the inactive servers from the migration list. Import the data to AWS Migration Hub.",
+        "text_jp": "Migration Evaluator のエージェントレスコレクターを ESXi ハイパーバイザーにデプロイします。Migration Evaluator で収集されたデータを確認します。非アクティブなサーバーを特定します。移行リストから非アクティブなサーバーを削除します。データを AWS Migration Hub にインポートします。"
+      },
+      {
+        "key": "D",
+        "text": "Deploy the AWS Application Migration Service Agent to each VM. When the data is collected, use Amazon Redshift to import and analyze the data. Use Amazon QuickSight for data visualization.",
+        "text_jp": "AWS Application Migration Service Agent を各VMにデプロイします。データが収集されたら、Amazon Redshift を使用してデータをインポートして分析します。データの可視化には Amazon QuickSight を使用します。"
+      }
+    ],
+    "answer_key": "C",
+    "community_vote_distribution": "C (100%)",
+    "page_images": [],
+    "explanation_en": [
+      {
+        "answer_and_key_points": "The correct answer is C. Deploying the Migration Evaluator agentless collector to the ESXi hypervisor allows for low-overhead collection of inventory data.",
+        "situation_analysis": "The company lacks a configuration management database and detailed knowledge of VM utilization, which requires an efficient and centralized data collection approach.",
+        "option_analysis": "Option C offers a non-invasive, agentless collection method that minimizes manual intervention and operational overhead compared to deploying agents to each VM.",
+        "additional_knowledge": "It's crucial to integrate inventory data efficiently to plan for resource allocation and cost forecasting during migration processes.",
+        "key_terminology": "Migration Evaluator, ESXi hypervisor, agentless data collection, AWS Migration Hub.",
+        "overall_assessment": "Option C optimally addresses the problem statement by offering minimized operational effort and comprehensive data collection with minimal disruption."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "正解はCです。Migration EvaluatorのエージェントレスコレクターをESXiハイパーバイザーにデプロイすることで、運用負荷を最小限に抑えたインベントリデータの収集が可能です。",
+        "situation_analysis": "会社には構成管理データベースもなく、VMの利用状況についての詳細な知識もありません。したがって、効率的で中央集約型のデータ収集アプローチが必要です。",
+        "option_analysis": "オプションCは、各VMにエージェントを配備する場合と比較して、手動による介入と運用負荷を最小限に抑えた非侵襲的なエージェントレス収集方法を提供します。",
+        "additional_knowledge": "移行プロセス中のリソース割り当てとコスト予測を計画するためには、インベントリデータを効率的に統合することが重要です。",
+        "key_terminology": "Migration Evaluator、ESXiハイパーバイザー、エージェントレスデータ収集、AWS Migration Hub。",
+        "overall_assessment": "オプションCは、最小の運用努力で包括的なデータ収集を提供し、問題文を最適に解決します。"
+      }
+    ],
+    "keywords": [
+      "Migration Evaluator",
+      "ESXi hypervisor",
+      "agentless data collection",
+      "AWS Migration Hub"
+    ]
+  },
+  {
+    "No": "243",
+    "question": "A company has a data lake in Amazon S3 that needs to be accessed by hundreds of applications across many AWS accounts. The company's\ninformation security policy states that the S3 bucket must not be accessed over the public internet and that each application should have the\nminimum permissions necessary to function.\nTo meet these requirements, a solutions architect plans to use an S3 access point that is restricted to specific VPCs for each application.\nWhich combination of steps should the solutions architect take to implement this solution? (Choose two.)",
+    "question_jp": "企業にはAmazon S3にデータレイクがあり、これを多くのAWSアカウントにわたる数百のアプリケーションがアクセスする必要があります。企業の情報セキュリティポリシーは、S3バケットが公共インターネット経由でアクセスされないこと、また各アプリケーションが機能するために必要最低限の権限を持つことを要求しています。\nこの要件を満たすために、ソリューションアーキテクトは各アプリケーションの特定のVPCに制限されたS3アクセスポイントを使用することを計画しています。\nこのソリューションを実装するためにソリューションアーキテクトが取るべきステップの組み合わせはどれですか？（2つ選ぶ必要があります）",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Create an S3 access point for each application in the AWS account that owns the S3 bucket. Configure each access point to be accessible only from the application's VPC. Update the bucket policy to require access from an access point.",
+        "text_jp": "S3バケットを所有するAWSアカウントに各アプリケーション用のS3アクセスポイントを作成します。各アクセスポイントがアプリケーションのVPCからのみアクセス可能なように設定します。アクセスポイントからのアクセスを要求するようにバケットポリシーを更新します。"
+      },
+      {
+        "key": "B",
+        "text": "Create an interface endpoint for Amazon S3 in each application's VPC. Configure the endpoint policy to allow access to an S3 access point. Create a VPC gateway attachment for the S3 endpoint.",
+        "text_jp": "各アプリケーションのVPCにAmazon S3のインターフェイスポイントを作成します。エンドポイントポリシーをS3アクセスポイントへのアクセスを許可するように設定します。S3エンドポイントのVPCゲートウェイアタッチメントを作成します。"
+      },
+      {
+        "key": "C",
+        "text": "Create a gateway endpoint for Amazon S3 in each application's VPConfigure the endpoint policy to allow access to an S3 access point. Specify the route table that is used to access the access point.",
+        "text_jp": "各アプリケーションのVPCにAmazon S3のゲートウェイエンドポイントを作成します。エンドポイントポリシーをS3アクセスポイントへのアクセスを許可するように設定します。アクセスポイントへのアクセスに使用されるルートテーブルを指定します。"
+      },
+      {
+        "key": "D",
+        "text": "Create an S3 access point for each application in each AWS account and attach the access points to the S3 bucket. Configure each access point to be accessible only from the application's VPC. Update the bucket policy to require access from an access point.",
+        "text_jp": "各AWSアカウントに各アプリケーション用のS3アクセスポイントを作成し、アクセスポイントをS3バケットに添付します。各アクセスポイントがアプリケーションのVPCからのみアクセス可能なように設定します。アクセスポイントからのアクセスを要求するようにバケットポリシーを更新します。"
+      },
+      {
+        "key": "E",
+        "text": "Create a gateway endpoint for Amazon S3 in the data lake's VPC. Attach an endpoint policy to allow access to the S3 bucket. Specify the route table that is used to access the bucket.",
+        "text_jp": "データレイクのVPCにAmazon S3のゲートウェイエンドポイントを作成します。S3バケットへのアクセスを許可するエンドポイントポリシーを添付します。バケットへのアクセスに使用されるルートテーブルを指定します。"
+      }
+    ],
+    "answer_key": "D",
+    "community_vote_distribution": "AC (68%) 14% Other",
+    "page_images": [],
+    "explanation_en": [
+      {
+        "answer_and_key_points": "The correct steps to achieve secure access to an S3 bucket using access points and private connectivity involve choices D and A. Creating access points in each AWS account ensures each application can access the S3 bucket securely without using public internet.",
+        "situation_analysis": "The primary requirement is to ensure secure and private access to an S3 bucket by multiple applications across various AWS accounts, without traversing the public internet. Each application should have minimal necessary permissions.",
+        "option_analysis": "A and D both involve creating S3 access points which meet the requirements of restricting access to specific VPCs, although D accurately emphasizes individual creation of access points in each application’s AWS account. Option B and C involve interface endpoints which might not provide adequate segregation of access, and E focuses on the data lake's VPC instead of each application’s.",
+        "additional_knowledge": "Interface endpoints provide private connectivity to AWS services without accessing the public internet, which can be pivotal in VPC network design, but are not necessary here as S3 Access Points already offer desired control.",
+        "key_terminology": "S3 Access Point, VPC, bucket policy, private connectivity",
+        "overall_assessment": "The solution involving S3 Access Points is directly aligned with best practices in AWS security for maintaining minimal permissions and ensuring no public internet exposure. The discrepancy in community voting suggests conceptual misunderstanding or variation in interpretations; A partially overlaps but does not quite capture cross-account access nuances."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "S3バケットへの安全なアクセスをS3アクセスポイントとプライベート接続を使用して達成するための正しい手順は、選択肢DとAです。各AWSアカウントでアクセスポイントを作成することで、各アプリケーションがインターネットを使わずにS3バケットに安全にアクセスできるようになります。",
+        "situation_analysis": "主な要件は、さまざまなAWSアカウントにわたる複数のアプリケーションによるS3バケットへの安全でプライベートなアクセスを保証し、公共のインターネットを超えないことです。各アプリケーションは必要最低限の権限を持つ必要があります。",
+        "option_analysis": "AとDはどちらも特定のVPCにアクセスを制限するためのS3アクセスポイントの作成を含んでいますが、Dは各アプリケーションのAWSアカウントで個別にアクセスポイントを作成することを正確に強調しています。オプションBとCは、十分なアクセスの分離を提供できない可能性のあるインターフェースエンドポイントを含み、Eは各アプリケーションではなくデータレイクのVPCにフォーカスしています。",
+        "additional_knowledge": "インターフェースエンドポイントは公共インターネットにアクセスせずにAWSサービスへのプライベートな接続を提供し、VPCネットワーク設計において決定的ですが、ここではS3アクセスポイントが既に望ましい制御を提供しているため必要ではありません。",
+        "key_terminology": "S3アクセスポイント、VPC、バケットポリシー、プライベート接続",
+        "overall_assessment": "S3アクセスポイントを含むソリューションは、最小限の権限を維持し公共インターネットへの露出を避けるためにAWSセキュリティのベストプラクティスと一致しています。コミュニティ投票の不一致は、概念的な誤解や解釈の違いを示唆しています。Aは部分的に重なるが、クロスアカウントアクセスのニュアンスは完全には捉えていない。"
+      }
+    ],
+    "keywords": [
+      "Amazon S3",
+      "S3 Access Point",
+      "VPC",
+      "bucket policy",
+      "private connectivity"
+    ]
+  },
+  {
+    "No": "265",
+    "question": "A company uses AWS Organizations to manage more than 1,000 AWS accounts. The company has created a new developer organization. There\nare 540 developer member accounts that must be moved to the new developer organization. All accounts are set up with all the required\ninformation so that each account can be operated as a standalone account.\nWhich combination of steps should a solutions architect take to move all of the developer accounts to the new developer organization? (Choose\nthree.)",
+    "question_jp": "ある会社はAWS Organizationsを使用して1,000以上のAWSアカウントを管理しています。新しい開発者組織を作成しました。新しい開発者組織に移動する必要がある540の開発者メンバーアカウントがあります。すべてのアカウントは必要な情報で設定されており、独立したアカウントとして操作できます。ソリューションアーキテクトが開発者アカウントを新しい開発者組織に移動するために取るべきステップの組み合わせはどれですか？（3つ選択してください。）",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Call the MoveAccount operation in the Organizations API from the old organization's management account to migrate the developer accounts to the new developer organization.",
+        "text_jp": "古い組織の管理アカウントからOrganizations APIのMoveAccount操作を呼び出して、開発者アカウントを新しい開発者組織に移行します。"
+      },
+      {
+        "key": "B",
+        "text": "From the management account, remove each developer account from the old organization using the RemoveAccountFromOrganization operation in the Organizations API.",
+        "text_jp": "管理アカウントから、Organizations APIのRemoveAccountFromOrganization操作を使用して古い組織から各開発者アカウントを削除します。"
+      },
+      {
+        "key": "C",
+        "text": "From each developer account, remove the account from the old organization using the RemoveAccountFromOrganization operation in the Organizations API.",
+        "text_jp": "各開発者アカウントから、Organizations APIのRemoveAccountFromOrganization操作を使用して古い組織からアカウントを削除します。"
+      },
+      {
+        "key": "D",
+        "text": "Sign in to the new developer organization's management account and create a placeholder member account that acts as a target for the developer account migration.",
+        "text_jp": "新しい開発者組織の管理アカウントにサインインして、開発者アカウント移行のターゲットとなるプレースホルダーのメンバーアカウントを作成します。"
+      },
+      {
+        "key": "E",
+        "text": "Call the InviteAccountToOrganization operation in the Organizations API from the new developer organization's management account to send invitations to the developer accounts.",
+        "text_jp": "新しい開発者組織の管理アカウントからOrganizations APIのInviteAccountToOrganization操作を呼び出して、開発者アカウントに招待を送信します。"
+      },
+      {
+        "key": "F",
+        "text": "Have each developer sign in to their account and confirm to join the new developer organization.",
+        "text_jp": "各開発者が自分のアカウントにサインインして新しい開発者組織に参加することを確認します。"
+      }
+    ],
+    "answer_key": "C",
+    "community_vote_distribution": "BEF (81%) Other",
+    "page_images": [],
+    "explanation_en": [
+      {
+        "answer_and_key_points": "The correct answers are C, E, and F. These steps involve removing the accounts from the old organization, inviting them to the new organization, and confirming their migration.",
+        "situation_analysis": "The company needs to move developer accounts from one AWS Organization to another. The accounts are already standalone and capable of their own operations.",
+        "option_analysis": "A is incorrect because it assumes a one-step transfer which is not allowed. B is incorrect because it performs the removal from the old organization's side, but requires consent from the account itself. C is correct as each account must first leave the current organization. D is unnecessary as placeholders are not required for migration. E is correct because it invites the accounts to join the new organization. F is necessary to complete the process as accounts must accept the invitation.",
+        "additional_knowledge": "Management of multiple AWS accounts securely and efficiently is a critical aspect of cloud governance strategies.",
+        "key_terminology": "AWS Organizations, MoveAccount operation, InviteAccountToOrganization, RemoveAccountFromOrganization",
+        "overall_assessment": "The question focuses on understanding the process of account migration in AWS Organizations, highlighting necessary permissions and operations required."
+      }
+    ],
+    "explanation_jp": [
+      {
+        "answer_and_key_points": "正しい回答はC, E, Fです。これらのステップは、アカウントを古い組織から削除し、新しい組織に招待し、移行を確認することを含みます。",
+        "situation_analysis": "会社は、開発者アカウントをあるAWS組織から別のAWS組織に移動する必要があります。アカウントはすでに独立して操作できる状態です。",
+        "option_analysis": "Aは不正解です。なぜなら、1ステップでの転送は許可されていないからです。Bも不正解です。これは古い組織の側から削除を行うが、アカウント自身の承認が必要です。Cは正しいです。アカウントは最初に現在の組織を退会する必要があります。Dは不要です。移行のためにプレースホルダーは必要ありません。Eは正しいです。アカウントを新しい組織に招待する操作を行うためです。Fはプロセスを完了するために必要です。アカウントは招待を承認する必要があります。",
+        "additional_knowledge": "複数のAWSアカウントを安全かつ効率的に管理することは、クラウドガバナンス戦略の重要な側面です。",
+        "key_terminology": "AWS Organizations, MoveAccount 操作, InviteAccountToOrganization, RemoveAccountFromOrganization",
+        "overall_assessment": "この質問は、AWS Organizationsにおけるアカウント移行のプロセスを理解することに重点を置き、必要な権限と操作を強調しています。"
+      }
+    ],
+    "keywords": [
+      "AWS Organizations",
+      "InviteAccountToOrganization",
+      "RemoveAccountFromOrganization",
+      "account migration",
+      "Organizations API"
+    ]
+  }
+]

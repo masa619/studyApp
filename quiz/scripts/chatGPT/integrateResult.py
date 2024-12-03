@@ -22,7 +22,16 @@ def convert_to_json(content):
         return json.loads(content)
     except json.JSONDecodeError as e:
         logging.error(f"Invalid JSON format after conversion: {str(e)}")
-        return None
+        
+        # 修正を試みる
+        try:
+            # バッククォートを削除して再試行
+            if content.startswith('```json') and content.endswith('```'):
+                content = content[7:-3].strip()
+            return json.loads(content)
+        except json.JSONDecodeError as e:
+            logging.error(f"Failed to fix JSON format: {str(e)}")
+            return None
 
 def process_json_file(input_file):
     """

@@ -171,7 +171,7 @@ def create_translation_request(question, idx):
         "method": "POST",
         "url": "/v1/chat/completions",
         "body": {
-            "model": "gpt-4o-mini",
+            "model": "gpt-4o",
             "messages": [
                 create_system_prompt(),
                 {

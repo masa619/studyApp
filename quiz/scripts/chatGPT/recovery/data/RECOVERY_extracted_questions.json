@@ -1,0 +1,220 @@
+[
+  {
+    "No": "3",
+    "question": "A company uses AWS Organizations with a single OU named Production to manage multiple accounts. All accounts are members of the\nProduction OU. Administrators use deny list SCPs in the root of the organization to manage access to restricted services.\nThe company recently acquired a new business unit and invited the new unit's existing AWS account to the organization. Once onboarded, the\nadministrators of the new business unit discovered that they are not able to update existing AWS Config rules to meet the company's policies.\nWhich option will allow administrators to make changes and continue to enforce the current policies without introducing additional long-term\nmaintenance?",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Remove the organization's root SCPs that limit access to AWS Config. Create AWS Service Catalog products for the company's standard AWS Config rules and deploy them throughout the organization, including the new account."
+      },
+      {
+        "key": "B",
+        "text": "Create a temporary OU named Onboarding for the new account. Apply an SCP to the Onboarding OU to allow AWS Config actions. Move the new account to the Production OU when adjustments to AWS Config are complete."
+      },
+      {
+        "key": "C",
+        "text": "Convert the organization's root SCPs from deny list SCPs to allow list SCPs to allow the required services only. Temporarily apply an SCP to the organization's root that allows AWS Config actions for principals only in the new account."
+      },
+      {
+        "key": "D",
+        "text": "Create a temporary OU named Onboarding for the new account. Apply an SCP to the Onboarding OU to allow AWS Config actions. Move the organization's root SCP to the Production OU. Move the new account to the Production OU when adjustments to AWS Config are complete."
+      }
+    ],
+    "answer_key": "B",
+    "community_vote_distribution": "D (86%) 14%",
+    "page_images": []
+  },
+  {
+    "No": "87",
+    "question": "A company has an application that runs on Amazon EC2 instances. A solutions architect is designing VPC infrastructure in an AWS Region where\nthe application needs to access an Amazon Aurora DB Cluster. The EC2 instances are all associated with the same security group. The DB cluster\nis associated with its own security group.\nThe solutions architect needs to add rules to the security groups to provide the application with least privilege access to the DB Cluster.\nWhich combination of steps will meet these requirements? (Choose two.)",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Add an inbound rule to the EC2 instances' security group. Specify the DB cluster's security group as the source over the default Aurora port."
+      },
+      {
+        "key": "B",
+        "text": "Add an outbound rule to the EC2 instances' security group. Specify the DB cluster's security group as the destination over the default Aurora port."
+      },
+      {
+        "key": "C",
+        "text": "Add an inbound rule to the DB cluster's security group. Specify the EC2 instances' security group as the source over the default Aurora port."
+      },
+      {
+        "key": "D",
+        "text": "Add an outbound rule to the DB cluster's security group. Specify the EC2 instances' security group as the destination over the default Aurora port."
+      },
+      {
+        "key": "E",
+        "text": "Add an outbound rule to the DB cluster's security group. Specify the EC2 instances' security group as the destination over the ephemeral ports."
+      }
+    ],
+    "answer_key": "A",
+    "community_vote_distribution": "BC (76%) AC (24%)",
+    "page_images": []
+  },
+  {
+    "No": "96",
+    "question": "A solutions architect needs to implement a client-side encryption mechanism for objects that will be stored in a new Amazon S3 bucket. The\nsolutions architect created a CMK that is stored in AWS Key Management Service (AWS KMS) for this purpose.\nThe solutions architect created the following IAM policy and attached it to an IAM role:\nDuring tests, the solutions architect was able to successfully get existing test objects in the S3 bucket. However, attempts to upload a new object\nresulted in an error message. The error message stated that the action was forbidden.\nWhich action must the solutions architect add to the IAM policy to meet all the requirements?",
+    "choices": [
+      {
+        "key": "A",
+        "text": "kms:GenerateDataKey"
+      },
+      {
+        "key": "B",
+        "text": "kms:GetKeyPolicy"
+      },
+      {
+        "key": "C",
+        "text": "kms:GetPublicKey"
+      },
+      {
+        "key": "D",
+        "text": "kms:Sign"
+      }
+    ],
+    "answer_key": "A",
+    "community_vote_distribution": "A (100%)",
+    "page_images": [
+      "image_55_0.png"
+    ]
+  },
+  {
+    "No": "177",
+    "question": "A company is building a call center by using Amazon Connect. The company's operations team is defining a disaster recovery (DR) strategy across\nAWS Regions. The contact center has dozens of contact fiows, hundreds of users, and dozens of claimed phone numbers.\nWhich solution will provide DR with the LOWEST RTO?",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Create an AWS Lambda function to check the availability of the Amazon Connect instance and to send a notification to the operations team in case of unavailability. Create an Amazon EventBridge rule to invoke the Lambda function every 5 minutes. After notification, instruct the operations team to use the AWS Management Console to provision a new Amazon Connect instance in a second Region. Deploy the contact fiows, users, and claimed phone numbers by using an AWS CloudFormation template."
+      },
+      {
+        "key": "B",
+        "text": "Provision a new Amazon Connect instance with all existing users in a second Region. Create an AWS Lambda function to check the availability of the Amazon Connect instance. Create an Amazon EventBridge rule to invoke the Lambda function every 5 minutes. In the event of an issue, configure the Lambda function to deploy an AWS CloudFormation template that provisions contact fiows and claimed numbers in the second Region."
+      },
+      {
+        "key": "C",
+        "text": "Provision a new Amazon Connect instance with all existing contact fiows and claimed phone numbers in a second Region. Create an Amazon Route 53 health check for the URL of the Amazon Connect instance. Create an Amazon CloudWatch alarm for failed health checks. Create an AWS Lambda function to deploy an AWS CloudFormation template that provisions all users. Configure the alarm to invoke the Lambda function."
+      },
+      {
+        "key": "D",
+        "text": "Provision a new Amazon Connect instance with all existing users and contact fiows in a second Region. Create an Amazon Route 53 health check for the URL of the Amazon Connect instance. Create an Amazon CloudWatch alarm for failed health checks. Create an AWS Lambda function to deploy an AWS CloudFormation template that provisions claimed phone numbers. Configure the alarm to invoke the Lambda function."
+      }
+    ],
+    "answer_key": "D",
+    "community_vote_distribution": "D (82%) B (18%)",
+    "page_images": []
+  },
+  {
+    "No": "191",
+    "question": "A company is planning to migrate an application to AWS. The application runs as a Docker container and uses an NFS version 4 file share.\nA solutions architect must design a secure and scalable containerized solution that does not require provisioning or management of the\nunderlying infrastructure.\nWhich solution will meet these requirements?",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Deploy the application containers by using Amazon Elastic Container Service (Amazon ECS) with the Fargate launch type. Use Amazon Elastic File System (Amazon EFS) for shared storage. Reference the EFS file system ID, container mount point, and EFS authorization IAM role in the ECS task definition."
+      },
+      {
+        "key": "B",
+        "text": "Deploy the application containers by using Amazon Elastic Container Service (Amazon ECS) with the Fargate launch type. Use Amazon FSx for Lustre for shared storage. Reference the FSx for Lustre file system ID, container mount point, and FSx for Lustre authorization IAM role in the ECS task definition."
+      },
+      {
+        "key": "C",
+        "text": "Deploy the application containers by using Amazon Elastic Container Service (Amazon ECS) with the Amazon EC2 launch type and auto scaling turned on. Use Amazon Elastic File System (Amazon EFS) for shared storage. Mount the EFS file system on the ECS container instances. Add the EFS authorization IAM role to the EC2 instance profile."
+      },
+      {
+        "key": "D",
+        "text": "Deploy the application containers by using Amazon Elastic Container Service (Amazon ECS) with the Amazon EC2 launch type and auto scaling turned on. Use Amazon Elastic Block Store (Amazon EBS) volumes with Multi-Attach enabled for shared storage. Attach the EBS volumes to ECS container instances. Add the EBS authorization IAM role to an EC2 instance profile."
+      }
+    ],
+    "answer_key": "A",
+    "community_vote_distribution": "A (100%)",
+    "page_images": []
+  },
+  {
+    "No": "211",
+    "question": "A company wants to migrate to AWS. The company is running thousands of VMs in a VMware ESXi environment. The company has no\nconfiguration management database and has little knowledge about the utilization of the VMware portfolio.\nA solutions architect must provide the company with an accurate inventory so that the company can plan for a cost-effective migration.\nWhich solution will meet these requirements with the LEAST operational overhead?",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Use AWS Systems Manager Patch Manager to deploy Migration Evaluator to each VM. Review the collected data in Amazon QuickSight. Identify servers that have high utilization. Remove the servers that have high utilization from the migration list. Import the data to AWS Migration Hub."
+      },
+      {
+        "key": "B",
+        "text": "Export the VMware portfolio to a .csv file. Check the disk utilization for each server. Remove servers that have high utilization. Export the data to AWS Application Migration Service. Use AWS Server Migration Service (AWS SMS) to migrate the remaining servers."
+      },
+      {
+        "key": "C",
+        "text": "Deploy the Migration Evaluator agentless collector to the ESXi hypervisor. Review the collected data in Migration Evaluator. Identify inactive servers. Remove the inactive servers from the migration list. Import the data to AWS Migration Hub."
+      },
+      {
+        "key": "D",
+        "text": "Deploy the AWS Application Migration Service Agent to each VM. When the data is collected, use Amazon Redshift to import and analyze the data. Use Amazon QuickSight for data visualization."
+      }
+    ],
+    "answer_key": "C",
+    "community_vote_distribution": "C (100%)",
+    "page_images": []
+  },
+  {
+    "No": "243",
+    "question": "A company has a data lake in Amazon S3 that needs to be accessed by hundreds of applications across many AWS accounts. The company's\ninformation security policy states that the S3 bucket must not be accessed over the public internet and that each application should have the\nminimum permissions necessary to function.\nTo meet these requirements, a solutions architect plans to use an S3 access point that is restricted to specific VPCs for each application.\nWhich combination of steps should the solutions architect take to implement this solution? (Choose two.)",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Create an S3 access point for each application in the AWS account that owns the S3 bucket. Configure each access point to be accessible only from the application's VPC. Update the bucket policy to require access from an access point."
+      },
+      {
+        "key": "B",
+        "text": "Create an interface endpoint for Amazon S3 in each application's VPC. Configure the endpoint policy to allow access to an S3 access point. Create a VPC gateway attachment for the S3 endpoint."
+      },
+      {
+        "key": "C",
+        "text": "Create a gateway endpoint for Amazon S3 in each application's VPConfigure the endpoint policy to allow access to an S3 access point. Specify the route table that is used to access the access point."
+      },
+      {
+        "key": "D",
+        "text": "Create an S3 access point for each application in each AWS account and attach the access points to the S3 bucket. Configure each access point to be accessible only from the application's VPC. Update the bucket policy to require access from an access point."
+      },
+      {
+        "key": "E",
+        "text": "Create a gateway endpoint for Amazon S3 in the data lake's VPC. Attach an endpoint policy to allow access to the S3 bucket. Specify the route table that is used to access the bucket."
+      }
+    ],
+    "answer_key": "D",
+    "community_vote_distribution": "AC (68%) 14% Other",
+    "page_images": []
+  },
+  {
+    "No": "265",
+    "question": "A company uses AWS Organizations to manage more than 1,000 AWS accounts. The company has created a new developer organization. There\nare 540 developer member accounts that must be moved to the new developer organization. All accounts are set up with all the required\ninformation so that each account can be operated as a standalone account.\nWhich combination of steps should a solutions architect take to move all of the developer accounts to the new developer organization? (Choose\nthree.)",
+    "choices": [
+      {
+        "key": "A",
+        "text": "Call the MoveAccount operation in the Organizations API from the old organization's management account to migrate the developer accounts to the new developer organization."
+      },
+      {
+        "key": "B",
+        "text": "From the management account, remove each developer account from the old organization using the RemoveAccountFromOrganization operation in the Organizations API."
+      },
+      {
+        "key": "C",
+        "text": "From each developer account, remove the account from the old organization using the RemoveAccountFromOrganization operation in the Organizations API."
+      },
+      {
+        "key": "D",
+        "text": "Sign in to the new developer organization's management account and create a placeholder member account that acts as a target for the developer account migration."
+      },
+      {
+        "key": "E",
+        "text": "Call the InviteAccountToOrganization operation in the Organizations API from the new developer organization's management account to send invitations to the developer accounts."
+      },
+      {
+        "key": "F",
+        "text": "Have each developer sign in to their account and confirm to join the new developer organization."
+      }
+    ],
+    "answer_key": "C",
+    "community_vote_distribution": "BEF (81%) Other",
+    "page_images": []
+  }
+]

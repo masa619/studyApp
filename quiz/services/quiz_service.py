@@ -7,11 +7,14 @@ class QuizService:
         self.alphabet_to_index = {chr(i): i - ord('A') for i in range(ord('A'), ord('Z') + 1)}
 
     def get_questions(self, exam_id: int, mode: str, sub_mode: str, user=None):
+        print(f"exam_id: {exam_id}, mode: {mode}, sub_mode: {sub_mode}, user: {user}")
+        
         if mode == 'unanswered':
             questions = self.repository.get_unanswered_questions(exam_id, user)
         else:
             questions = self.repository.get_questions_by_exam(exam_id, user)
 
+        # Apply sub_mode regardless of the mode
         if sub_mode == 'sequential':
             questions = questions.order_by('no')  # Sort questions by 'no' in ascending order
 

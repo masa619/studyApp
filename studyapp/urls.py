@@ -23,8 +23,8 @@ urlpatterns = [
         path('token/verify/', TokenVerifyView.as_view(), name='verify'),
         path('logout/', LogoutView.as_view(), name='logout'),
     ])),
-    re_path(r'^favicon\.png$', serve, {
-        'path': 'favicon.png',
+    re_path(r'^favicon\.ico$', serve, {
+        'path': 'favicon.ico',
         'document_root': settings.STATICFILES_DIRS[0],
     }),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -17,3 +17,14 @@ SIMPLE_JWT = {
     'ALGORITHM': 'HS256',
     'SIGNING_KEY': SECRET_KEY,
 }
+
+INSTALLED_APPS += ['ocr_app']
+# メディアファイルのURLとルート
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/Users/shipro/Documents/CREATE_DATA2'  # 絶対パスで指定
+print(MEDIA_ROOT)
+
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:8000",
+]
+

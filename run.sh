@@ -6,6 +6,8 @@ else
     exit 1
 fi
 
+export GOOGLE_APPLICATION_CREDENTIALS="/Users/shipro/Documents/genuine-cirrus-413901-08c69903cb65.json"
+export GOOGLE_CLOUD_PROJECT="genuine-cirrus-413901"
 # フロントエンドのビルド
 cd frontend
 npm run build

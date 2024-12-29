@@ -14,6 +14,7 @@ export async function uploadCroppedImage(params: {
   labelName: string;
   noNumber: string;
   base64: string;
+  selectedIrohaKey?: string;
 }): Promise<{
   saved_path: string;
   updated_json_data: any;      // サーバーから返却された最新JSON
@@ -27,6 +28,7 @@ export async function uploadCroppedImage(params: {
     label_name: params.labelName,
     no_number: params.noNumber,
     cropped_image_base64: params.base64,
+    selected_iroha_key: params.selectedIrohaKey,
   });
 
   if (resp.status !== 200) {

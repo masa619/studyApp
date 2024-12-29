@@ -20,7 +20,12 @@ export interface Element {
 
 export interface NoElement extends Element {}
 export interface QuestionElement extends Element {}
-export interface OptionsElement extends Element {}
+export interface OptionsElement extends Element {
+  options_dict: Record<string, {
+    text: string;
+    image_paths: string[];
+  }>;
+}
 
 export interface Area {
   No: string;
@@ -54,5 +59,6 @@ export interface OCRResultType {
   image_path: string;
   status: string;        // "done" | "error" | "running" など
   full_text?: string;    // OCRで取得した文字列
+  normalized_text?: string; // ノーマライズ済みテキスト
   error_message?: string;
 }

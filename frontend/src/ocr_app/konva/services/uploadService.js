@@ -14,6 +14,7 @@ export async function uploadCroppedImage(params) {
         label_name: params.labelName,
         no_number: params.noNumber,
         cropped_image_base64: params.base64,
+        selected_iroha_key: params.selectedIrohaKey,
     });
     if (resp.status !== 200) {
         throw new Error(`Upload error: ${resp.statusText}`);

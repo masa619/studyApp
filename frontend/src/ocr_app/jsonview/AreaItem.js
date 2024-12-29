@@ -40,7 +40,7 @@ const AreaItem = ({ areaIndex }) => {
         if (!imagePath)
             return;
         try {
-            const resp = await axios.get('http://localhost:8000/ocr_app/api/find_ocr_result_by_path/', {
+            const resp = await axios.get('http://localhost:8000/ocr_app/api/ocr_results/', {
                 params: { image_path: imagePath },
             });
             const results = resp.data.results;

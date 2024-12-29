@@ -10,11 +10,12 @@ interface ManualCorrectionProps {
   jsonId: number;
   jsonData: InputJSONData; // { id, description, json_data: { areas: Area[] } }
 }
-
 /**
  * ManualCorrection コンポーネント:
  * - 左ペイン: Area一覧 (ImageSelector)
- * - 右ペイン: 選択したAreaの詳細表示 + OCRボタン + 一括保存
+ * - 右ペイン: 選択したAreaの CorrectionDetail (OCR + JSON編集)
+ * - "Run OCR" ボタン でサーバーに対し /api/trigger_ocr(mode=single) を呼ぶ
+ * - "Save All Changes" ボタン で JSON を PUT 更新
  */
 const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData }) => {
   // ローカルで編集するためのState
@@ -33,66 +34,87 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
     getOptionsFullText: () => string;
   }>(null);
 
-  // jsonDataが切り替わったら初期化
+  // jsonData が切り替わったら初期化
   useEffect(() => {
     setLocalData(jsonData);
     setMessage('');
     setSelectedAreaIndex(0);
   }, [jsonData]);
 
-  // 単純化: areas配列を直接取得
+  // areas配列を直接取得
   const areaList = localData.json_data?.areas || [];
   const currentArea: Area | undefined = areaList[selectedAreaIndex];
 
-  // 左ペインでAreaを選択したときの処理
+  // 選択肢の分割結果を保持するState
+  const [optionCheckResult, setOptionCheckResult] = useState<any>(null);
+
+  // 左ペインでAreaを選択
   const handleSelectArea = (idx: number) => {
     setSelectedAreaIndex(idx);
   };
 
-  // 選択中のAreaオブジェクトを更新する
+  // 選択中のAreaオブジェクトを更新
   const handleUpdateArea = (updatedArea: Area, areaIndex: number) => {
     const updated = { ...localData };
-    const newAreas = [...(updated.json_data?.areas || [])];
-
+    const newAreas = [...(updated.json_data.areas || [])];
     newAreas[areaIndex] = updatedArea;
     updated.json_data.areas = newAreas;
-
     setLocalData(updated);
   };
 
   /**
-   * 単一画像に対して OCR をリクエストする (trigger_ocr_for_image_single)
-   * imagePathを指定してOCR実行 → 結果の full_text を対象のエリアにセット → 再描画
+   * 単一画像OCR
+   * => /api/trigger_ocr  (mode=single, image_type=question|options)
+   * => normalized_text が返ってくる
+   * => ここでは CorrectionDetail 内のUI に反映させるのではなく、
+   *    JSONの text を直接上書きする（要件次第）
+   *    or CorrectionDetail でサーバーから再取得し反映させる運用も可
    */
-  const handleRunSingleOCR = async (imagePath: string | undefined) => {
+  const handleRunSingleOCR = async (
+    imagePath: string | undefined,
+    imageType: 'question' | 'options'
+  ) => {
     if (!imagePath) {
       setMessage('imagePathがありません');
       return;
     }
     setMessage('Running single OCR...');
     try {
-      const resp = await axios.post('http://localhost:8000/ocr_app/api/trigger_ocr_for_image_single', {
+      const payload = {
+        mode: 'single',
         image_path: imagePath,
-      });
-      setMessage(`Single OCR response: ${resp.data.detail ?? 'no detail'}`);
+        image_type: imageType,
+        force_rerun: false,
+      };
+      const resp = await axios.post('http://localhost:8000/ocr_app/api/trigger_ocr', payload);
+      const data = resp.data;
+      if (!data || !data.results || !Array.isArray(data.results)) {
+        setMessage('Unexpected response format');
+        return;
+      }
+      const [ocrResult] = data.results;
+      if (!ocrResult) {
+        setMessage('No OCR result returned');
+        return;
+      }
 
-      // 取得したフルテキスト等をStateに反映して再描画
-      if (resp.data.full_text && currentArea) {
-        // currentAreaをコピーして書き換え
-        const updatedArea = { ...currentArea };
+      if (ocrResult.status === 'done') {
+        const fullText = ocrResult.normalized_text || ocrResult.full_text || '';
+        setMessage(`Single OCR success: ${fullText.substring(0, 30)}...`);
 
-        // どの画像をOCRしたかで更新先を切り替え
-        if (imagePath === currentArea.question_image_path) {
-          // 質問テキストを更新
-          updatedArea.question_element.text = resp.data.full_text;
-        } else if (imagePath === currentArea.options_image_path) {
-          // オプションテキストを更新
-          updatedArea.options_element.text = resp.data.full_text;
+        // 選択肢の分割結果を更新
+        if (ocrResult.option_check_result) {
+          setOptionCheckResult(ocrResult.option_check_result);
+          console.log(ocrResult.option_check_result);
+        } else {
+          // options じゃない場合などは null になるかも
+          setOptionCheckResult(null);
         }
-        // (必要に応じて question_image_paths / options_image_paths への対応を追加)
 
-        // 更新したAreaをStateへ反映 → CorrectionDetailに再描画される
-        handleUpdateArea(updatedArea, selectedAreaIndex);
+      } else if (ocrResult.status === 'error') {
+        setMessage(`OCR error: ${ocrResult.error_message ?? 'no error message'}`);
+      } else {
+        setMessage(`OCR status: ${ocrResult.status}`);
       }
     } catch (error: any) {
       console.error(error);
@@ -102,20 +124,19 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
 
   /**
    * 一括保存 (OCR + JSON更新) のフロー
-   *  1) CorrectionDetail内でOCR結果を保存
-   *  2) CorrectionDetailから取得したテキストを JSON に反映
-   *  3) JSONをPUT更新
+   * 1) CorrectionDetail内で OCR結果を一括PUT
+   * 2) CorrectionDetailから取得した JSON用テキストを localData に反映
+   * 3) 最後に JSONをPUT更新
    */
   const handleSaveAll = async () => {
     try {
       setMessage('Saving...');
-
-      // (A) CorrectionDetailのOCRResultをまとめて保存
+      // (A) CorrectionDetail の OCR結果を保存 (normalized_text)
       if (correctionDetailRef.current) {
         await correctionDetailRef.current.handleSaveAllOcr();
       }
 
-      // (B) OCR テキストを JSON に反映（ここでは現在選択中Areaのみ反映）
+      // (B) CorrectionDetailから取得したテキストを JSON に反映
       const qText = correctionDetailRef.current?.getQuestionFullText() ?? '';
       const oText = correctionDetailRef.current?.getOptionsFullText() ?? '';
 
@@ -124,10 +145,23 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
         const newAreas = [...updatedLocalData.json_data.areas];
         const targetArea = { ...newAreas[selectedAreaIndex] };
 
-        // OCR結果を JSONの question_element / options_element に反映
+        // JSON の question_element / options_element を上書き
         targetArea.question_element.text = qText;
         targetArea.options_element.text = oText;
 
+        if (optionCheckResult?.lines && typeof optionCheckResult.lines === 'object') {
+          // 「イ,ロ,ハ,ニ」など各キーに対して text を更新
+          const odict = { ...targetArea.options_element.options_dict };
+          for (const [k, v] of Object.entries(optionCheckResult.lines)) {
+            // 万が一定義がなければ初期化
+            if (!odict[k]) {
+              odict[k] = { text: '', image_paths: [] };
+            }
+            odict[k].text = v as string || '';
+          }
+          targetArea.options_element.options_dict = odict;
+        }
+        // ▲▲▲▲▲▲
         newAreas[selectedAreaIndex] = targetArea;
         updatedLocalData.json_data.areas = newAreas;
         setLocalData(updatedLocalData);
@@ -141,7 +175,7 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
         };
         await axios.put(`http://localhost:8000/ocr_app/api/input_json/${jsonId}/`, payload);
 
-        setMessage('Saved successfully! (OCR + JSON)');
+        setMessage('Saved successfully! (OCR + JSON using normalized text)');
       }
     } catch (error: any) {
       console.error(error);
@@ -149,7 +183,7 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
     }
   };
 
-  // ボタンスタイル (サンプル)
+  // ボタンスタイル例
   const baseButtonStyle: React.CSSProperties = {
     padding: '0.5rem 1rem',
     borderRadius: '4px',
@@ -170,7 +204,7 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
     ...baseButtonStyle,
     backgroundColor: '#28A745',
     color: '#fff',
-    marginRight: 0, // 最後は不要
+    marginRight: 0,
   };
 
   const saveAllButtonStyle: React.CSSProperties = {
@@ -183,7 +217,7 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
 
   return (
     <div style={{ display: 'flex', gap: '1rem' }}>
-      {/* 左カラム: Area一覧 */}
+      {/* === 左カラム: Area一覧 === */}
       <div style={{ width: '220px', borderRight: '1px solid #ccc' }}>
         <ImageSelector
           areaList={areaList}
@@ -192,11 +226,11 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
         />
       </div>
 
-      {/* 右カラム: 詳細エリア */}
+      {/* === 右カラム: CorrectionDetail === */}
       <div style={{ flex: 1, padding: '1rem' }}>
         <h2>Manual Correction for JSON ID: {jsonId}</h2>
 
-        {/* メッセージ表示欄 */}
+        {/* メッセージ表示 */}
         {message && <p style={{ color: 'blue' }}>{message}</p>}
 
         {currentArea ? (
@@ -204,7 +238,7 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
             {/* OCRトリガーボタン (Question / Options) */}
             <div style={{ marginBottom: '1rem', display: 'flex', gap: '0.5rem' }}>
               <button
-                onClick={() => handleRunSingleOCR(currentArea.question_image_path)}
+                onClick={() => handleRunSingleOCR(currentArea.question_image_path, 'question')}
                 style={questionButtonStyle}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#0056b3';
@@ -217,7 +251,7 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
               </button>
 
               <button
-                onClick={() => handleRunSingleOCR(currentArea.options_image_path)}
+                onClick={() => handleRunSingleOCR(currentArea.options_image_path, 'options')}
                 style={optionsButtonStyle}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLButtonElement).style.backgroundColor = '#218838';
@@ -230,12 +264,13 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
               </button>
             </div>
 
-            {/* 選択中のArea詳細 (CorrectionDetail) */}
+            {/* CorrectionDetail */}
             <CorrectionDetail
               ref={correctionDetailRef}
               area={currentArea}
               areaIndex={selectedAreaIndex}
               onUpdateArea={handleUpdateArea}
+              propOptionCheckResult={optionCheckResult}
             />
 
             {/* 一括保存ボタン */}

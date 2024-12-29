@@ -57,6 +57,11 @@ class OCRResult(models.Model):
         blank=True,
         help_text="textAnnotations[0].description など全文"
     )
+    normalized_text = models.TextField(
+        null=True,
+        blank=True,
+        help_text="ノーマライズ済みテキスト"
+    )
     avg_confidence = models.FloatField(
         default=0.0,
         help_text="wordレベル平均confidence"

@@ -13,11 +13,12 @@ export interface BoundingBox {
 
 export interface CroppedImage {
   label: string;
-  dataUrl: string;               
-  boundingBoxes?: BoundingBox[]; 
-  serverCroppedBase64?: string;  
-  serverSavedPath?: string;      
-  expandMargin?: number; 
+  dataUrl: string;
+  boundingBoxes?: BoundingBox[];
+  serverCroppedBase64?: string;
+  serverSavedPath?: string;
+  expandMargin?: number;
+  selectedIrohaKey?: string;
 }
 
 interface ToggledBoundingBox extends BoundingBox {
@@ -27,16 +28,19 @@ interface ToggledBoundingBox extends BoundingBox {
 interface Props {
   cropItem: CroppedImage;
   scale?: number;
+  children?: React.ReactNode; // Saveボタン等を子要素で受け取る用
 }
 
-const SingleCroppedImagePreview: React.FC<Props> = ({ cropItem, scale = 1 }) => {
+const SingleCroppedImagePreview: React.FC<Props> = ({ cropItem, scale = 1, children }) => {
   // 「サーバーで処理後の画像」があればそれを優先、それが無ければフロントのdataUrlを使う
-  const finalSrc = cropItem.serverCroppedBase64 
-  ? `data:image/png;base64,${cropItem.serverCroppedBase64}`
-  : cropItem.dataUrl;
+  const finalSrc = cropItem.serverCroppedBase64
+    ? `data:image/png;base64,${cropItem.serverCroppedBase64}`
+    : cropItem.dataUrl;
   const imgRef = useRef<HTMLImageElement | null>(null);
 
   const [naturalSize, setNaturalSize] = useState({ width: 0, height: 0 });
+
+  const [selectedKey, setSelectedKey] = useState<string>(cropItem.selectedIrohaKey || '');
 
   // serverSavedPathなども表示するなら拡張可能
   const filteredBoxes = (cropItem.boundingBoxes || []).filter(
@@ -46,6 +50,17 @@ const SingleCroppedImagePreview: React.FC<Props> = ({ cropItem, scale = 1 }) => 
   const [boxStates, setBoxStates] = useState<ToggledBoundingBox[]>(() =>
     filteredBoxes.map((bb) => ({ ...bb, isVisible: true }))
   );
+
+  useEffect(() => {
+    setSelectedKey(cropItem.selectedIrohaKey || '');
+  }, [cropItem.selectedIrohaKey]);
+
+  const handleSelectChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const newKey = e.target.value;    // "イ" "ロ" "ハ" "ニ" または空
+    setSelectedKey(newKey);
+    // CroppedImage側にも反映しておき、後で handleSaveRect で送信できるようにする
+    cropItem.selectedIrohaKey = newKey;
+  };
 
   const handleImageLoad = useCallback((e: React.SyntheticEvent<HTMLImageElement>) => {
     const { naturalWidth, naturalHeight } = e.currentTarget;
@@ -74,6 +89,18 @@ const SingleCroppedImagePreview: React.FC<Props> = ({ cropItem, scale = 1 }) => 
     <div style={{ border: '1px solid #ccc', padding: '0.5rem', display: 'inline-block' }}>
       <div style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}>
         {cropItem.label}
+      </div>
+
+      {/* イロハニのSelect UI */}
+      <div style={{ marginBottom: '0.5rem' }}>
+        <label>選択キー: </label>
+        <select value={selectedKey} onChange={handleSelectChange} style={{ marginLeft: '4px' }}>
+          <option value="">(選択なし)</option>
+          <option value="イ">イ</option>
+          <option value="ロ">ロ</option>
+          <option value="ハ">ハ</option>
+          <option value="ニ">ニ</option>
+        </select>
       </div>
 
       {/* ボックスごとの Show/Hide */}
@@ -142,6 +169,7 @@ const SingleCroppedImagePreview: React.FC<Props> = ({ cropItem, scale = 1 }) => 
           SavedPath: {cropItem.serverSavedPath}
         </div>
       )}
+      {children}
     </div>
   );
 };

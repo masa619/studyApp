@@ -62,7 +62,7 @@ const AreaItem: React.FC<Props> = ({ areaIndex }) => {
     if (!imagePath) return;
     try {
       const resp = await axios.get<{ results: OCRResultType[] }>(
-        'http://localhost:8000/ocr_app/api/find_ocr_result_by_path/',
+        'http://localhost:8000/ocr_app/api/ocr_results/',
         {
           params: { image_path: imagePath },
         },

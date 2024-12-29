@@ -19,7 +19,9 @@ export interface Element {
 }
 
 export interface NoElement extends Element {}
-export interface QuestionElement extends Element {}
+export interface QuestionElement extends Element {
+  image_paths: string[];
+}
 export interface OptionsElement extends Element {
   options_dict: Record<string, {
     text: string;

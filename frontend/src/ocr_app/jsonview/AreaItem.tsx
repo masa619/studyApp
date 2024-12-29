@@ -40,18 +40,28 @@ const AreaItem: React.FC<Props> = ({ areaIndex }) => {
 
   // 複数画像表示用に、配列があればそちらを、なければ単一パスを配列化して使う
   const questionImagePaths =
-    area.question_image_paths && area.question_image_paths.length > 0
-      ? area.question_image_paths
-      : area.question_image_path
-      ? [area.question_image_path]
+    area.question_element?.image_paths && area.question_element?.image_paths.length > 0
+      ? area.question_element?.image_paths
+      : area.question_element?.image_paths
+        ? [area.question_element?.image_paths]
+        : [];
+
+  const optionsImagePaths = (() => {
+    // (A) まず、options_dict から取得
+    const dict = area.options_element?.options_dict;
+    const fromDict = dict
+      ? Object.values(dict).flatMap((entry: any) => entry?.image_paths || [])
       : [];
 
-  const optionsImagePaths =
-    area.options_image_paths && area.options_image_paths.length > 0
-      ? area.options_image_paths
-      : area.options_image_path
-      ? [area.options_image_path]
-      : [];
+    // (B) 従来の area.options_image_paths / area.options_image_path も拾う        +   //     必要なければスキップしてもOK
+    let fromLegacy: string[] = [];
+    if (area.options_image_paths && area.options_image_paths.length > 0) {
+      fromLegacy = area.options_image_paths;
+    }
+
+    // (C) 合算 (Dict優先 or 全部まとめたい場合は concat)
+    return [...fromDict, ...fromLegacy];
+  })();
 
   // OCR結果を取得して State に反映
   const fetchOCRResult = async (
@@ -95,8 +105,18 @@ const AreaItem: React.FC<Props> = ({ areaIndex }) => {
     <div style={{ border: '1px solid #ddd', padding: '0.5rem', marginBottom: '0.5rem' }}>
       {/* 1) Area情報 */}
       <h4>
-        Area No: {area.No} (area_id: {area.area_id})
+        Area No: {area.No}
       </h4>
+      {/* ここにArea Imageを追加 */}
+      {area.area_image_path && (
+        <div style={{ margin: '8px 0' }}>
+          <img
+            src={convertToMediaUrl(area.area_image_path)}
+            alt={`Area image`}
+            style={{ maxWidth: '100%', border: '1px solid #ccc' }}
+          />
+        </div>
+      )}
       <p>Answer: {area.answer}</p>
 
       {/* 2) Questionテキスト */}
@@ -108,29 +128,18 @@ const AreaItem: React.FC<Props> = ({ areaIndex }) => {
       {questionImagePaths.length > 0 && (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', margin: '8px 0' }}>
           {questionImagePaths.map((path, idx) => {
-            const qImgUrl = convertToMediaUrl(path);
+            const qImgUrl = Array.isArray(path) ? convertToMediaUrl(path[0]) : convertToMediaUrl(path);
             return (
               <img
                 key={`qimg-${idx}`}
                 src={qImgUrl}
                 alt={`Question image ${idx}`}
-                style={{ maxWidth: '300px', border: '1px solid #ccc' }}
+                style={{ border: '1px solid #ccc' }}
               />
             );
           })}
         </div>
       )}
-
-      {/* OCR Status (Question) */}
-      <p>
-        <strong>Question OCR Status:</strong> {questionOcrStatus}{' '}
-        {questionOcrStatus === 'done' && (
-          <span>
-            <br />
-            <strong>Question Full Text:</strong> {questionFullText}
-          </span>
-        )}
-      </p>
 
       <hr />
 
@@ -149,12 +158,14 @@ const AreaItem: React.FC<Props> = ({ areaIndex }) => {
                 key={`oimg-${idx}`}
                 src={oImgUrl}
                 alt={`Options image ${idx}`}
-                style={{ maxWidth: '300px', border: '1px solid #ccc' }}
+                style={{ border: '1px solid #ccc' }}
               />
             );
           })}
         </div>
       )}
+
+
 
       {/* OCR Status (Options) */}
       <p>

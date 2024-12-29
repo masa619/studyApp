@@ -470,17 +470,12 @@ def detect_bounding_box_api(request):
 @api_view(["POST"])
 def upload_cropped_image_api(request):
     """
-    処理内容:
-    1) actionパラメータで追加 or 削除を判定
-       - action = "add":    画像をBase64で受け取りファイルに保存し、リストに追加
-       - action = "delete": delete_filenameを受け取り、リストから削除
-
-    2) question_image_path / options_image_path を「消さずに」保持。
-       - 新規の切り抜き画像は question_image_paths / options_image_paths リストに追加していく。
-
-    3) 単数キーを削除しないので、オリジナル(マニュアル修正されたパス)はそのまま残る。
+    action = "add" or "delete"
+    - add:  Base64画像をファイルとして書き込み
+            selected_image_type="options" の場合は options_dict へパスを追記
+            selected_iroha_key があれば "options_dict[イ].image_paths" などにappend
+    - delete: 既存ファイルをリストから削除
     """
-
     import os
     import base64
     import cv2
@@ -490,7 +485,7 @@ def upload_cropped_image_api(request):
     from .models import InputJSON
     from .scripts.upload_cropped_image_api.exchange_path import fix_original_image_path
 
-    # ------------ 1) リクエストデータ取得とバリデーション ------------
+    # ------------ 1) リクエストデータ取得 ------------
     original_image_path = request.data.get("original_image_path")
     selected_image_type = request.data.get("selected_image_type", "question")  # "question" or "options"
     json_id = request.data.get("json_id")
@@ -501,17 +496,20 @@ def upload_cropped_image_api(request):
     action = request.data.get("action", "add")  # "add" or "delete"
     delete_filename = request.data.get("delete_filename", None)
 
+    # ★ 今回追加: irohaキー
+    selected_iroha_key = request.data.get("selected_iroha_key", "")
+
     if not json_id:
         return Response({"detail": "json_id not provided"}, status=400)
     if not area_id or not no_number:
         return Response({"detail": "area_id or no_number not provided"}, status=400)
 
-    # "delete" の場合、削除対象ファイル名を要チェック
+    # "delete" の場合
     if action == "delete":
         if not delete_filename:
             return Response({"detail": "delete_filename is required for action=delete"}, status=400)
     else:
-        # "add" の場合、画像必須
+        # "add" の場合は画像必須
         if not original_image_path or not cropped_image_base64:
             return Response(
                 {"detail": "original_image_path or cropped_image_base64 not provided"},
@@ -530,34 +528,65 @@ def upload_cropped_image_api(request):
             status=status.HTTP_404_NOT_FOUND
         )
 
-    # ------------ 3) question_image_paths / options_image_paths を作成 or 確保 ------------
-    # 今回は「単数キー(question_image_path / options_image_path) は削除しない」方針
-    # もし複数キーが存在しなければ新規で空リストを作るだけ。
-    def ensure_list_key(area_dict, list_key):
-        """list_key が無ければ空リストを作るだけ。単数キーは放置。"""
-        if list_key not in area_dict:
-            area_dict[list_key] = []
+    # ------------ 3) Options or Question の要素を確保 ------------
+    #  3-1) "Options" の場合 => area["options_element"] / area["options_element"]["options_dict"]
+    #  3-2) "Question" の場合 => 従来 "question_image_paths" に入れても良いが、
+    #        ご要望があれば "question_element" の中に "image_paths" を新設する選択肢もあり。
+    
+    if selected_image_type == "options":
+        if "options_element" not in area:
+            area["options_element"] = {}
 
-    ensure_list_key(area, "question_image_paths")
-    ensure_list_key(area, "options_image_paths")
+        if "options_dict" not in area["options_element"]:
+            area["options_element"]["options_dict"] = {}  # 空のdictを作る
 
-    # どのキーに対して追加/削除を行うか
-    if selected_image_type == "question":
-        image_list_key = "question_image_paths"
+        # 例えば options_dict が {"イ": {text:"1", image_paths:[]}, ...} の構造を想定
+        # selected_iroha_key が空文字の場合や、 dictに該当キーが無い場合にエラーにするか自動生成するかは要件次第。
+        if selected_iroha_key:
+            # 該当キーが無ければ自動生成
+            if selected_iroha_key not in area["options_element"]["options_dict"]:
+                area["options_element"]["options_dict"][selected_iroha_key] = {
+                    "text": "",
+                    "image_paths": []
+                }
+
     else:
-        image_list_key = "options_image_paths"
+        # === Question の場合 ===
+        if "question_element" not in area:
+            area["question_element"] = {}
+        if "image_paths" not in area["question_element"]:
+            area["question_element"]["image_paths"] = []
 
-    # ------------ 4) action=="delete" の場合 ------------
+    # ------------ 4) 削除処理 (action="delete") ------------
     if action == "delete":
-        # リストから該当ファイルパスを取り除く
-        original_list = area.get(image_list_key, [])
-        new_list = [path for path in original_list if path != delete_filename]
-        area[image_list_key] = new_list
+        # 既存ファイルをリストから除外
+        if selected_image_type == "options":
+            # options_dict 配下にある特定のキーの image_paths からdelete_filenameを削除するのか、
+            # あるいは "options_image_paths" リストから削除するのか要検討。
+            # ここでは「options_dict から削除」例:
+            found_and_deleted = False
+            for k, v in area["options_element"]["options_dict"].items():
+                if "image_paths" in v:
+                    new_list = [fp for fp in v["image_paths"] if fp != delete_filename]
+                    if len(new_list) < len(v["image_paths"]):
+                        found_and_deleted = True
+                    v["image_paths"] = new_list
 
-        # DB保存してレスポンス返す
+            if not found_and_deleted:
+                return Response({"detail": f"{delete_filename} not found in any options_dict.image_paths"},
+                                status=404)
+
+        else:
+            # Question の場合
+            # question_image_paths から削除 or question_element["image_paths"] から削除
+            # ここでは "question_element.image_paths" から削除 例
+            old_list = area["question_element"]["image_paths"]
+            new_list = [fp for fp in old_list if fp != delete_filename]
+            area["question_element"]["image_paths"] = new_list
+
+        # DB保存してレスポンス
         input_json_obj.json_data = json_data
         input_json_obj.save()
-
         return Response(
             {
                 "detail": "Delete success",
@@ -568,9 +597,10 @@ def upload_cropped_image_api(request):
             status=200
         )
 
-    # ------------ 5) action=="add" の場合: Base64画像をファイルとして保存 ------------
+    # ------------ 5) 追加処理 (action="add") ------------
     try:
         # パス整形
+        from .scripts.upload_cropped_image_api.exchange_path import fix_original_image_path
         fixed_path = fix_original_image_path(original_image_path)  # 絶対パスへ変換
         base_dir = os.path.dirname(fixed_path)
 
@@ -596,13 +626,22 @@ def upload_cropped_image_api(request):
         if not success:
             return Response({"detail": "Failed to write image file"}, status=500)
 
-        # リストに追加
-        area[image_list_key].append(new_file_path)
+        # === (5-b) JSONに追記 ===
+        if selected_image_type == "options":
+            # options_dict[selected_iroha_key].image_paths に追加
+            if not selected_iroha_key:
+                return Response({"detail": "selected_iroha_key is required for options type"}, status=400)
+
+            area["options_element"]["options_dict"][selected_iroha_key]["image_paths"].append(new_file_path)
+
+        else:
+            # question_element["image_paths"] に追加 例
+            area["question_element"]["image_paths"].append(new_file_path)
 
     except Exception as e:
         return Response({"detail": str(e)}, status=500)
 
-    # ------------ 6) JSONを更新してDB保存 ------------
+    # ------------ 6) DB保存してレスポンス ------------
     input_json_obj.json_data = json_data
     input_json_obj.save()
 

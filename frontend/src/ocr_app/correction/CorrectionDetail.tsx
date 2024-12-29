@@ -26,8 +26,8 @@ interface Props {
 
 interface CorrectionDetailExposed {
   handleSaveAllOcr: () => Promise<void>;
-  getQuestionFullText: () => string;
-  getOptionsFullText: () => string;
+  getQuestionOcrText: () => string;
+  getOptionsOcrText: () => string;
 }
 
 /**
@@ -348,8 +348,8 @@ const CorrectionDetail = forwardRef<CorrectionDetailExposed, Props>(
     // -----------------------------------------
     useImperativeHandle(ref, () => ({
       handleSaveAllOcr,
-      getQuestionFullText: () => questionJsonText,
-      getOptionsFullText: () => optionsJsonText,
+      getQuestionOcrText: () => questionOcrText,
+      getOptionsOcrText: () => optionsOcrText,
     }));
 
     return (

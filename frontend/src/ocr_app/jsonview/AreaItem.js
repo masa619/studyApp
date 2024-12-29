@@ -25,16 +25,25 @@ const AreaItem = ({ areaIndex }) => {
         return `http://localhost:8000/media/${path.replace(/^.*?CREATE_DATA2\//, '')}`;
     };
     // 複数画像表示用に、配列があればそちらを、なければ単一パスを配列化して使う
-    const questionImagePaths = area.question_image_paths && area.question_image_paths.length > 0
-        ? area.question_image_paths
-        : area.question_image_path
-            ? [area.question_image_path]
+    const questionImagePaths = area.question_element?.image_paths && area.question_element?.image_paths.length > 0
+        ? area.question_element?.image_paths
+        : area.question_element?.image_paths
+            ? [area.question_element?.image_paths]
             : [];
-    const optionsImagePaths = area.options_image_paths && area.options_image_paths.length > 0
-        ? area.options_image_paths
-        : area.options_image_path
-            ? [area.options_image_path]
+    const optionsImagePaths = (() => {
+        // (A) まず、options_dict から取得
+        const dict = area.options_element?.options_dict;
+        const fromDict = dict
+            ? Object.values(dict).flatMap((entry) => entry?.image_paths || [])
             : [];
+        // (B) 従来の area.options_image_paths / area.options_image_path も拾う        +   //     必要なければスキップしてもOK
+        let fromLegacy = [];
+        if (area.options_image_paths && area.options_image_paths.length > 0) {
+            fromLegacy = area.options_image_paths;
+        }
+        // (C) 合算 (Dict優先 or 全部まとめたい場合は concat)
+        return [...fromDict, ...fromLegacy];
+    })();
     // OCR結果を取得して State に反映
     const fetchOCRResult = async (imagePath, setStatus, setFullText) => {
         if (!imagePath)
@@ -67,12 +76,12 @@ const AreaItem = ({ areaIndex }) => {
         fetchOCRResult(area.options_image_path, setOptionsOcrStatus, setOptionsFullText);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [area.question_image_path, area.options_image_path]);
-    return (_jsxs("div", { style: { border: '1px solid #ddd', padding: '0.5rem', marginBottom: '0.5rem' }, children: [_jsxs("h4", { children: ["Area No: ", area.No, " (area_id: ", area.area_id, ")"] }), _jsxs("p", { children: ["Answer: ", area.answer] }), _jsxs("p", { children: [_jsx("strong", { children: "Question text:" }), " ", area.question_element?.text ?? ''] }), questionImagePaths.length > 0 && (_jsx("div", { style: { display: 'flex', flexWrap: 'wrap', gap: '8px', margin: '8px 0' }, children: questionImagePaths.map((path, idx) => {
-                    const qImgUrl = convertToMediaUrl(path);
-                    return (_jsx("img", { src: qImgUrl, alt: `Question image ${idx}`, style: { maxWidth: '300px', border: '1px solid #ccc' } }, `qimg-${idx}`));
-                }) })), _jsxs("p", { children: [_jsx("strong", { children: "Question OCR Status:" }), " ", questionOcrStatus, ' ', questionOcrStatus === 'done' && (_jsxs("span", { children: [_jsx("br", {}), _jsx("strong", { children: "Question Full Text:" }), " ", questionFullText] }))] }), _jsx("hr", {}), _jsxs("p", { children: [_jsx("strong", { children: "Options text:" }), " ", area.options_element?.text ?? ''] }), optionsImagePaths.length > 0 && (_jsx("div", { style: { display: 'flex', flexWrap: 'wrap', gap: '8px', margin: '8px 0' }, children: optionsImagePaths.map((path, idx) => {
+    return (_jsxs("div", { style: { border: '1px solid #ddd', padding: '0.5rem', marginBottom: '0.5rem' }, children: [_jsxs("h4", { children: ["Area No: ", area.No] }), area.area_image_path && (_jsx("div", { style: { margin: '8px 0' }, children: _jsx("img", { src: convertToMediaUrl(area.area_image_path), alt: `Area image`, style: { maxWidth: '100%', border: '1px solid #ccc' } }) })), _jsxs("p", { children: ["Answer: ", area.answer] }), _jsxs("p", { children: [_jsx("strong", { children: "Question text:" }), " ", area.question_element?.text ?? ''] }), questionImagePaths.length > 0 && (_jsx("div", { style: { display: 'flex', flexWrap: 'wrap', gap: '8px', margin: '8px 0' }, children: questionImagePaths.map((path, idx) => {
+                    const qImgUrl = Array.isArray(path) ? convertToMediaUrl(path[0]) : convertToMediaUrl(path);
+                    return (_jsx("img", { src: qImgUrl, alt: `Question image ${idx}`, style: { border: '1px solid #ccc' } }, `qimg-${idx}`));
+                }) })), _jsx("hr", {}), _jsxs("p", { children: [_jsx("strong", { children: "Options text:" }), " ", area.options_element?.text ?? ''] }), optionsImagePaths.length > 0 && (_jsx("div", { style: { display: 'flex', flexWrap: 'wrap', gap: '8px', margin: '8px 0' }, children: optionsImagePaths.map((path, idx) => {
                     const oImgUrl = convertToMediaUrl(path);
-                    return (_jsx("img", { src: oImgUrl, alt: `Options image ${idx}`, style: { maxWidth: '300px', border: '1px solid #ccc' } }, `oimg-${idx}`));
+                    return (_jsx("img", { src: oImgUrl, alt: `Options image ${idx}`, style: { border: '1px solid #ccc' } }, `oimg-${idx}`));
                 }) })), _jsxs("p", { children: [_jsx("strong", { children: "Options OCR Status:" }), " ", optionsOcrStatus, ' ', optionsOcrStatus === 'done' && (_jsxs("span", { children: [_jsx("br", {}), _jsx("strong", { children: "Options Full Text:" }), " ", optionsFullText] }))] })] }));
 };
 export default AreaItem;

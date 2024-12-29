@@ -7,9 +7,11 @@ import os
 from .normalize import ocr_normalize 
 from .option_splitter import split_options_by_iroha
 
-# ==============================
-# GCP Vision APIクライアント初期化
-# ==============================
+from ocr_app.models import OCRResult
+
+####################################
+# Google Vision APIクライアント設定
+####################################
 client = vision.ImageAnnotatorClient(
     client_options=ClientOptions(quota_project_id="genuine-cirrus-413901")
 )
@@ -31,7 +33,6 @@ def call_vision_api(image_path: str):
     )
     response = client.annotate_image(request)
     return response
-
 
 def calc_confidence_from_dict(response_dict: dict) -> float:
     """
@@ -65,7 +66,6 @@ def convert_absolute_to_relative(data):
     if isinstance(data, dict):
         for key, value in data.items():
             if isinstance(value, str) and key.endswith('_path'):
-                # 変換をかける
                 data[key] = unify_to_mac_path(value, local_base1, local_base2)
             elif isinstance(value, (dict, list)):
                 convert_absolute_to_relative(value)
@@ -75,7 +75,6 @@ def convert_absolute_to_relative(data):
             if isinstance(item, (dict, list)):
                 convert_absolute_to_relative(item)
             elif isinstance(item, str):
-                # 配列の文字列も置換したい場合
                 data[i] = unify_to_mac_path(item, local_base1, local_base2)
 
     return data
@@ -84,27 +83,20 @@ def unify_to_mac_path(value, base1, base2):
     """
     もし value が base1(/home/masa619/...) で始まれば、
     /Users/shipro/Documents/CREATE_DATA2/ + (base1を除いたサフィックス)
-    もし value が base2(/Users/shipro/Documents/...) で始まればそのまま or 
+    もし value が base2(/Users/shipro/Documents/...) で始まればそのまま
     必要なら相対パス化など。
     """
-    # すでに Macローカルパスの場合: (/Users/shipro/...)
     if value.startswith(base2):
-        return value  # そのまま or 相対パスにするならここで relpath
-
-    # もし /home/... で始まるなら suffix を取り出して /Users/... に連結
+        return value  # そのまま
     if value.startswith(base1):
         suffix = value[len(base1):]  # base1を除去
         return os.path.join(base2, suffix)
-
-    # どちらでもない場合はそのまま
     return value
 
 
-# ==============================
+###################################
 # OCRResult更新ユーティリティ
-# ==============================
-from ocr_app.models import OCRResult
-
+###################################
 def run_vision_ocr_for_image(image_path: str, force_rerun: bool = False, image_type: str = None) -> OCRResult:
     """
     単一画像に対するOCRを実行。
@@ -116,10 +108,12 @@ def run_vision_ocr_for_image(image_path: str, force_rerun: bool = False, image_t
         defaults={'status': 'pending'}
     )
 
+    # 既に成功済み＆再実行強制なしの場合はスキップ
     if obj.status == 'done' and not force_rerun:
         print(f"[INFO] Already done for {image_path}. Skipping.")
         return obj
 
+    # エラー状態で再実行オフの場合もスキップ
     if obj.status == 'error' and not force_rerun:
         print(f"[WARN] Previous error for {image_path}. Skipping.")
         return obj
@@ -131,6 +125,7 @@ def run_vision_ocr_for_image(image_path: str, force_rerun: bool = False, image_t
             return obj
 
         # dict化
+        from google.protobuf.json_format import MessageToDict
         response_dict = MessageToDict(response_proto._pb)
         avg_conf = calc_confidence_from_dict(response_dict)
 
@@ -139,6 +134,8 @@ def run_vision_ocr_for_image(image_path: str, force_rerun: bool = False, image_t
 
         # DB更新
         obj.mark_done(response_dict, confidence=avg_conf, text=full_text_0)
+
+        # ノーマライズ
         if image_type:
             normalized = ocr_normalize(full_text_0, image_type)
             obj.normalized_text = normalized
@@ -149,76 +146,12 @@ def run_vision_ocr_for_image(image_path: str, force_rerun: bool = False, image_t
     except Exception as e:
         obj.mark_error(str(e))
         return obj
-    
-# ==============================
-# 統合エンドポイント用ロジック
-# ==============================
-def unified_ocr_process(payload: dict):
-    mode = payload.get("mode", "single")
-    force_rerun = payload.get("force_rerun", False)
-    results = []
 
-    if mode == "single":
-        image_path = payload.get("image_path")
-        image_type = payload.get("image_type", "unknown")
-        if image_path:
-            obj = run_vision_ocr_for_image(image_path, force_rerun=force_rerun)
-            # ここでノーマライズをDB保存
-            if obj.status == 'done':
-                # ノーマライズ
-                normalized = ocr_normalize(obj.full_text, image_type)
-                obj.normalized_text = normalized
-                obj.save()
-                # イロハニのチェック
-                check_result = split_options_by_iroha(normalized)
-                base_dict = ocr_result_to_dict(obj, image_type)
-                base_dict["option_check_result"] = check_result
-                print(base_dict)
-                results.append(base_dict)
-            # レスポンス用dict
-            results.append(ocr_result_to_dict(obj, image_type))
-        else:
-            results.append({"error": "No image_path provided for single mode"})
 
-    elif mode == "batch":
-        # --- pages を使わず、payload["areas"] を直接処理 ---
-        areas = payload.get("areas", [])
-        for area in areas:
-            # 質問画像があれば
-            qpath = area.get("question_image_path")
-            qtype = area.get("question_image_type", "question")
-            if qpath:
-                q_obj = run_vision_ocr_for_image(qpath, force_rerun=force_rerun, image_type=qtype)
-                # ノーマライズ済み (image_type指定済) → OCRResultに normalized_text が保存
-                # OCRResultの情報を結果へ追加
-                results.append(ocr_result_to_dict(q_obj, qtype))
-
-            # 選択肢画像があれば
-            opath = area.get("options_image_path")
-            otype = area.get("options_image_type", "options")
-            if opath:
-                o_obj = run_vision_ocr_for_image(opath, force_rerun=force_rerun, image_type=otype)
-                # ノーマライズ
-                # run_vision_ocr_for_image() 内で image_type が指定されているので normalized_text も保存される
-
-                # ここでイロハ分割し、結果をレスポンス用dictに詰める
-                base_dict = ocr_result_to_dict(o_obj, otype)
-                if o_obj.status == 'done':
-                    check_result = split_options_by_iroha(o_obj.normalized_text or o_obj.full_text)
-                    base_dict["option_check_result"] = check_result
-
-                results.append(base_dict)
-
-    else:
-        # 未対応の mode
-        results.append({"error": f"Unsupported mode: {mode}"})
-
-    return results
-
+###################################################
+# OCR結果を dict 形式に変換してレスポンス用に返す
+###################################################
 def ocr_result_to_dict(obj: OCRResult, image_type: str = "unknown") -> dict:
-    """
-    DB上に normalized_text があればそれをレスポンスにも載せる
-    """
     base_dict = {
         "image_path": obj.image_path,
         "status": obj.status,
@@ -227,8 +160,139 @@ def ocr_result_to_dict(obj: OCRResult, image_type: str = "unknown") -> dict:
         base_dict.update({
             "full_text": obj.full_text,
             "avg_confidence": obj.avg_confidence,
-            "normalized_text": obj.normalized_text  # DBに保存されている内容
+            "normalized_text": obj.normalized_text
         })
     elif obj.status == "error":
         base_dict["error_message"] = obj.error_message
     return base_dict
+
+
+###################################################
+# 統合エンドポイント用ロジック (unified_ocr_process)
+###################################################
+def unified_ocr_process(payload: dict):
+    """
+    payload例:
+      {
+        "mode": "single" or "batch",
+        "image_path": "xxx",       (single用)
+        "areas": [ ... ],         (batch用)
+        "force_rerun": true/false,
+        "image_type": "question" or "options"
+      }
+    戻り値: OCR結果の配列 (辞書リスト)
+    """
+    mode = payload.get("mode", "single")
+    force_rerun = payload.get("force_rerun", False)
+    results = []
+
+    if mode == "single":
+        image_path = payload.get("image_path")
+        image_type = payload.get("image_type", "unknown")
+        if image_path:
+            obj = run_vision_ocr_for_image(image_path, force_rerun=force_rerun, image_type=image_type)
+
+            if obj.status == 'done':
+                # イロハニのチェック (optionsの場合のみ)
+                from .option_splitter import split_options_by_iroha
+                if image_type == "options":
+                    check_result = split_options_by_iroha(obj.normalized_text or obj.full_text)
+                else:
+                    check_result = {}
+
+                base_dict = ocr_result_to_dict(obj, image_type)
+                base_dict["option_check_result"] = check_result
+                results.append(base_dict)
+                # ▼▼▼ ここから SINGLE WRITEBACK ▼▼▼
+                json_id = payload.get("json_id")
+                area_id = payload.get("area_id")
+                if json_id and area_id:
+                    # JSONを取得
+                    from ocr_app.models import InputJSON
+                    from django.shortcuts import get_object_or_404
+
+                    input_json_obj = get_object_or_404(InputJSON, pk=json_id)
+                    data = input_json_obj.json_data or {}
+                    areas = data.get("areas", [])
+
+                    # 該当area を特定
+                    target_area = next((
+                        a for a in areas 
+                        if str(a.get("area_id")) == str(area_id)
+                    ), None)
+
+                    if target_area:
+                        normalized_text = obj.normalized_text or obj.full_text
+                        if image_type == "question":
+                            if "question_element" not in target_area:
+                                target_area["question_element"] = {}
+                            target_area["question_element"]["text"] = normalized_text
+                        elif image_type == "options":
+                            if "options_element" not in target_area:
+                                target_area["options_element"] = {}
+                            target_area["options_element"]["text"] = normalized_text
+
+                        # DBへ保存
+                        input_json_obj.json_data = data
+                        input_json_obj.save()
+
+                # ▲▲▲ SINGLE WRITEBACK END ▲▲▲
+            else:
+                results.append(ocr_result_to_dict(obj, image_type))
+        else:
+            results.append({"error": "No image_path provided for single mode"})
+
+    elif mode == "batch":
+        areas = payload.get("areas", [])
+        # =========================
+        # ★★★ START ADD ★★★
+        # "書き戻し"を行うため、areasを加工する
+        # =========================
+        for area in areas:
+            # 質問画像
+            qpath = area.get("question_image_path")
+            qtype = area.get("question_image_type", "question")
+            q_result_dict = None
+
+            if qpath:
+                q_obj = run_vision_ocr_for_image(qpath, force_rerun=force_rerun, image_type=qtype)
+                q_result_dict = ocr_result_to_dict(q_obj, qtype)
+                results.append(q_result_dict)
+                # ここでノーマライズ済テキストを JSON に書き戻す
+                if q_obj.status == 'done':
+                    normalized_text = q_obj.normalized_text or q_obj.full_text
+                    if "question_element" not in area:
+                        area["question_element"] = {}
+                    # JSON上書き
+                    area["question_element"]["text"] = normalized_text
+
+            # 選択肢画像
+            opath = area.get("options_image_path")
+            otype = area.get("options_image_type", "options")
+            o_result_dict = None
+
+            if opath:
+                o_obj = run_vision_ocr_for_image(opath, force_rerun=force_rerun, image_type=otype)
+                o_result_dict = ocr_result_to_dict(o_obj, otype)
+
+                # イロハニ分割
+                if o_obj.status == 'done':
+                    from .option_splitter import split_options_by_iroha
+                    splitted = split_options_by_iroha(o_obj.normalized_text or o_obj.full_text)
+                    o_result_dict["option_check_result"] = splitted
+
+                    # JSON上書き
+                    normalized_text = o_obj.normalized_text or o_obj.full_text
+                    if "options_element" not in area:
+                        area["options_element"] = {}
+                    area["options_element"]["text"] = normalized_text
+
+                results.append(o_result_dict)
+        # =========================
+        # ★★★ END ADD ★★★
+        # "results"には OCRResult の情報が入る + area には text が書き戻される
+
+    else:
+        results.append({"error": f"Unsupported mode: {mode}"})
+
+    return results

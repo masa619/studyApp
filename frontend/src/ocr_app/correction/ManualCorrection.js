@@ -114,8 +114,9 @@ const ManualCorrection = ({ jsonId, jsonData }) => {
                 await correctionDetailRef.current.handleSaveAllOcr();
             }
             // (B) CorrectionDetailから取得したテキストを JSON に反映
-            const qText = correctionDetailRef.current?.getQuestionFullText() ?? '';
-            const oText = correctionDetailRef.current?.getOptionsFullText() ?? '';
+            const qText = correctionDetailRef.current?.getQuestionOcrText() ?? '';
+            const oText = correctionDetailRef.current?.getOptionsOcrText() ?? '';
+            console.log("qText", qText);
             if (currentArea) {
                 const updatedLocalData = { ...localData };
                 const newAreas = [...updatedLocalData.json_data.areas];
@@ -123,6 +124,8 @@ const ManualCorrection = ({ jsonId, jsonData }) => {
                 // JSON の question_element / options_element を上書き
                 targetArea.question_element.text = qText;
                 targetArea.options_element.text = oText;
+                console.log("targetArea.question_element.text", targetArea.question_element.text);
+                console.log("targetArea.options_element.text", targetArea.options_element.text);
                 if (optionCheckResult?.lines && typeof optionCheckResult.lines === 'object') {
                     // 「イ,ロ,ハ,ニ」など各キーに対して text を更新
                     const odict = { ...targetArea.options_element.options_dict };
@@ -141,6 +144,8 @@ const ManualCorrection = ({ jsonId, jsonData }) => {
                 setLocalData(updatedLocalData);
                 // (C) JSONをPUT更新
                 const payload = {
+                    json_id: jsonId,
+                    area_id: currentArea.area_id,
                     description: updatedLocalData.description,
                     json_data: {
                         areas: updatedLocalData.json_data.areas,

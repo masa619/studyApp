@@ -30,8 +30,13 @@ const AreaSelectionCanvas: React.FC = () => {
     useState<'Question' | 'Options'>('Question');
 
   // ========== 2) 既存画像を配列で参照 ==========
-  const questionImagePaths = currentArea?.question_image_paths || [];
-  const optionsImagePaths = currentArea?.options_image_paths || [];
+  const questionImagePaths = currentArea?.question_element?.image_paths || [];
+  const optionsImagePaths = (() => {
+    const od = currentArea?.options_element?.options_dict;
+    if (!od) return [];
+    // 例: {"イ": { text: "1", image_paths: [...] }, "ロ": {...}, ...}
+    return Object.values(od).flatMap((v: any) => v?.image_paths || []);
+  })();
   // 選択タイプに応じて表示用の配列を切り替える
   const existingImages =
     selectedImageType === 'Question' ? questionImagePaths : optionsImagePaths;

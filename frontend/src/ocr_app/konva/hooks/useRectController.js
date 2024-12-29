@@ -100,6 +100,17 @@ export function useRectController(image, naturalWidth, naturalHeight, scaledWidt
         const dataUrl = offCanvas.toDataURL('image/png');
         const base64str = dataUrl.replace(/^data:image\/(png|jpeg);base64,/, '');
         let boundingBoxesFromServer = [];
+        // ★★★ Options のみイロハニキーを割り当てる ★★★
+        let assignedKey = '';
+        if (selectedImageType === 'Options') {
+            assignedKey = irohaKeys[irohaIndexRef.current];
+            irohaIndexRef.current += 1;
+            if (irohaIndexRef.current >= irohaKeys.length) {
+                // 4枚目以降は最後の "ニ" のまま or ループにする
+                irohaIndexRef.current = irohaKeys.length - 1;
+            }
+        }
+        console.log('handleCropRect => assignedKey:', assignedKey);
         try {
             // margin=10, expand_margin=20 は例示。適宜変更/パラメータ化可能
             const resp = await axios.post('/ocr_app/api/detect_bounding_box/', {
@@ -119,6 +130,7 @@ export function useRectController(image, naturalWidth, naturalHeight, scaledWidt
                 boundingBoxes: boundingBoxesFromServer,
                 serverCroppedBase64: serverBase64,
                 expandMargin: 20, // UIで描画するときに箱をoffsetしたい場合
+                selectedIrohaKey: assignedKey,
             };
             console.log('newCropItem:', newCropItem);
             setCroppedImages((prev) => [...prev, newCropItem]);
@@ -128,18 +140,6 @@ export function useRectController(image, naturalWidth, naturalHeight, scaledWidt
         catch (error) {
             console.error('detect_bounding_box_api error:', error);
         }
-        // ★★★ Options のみイロハニキーを割り当てる ★★★
-        let assignedKey = '';
-        if (selectedImageType === 'Options') {
-            assignedKey = irohaKeys[irohaIndexRef.current];
-            irohaIndexRef.current += 1;
-            if (irohaIndexRef.current >= irohaKeys.length) {
-                // 4枚目以降は最後の "ニ" のまま or ループにする
-                irohaIndexRef.current = irohaKeys.length - 1;
-            }
-        }
-        console.log('handleCropRect => assignedKey:', assignedKey);
-        // もし handleCropRect の呼び出し元で assignedKey を使いたいなら return してもOK
         return assignedKey;
     }, [
         image,

@@ -3,12 +3,11 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
-import { unified } from 'unified';
 import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
 import { Box } from '@mui/material';
 
-// katexのCSS (どこかでグローバルインポート or ここでimport)
+// KaTeXのCSSをインポート
 import 'katex/dist/katex.min.css';
 
 type MarkdownPreviewProps = {
@@ -76,6 +75,14 @@ const MarkdownPreview: React.FC<MarkdownPreviewProps> = ({ content }) => {
         '&:hover': {
           textDecoration: 'underline',
         },
+      },
+      // KaTeX用のスタイル
+      '& .katex': {
+        fontSize: '1.1em',
+      },
+      '& .katex-display': {
+        margin: '1em 0',
+        overflow: 'auto hidden',
       },
     }}>
       <ReactMarkdown

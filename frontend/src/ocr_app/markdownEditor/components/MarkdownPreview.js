@@ -5,7 +5,7 @@ import rehypeKatex from 'rehype-katex';
 import remarkGfm from 'remark-gfm';
 import remarkBreaks from 'remark-breaks';
 import { Box } from '@mui/material';
-// katexのCSS (どこかでグローバルインポート or ここでimport)
+// KaTeXのCSSをインポート
 import 'katex/dist/katex.min.css';
 const MarkdownPreview = ({ content }) => {
     return (_jsx(Box, { sx: {
@@ -67,6 +67,14 @@ const MarkdownPreview = ({ content }) => {
                 '&:hover': {
                     textDecoration: 'underline',
                 },
+            },
+            // KaTeX用のスタイル
+            '& .katex': {
+                fontSize: '1.1em',
+            },
+            '& .katex-display': {
+                margin: '1em 0',
+                overflow: 'auto hidden',
             },
         }, children: _jsx(ReactMarkdown, { children: content, remarkPlugins: [remarkMath, remarkGfm, remarkBreaks], rehypePlugins: [rehypeKatex] }) }));
 };

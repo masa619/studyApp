@@ -5,6 +5,7 @@ from studyapp import views
 from studyapp.views import RegisterView, LogoutView
 from exam_core.views.import_views import ImportAreasAPIView, ExamCategoryListAPIView, CategoryExamListAPIView
 from exam_core.views.delete_views import ExamListDeleteAPIView, QuestionListDeleteAPIView, ChoiceListDeleteAPIView
+from exam_core.views.exam_views import AllExamCategoryListAPIView, CategoryExamListV2APIView, ExamDetailAPIView
 from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView, TokenVerifyView
 from django.conf import settings
 from django.conf.urls.static import static
@@ -32,6 +33,10 @@ urlpatterns = [
     path('exam_core/api/delete-exams/', ExamListDeleteAPIView.as_view(), name='exam-list-delete'),
     path('exam_core/api/delete-questions/', QuestionListDeleteAPIView.as_view(), name='question-list-delete'),
     path('exam_core/api/delete-choices/', ChoiceListDeleteAPIView.as_view(), name='choice-list-delete'),
+    path('exam_core/api/v2/all-categories/', AllExamCategoryListAPIView.as_view(), name='all-category-list'),
+    path('exam_core/api/v2/categories/<slug:cat_slug>/exams/', CategoryExamListV2APIView.as_view(), name='category-exam-list-v2'),
+    path('exam_core/api/v2/exams/<int:exam_id>/', ExamDetailAPIView.as_view(), name='exam-detail'),
+
 ]
 
 if settings.DEBUG:

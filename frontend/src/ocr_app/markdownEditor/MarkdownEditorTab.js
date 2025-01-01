@@ -1,41 +1,31 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 // --- src/ocr_app/markdownEditor/MarkdownEditorTab.tsx ---
 import { useContext, useEffect, useState, useCallback } from 'react';
-import { Button, FormControl, InputLabel, MenuItem, Select, Grid, Typography, Card, CardMedia, CardActionArea, } from '@mui/material';
+import { Button, FormControl, InputLabel, MenuItem, Select, Typography, Card, CardMedia, CardActions, Grid, Snackbar, Alert } from '@mui/material';
 import axios from 'axios';
 import { JsonDataContext } from '../Context/JsonDataContext';
 import MarkdownEditor from './components/MarkdownEditor';
 import MarkdownPreview from './components/MarkdownPreview';
 import { useMarkdownData } from './hooks/useMarkdownData';
 import ImageSelector from '../correction/ImageSelector';
-/**
- * Markdownエディタ用タブ
- */
 const MarkdownEditorTab = () => {
     const { selectedJsonData, setSelectedJsonData, selectedAreaIndex, setSelectedAreaIndex, } = useContext(JsonDataContext);
-    // 選択中のArea
     const currentArea = selectedJsonData?.json_data?.areas?.[selectedAreaIndex || 0];
-    // 選択できるオプションキー一覧
     const optionKeys = currentArea?.options_element?.options_dict
         ? Object.keys(currentArea.options_element.options_dict)
         : [];
-    // 編集対象
     const [editorTarget, setEditorTarget] = useState('question_text');
-    // 個別にオプションキーを選択する場合
     const [selectedOptionKey, setSelectedOptionKey] = useState('');
-    // 画像プレビュー用のURL変換
-    const convertToMediaUrl = (path) => {
+    // Snackbar用のステート
+    const [snackbarOpen, setSnackbarOpen] = useState(false);
+    const [snackbarMessage, setSnackbarMessage] = useState('');
+    const [snackbarSeverity, setSnackbarSeverity] = useState('success');
+    // 画像パスを /media/... に変換するための簡易関数 (環境に合わせて調整)
+    const convertToMediaUrl = useCallback((path) => {
         if (!path)
             return '';
+        // 例: Django /media/ 以下に配置している想定
         return `http://localhost:8000/media/${path.replace(/^.*?CREATE_DATA2\//, '')}`;
-    };
-    const convertToRelativePath = useCallback((fullPath) => {
-        // CREATE_DATA2 以降のパスを抽出
-        const match = fullPath.match(/CREATE_DATA2\/(.*)/);
-        if (match) {
-            return match[1];
-        }
-        return fullPath;
     }, []);
     // 初期設定：オプションキー一覧があれば最初のものをデフォルトに
     useEffect(() => {
@@ -58,20 +48,12 @@ const MarkdownEditorTab = () => {
                 return '';
         }
     };
-    // カスタムフック: MarkdownテキストとローカルStateを同期
+    // useMarkdownData: Markdownテキストとstate管理
     const { markdownText, setMarkdownText, handleChange, resetToInitial, } = useMarkdownData(getCurrentText());
-    // Area切り替え時にテキストを更新
+    // editorTarget or currentArea or selectedOptionKey が変わったらテキストを再取得
     useEffect(() => {
-        // 現在のeditorTargetに応じたテキストで更新
         setMarkdownText(getTextByTarget(editorTarget));
     }, [currentArea, editorTarget, selectedOptionKey]);
-    // EditorTarget切り替え時にテキストも更新
-    const handleEditorTargetChange = (e) => {
-        const newTarget = e.target.value;
-        setEditorTarget(newTarget);
-        // 選択されたEditorTargetに応じてテキストを更新
-        setMarkdownText(getTextByTarget(newTarget));
-    };
     const getTextByTarget = (target) => {
         if (!currentArea)
             return '';
@@ -84,26 +66,22 @@ const MarkdownEditorTab = () => {
                 return '';
         }
     };
-    // オプションキーの切り替え
+    // EditorTarget選択変更
+    const handleEditorTargetChange = (e) => {
+        const newTarget = e.target.value;
+        setEditorTarget(newTarget);
+        setMarkdownText(getTextByTarget(newTarget));
+    };
+    // オプションキー選択変更
     const handleOptionKeyChange = (e) => {
         const newKey = e.target.value;
         setSelectedOptionKey(newKey);
-        // options_textの場合はテキストを再取得
         if (editorTarget === 'options_text') {
             const dictItem = currentArea?.options_element?.options_dict?.[newKey];
             setMarkdownText(dictItem?.text || '');
         }
     };
-    // 画像をMarkdownに挿入
-    const handleInsertImage = (imagePath) => {
-        // CREATE_DATA2 以降のパスを抽出し、メディアルートを付与
-        const relativePath = imagePath.match(/CREATE_DATA2\/(.*)/)
-            ? imagePath.match(/CREATE_DATA2\/(.*)/)?.[1]
-            : imagePath;
-        const imageMarkdown = `\n![image](/media/${relativePath})\n`;
-        setMarkdownText((prev) => prev + imageMarkdown);
-    };
-    // プレビュー画像の取得
+    // 「Available Images」一覧に表示するパスを取得
     const getPreviewImages = () => {
         if (!currentArea)
             return [];
@@ -115,7 +93,29 @@ const MarkdownEditorTab = () => {
         }
         return [];
     };
-    // JSONの更新ロジック
+    // =========== 画像挿入機能 (従来の handleInsertImage) ===========
+    const handleInsertImageToMarkdown = useCallback((imagePath) => {
+        // CREATE_DATA2/ 以降を取り出して /media/... にする例
+        const relative = imagePath.match(/CREATE_DATA2\/(.*)/)?.[1] || imagePath;
+        const imageMarkdown = `\n![image](/media/${relative})\n`;
+        // Markdown末尾に挿入
+        setMarkdownText((prev) => prev + imageMarkdown);
+        // 成功メッセージ
+        setSnackbarMessage('Image inserted successfully');
+        setSnackbarSeverity('success');
+        setSnackbarOpen(true);
+    }, [setMarkdownText]);
+    // =========== プレビュー（新タブで拡大） ===========
+    const handlePreviewImageInNewTab = useCallback((imagePath) => {
+        window.open(convertToMediaUrl(imagePath), '_blank');
+    }, [convertToMediaUrl]);
+    // Snackbarを閉じる
+    const handleSnackbarClose = (_event, reason) => {
+        if (reason === 'clickaway')
+            return;
+        setSnackbarOpen(false);
+    };
+    // JSON更新 (Saveボタン)  
     const handleSave = async () => {
         if (!selectedJsonData || !setSelectedJsonData || !currentArea)
             return;
@@ -151,12 +151,11 @@ const MarkdownEditorTab = () => {
                     },
                 };
             };
-            // Context更新
             const newJsonData = updatedJson(selectedJsonData);
             if (!newJsonData)
                 return;
             setSelectedJsonData(newJsonData);
-            // サーバーへPUT更新
+            // サーバーPUT (例: Django REST API)
             const payload = {
                 json_id: selectedJsonData.id,
                 No: currentArea.No,
@@ -166,18 +165,50 @@ const MarkdownEditorTab = () => {
                 },
             };
             await axios.put(`http://localhost:8000/ocr_app/api/input_json/${selectedJsonData.id}/`, payload);
-            alert('Markdown text saved successfully!');
+            // 成功メッセージ
+            setSnackbarMessage('Markdown text saved successfully!');
+            setSnackbarSeverity('success');
+            setSnackbarOpen(true);
         }
         catch (error) {
             console.error('Failed to save:', error);
-            alert('Failed to save changes. Please try again.');
+            // エラーメッセージ
+            setSnackbarMessage('Failed to save changes. Please try again.');
+            setSnackbarSeverity('error');
+            setSnackbarOpen(true);
         }
     };
-    // 以下は表示UI
+    // 次のAreaに移動
+    const handleNextArea = useCallback(() => {
+        if (!selectedJsonData)
+            return;
+        const totalAreas = selectedJsonData.json_data.areas.length;
+        const nextIndex = (selectedAreaIndex || 0) + 1;
+        if (nextIndex < totalAreas) {
+            setSelectedAreaIndex(nextIndex);
+            // 移動成功メッセージ
+            setSnackbarMessage(`Moved to Area ${nextIndex + 1}`);
+            setSnackbarSeverity('info');
+            setSnackbarOpen(true);
+            // スクロールを一番上に戻す
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        else {
+            // 最後のAreaの場合
+            setSnackbarMessage('This is the last area');
+            setSnackbarSeverity('info');
+            setSnackbarOpen(true);
+        }
+    }, [selectedJsonData, selectedAreaIndex, setSelectedAreaIndex]);
     if (!selectedJsonData) {
         return _jsx("p", { children: "No JSON selected." });
     }
-    return (_jsxs("div", { style: { display: 'flex', gap: '1rem' }, children: [_jsx("div", { style: { width: '220px', borderRight: '1px solid #ccc' }, children: _jsx(ImageSelector, { areaList: selectedJsonData.json_data.areas, selectedAreaIndex: selectedAreaIndex || 0, onSelectArea: setSelectedAreaIndex }) }), _jsxs("div", { style: { flex: 1, marginTop: '1rem' }, children: [_jsx("h2", { children: "Markdown Editor" }), _jsxs(FormControl, { fullWidth: true, style: { marginBottom: '1rem' }, children: [_jsx(InputLabel, { children: "Editor Target" }), _jsxs(Select, { value: editorTarget, label: "Editor Target", onChange: handleEditorTargetChange, children: [_jsx(MenuItem, { value: "question_text", children: "Question Text" }), _jsx(MenuItem, { value: "options_text", children: "Options Text" })] })] }), editorTarget === 'options_text' && (_jsxs(FormControl, { fullWidth: true, style: { marginBottom: '1rem' }, children: [_jsx(InputLabel, { children: "Option Key" }), _jsx(Select, { value: selectedOptionKey, label: "Option Key", onChange: handleOptionKeyChange, children: optionKeys.map((key) => (_jsx(MenuItem, { value: key, children: key }, key))) })] })), getPreviewImages().length > 0 && (_jsxs("div", { style: { marginBottom: '1rem' }, children: [_jsx(Typography, { variant: "h6", gutterBottom: true, children: "Available Images" }), _jsx(Grid, { container: true, spacing: 2, children: getPreviewImages().map((imagePath, index) => (_jsx(Grid, { item: true, xs: 4, children: _jsx(Card, { children: _jsx(CardActionArea, { onClick: () => handleInsertImage(imagePath), children: _jsx(CardMedia, { component: "img", height: "140", image: convertToMediaUrl(imagePath), alt: `Preview ${index + 1}` }) }) }) }, index))) })] })), _jsx(MarkdownEditor, { value: markdownText, onChange: handleChange }), _jsx("h3", { children: "Preview" }), _jsx("div", { style: {
+    // 次のAreaが存在するかチェック
+    const hasNextArea = selectedJsonData.json_data.areas.length > (selectedAreaIndex || 0) + 1;
+    return (_jsxs("div", { style: { display: 'flex', gap: '1rem' }, children: [_jsx("div", { style: { width: '220px', borderRight: '1px solid #ccc' }, children: _jsx(ImageSelector, { areaList: selectedJsonData.json_data.areas, selectedAreaIndex: selectedAreaIndex || 0, onSelectArea: (index) => {
+                        setSelectedAreaIndex(index);
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                    } }) }), _jsxs("div", { style: { flex: 1, marginTop: '1rem' }, children: [_jsx("h2", { children: "Markdown Editor" }), _jsxs(FormControl, { fullWidth: true, style: { marginBottom: '1rem' }, children: [_jsx(InputLabel, { children: "Editor Target" }), _jsxs(Select, { value: editorTarget, label: "Editor Target", onChange: handleEditorTargetChange, children: [_jsx(MenuItem, { value: "question_text", children: "Question Text" }), _jsx(MenuItem, { value: "options_text", children: "Options Text" })] })] }), editorTarget === 'options_text' && (_jsxs(FormControl, { fullWidth: true, style: { marginBottom: '1rem' }, children: [_jsx(InputLabel, { children: "Option Key" }), _jsx(Select, { value: selectedOptionKey, label: "Option Key", onChange: handleOptionKeyChange, children: optionKeys.map((key) => (_jsx(MenuItem, { value: key, children: key }, key))) })] })), currentArea?.area_image_path && (_jsxs("div", { style: { marginBottom: '1rem' }, children: [_jsx(Typography, { variant: "h6", gutterBottom: true, children: "Area Image" }), _jsx("div", { style: { width: '600px', marginBottom: '1rem' }, children: _jsx(Card, { children: _jsx(CardMedia, { component: "img", style: { width: '600px', height: 'auto', objectFit: 'contain' }, image: convertToMediaUrl(currentArea.area_image_path), alt: "Area Image" }) }) })] })), getPreviewImages().length > 0 && (_jsxs("div", { style: { marginBottom: '1rem' }, children: [_jsx(Typography, { variant: "h6", gutterBottom: true, children: "Available Images" }), _jsx(Grid, { container: true, spacing: 2, children: getPreviewImages().map((imagePath, index) => (_jsx(Grid, { item: true, xs: 12, sm: 6, md: 3, lg: 2, children: _jsxs(Card, { children: [_jsx(CardMedia, { component: "img", style: { width: '100%', height: '120px', objectFit: 'contain' }, image: convertToMediaUrl(imagePath), alt: `Preview ${index + 1}` }), _jsxs(CardActions, { children: [_jsx(Button, { size: "small", color: "primary", onClick: () => handlePreviewImageInNewTab(imagePath), children: "Preview" }), _jsx(Button, { size: "small", color: "secondary", onClick: () => handleInsertImageToMarkdown(imagePath), children: "Insert" })] })] }) }, index))) })] })), _jsx(MarkdownEditor, { value: markdownText, onChange: handleChange }), _jsx("h3", { children: "Preview" }), _jsx("div", { style: {
                             border: '1px solid #ccc',
                             borderRadius: '4px',
                             padding: '1.5rem',
@@ -186,6 +217,18 @@ const MarkdownEditorTab = () => {
                             boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
                             overflowY: 'auto',
                             maxHeight: '500px'
-                        }, children: _jsx(MarkdownPreview, { content: markdownText }) }), _jsxs("div", { style: { marginTop: '1rem' }, children: [_jsx(Button, { variant: "contained", color: "primary", onClick: handleSave, style: { marginRight: '0.5rem' }, children: "Save" }), _jsx(Button, { variant: "outlined", onClick: resetToInitial, children: "Reset" })] })] })] }));
+                        }, children: _jsx(MarkdownPreview, { content: markdownText }) }), _jsx("div", { style: { marginTop: '1rem', display: 'flex', gap: '0.5rem', alignItems: 'center' }, children: _jsxs("div", { style: { display: 'flex', gap: '0.5rem' }, children: [_jsx(Button, { variant: "contained", color: "primary", onClick: handleSave, children: "Save" }), _jsx(Button, { variant: "outlined", onClick: resetToInitial, children: "Reset" }), _jsx(Button, { variant: "contained", color: "secondary", onClick: handleNextArea, disabled: !hasNextArea, children: "Next Area" })] }) }), _jsx(Snackbar, { open: snackbarOpen, autoHideDuration: 3000, onClose: handleSnackbarClose, anchorOrigin: { vertical: 'top', horizontal: 'center' }, sx: {
+                            marginTop: '4rem',
+                            '& .MuiSnackbar-root': {
+                                top: '64px !important',
+                            }
+                        }, children: _jsx(Alert, { onClose: handleSnackbarClose, severity: snackbarSeverity, sx: {
+                                width: '100%',
+                                boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+                                fontSize: '0.95rem',
+                                '& .MuiAlert-message': {
+                                    padding: '8px 0',
+                                }
+                            }, children: snackbarMessage }) })] })] }));
 };
 export default MarkdownEditorTab;

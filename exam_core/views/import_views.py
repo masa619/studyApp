@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.db import transaction
 from django.shortcuts import get_object_or_404
+from django.db.utils import IntegrityError
 
 from exam_core.models import ExamCategory, ExamCore, QuestionCore, ChoiceCore
 from exam_core.serializers.serializers import ExamCategorySerializer, ExamCoreSerializer
@@ -73,52 +74,58 @@ class ImportAreasAPIView(APIView):
              "examName": "..." (optional)
            }
 
-    areas[] の中身例:
-      {
-        "question_element": {
-          "text": "問題文",
-          "image_paths": ["/path/q1.png"]
+    ※ JSONサンプル:
+    {
+      "areas": [
+        {
+          "No": "1",
+          "answer": "ロ",
+          "options_element": {
+            "options_dict": {
+              "イ": { "text": "1", "image_paths": [] },
+              "ニ": { "text": "4", "image_paths": [] },
+              "ハ": { "text": "3", "image_paths": [] },
+              "ロ": { "text": "2", "image_paths": [] }
+            }
+          },
+          "question_element": {
+            "text": "問題文",
+            "image_paths": ["/path/q1.png"]
+          },
+          "...(他の無視する項目)..."
         },
-        "answer": "イ",
-        "options_element": {
-          "options_dict": {
-            "イ": { "text": "2", "image_paths": ["/path/choice_i.png"] },
-            "ロ": { "text": "3", "image_paths": [] },
-            ...
-          }
-        },
-        "question_image_path": "/some_path.png",             // 単独で入れている場合あり
-        "options_image_path": "/some_options_path.png",      // 同上
         ...
-      }
+      ],
+      "categorySlug": "...",
+      "examKey": "...",
+      "examName": "..."
+    }
     """
 
     @transaction.atomic
     def post(self, request, exam_id=None, *args, **kwargs):
         data = request.data
 
-        # 1) areas: OCRで抽出した問題群
+        # 1) areas
         areas = data.get("areas")
         if not areas:
             return Response({"detail": "'areas' is required"}, status=status.HTTP_400_BAD_REQUEST)
 
-        # 2) categorySlug: どのカテゴリ(ExamCategory)に紐づけるか
+        # 2) categorySlug
         category_slug = data.get("categorySlug")
         if not category_slug:
             return Response({"detail": "'categorySlug' is required"}, status=status.HTTP_400_BAD_REQUEST)
 
-        # カテゴリを取得
         category_obj = get_object_or_404(ExamCategory, slug=category_slug)
 
-        # 3) examKey, examName: 新規Exam作成時に必須
+        # 3) examKey, examName
         examKey = data.get("examKey")
         examName = data.get("examName")
 
-        # 4) 新規 or 既存Exam の分岐
+        # 4) 新規 or 既存Exam
         if exam_id is not None:
-            # 既存Examを上書き (category, examKey, examNameなど更新する)
+            # 既存Examを上書き
             exam_obj = get_object_or_404(ExamCore, pk=exam_id)
-            # カテゴリも上書き
             exam_obj.category = category_obj
             if examKey:
                 exam_obj.key = examKey
@@ -127,7 +134,7 @@ class ImportAreasAPIView(APIView):
             exam_obj.save()
             creating_new_exam = False
         else:
-            # 新規ExamCore
+            # 新規Exam作成
             if not examKey or not examName:
                 return Response(
                     {"detail": "examKey and examName are required for new exam."},
@@ -140,65 +147,68 @@ class ImportAreasAPIView(APIView):
             )
             creating_new_exam = True
 
-        # 5) areasをループして問題/選択肢を登録
         created_questions = []
 
+        # --------------------------------------------------------------------
+        #  (メイン) areas配列の要素をループ
+        # --------------------------------------------------------------------
         for area in areas:
-            # ---------------------------
-            # (A) QuestionCore の作成
-            # ---------------------------
+            # ※ area_id, area_bbox, no_image_path, area_image_path, ...
+            #    options_image_path, question_image_path ... は無視
+
+            #  (A) No
             no_str = area.get("No")
+            if no_str is None:
+                return Response({"detail": "No is required"}, status=status.HTTP_400_BAD_REQUEST)
+            try:
+                question_no = int(no_str)
+            except ValueError:
+                return Response({"detail": f"Invalid No: {no_str}"}, status=status.HTTP_400_BAD_REQUEST)
+
+            #  (B) question_element
             question_element = area.get("question_element", {})
-            question_text = question_element.get("text", "")
-            if no_str is None :
-              return Response({"detail": "No is required"}, status=status.HTTP_400_BAD_REQUEST)
-            question_no = int(no_str)
-            # ここで "question_element.image_paths" や "question_image_path" をまとめて取得
-            question_image_paths = []
-            # 1) question_element内のimage_paths
-            if "image_paths" in question_element:
-                question_image_paths.extend(question_element["image_paths"])
+            question_text = question_element.get("text")  # text は必須
+            if not question_text:
+                return Response({"detail": f"question_element.text is required (No={no_str})"}, status=status.HTTP_400_BAD_REQUEST)
+            question_image_paths = question_element.get("image_paths", [])  # 画像なしケースあり
 
-            # 2) area["question_image_path"] があれば追加
-            if area.get("question_image_path"):
-                question_image_paths.append(area["question_image_path"])
-
-            # 例: "area_image_path", "no_image_path" など別途考慮するならここで追加
-
+            #  QuestionCore作成
             question_obj = QuestionCore.objects.create(
                 exam=exam_obj,
                 question_no=question_no,
                 question_text=question_text,
-                images=question_image_paths,  # モデルの JSONField に配列として保存
+                images=question_image_paths,  # JSONFieldに格納
             )
 
-            # ---------------------------
-            # (B) ChoiceCore の作成
-            # ---------------------------
-            answer_label = area.get("answer")
+            #  (C) answer
+            answer_label = area.get("answer")  # 'イ' 'ロ' 'ハ' 'ニ'など
+            # もし answer が必須でなければチェックしない
+
+            #  (D) options_element
             options_element = area.get("options_element", {})
             options_dict = options_element.get("options_dict", {})
 
+            #  (E) ループして ChoiceCore登録
             for label_key, opt_data in options_dict.items():
                 choice_text = opt_data.get("text", "")
-
-                # もし "image_paths" があるなら取り出す
                 choice_image_paths = opt_data.get("image_paths", [])
 
-                # ここで "options_image_path" が共通項目としてある場合、追加で入れるなど:
-                # if area.get("options_image_path"):
-                #     choice_image_paths.append(area["options_image_path"])
-
-                ChoiceCore.objects.create(
-                    question=question_obj,
-                    label=label_key,
-                    text=choice_text,
-                    images=choice_image_paths,  # JSONField
-                    is_correct=(label_key == answer_label),
-                )
+                try:
+                    ChoiceCore.objects.create(
+                        question=question_obj,
+                        label=label_key,
+                        text=choice_text or "",
+                        images=choice_image_paths,
+                        is_correct=(label_key == answer_label),
+                    )
+                except IntegrityError as e:
+                    return Response({
+                        "detail": f"IntegrityError occurred while creating ChoiceCore (No={no_str}, label={label_key}): {str(e)}"
+                    }, status=status.HTTP_400_BAD_REQUEST)
 
             created_questions.append(question_obj.id)
 
+        # 結果レスポンス
         result_msg = "Imported successfully"
         if creating_new_exam:
             result_msg += f" (New ExamCore created: id={exam_obj.id})"

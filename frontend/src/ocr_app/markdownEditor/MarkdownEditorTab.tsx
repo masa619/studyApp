@@ -1,5 +1,5 @@
 // --- src/ocr_app/markdownEditor/MarkdownEditorTab.tsx ---
-import React, { useContext, useEffect, useState, useRef, useCallback } from 'react';
+import React, { useContext, useEffect, useState, useCallback } from 'react';
 import { 
   Button, 
   FormControl, 
@@ -7,15 +7,14 @@ import {
   MenuItem, 
   Select, 
   SelectChangeEvent,
-  IconButton,
-  Grid,
   Typography,
   Card,
   CardMedia,
-  CardActionArea,
+  CardActions,
+  Grid,
+  Snackbar,
+  Alert
 } from '@mui/material';
-import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-import PreviewIcon from '@mui/icons-material/Preview';
 import axios from 'axios';
 
 import { JsonDataContext } from '../Context/JsonDataContext';
@@ -25,16 +24,8 @@ import { useMarkdownData } from './hooks/useMarkdownData';
 import { InputJSONData, Area, OptionDictItem } from '../types';
 import ImageSelector from '../correction/ImageSelector';
 
-/**
- * 編集対象を細分化するためのenum的な型
- * question_text   : question_element.text
- * options_text    : options_element.options_dict[key].text
- */
 type EditorTarget = 'question_text' | 'options_text';
 
-/**
- * Markdownエディタ用タブ
- */
 const MarkdownEditorTab: React.FC = () => {
   const {
     selectedJsonData,
@@ -43,31 +34,24 @@ const MarkdownEditorTab: React.FC = () => {
     setSelectedAreaIndex,
   } = useContext(JsonDataContext);
 
-  // 選択中のArea
   const currentArea: Area | undefined = selectedJsonData?.json_data?.areas?.[selectedAreaIndex || 0];
-  // 選択できるオプションキー一覧
   const optionKeys = currentArea?.options_element?.options_dict 
     ? Object.keys(currentArea.options_element.options_dict) 
     : [];
 
-  // 編集対象
   const [editorTarget, setEditorTarget] = useState<EditorTarget>('question_text');
-  // 個別にオプションキーを選択する場合
   const [selectedOptionKey, setSelectedOptionKey] = useState<string>('');
 
-  // 画像プレビュー用のURL変換
-  const convertToMediaUrl = (path: string): string => {
-    if (!path) return '';
-    return `http://localhost:8000/media/${path.replace(/^.*?CREATE_DATA2\//, '')}`;
-  };
+  // Snackbar用のステート
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  const [snackbarMessage, setSnackbarMessage] = useState('');
+  const [snackbarSeverity, setSnackbarSeverity] = useState<'success' | 'error' | 'info' | 'warning'>('success');
 
-  const convertToRelativePath = useCallback((fullPath: string): string => {
-    // CREATE_DATA2 以降のパスを抽出
-    const match = fullPath.match(/CREATE_DATA2\/(.*)/);
-    if (match) {
-      return match[1];
-    }
-    return fullPath;
+  // 画像パスを /media/... に変換するための簡易関数 (環境に合わせて調整)
+  const convertToMediaUrl = useCallback((path: string): string => {
+    if (!path) return '';
+    // 例: Django /media/ 以下に配置している想定
+    return `http://localhost:8000/media/${path.replace(/^.*?CREATE_DATA2\//, '')}`;
   }, []);
 
   // 初期設定：オプションキー一覧があれば最初のものをデフォルトに
@@ -80,7 +64,6 @@ const MarkdownEditorTab: React.FC = () => {
   // 現在のテキストを取り出す関数
   const getCurrentText = (): string => {
     if (!currentArea) return '';
-
     switch (editorTarget) {
       case 'question_text':
         return currentArea.question_element?.text || '';
@@ -93,7 +76,7 @@ const MarkdownEditorTab: React.FC = () => {
     }
   };
 
-  // カスタムフック: MarkdownテキストとローカルStateを同期
+  // useMarkdownData: Markdownテキストとstate管理
   const {
     markdownText,
     setMarkdownText,
@@ -101,19 +84,10 @@ const MarkdownEditorTab: React.FC = () => {
     resetToInitial,
   } = useMarkdownData(getCurrentText());
 
-  // Area切り替え時にテキストを更新
+  // editorTarget or currentArea or selectedOptionKey が変わったらテキストを再取得
   useEffect(() => {
-    // 現在のeditorTargetに応じたテキストで更新
     setMarkdownText(getTextByTarget(editorTarget));
   }, [currentArea, editorTarget, selectedOptionKey]);
-
-  // EditorTarget切り替え時にテキストも更新
-  const handleEditorTargetChange = (e: SelectChangeEvent) => {
-    const newTarget = e.target.value as EditorTarget;
-    setEditorTarget(newTarget);
-    // 選択されたEditorTargetに応じてテキストを更新
-    setMarkdownText(getTextByTarget(newTarget));
-  };
 
   const getTextByTarget = (target: EditorTarget): string => {
     if (!currentArea) return '';
@@ -127,32 +101,26 @@ const MarkdownEditorTab: React.FC = () => {
     }
   };
 
-  // オプションキーの切り替え
+  // EditorTarget選択変更
+  const handleEditorTargetChange = (e: SelectChangeEvent) => {
+    const newTarget = e.target.value as EditorTarget;
+    setEditorTarget(newTarget);
+    setMarkdownText(getTextByTarget(newTarget));
+  };
+
+  // オプションキー選択変更
   const handleOptionKeyChange = (e: SelectChangeEvent<string>) => {
     const newKey = e.target.value;
     setSelectedOptionKey(newKey);
-    // options_textの場合はテキストを再取得
     if (editorTarget === 'options_text') {
       const dictItem = currentArea?.options_element?.options_dict?.[newKey];
       setMarkdownText(dictItem?.text || '');
     }
   };
 
-  // 画像をMarkdownに挿入
-  const handleInsertImage = (imagePath: string) => {
-    // CREATE_DATA2 以降のパスを抽出し、メディアルートを付与
-    const relativePath = imagePath.match(/CREATE_DATA2\/(.*)/) 
-      ? imagePath.match(/CREATE_DATA2\/(.*)/)?.[1] 
-      : imagePath;
-    
-    const imageMarkdown = `\n![image](/media/${relativePath})\n`;
-    setMarkdownText((prev) => prev + imageMarkdown);
-  };
-
-  // プレビュー画像の取得
+  // 「Available Images」一覧に表示するパスを取得
   const getPreviewImages = (): string[] => {
     if (!currentArea) return [];
-
     if (editorTarget === 'question_text') {
       return currentArea.question_element?.image_paths || [];
     } else if (editorTarget === 'options_text' && selectedOptionKey) {
@@ -161,10 +129,33 @@ const MarkdownEditorTab: React.FC = () => {
     return [];
   };
 
-  // JSONの更新ロジック
+  // =========== 画像挿入機能 (従来の handleInsertImage) ===========
+  const handleInsertImageToMarkdown = useCallback((imagePath: string) => {
+    // CREATE_DATA2/ 以降を取り出して /media/... にする例
+    const relative = imagePath.match(/CREATE_DATA2\/(.*)/)?.[1] || imagePath;
+    const imageMarkdown = `\n![image](/media/${relative})\n`;
+    // Markdown末尾に挿入
+    setMarkdownText((prev) => prev + imageMarkdown);
+    // 成功メッセージ
+    setSnackbarMessage('Image inserted successfully');
+    setSnackbarSeverity('success');
+    setSnackbarOpen(true);
+  }, [setMarkdownText]);
+
+  // =========== プレビュー（新タブで拡大） ===========
+  const handlePreviewImageInNewTab = useCallback((imagePath: string) => {
+    window.open(convertToMediaUrl(imagePath), '_blank');
+  }, [convertToMediaUrl]);
+
+  // Snackbarを閉じる
+  const handleSnackbarClose = (_event?: React.SyntheticEvent | Event, reason?: string) => {
+    if (reason === 'clickaway') return;
+    setSnackbarOpen(false);
+  };
+
+  // JSON更新 (Saveボタン)  
   const handleSave = async () => {
     if (!selectedJsonData || !setSelectedJsonData || !currentArea) return;
-
     try {
       const updatedJson = (prev: InputJSONData | null) => {
         if (!prev) return prev;
@@ -180,7 +171,6 @@ const MarkdownEditorTab: React.FC = () => {
               text: markdownText,
             };
             break;
-
           case 'options_text': {
             const dictItem: OptionDictItem = areaCopy.options_element.options_dict[selectedOptionKey];
             areaCopy.options_element.options_dict[selectedOptionKey] = {
@@ -190,7 +180,6 @@ const MarkdownEditorTab: React.FC = () => {
             break;
           }
         }
-
         newAreas[targetIndex] = areaCopy;
         return {
           ...prev,
@@ -201,12 +190,11 @@ const MarkdownEditorTab: React.FC = () => {
         };
       };
 
-      // Context更新
       const newJsonData = updatedJson(selectedJsonData);
       if (!newJsonData) return;
       setSelectedJsonData(newJsonData);
 
-      // サーバーへPUT更新
+      // サーバーPUT (例: Django REST API)
       const payload = {
         json_id: selectedJsonData.id,
         No: currentArea.No,
@@ -215,23 +203,53 @@ const MarkdownEditorTab: React.FC = () => {
           areas: newJsonData.json_data.areas,
         },
       };
-
       await axios.put(
         `http://localhost:8000/ocr_app/api/input_json/${selectedJsonData.id}/`,
         payload
       );
-
-      alert('Markdown text saved successfully!');
+      
+      // 成功メッセージ
+      setSnackbarMessage('Markdown text saved successfully!');
+      setSnackbarSeverity('success');
+      setSnackbarOpen(true);
     } catch (error) {
       console.error('Failed to save:', error);
-      alert('Failed to save changes. Please try again.');
+      // エラーメッセージ
+      setSnackbarMessage('Failed to save changes. Please try again.');
+      setSnackbarSeverity('error');
+      setSnackbarOpen(true);
     }
   };
 
-  // 以下は表示UI
+  // 次のAreaに移動
+  const handleNextArea = useCallback(() => {
+    if (!selectedJsonData) return;
+    
+    const totalAreas = selectedJsonData.json_data.areas.length;
+    const nextIndex = (selectedAreaIndex || 0) + 1;
+    
+    if (nextIndex < totalAreas) {
+      setSelectedAreaIndex(nextIndex);
+      // 移動成功メッセージ
+      setSnackbarMessage(`Moved to Area ${nextIndex + 1}`);
+      setSnackbarSeverity('info');
+      setSnackbarOpen(true);
+      // スクロールを一番上に戻す
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      // 最後のAreaの場合
+      setSnackbarMessage('This is the last area');
+      setSnackbarSeverity('info');
+      setSnackbarOpen(true);
+    }
+  }, [selectedJsonData, selectedAreaIndex, setSelectedAreaIndex]);
+
   if (!selectedJsonData) {
     return <p>No JSON selected.</p>;
   }
+
+  // 次のAreaが存在するかチェック
+  const hasNextArea = selectedJsonData.json_data.areas.length > (selectedAreaIndex || 0) + 1;
 
   return (
     <div style={{ display: 'flex', gap: '1rem' }}>
@@ -240,11 +258,14 @@ const MarkdownEditorTab: React.FC = () => {
         <ImageSelector
           areaList={selectedJsonData.json_data.areas}
           selectedAreaIndex={selectedAreaIndex || 0}
-          onSelectArea={setSelectedAreaIndex}
+          onSelectArea={(index) => {
+            setSelectedAreaIndex(index);
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }}
         />
       </div>
 
-      {/* === 右カラム: エディタ === */}
+      {/* === 右カラム: エディタ部分 === */}
       <div style={{ flex: 1, marginTop: '1rem' }}>
         <h2>Markdown Editor</h2>
         
@@ -277,7 +298,26 @@ const MarkdownEditorTab: React.FC = () => {
           </FormControl>
         )}
 
-        {/* 画像プレビュー */}
+        {/* Area画像の表示（小さめ） */}
+        {currentArea?.area_image_path && (
+          <div style={{ marginBottom: '1rem' }}>
+            <Typography variant="h6" gutterBottom>
+              Area Image
+            </Typography>
+            <div style={{ width: '600px', marginBottom: '1rem' }}>
+              <Card>
+                <CardMedia
+                  component="img"
+                  style={{ width: '600px', height: 'auto', objectFit: 'contain' }}
+                  image={convertToMediaUrl(currentArea.area_image_path)}
+                  alt="Area Image"
+                />
+              </Card>
+            </div>
+          </div>
+        )}
+
+        {/* 画像プレビュー (小さめサムネイル) + Insert/Preview ボタン */}
         {getPreviewImages().length > 0 && (
           <div style={{ marginBottom: '1rem' }}>
             <Typography variant="h6" gutterBottom>
@@ -285,16 +325,30 @@ const MarkdownEditorTab: React.FC = () => {
             </Typography>
             <Grid container spacing={2}>
               {getPreviewImages().map((imagePath, index) => (
-                <Grid item xs={4} key={index}>
+                <Grid item xs={12} sm={6} md={3} lg={2} key={index}>
                   <Card>
-                    <CardActionArea onClick={() => handleInsertImage(imagePath)}>
-                      <CardMedia
-                        component="img"
-                        height="140"
-                        image={convertToMediaUrl(imagePath)}
-                        alt={`Preview ${index + 1}`}
-                      />
-                    </CardActionArea>
+                    <CardMedia
+                      component="img"
+                      style={{ width: '100%', height: '120px', objectFit: 'contain' }}
+                      image={convertToMediaUrl(imagePath)}
+                      alt={`Preview ${index + 1}`}
+                    />
+                    <CardActions>
+                      <Button 
+                        size="small" 
+                        color="primary" 
+                        onClick={() => handlePreviewImageInNewTab(imagePath)}
+                      >
+                        Preview
+                      </Button>
+                      <Button 
+                        size="small" 
+                        color="secondary"
+                        onClick={() => handleInsertImageToMarkdown(imagePath)}
+                      >
+                        Insert
+                      </Button>
+                    </CardActions>
                   </Card>
                 </Grid>
               ))}
@@ -321,14 +375,60 @@ const MarkdownEditorTab: React.FC = () => {
         </div>
 
         {/* ボタン類 */}
-        <div style={{ marginTop: '1rem' }}>
-          <Button variant="contained" color="primary" onClick={handleSave} style={{ marginRight: '0.5rem' }}>
-            Save
-          </Button>
-          <Button variant="outlined" onClick={resetToInitial}>
-            Reset
-          </Button>
+        <div style={{ marginTop: '1rem', display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+          <div style={{ display: 'flex', gap: '0.5rem' }}>
+            <Button 
+              variant="contained" 
+              color="primary" 
+              onClick={handleSave}
+            >
+              Save
+            </Button>
+            <Button 
+              variant="outlined" 
+              onClick={resetToInitial}
+            >
+              Reset
+            </Button>
+            <Button
+              variant="contained"
+              color="secondary"
+              onClick={handleNextArea}
+              disabled={!hasNextArea}
+            >
+              Next Area
+            </Button>
+          </div>
         </div>
+
+        {/* Snackbar */}
+        <Snackbar
+          open={snackbarOpen}
+          autoHideDuration={3000}
+          onClose={handleSnackbarClose}
+          anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+          sx={{ 
+            marginTop: '6rem',
+            '& .MuiSnackbar-root': {
+              top: '64px !important',
+            }
+          }}
+        >
+          <Alert 
+            onClose={handleSnackbarClose} 
+            severity={snackbarSeverity} 
+            sx={{ 
+              width: '100%',
+              boxShadow: '0 2px 5px rgba(0,0,0,0.2)',
+              fontSize: '0.95rem',
+              '& .MuiAlert-message': {
+                padding: '8px 0',
+              }
+            }}
+          >
+            {snackbarMessage}
+          </Alert>
+        </Snackbar>
       </div>
     </div>
   );

@@ -1,0 +1,1622 @@
+{
+  "areas": [
+    {
+      "No": "1",
+      "answer": "ロ",
+      "area_id": 4,
+      "area_bbox": [661.3331298828125, 1036.0426025390625, 3972.3271484375, 1947.314208984375],
+      "no_element": { "bbox": [620, 1100, 750, 1250], "text": "1", "category": "No" },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_1_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_1_Area.png",
+      "options_element": {
+        "bbox": [1900, 1250, 4000, 1700],
+        "text": "イ.1\nロ. 2\nハ3\nニ. 4",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "1", "image_paths": [] },
+          "ニ": { "text": "4", "image_paths": [] },
+          "ハ": { "text": "3", "image_paths": [] },
+          "ロ": { "text": "2", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [717.7242431640625, 1072.729736328125, 1959.150634765625, 1936.7498779296875],
+        "text": "図のような回路で、端子 a-b間の合成抵抗 [Ω]は？",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_1_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_1_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "2",
+      "answer": "イ",
+      "area_id": 3,
+      "area_bbox": [596.7097778320312, 1872.43017578125, 4002.32470703125, 2577.844970703125],
+      "no_element": {
+        "bbox": [640.3910522460938, 1957.54638671875, 756.3656616210938, 2080.979248046875],
+        "text": "2",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_2_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_2_Area.png",
+      "options_element": {
+        "bbox": [1943.15625, 2116.0859375, 3779.71826171875, 2341.533203125],
+        "text": "イ.2\nロ.3\nハ 4\nニ. 5",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "2", "image_paths": [] },
+          "ニ": { "text": "5", "image_paths": [] },
+          "ハ": { "text": "4", "image_paths": [] },
+          "ロ": { "text": "3", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [748.6607666015625, 1930.141357421875, 1964.9765625, 2374.316650390625],
+        "text": "A,B2 本の同材質の銅線がある。A は直径 1.6 mm,長さ 20 m, B は直径 3.2 mm, 長さ 40mである。 A の抵抗は B の抵抗の何倍か。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_2_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_2_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "3",
+      "answer": "ハ",
+      "area_id": 2,
+      "area_bbox": [607.087158203125, 2536.21875, 3935.06787109375, 3330.067138671875],
+      "no_element": {
+        "bbox": [639.7039794921875, 2599.04052734375, 757.1565551757812, 2726.127197265625],
+        "text": "3",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_3_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_3_Area.png",
+      "options_element": {
+        "bbox": [1948.9031982421875, 2805.55029296875, 3803.516357421875, 3049.552490234375],
+        "text": "イ.72\nロ. 144\nハ.720\nニ. 1440",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "72", "image_paths": [] },
+          "ニ": { "text": "1440", "image_paths": [] },
+          "ハ": { "text": "720", "image_paths": [] },
+          "ロ": { "text": "144", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [756.7422485351562, 2559.31298828125, 1955.291259765625, 3270.084228515625],
+        "text": "電線の接続不良により,接続点の接触抵抗 が 0.5Ωとなった。 この電線に 20A の電流が 流れると,接続点から1時間に発生する熱量 [kJ]は。 ただし,接触抵抗の値は変化しないものと する。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_3_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_3_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "4",
+      "answer": "ハ",
+      "area_id": 5,
+      "area_bbox": [611.90576171875, 3278.90185546875, 3960.4990234375, 4444.2978515625],
+      "no_element": {
+        "bbox": [643.74365234375, 3367.371826171875, 757.1146240234375, 3491.45654296875],
+        "text": "4",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_4_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_4_Area.png",
+      "options_element": {
+        "bbox": [1900, 3300, 3900, 4400],
+        "text": "",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": "イ.", "image_paths": [] },
+          "ハ": { "text": "", "image_paths": [] },
+          "ロ": { "text": "", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [750, 3300, 1900, 4300],
+        "text": "図のような正弦波交流回路の電源電圧に 対する電流iの波形として、正しいものは。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_4_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_4_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "5",
+      "answer": "ニ",
+      "area_id": 1,
+      "area_bbox": [578.0439453125, 4379.5029296875, 4017.06298828125, 5524.984375],
+      "no_element": {
+        "bbox": [640.360595703125, 4476.8291015625, 757.9567260742188, 4601.95703125],
+        "text": "5",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_5_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_5_Area.png",
+      "options_element": {
+        "bbox": [1932.8350830078125, 4816.35986328125, 3911.428466796875, 5099.0517578125],
+        "text": "",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": "イ.", "image_paths": [] },
+          "ハ": { "text": "", "image_paths": [] },
+          "ロ": { "text": "", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [744.6798095703125, 4432.8505859375, 1961.4925537109375, 4992.37109375],
+        "text": "定格電圧 V [V],定格電流 I [A]の三相 誘導電動機を定格状態で時間t [h] の間, 連続 運転したところ, 消費電力量が W [kW・h] で あった。この電動機の力率 [%] を表す式は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_5_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_5_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "6",
+      "answer": "ニ",
+      "area_id": 1,
+      "area_bbox": [590.90185546875, 631.9032592773438, 3982.231201171875, 1717.504638671875],
+      "no_element": { "bbox": [620, 650, 750, 800], "text": "6", "category": "No" },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_6_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_6_Area.png",
+      "options_element": {
+        "bbox": [1923.34814453125, 1039.4105224609375, 3767.77392578125, 1316.697265625],
+        "text": "イ. 102\nロ. 103\nハ.104\nニ. 105",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "102", "image_paths": [] },
+          "ニ": { "text": "105", "image_paths": [] },
+          "ハ": { "text": "104", "image_paths": [] },
+          "ロ": { "text": "103", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [713.9078979492188, 644.5535888671875, 1963.61328125, 1694.951904296875],
+        "text": "図のような単相2線式回路で, c-c'間の電圧 が 99V のとき, a-a' 間の電圧[V] は。 \nただし, rは電線の抵抗 [Ω] とする。 ",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_6_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_6_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "7",
+      "answer": "ニ",
+      "area_id": 4,
+      "area_bbox": [582.5804443359375, 1583.2298583984375, 3917.48486328125, 3790.3720703125],
+      "no_element": {
+        "bbox": [630.2644653320312, 1752.463134765625, 740.6553344726562, 1871.912109375],
+        "text": "7",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_7_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_7_Area.png",
+      "options_element": {
+        "bbox": [1927.561279296875, 2243.1845703125, 2595.603271484375, 3166.809326171875],
+        "text": "イ. 1/4 倍になる。\nロ. 1/2倍になる。\nハ. 2倍になる。\nニ. 4倍になる。",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": "4倍になる。", "image_paths": [] },
+          "ハ": { "text": "2倍になる。", "image_paths": [] },
+          "ロ": { "text": "", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [683.7908935546875, 1640.713623046875, 1966.8094482421875, 3658.080810546875],
+        "text": "図1のような単相3線式回路を、 図2のよう な単相2線式回路に変更した場合、 配線の電力 損失はどうなるか。 ただし,負荷電圧は100V 一定で,負荷 A, 負荷Bはともに消費電力1kW の抵抗負荷で, 電線の抵抗は1線当たり 0.1 Ωとする。 ",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_7_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_7_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "8",
+      "answer": "ハ",
+      "area_id": 3,
+      "area_bbox": [601.0081787109375, 3677.451416015625, 3958.684814453125, 4497.255859375],
+      "no_element": {
+        "bbox": [631.5018310546875, 3716.30029296875, 745.3432006835938, 3839.021728515625],
+        "text": "8",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_8_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_8_Area.png",
+      "options_element": {
+        "bbox": [1931.7833251953125, 3940.030517578125, 3762.53271484375, 4192.19580078125],
+        "text": "イ. 19\nロ. 24\nハ31\nニ. 49",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "19", "image_paths": [] },
+          "ニ": { "text": "49", "image_paths": [] },
+          "ハ": { "text": "31", "image_paths": [] },
+          "ロ": { "text": "24", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [715.4606323242188, 3681.12939453125, 1947.1195068359375, 4447.31494140625],
+        "text": "金属管による低圧屋内配線工事で,管内に 断面積 5.5mm² の 600Vビニル絶縁電線 (軟銅 線)4本を収めて施設した場合, 電線1本当たり の許容電流 [A]は。 ただし, 周囲温度は30℃以下, 電流減少係数 は 0.63 とする。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_8_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_8_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "9",
+      "answer": "ハ",
+      "area_id": 2,
+      "area_bbox": [606.1860961914062, 4444.767578125, 3870.667724609375, 5563.81201171875],
+      "no_element": {
+        "bbox": [631.1996459960938, 4506.58203125, 743.9132690429688, 4627.22021484375],
+        "text": "9",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_9_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_9_Area.png",
+      "options_element": {
+        "bbox": [1903.379638671875, 4875.50146484375, 3731.503662109375, 5123.56005859375],
+        "text": "イ. 44\nロ. 57\nハ 69\nニ. 89",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "44", "image_paths": [] },
+          "ニ": { "text": "89", "image_paths": [] },
+          "ハ": { "text": "69", "image_paths": [] },
+          "ロ": { "text": "57", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [712.37255859375, 4458.96435546875, 1954.2652587890625, 5526.36181640625],
+        "text": "図のように定格電流 125A の過電流遮断器で 保護された低圧屋内幹線から分岐して, 10m の 位置に過電流遮断器を施設するとき, a-b間の 電線の許容電流の最小値 [A]は。 125 A 1Φ2W B 電源 a b B 10m",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_9_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_9_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "10",
+      "answer": "ロ",
+      "area_id": 2,
+      "area_bbox": [660.9830932617188, 608.9169921875, 3855.00146484375, 1774.4017333984375],
+      "no_element": { "bbox": [620, 650, 750, 800], "text": "10", "category": "No" },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_10_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_10_Area.png",
+      "options_element": {
+        "bbox": [1929.586181640625, 670.1778564453125, 3925.6455078125, 1699.8223876953125],
+        "text": "5.5 mm2\nB30 A\nイ.\nロ.\nハ.\nニ.\n2.0 mm\nB 20 A\n2.0 mm\nB30A\n定格電流 15 Aの\nコンセント1個\n定格電流 20 Aの\nコンセント2個\n定格電流 20 Aの\nコンセント2個\n1.6mm\nB20 A\n定格電流 30 Aの\nコンセント1個",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": "", "image_paths": [] },
+          "ハ": { "text": "", "image_paths": [] },
+          "ロ": { "text": "", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [758.8306274414062, 637.3761596679688, 1961.1990966796875, 1710.0655517578125],
+        "text": "低圧屋内配線の分岐回路の設計で、 配線用 遮断器, 分岐回路の電線の太さ及びコンセント の組合せとして、 適切なものは ただし,分岐点から配線用遮断器までは 3m, 配線用遮断器からコンセントまでは 8mとし, 電線の数値は分岐回路の電線(軟銅 線)の太さを示す。 また,コンセントは兼用コンセントでは ないものとする。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_10_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_10_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "11",
+      "answer": "ロ",
+      "area_id": 5,
+      "area_bbox": [525.522216796875, 1720.738037109375, 4024.52001953125, 2365.510498046875],
+      "no_element": {
+        "bbox": [630.0875244140625, 1796.7625732421875, 758.9036865234375, 1929.7242431640625],
+        "text": "11",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_11_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_11_Area.png",
+      "options_element": {
+        "bbox": [1927.30419921875, 1806.5054931640625, 2846.72265625, 2306.39794921875],
+        "text": "イ. 分電盤\nロ. プルボックス\nハ. フィクスチュアスタッド\nニ. スイッチボックス",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "分電盤", "image_paths": [] },
+          "ニ": { "text": "スイッチボックス", "image_paths": [] },
+          "ハ": { "text": "フィクスチュアスタッド", "image_paths": [] },
+          "ロ": { "text": "プルボックス", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [779.5722045898438, 1757.770751953125, 1932.7841796875, 2103.75048828125],
+        "text": "多数の金属管が集合する場所等で,通線を 容易にするために用いられるものは。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_11_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_11_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "12",
+      "answer": "ハ",
+      "area_id": 6,
+      "area_bbox": [645.8372192382812, 2320.05615234375, 3925.9306640625, 2861.642822265625],
+      "no_element": {
+        "bbox": [629.0960083007812, 2388.802001953125, 751.0927124023438, 2517.55810546875],
+        "text": "12",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_12_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_12_Area.png",
+      "options_element": {
+        "bbox": [1929.9407958984375, 2479.97412109375, 3769.51708984375, 2719.02294921875],
+        "text": "イ. 60\nД. 75\nハ90\nニ. 120",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "60", "image_paths": [] },
+          "ニ": { "text": "120", "image_paths": [] },
+          "ハ": { "text": "90", "image_paths": [] },
+          "ロ": { "text": null, "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [734.4833374023438, 2343.749755859375, 1964.2645263671875, 2769.56298828125],
+        "text": "600V 架橋ポリエチレン絶縁ビニルシース ケーブル(CV)の絶縁物の最高許容温度 [℃] は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_12_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_12_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "13",
+      "answer": "イ",
+      "area_id": 7,
+      "area_bbox": [562.9547119140625, 2824.54931640625, 3965.443115234375, 3498.36767578125],
+      "no_element": {
+        "bbox": [629.4550170898438, 2897.948486328125, 756.5057983398438, 3029.217041015625],
+        "text": "13",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_13_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_13_Area.png",
+      "options_element": {
+        "bbox": [1944.259033203125, 2886.134521484375, 3271.576416015625, 3447.39111328125],
+        "text": "イ. 金属製キャビネットに穴を開けるのに用いる。\nロ. 太い電線を圧着接続する場合に用いる。\nハ, コンクリート壁に穴を開けるのに用いる。\nニ.太い電線管を曲げるのに用いる。",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "金属製キャビネットに穴を開けるのに用いる。", "image_paths": [] },
+          "ニ": { "text": "太い電線管を曲げるのに用いる。", "image_paths": [] },
+          "ハ": { "text": "コンクリート壁に穴を開けるのに用いる。", "image_paths": [] },
+          "ロ": { "text": "太い電線を圧着接続する場合に用いる。", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [763.9278564453125, 2855.630859375, 1929.1781005859375, 3219.623291015625],
+        "text": "ノックアウトパンチャの用途で,適切な ものは。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_13_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_13_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "14",
+      "answer": "ロ",
+      "area_id": 4,
+      "area_bbox": [594.8463745117188, 3460.73974609375, 3855.502197265625, 4016.345703125],
+      "no_element": {
+        "bbox": [627.2314453125, 3534.6728515625, 753.519287109375, 3664.257080078125],
+        "text": "14",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_14_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_14_Area.png",
+      "options_element": {
+        "bbox": [1928.8179931640625, 3611.754638671875, 3808.2255859375, 3867.228759765625],
+        "text": "イ. 600\nロ. 1200\nハ. 1800\nニ. 3 600",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "600", "image_paths": [] },
+          "ニ": { "text": "3 600", "image_paths": [] },
+          "ハ": { "text": "1800", "image_paths": [] },
+          "ロ": { "text": "1200", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [762.8635864257812, 3484.614013671875, 1940.130126953125, 3915.54296875],
+        "text": "極数 6 の三相かご形誘導電動機を周波数 60Hz で使用するとき、最も近い回転速度 [min']は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_14_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_14_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "15",
+      "answer": "ハ",
+      "area_id": 3,
+      "area_bbox": [604.2462768554688, 3981.240234375, 3841.55712890625, 4525.35595703125],
+      "no_element": {
+        "bbox": [625.6326904296875, 4035.96826171875, 756.3845825195312, 4167.81640625],
+        "text": "15",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_15_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_15_Area.png",
+      "options_element": {
+        "bbox": [1945.4976806640625, 4136.37744140625, 3793.1796875, 4375.08544921875],
+        "text": "イ. 20\nロ.30\nハ.60\nニ. 120",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "20", "image_paths": [] },
+          "ニ": { "text": "120", "image_paths": [] },
+          "ハ": { "text": "60", "image_paths": [] },
+          "ロ": { "text": "30", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [744.9534912109375, 4005.255126953125, 1946.2625732421875, 4497.974609375],
+        "text": "低圧電路に使用する定格電流が 20A の配線 用遮断器に 25 A の電流が継続して流れたと き,この配線用遮断器が自動的に動作しなけれ ばならない時間 [分] の限度 (最大の時間) は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_15_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_15_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "16",
+      "answer": "ハ",
+      "area_id": 1,
+      "area_bbox": [491.7217102050781, 4469.9130859375, 4006.2294921875, 5564.1181640625],
+      "no_element": { "bbox": [650, 4500, 750, 4700], "text": "16", "category": "No" },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_16_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_16_Area.png",
+      "options_element": {
+        "bbox": [1889.32177734375, 4797.58984375, 3781.48974609375, 5355.7724609375],
+        "text": "イ. 無機絶縁ケーブル\nロ 600Vビニル絶縁ビニルシースケーブル平形\nハ. 600V ポリエチレン絶縁耐燃性ポリエチレンシースケーブル平形\nニ.600V 架橋ポリエチレン絶縁ビニルシースケーブル",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "無機絶縁ケーブル", "image_paths": [] },
+          "ニ": { "text": "600V 架橋ポリエチレン絶縁ビニルシースケーブル", "image_paths": [] },
+          "ハ": { "text": "600V ポリエチレン絶縁耐燃性ポリエチレンシースケーブル平形", "image_paths": [] },
+          "ロ": { "text": "600Vビニル絶縁ビニルシースケーブル平形", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [742.1861572265625, 4498.02197265625, 1939.223876953125, 5600],
+        "text": "写真に示す材料の名称は。 なお,材料の表面には 「タイシガイセン EM600V EEF/F1.6mm JIS JET <PS> EOO社タイ ネン 2017」が記されている。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_16_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_16_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "17",
+      "answer": "ニ",
+      "area_id": 1,
+      "area_bbox": [497.7748107910156, 672.7886962890625, 3963.34619140625, 1752.14453125],
+      "no_element": { "bbox": [620, 650, 750, 800], "text": "17", "category": "No" },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_17_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_17_Area.png",
+      "options_element": {
+        "bbox": [1953.590576171875, 935.2682495117188, 2472.3115234375, 1516.57080078125],
+        "text": "イ.漏電警報器\nロ,電磁接触器\nハ.漏電遮断器\nニ.熱動継電器",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "漏電警報器", "image_paths": [] },
+          "ニ": { "text": "熱動継電器", "image_paths": [] },
+          "ハ": { "text": "漏電遮断器", "image_paths": [] },
+          "ロ": { "text": "電磁接触器", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [736.5407104492188, 639.1763916015625, 1970.5335693359375, 1732.8939208984375],
+        "text": "は。 写真に示す器具の○で囲まれた部分の名称 CONTACTOR 440 27 560 2.7 AES-M-ZIA 500 37",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_17_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_17_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "18",
+      "answer": "イ",
+      "area_id": 2,
+      "area_bbox": [551.19775390625, 1755.9892578125, 3931.63232421875, 2509.67919921875],
+      "no_element": {
+        "bbox": [637.87890625, 1790.749755859375, 765.551513671875, 1922.9271240234375],
+        "text": "18",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_18_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_18_Area.png",
+      "options_element": {
+        "bbox": [1943.29443359375, 1861.6875, 2966.31494140625, 2385.111572265625],
+        "text": "イ. 手動油圧式圧着器\nロ. 手動油圧式カッタ\nハ. ノックアウトパンチャ (油圧式)\nニ. 手動油圧式圧縮器",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "手動油圧式圧着器", "image_paths": [] },
+          "ニ": { "text": "手動油圧式圧縮器", "image_paths": [] },
+          "ハ": { "text": "ノックアウトパンチャ (油圧式)", "image_paths": [] },
+          "ロ": { "text": "手動油圧式カッタ", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [735.5838623046875, 1776.0223388671875, 1946.5975341796875, 2484.815185546875],
+        "text": "写真に示す工具の名称は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_18_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_18_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "19",
+      "answer": "ハ",
+      "area_id": 4,
+      "area_bbox": [619.7015991210938, 2464.260498046875, 3918.814208984375, 3593.551025390625],
+      "no_element": {
+        "bbox": [635.822998046875, 2538.75341796875, 766.5975341796875, 2671.71240234375],
+        "text": "19",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_19_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_19_Area.png",
+      "options_element": {
+        "bbox": [1963.295166015625, 2556.89404296875, 3921.54296875, 3523.48046875],
+        "text": "イ. 差込形コネクタにより接続し,接続部分をビニルテープで巻かなかった。\nロ. リングスリーブ (E形) により接続し、 接続部分を黒色粘着性ポリエチレン\n絶縁テープ(厚さ約0.5mm) で半幅以上重ねて1回 (2層) 巻いた。\nハ. リングスリーブ (E形) により接続し、 接続部分をビニルテープで半幅以上\n重ねて1回 (2層) 巻いた。\nニ. リングスリーブ (E形) により接続し,接続部分にリングスリーブ用の絶縁\nキャップを被せ, ビニルテープで巻かなかった。",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "差込形コネクタにより接続し,接続部分をビニルテープで巻かなかった。", "image_paths": [] },
+          "ニ": { "text": "リングスリーブ (E形) により接続し,接続部分にリングスリーブ用の絶縁", "image_paths": [] },
+          "ハ": { "text": "リングスリーブ (E形) により接続し、 接続部分をビニルテープで半幅以上", "image_paths": [] },
+          "ロ": { "text": "リングスリーブ (E形) により接続し、 接続部分を黒色粘着性ポリエチレン", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [749.2605590820312, 2499.4228515625, 1961.046630859375, 3419.159423828125],
+        "text": "600Vビニル絶縁ビニルシースケーブル平形 1.6mm を使用した低圧屋内配線工事で,絶縁 電線相互の終端接続部分の絶縁処理として、 不適切なものは。 ただし,ビニルテープはJISに定める厚さ 約 0.2 mm の電気絶縁用ポリ塩化ビニル粘着 テープとする。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_19_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_19_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "20",
+      "answer": "イ",
+      "area_id": 5,
+      "area_bbox": [614.5991821289062, 3558.998046875, 3923.679443359375, 4319.49267578125],
+      "no_element": {
+        "bbox": [633.55859375, 3601.789794921875, 760.4400024414062, 3731.477294921875],
+        "text": "20",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_20_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_20_Area.png",
+      "options_element": {
+        "bbox": [1940.8839111328125, 3589.9853515625, 3946.1552734375, 4285.90673828125],
+        "text": "イ. 点検できない隠ぺい場所であって, 乾燥した場所のライティングダクト工事\nロ. 点検できない隠ぺい場所であって, 湿気の多い場所の防湿装置を施した合成\n樹脂管工事 (CD管を除く)\nハ.展開した場所であって, 湿気の多い場所のケーブル工事\nニ.展開した場所であって,湿気の多い場所の防湿装置を施した金属管工事",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "点検できない隠ぺい場所であって, 乾燥した場所のライティングダクト工事", "image_paths": [] },
+          "ニ": { "text": "展開した場所であって,湿気の多い場所の防湿装置を施した金属管工事", "image_paths": [] },
+          "ハ": { "text": "展開した場所であって, 湿気の多い場所のケーブル工事", "image_paths": [] },
+          "ロ": { "text": "点検できない隠ぺい場所であって, 湿気の多い場所の防湿装置を施した合成", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [769.1588134765625, 3565.33642578125, 1942.64501953125, 3899.086669921875],
+        "text": "使用電圧 100V の屋内配線の施設場所に おける工事の種類で,不適切なものは。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_20_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_20_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "21",
+      "answer": "ロ",
+      "area_id": 3,
+      "area_bbox": [593.6600341796875, 4302.50048828125, 3934.677734375, 5393.19189453125],
+      "no_element": {
+        "bbox": [633.0758666992188, 4359.97802734375, 757.8023071289062, 4492.05859375],
+        "text": "21",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_21_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_21_Area.png",
+      "options_element": {
+        "bbox": [1923.0452880859375, 4333.74169921875, 3952.30419921875, 5344.13232421875],
+        "text": "イ.専用の過電流遮断器を施設し, 合成樹脂管工事で配線し, コンセントを使用\nしてルームエアコンと接続した。\nロ.専用の漏電遮断器(過負荷保護付) を施設し, ケーブル工事で配線し, ルーム\nエアコンと直接接続した。\nハ.専用の配線用遮断器を施設し, 金属管工事で配線し, コンセントを使用\nしてルームエアコンと接続した。\nニ.専用の開閉器のみを施設し, 金属管工事で配線し, ルームエアコンと直接\n接続した。",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "専用の過電流遮断器を施設し, 合成樹脂管工事で配線し, コンセントを使用", "image_paths": [] },
+          "ニ": { "text": "専用の開閉器のみを施設し, 金属管工事で配線し, ルームエアコンと直接", "image_paths": [] },
+          "ハ": { "text": "専用の配線用遮断器を施設し, 金属管工事で配線し, コンセントを使用", "image_paths": [] },
+          "ロ": { "text": "専用の漏電遮断器(過負荷保護付) を施設し, ケーブル工事で配線し, ルーム", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [750.8526000976562, 4325.15478515625, 1966.7667236328125, 5286.603515625],
+        "text": "店舗付き住宅の屋内に三相3線式 200V, 定格消費電力 2.5kW のルームエアコンを施設 した。 このルームエアコンに電気を供給する 電路の工事方法として、 適切なものは。 ただし,配線は接触防護措置を施し, ルーム エアコン外箱等の人が触れるおそれがある 部分は絶縁性のある材料で堅ろうに作られて いるものとする。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_21_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_21_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "22",
+      "answer": "ロ",
+      "area_id": 2,
+      "area_bbox": [595.784423828125, 626.8424682617188, 3852.333251953125, 1771.505859375],
+      "no_element": {
+        "bbox": [629.5201416015625, 671.81005859375, 754.5767211914062, 801.1695556640625],
+        "text": "22",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_22_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_22_Area.png",
+      "options_element": {
+        "bbox": [1922.0494384765625, 668.4268798828125, 3947.55224609375, 1711.619140625],
+        "text": "イ. 乾燥した場所に施設する三相 200V (対地電圧 200V) 動力配線の電線を収め\nた長さ3mの金属管\nロ. 水気のある場所のコンクリートの床に施設する三相 200V (対地電圧 200V)\n誘導電動機の鉄台\nハ. 乾燥した木製の床の上で取り扱うように施設する三相 200V(対地電圧 200V)\n空気圧縮機の金属製外箱部分\nニ. 乾燥した場所に施設する単相3線式 100/200V (対地電圧 100V) 配線の電線\nを収めた長さ7mの金属管",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "乾燥した場所に施設する三相 200V (対地電圧 200V) 動力配線の電線を収め", "image_paths": [] },
+          "ニ": { "text": "乾燥した場所に施設する単相3線式 100/200V (対地電圧 100V) 配線の電線", "image_paths": [] },
+          "ハ": { "text": "乾燥した木製の床の上で取り扱うように施設する三相 200V(対地電圧 200V)", "image_paths": [] },
+          "ロ": { "text": "水気のある場所のコンクリートの床に施設する三相 200V (対地電圧 200V)", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [760.6790771484375, 653.107421875, 1933.356201171875, 1182.1297607421875],
+        "text": "D種接地工事を省略できないものは。 ただし,電路には定格感度電流 15 mA, 動作時間0.1秒以下の電流動作型の漏電遮断器 が取り付けられているものとする。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_22_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_22_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "23",
+      "answer": "ロ",
+      "area_id": 4,
+      "area_bbox": [616.4054565429688, 1749.7275390625, 3902.52783203125, 2656.52734375],
+      "no_element": {
+        "bbox": [631.7183227539062, 1790.5418701171875, 750.5614013671875, 1916.3599853515625],
+        "text": "23",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_23_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_23_Area.png",
+      "options_element": {
+        "bbox": [1933.5614013671875, 1789.984619140625, 3939.588134765625, 2630.750244140625],
+        "text": "イ. 太さ 25mm の薄鋼電線管に断面積8mm² の 600Vビニル絶縁電線3本を\n引き入れた。\nロ. 太さ 25mm の薄鋼電線管相互の接続にコンビネーションカップリングを\n使用した。\nハ.薄鋼電線管とアウトレットボックスとの接続部にロックナットを使用した。\nニ. ボックス間の配管でノーマルベンドを使った屈曲箇所を2箇所設けた。",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "太さ 25mm の薄鋼電線管に断面積8mm² の 600Vビニル絶縁電線3本を", "image_paths": [] },
+          "ニ": { "text": "ボックス間の配管でノーマルベンドを使った屈曲箇所を2箇所設けた。", "image_paths": [] },
+          "ハ": { "text": "薄鋼電線管とアウトレットボックスとの接続部にロックナットを使用した。", "image_paths": [] },
+          "ロ": { "text": "太さ 25mm の薄鋼電線管相互の接続にコンビネーションカップリングを", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [730.7429809570312, 1759.5042724609375, 1931.4112548828125, 2087.7177734375],
+        "text": "金属管工事による低圧屋内配線の施工方法 として、不適切なものは。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_23_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_23_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "24",
+      "answer": "ハ",
+      "area_id": 1,
+      "area_bbox": [600, 2519.369384765625, 3879.925048828125, 4600],
+      "no_element": {
+        "bbox": [629.0304565429688, 2706.09375, 750.873779296875, 2834.981201171875],
+        "text": "24",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_24_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_24_Area.png",
+      "options_element": {
+        "bbox": [1931.3724365234375, 3328.86279296875, 2561.2724609375, 3913.588623046875],
+        "text": "イ. 直流 205 V\nロ.抵抗 4.5 Ω\nハ. 交流 205V\nニ.直流 20.5 mA",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "直流 205 V", "image_paths": [] },
+          "ニ": { "text": "直流 20.5 mA", "image_paths": [] },
+          "ハ": { "text": "交流 205V", "image_paths": [] },
+          "ロ": { "text": "抵抗 4.5 Ω", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [750, 2700, 1900, 4500],
+        "text": "アナログ式回路計(電池内蔵)の測定レンシ を図のように選定し測定したところ, 目盛板の 値を示した。測定値として, 正しいものは。 500 200 100 50 30 20 10 5 100 150 50 20 30 10 201 40 V.A 注意: 目盛表示は,一部 省略している。 210 250 50 V・Al DCV 10 50 50 2.5 0.25 50μ 100 500 500 250 ACY 50 10 OFF x1k x100 2.5m x10 25m DCA x1 10.25[1.5V 2",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_24_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_24_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "25",
+      "answer": "ハ",
+      "area_id": 3,
+      "area_bbox": [643.6328125, 4514.1826171875, 3941.7294921875, 5400.58544921875],
+      "no_element": {
+        "bbox": [631.72265625, 4568.34130859375, 753.162109375, 4693.630859375],
+        "text": "25",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_25_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_25_Area.png",
+      "options_element": {
+        "bbox": [1921.1824951171875, 4619.685546875, 3958.3984375, 5269.9130859375],
+        "text": "イ.絶縁抵抗計には,ディジタル形と指針形 (アナログ形)がある。\nロ,絶縁抵抗測定の前には, 絶縁抵抗計の電池が有効であることを確認する。\nハ. 絶縁抵抗計の定格測定電圧 (出力電圧) は,交流電圧である。\nニ.電子機器が接続された回路の絶縁測定を行う場合は, 機器等を損傷させない\n適正な定格測定電圧を選定する。",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "絶縁抵抗計には,ディジタル形と指針形 (アナログ形)がある。", "image_paths": [] },
+          "ニ": { "text": "電子機器が接続された回路の絶縁測定を行う場合は, 機器等を損傷させない", "image_paths": [] },
+          "ハ": { "text": "絶縁抵抗計の定格測定電圧 (出力電圧) は,交流電圧である。", "image_paths": [] },
+          "ロ": { "text": "絶縁抵抗測定の前には, 絶縁抵抗計の電池が有効であることを確認する。", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [749.3885498046875, 4542.248046875, 1925.1522216796875, 4876.21142578125],
+        "text": "絶縁抵抗計(電池内蔵) に関する記述として 誤っているものは。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_25_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_25_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "26",
+      "answer": "イ",
+      "area_id": 2,
+      "area_bbox": [568.1114501953125, 555.9679565429688, 3944.300048828125, 2139.446533203125],
+      "no_element": { "bbox": [620, 650, 750, 800], "text": "26", "category": "No" },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_26_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_26_Area.png",
+      "options_element": {
+        "bbox": [1930, 650, 3600, 2000],
+        "text": "イ. (A) 0.4\n(B) C\n(C) 10\n□. (A) 0.4\n(B) Cli\n(C) 500\n/\\. (A) 0.2\n(B) D\n(C) 100\nニ. (A) 0.4\n(B) Dili\n(C) 500",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "(A) 0.4", "image_paths": [] },
+          "ニ": { "text": "(A) 0.4", "image_paths": [] },
+          "ハ": { "text": null, "image_paths": [] },
+          "ロ": { "text": null, "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [706.6173706054688, 623.3802490234375, 1951.6268310546875, 2087.91552734375],
+        "text": "次の空欄 (A), (B) 及び (C) に当てはまる組 (B)及び(C) 合せとして,正しいものは。 使用電圧が 300 V を超える低圧の電路の 電線相互間及び電路と大地との間の絶縁抵抗 は区切ることのできる電路ごとに (A) [MΩ] 以上でなければならない。 また, 当該電路に施設する機械器具の金属製の台 及び外箱には (B) 接地工事を施し, 接地 抵抗値は (C) [Ω] 以下に施設することが 必要である。 ただし,当該電路に施設された地絡遮断装置 の動作時間は 0.5秒を超えるものとする。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_26_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_26_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "27",
+      "answer": "ハ",
+      "area_id": 5,
+      "area_bbox": [602.1066284179688, 2046.1981201171875, 4053.524169921875, 2799.654052734375],
+      "no_element": {
+        "bbox": [630.225830078125, 2109.031005859375, 753.16064453125, 2235.57470703125],
+        "text": "27",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_27_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_27_Area.png",
+      "options_element": {
+        "bbox": [1918.3853759765625, 2059.439453125, 3883.92578125, 2788.64990234375],
+        "text": "イ.\n# |\nロ\nハ\nニ",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": "", "image_paths": [] },
+          "ハ": { "text": "", "image_paths": [] },
+          "ロ": { "text": "", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [743.2305297851562, 2071.326171875, 1924.0928955078125, 2639.668212890625],
+        "text": "単相3線式回路の漏れ電流を, クランプ形 漏れ電流計を用いて測定する場合の測定方法 として,正しいものは。 ただし, は中性線を示す。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_27_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_27_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "28",
+      "answer": "イ",
+      "area_id": 3,
+      "area_bbox": [593.2342529296875, 2733.925537109375, 3896.022216796875, 3713.75439453125],
+      "no_element": {
+        "bbox": [627.973876953125, 2813.826171875, 752.0330810546875, 2940.913818359375],
+        "text": "28",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_28_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_28_Area.png",
+      "options_element": {
+        "bbox": [1938.8323974609375, 2770.030517578125, 3658.111328125, 3742.8486328125],
+        "text": "イ.a:配電盤を造営材に取り付ける。\nb:電線管を曲げる。\nロ.a:地中電線用の管を設置する。\nb: 定格電圧 200V の電力量計を取り付ける。\nハ. a: 電線を支持する柱を設置する。\nb:電線管に電線を収める。\nニ.a:接地極を地面に埋設する。\nb: 定格電圧 125V の差込み接続器にコードを接続する。",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "a:配電盤を造営材に取り付ける。", "image_paths": [] },
+          "ニ": { "text": "a:接地極を地面に埋設する。", "image_paths": [] },
+          "ハ": { "text": "a: 電線を支持する柱を設置する。", "image_paths": [] },
+          "ロ": { "text": "a:地中電線用の管を設置する。", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [750.5784912109375, 2778.119140625, 1936.1888427734375, 3204.60498046875],
+        "text": "「電気工事士法」において,一般用電気工作 物に係る工事の作業で a, b ともに電気工事士 でなければ従事できないものは。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_28_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_28_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "29",
+      "answer": "ロ",
+      "area_id": 1,
+      "area_bbox": [581.251708984375, 3695.396728515625, 3994.22802734375, 4984.849609375],
+      "no_element": {
+        "bbox": [629.2508544921875, 3762.350341796875, 751.3026123046875, 3886.4951171875],
+        "text": "29",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_29_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_29_Area.png",
+      "options_element": {
+        "bbox": [1966.237060546875, 4087.13134765625, 2395.21435546875, 4651.095703125],
+        "text": "イ. A, B\n□. A, D\nA. B, C\nニ. C, D",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "A, B", "image_paths": [] },
+          "ニ": { "text": "C, D", "image_paths": [] },
+          "ハ": { "text": null, "image_paths": [] },
+          "ロ": { "text": null, "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [749.5623779296875, 3721.040283203125, 1967.906005859375, 4960.40478515625],
+        "text": "低圧の屋内電路に使用する次の電気用品の うち, 特定電気用品の組合せとして,正しいも のは。 A: 定格電圧 200V, 定格電流 30A の配線用 遮断器 B: 定格電圧300V 定格電流 20A のリモート , コントロールリレー C: 定格電圧 125V, 定格電流 15A のライティ ングダクト D: 定格電圧 125V, 定格電流 15 A の差込み 接続器",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_29_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_29_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "30",
+      "answer": "ロ",
+      "area_id": 4,
+      "area_bbox": [562.5198974609375, 4944.52685546875, 3928.544677734375, 5548.47314453125],
+      "no_element": {
+        "bbox": [630.5546264648438, 5009.595703125, 754.906982421875, 5138.2705078125],
+        "text": "30",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_30_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_30_Area.png",
+      "options_element": {
+        "bbox": [1910.561767578125, 4972.7890625, 3506.772216796875, 5515.09375],
+        "text": "イ. 低圧は 600V以下,高圧は600Vを超え 10000 V 以下\nロ. 低圧は600V以下, 高圧は 600V を超え 7000V以下\nハ. 低圧は750V以下, 高圧は750Vを超え 10000 V以下\nニ. 低圧は 750V以下, 高圧は750Vを超え 7000V以下",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "低圧は 600V以下,高圧は600Vを超え 10000 V 以下", "image_paths": [] },
+          "ニ": { "text": "低圧は 750V以下, 高圧は750Vを超え 7000V以下", "image_paths": [] },
+          "ハ": { "text": "低圧は750V以下, 高圧は750Vを超え 10000 V以下", "image_paths": [] },
+          "ロ": { "text": "低圧は600V以下, 高圧は 600V を超え 7000V以下", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [748.9782104492188, 4972.55712890625, 1942.372314453125, 5408.263671875],
+        "text": "「電気設備に関する技術基準を定める省令」 で定められている交流の電圧区分で,正しい ものは",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_30_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_30_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "31",
+      "answer": "ロ",
+      "area_id": 8,
+      "area_bbox": [563.963623046875, 1579.9915771484375, 3914.57275390625, 1833.1156005859375],
+      "no_element": {
+        "bbox": [600.0613403320312, 1635.6617431640625, 729.6339721679688, 1768.5850830078125],
+        "text": "31",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_31_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_31_Area.png",
+      "options_element": {
+        "bbox": [1863.1251220703125, 1580.8896484375, 3736.083740234375, 1836.703125],
+        "text": "イ.3\nロ.4\nハ5\nニ. 6",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "3", "image_paths": [] },
+          "ニ": { "text": "6", "image_paths": [] },
+          "ハ": { "text": "5", "image_paths": [] },
+          "ロ": { "text": "4", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [699.35693359375, 1610.6600341796875, 1863.904296875, 1785.4168701171875],
+        "text": "①で示す部分の最少電線本数(心線数) は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_31_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_31_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "32",
+      "answer": "ハ",
+      "area_id": 2,
+      "area_bbox": [539.61962890625, 1785.133544921875, 3909.531494140625, 2177.885498046875],
+      "no_element": {
+        "bbox": [600.6376342773438, 1818.123779296875, 731.4193725585938, 1953.189453125],
+        "text": "32",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_32_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_32_Area.png",
+      "options_element": {
+        "bbox": [1872.880126953125, 1846.19189453125, 3699.714111328125, 2119.76123046875],
+        "text": "イ.5\nロ. 10\nハ 15\nニ. 20",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "5", "image_paths": [] },
+          "ニ": { "text": "20", "image_paths": [] },
+          "ハ": { "text": "15", "image_paths": [] },
+          "ロ": { "text": "10", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [677.4793701171875, 1816.7413330078125, 1915.16943359375, 2125.27880859375],
+        "text": "2 ②で示す引込口開閉器が省略できる場合の, 工場と倉庫との間の電路の長さの最大値 [m] は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_32_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_32_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "33",
+      "answer": "ハ",
+      "area_id": 10,
+      "area_bbox": [562.77294921875, 2146.46875, 3884.73095703125, 2577.928466796875],
+      "no_element": {
+        "bbox": [597.6021118164062, 2172.754638671875, 725.517578125, 2307.012451171875],
+        "text": "33",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_33_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_33_Area.png",
+      "options_element": {
+        "bbox": [1900.81201171875, 2167.5146484375, 3235.4951171875, 2556.608642578125],
+        "text": "イ. 圧力スイッチ\nロ. 押しボタン\nハ. 電磁開閉器用押しボタン\nニ.握り押しボタン",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "圧力スイッチ", "image_paths": [] },
+          "ニ": { "text": "握り押しボタン", "image_paths": [] },
+          "ハ": { "text": "電磁開閉器用押しボタン", "image_paths": [] },
+          "ロ": { "text": "押しボタン", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [730.9658203125, 2165.00537109375, 1739.2735595703125, 2342.143310546875],
+        "text": "③で示す図記号の名称は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_33_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_33_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "34",
+      "answer": "ハ",
+      "area_id": 7,
+      "area_bbox": [507.626220703125, 2557.753173828125, 3899.66259765625, 2993.751708984375],
+      "no_element": {
+        "bbox": [595.296142578125, 2585.854248046875, 722.7106323242188, 2717.044921875],
+        "text": "34",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_34_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_34_Area.png",
+      "options_element": {
+        "bbox": [1895.347900390625, 2558.162109375, 3713.0107421875, 2975.449462890625],
+        "text": "イ. 600V 耐燃性ポリエチレン絶縁電線\nロ. 600V 耐燃性架橋ポリエチレン絶縁電線\nハ 600V 架橋ポリエチレン絶縁耐燃性ポリエチレンシースケーブル\nニ. 600V ポリエチレン絶縁耐燃性ポリエチレンシースケーブル平形",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "600V 耐燃性ポリエチレン絶縁電線", "image_paths": [] },
+          "ニ": { "text": "600V ポリエチレン絶縁耐燃性ポリエチレンシースケーブル平形", "image_paths": [] },
+          "ハ": { "text": "600V 架橋ポリエチレン絶縁耐燃性ポリエチレンシースケーブル", "image_paths": [] },
+          "ロ": { "text": "600V 耐燃性架橋ポリエチレン絶縁電線", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [716.4235229492188, 2586.768798828125, 1658.166748046875, 2748.474609375],
+        "text": "④で示す電線の種類は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_34_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_34_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "35",
+      "answer": "ニ",
+      "area_id": 5,
+      "area_bbox": [554.98095703125, 2954.359130859375, 3926.002685546875, 3295.87841796875],
+      "no_element": {
+        "bbox": [597.197509765625, 3017.247314453125, 717.94482421875, 3144.781494140625],
+        "text": "35",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_35_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_35_Area.png",
+      "options_element": {
+        "bbox": [1859.3336181640625, 2993.113037109375, 3701.5166015625, 3264.357421875],
+        "text": "イ. タイマ付スイッチ\nロ.熱線式自動スイッチ\nハ. 熱線式自動スイッチ用センサ\nニ.自動点滅器",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "タイマ付スイッチ", "image_paths": [] },
+          "ニ": { "text": "自動点滅器", "image_paths": [] },
+          "ハ": { "text": "熱線式自動スイッチ用センサ", "image_paths": [] },
+          "ロ": { "text": "熱線式自動スイッチ", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [729.6459350585938, 2997.451416015625, 1856.1103515625, 3194.166748046875],
+        "text": "⑤で示す図記号の器具の名称は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_35_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_35_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "36",
+      "answer": "ニ",
+      "area_id": 1,
+      "area_bbox": [497.3717956542969, 3265.8671875, 3958.932373046875, 3710.39697265625],
+      "no_element": {
+        "bbox": [597.3720703125, 3304.208740234375, 720.4783325195312, 3429.793701171875],
+        "text": "36",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_36_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_36_Area.png",
+      "options_element": {
+        "bbox": [1886.474609375, 3283.0732421875, 3486.9423828125, 3676.8876953125],
+        "text": "イ. 2極にヒューズを取り付けたカバー付ナイフスイッチ\nロ.2極2素子の配線用遮断器\nハ.2極にヒューズを取り付けたカットアウトスイッチ\nニ.2極1素子の配線用遮断器",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "2極にヒューズを取り付けたカバー付ナイフスイッチ", "image_paths": [] },
+          "ニ": { "text": "2極1素子の配線用遮断器", "image_paths": [] },
+          "ハ": { "text": "2極にヒューズを取り付けたカットアウトスイッチ", "image_paths": [] },
+          "ロ": { "text": "2極2素子の配線用遮断器", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [719.6177368164062, 3280.542236328125, 1885.003662109375, 3635.6328125],
+        "text": "⑥で示す部分に施設してはならない過電流遮 断装置は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_36_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_36_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "37",
+      "answer": "ロ",
+      "area_id": 4,
+      "area_bbox": [528.8857421875, 3676.716552734375, 3950.093505859375, 4101.36865234375],
+      "no_element": {
+        "bbox": [599.9137573242188, 3722.093505859375, 728.2130126953125, 3852.729248046875],
+        "text": "37",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_37_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_37_Area.png",
+      "options_element": {
+        "bbox": [1895.919921875, 3725.928466796875, 3674.501953125, 4045.916015625],
+        "text": "イ. 1.6mm\n100Ω\n☐ 1.6 mm 500Ω\n•\n/\\. 2.0 mm\n100Ω\nニ. 2.0 mm\n600Ω",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "1.6mm", "image_paths": [] },
+          "ニ": { "text": "2.0 mm", "image_paths": [] },
+          "ハ": { "text": null, "image_paths": [] },
+          "ロ": { "text": null, "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [696.9050903320312, 3689.207763671875, 1918.9429931640625, 4080.04833984375],
+        "text": "⑦で示す部分の接地工事の電線 (軟銅線) の 最小太さと 接地抵抗の最大値との組合せで, 正しいものは。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_37_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_37_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "38",
+      "answer": "ロ",
+      "area_id": 9,
+      "area_bbox": [604.1669311523438, 4089.54931640625, 3909.830078125, 4410.6865234375],
+      "no_element": {
+        "bbox": [601.2726440429688, 4130.70849609375, 731.0115966796875, 4261.9814453125],
+        "text": "38",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_38_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_38_Area.png",
+      "options_element": {
+        "bbox": [1907.4710693359375, 4128.42822265625, 3767.353759765625, 4381.650390625],
+        "text": "イ. 0.1\n□. 0.2\nハ.0.4\nニ. 1.0",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "0.1", "image_paths": [] },
+          "ニ": { "text": "1.0", "image_paths": [] },
+          "ハ": { "text": "0.4", "image_paths": [] },
+          "ロ": { "text": null, "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [711.6786499023438, 4104.75537109375, 1898.5662841796875, 4397.77392578125],
+        "text": "⑧で示す部分の電路と大地間の絶縁抵抗とし て,許容される最小値 [MΩ]は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_38_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_38_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "39",
+      "answer": "イ",
+      "area_id": 3,
+      "area_bbox": [550.5580444335938, 4377.1884765625, 3954.28955078125, 4820.84228515625],
+      "no_element": {
+        "bbox": [550.5580444335938, 4377.1884765625, 3954.28955078125, 4820.84228515625],
+        "text": "39",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_39_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_39_Area.png",
+      "options_element": {
+        "bbox": [1897.115234375, 4410.5625, 3811.626708984375, 4791.6220703125],
+        "text": "イ.\nロ.\nハ.\nCD\nY\nニ.\n0_0\n|",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": "", "image_paths": [] },
+          "ハ": { "text": "", "image_paths": [] },
+          "ロ": { "text": "", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [684.446533203125, 4413.619140625, 1892.103515625, 4737.65771484375],
+        "text": "⑨で示す部分に使用するコンセントの極配置 (刃受)は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_39_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_39_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "40",
+      "answer": "イ",
+      "area_id": 6,
+      "area_bbox": [577.9991455078125, 4793.56103515625, 3958.729248046875, 5227.23193359375],
+      "no_element": {
+        "bbox": [600.875244140625, 4851.05224609375, 723.7632446289062, 4976.68798828125],
+        "text": "40",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_40_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_40_Area.png",
+      "options_element": {
+        "bbox": [1911.261474609375, 4837.3232421875, 3849.703125, 5175.7666015625],
+        "text": "イ.\nB\nロ.\nBE\n/\\.\n(S)\nニ.\nS",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": "", "image_paths": [] },
+          "ハ": { "text": null, "image_paths": [] },
+          "ロ": { "text": "", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [696.7921752929688, 4819.8427734375, 1906.1357421875, 5129.88818359375],
+        "text": "⑩で示す部分に取り付けるモータブレーカの 図記号は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_40_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_40_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "41",
+      "answer": "ニ",
+      "area_id": 5,
+      "area_bbox": [600, 657.4385986328125, 3900, 2200],
+      "no_element": { "bbox": [600, 750, 730, 890], "text": "41", "category": "No" },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_41_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_41_Area.png",
+      "options_element": {
+        "bbox": [1410.4129638671875, 722.5108642578125, 3950, 2206.6328125],
+        "text": "イ.\nハ.\nMO\nOCV 1000\n-500\nROCA\n[000\nCE\n500\nACV\n250\nロ.\nニ",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": "", "image_paths": [] },
+          "ハ": { "text": "", "image_paths": [] },
+          "ロ": { "text": "", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [700, 690, 1450, 1100],
+        "text": "①で示す部分の接地抵抗 を測定するものは。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_41_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_41_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "42",
+      "answer": "ハ",
+      "area_id": 3,
+      "area_bbox": [461.70977783203125, 2184.99072265625, 3992.15185546875, 2909.385009765625],
+      "no_element": {
+        "bbox": [600.95751953125, 2225.431884765625, 717.0504150390625, 2346.4296875],
+        "text": "42",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_42_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_42_Area.png",
+      "options_element": {
+        "bbox": [1410, 2220.742919921875, 3900, 2865.65966796875],
+        "text": "イ.\n小\n6個\n|\n中3\n大\n|\n3個\n3個\n|\n|\n|\n小\n3個",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": null, "image_paths": [] },
+          "ハ": { "text": null, "image_paths": [] },
+          "ロ": { "text": null, "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [709.021728515625, 2203.467529296875, 1427.08154296875, 2855.600341796875],
+        "text": "12で示すジョイントボック ス内の接続をすべて圧着接 続とする場合, 使用するリ |ングスリーブの種類と最少 個数の組合せで,正しいも のは。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_42_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_42_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "43",
+      "answer": "イ",
+      "area_id": 1,
+      "area_bbox": [508.5093688964844, 2872.030029296875, 3915.207275390625, 3876.076904296875],
+      "no_element": {
+        "bbox": [602.6463623046875, 2910.693115234375, 722.6053466796875, 3033.403564453125],
+        "text": "43",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_43_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_43_Area.png",
+      "options_element": {
+        "bbox": [1420.284912109375, 2916.055908203125, 3900, 3820.302978515625],
+        "text": "イ.\nロ.\n|\nBODY ROA\n2個\nBODY ROA\n3個\n|\n1個\n|\n|\n|\n800\n2個\nハ\nBODY ROA\n3個\n1個\n|\n|\nBOOV ROA\n2個\n1個",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": null, "image_paths": [] },
+          "ハ": { "text": "", "image_paths": [] },
+          "ロ": { "text": "", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [700.0888671875, 2884.086669921875, 1441.3314208984375, 3785.971923828125],
+        "text": "13 で示すVVF用ジョイント ボックス内の接続をすべて 差込形コネクタとする場 合,使用する差込形コネク タの種類と最少個数の組合 せで,正しいものは。 ただし,使用する電線は すべて VVF1.6 とする。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_43_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_43_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "44",
+      "answer": "ニ",
+      "area_id": 2,
+      "area_bbox": [515.0177612304688, 3836.9833984375, 4004.6689453125, 4669.5888671875],
+      "no_element": {
+        "bbox": [603.9312744140625, 3898.216552734375, 723.4328002929688, 4019.022216796875],
+        "text": "44",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_44_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_44_Area.png",
+      "options_element": {
+        "bbox": [1442.115234375, 3857.560546875, 3900.543701171875, 4620.80615234375],
+        "text": "イ.\nロ.\nハ.\nニ.",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": "", "image_paths": [] },
+          "ハ": { "text": "", "image_paths": [] },
+          "ロ": { "text": "", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [721.125, 3871.30859375, 1429.7506103515625, 4245.84375],
+        "text": "14 で示す点滅器の取付け工 事に使用されることのない 材料は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_44_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_44_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "45",
+      "answer": "ハ",
+      "area_id": 4,
+      "area_bbox": [479.18505859375, 4627.2744140625, 4101.80078125, 5610.9462890625],
+      "no_element": {
+        "bbox": [603.4302368164062, 4684.0419921875, 721.603271484375, 4806.02587890625],
+        "text": "45",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_45_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_45_Area.png",
+      "options_element": {
+        "bbox": [1394.6385498046875, 4677.4482421875, 3850.634521484375, 5609.2490234375],
+        "text": "イ.\nロ.\nハ.\nニ.",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": "", "image_paths": [] },
+          "ハ": { "text": "", "image_paths": [] },
+          "ロ": { "text": "", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [719.146240234375, 4674.427734375, 1409.0224609375, 4931.32080078125],
+        "text": "15で示す図記号のコンセン トは。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_45_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_45_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "46",
+      "answer": "ハ",
+      "area_id": 11,
+      "area_bbox": [600, 700, 3900, 1800],
+      "no_element": { "bbox": [620, 720, 720, 850], "text": "46", "category": "No" },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_46_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_46_Area.png",
+      "options_element": {
+        "bbox": [1400.713623046875, 680.481201171875, 3916.640869140625, 1761.46630859375],
+        "text": "イ.\nロ.\nハ.\nニ.",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": "", "image_paths": [] },
+          "ハ": { "text": "", "image_paths": [] },
+          "ロ": { "text": "", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [703.3876342773438, 733.1814575195312, 1427.4580078125, 1190.2437744140625],
+        "text": "⑩6 で示す部分の配線工事に 必要なケーブルは。 ただし,心線数は最少とす る。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_46_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_46_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "47",
+      "answer": "ロ",
+      "area_id": 4,
+      "area_bbox": [412.77001953125, 1734.4559326171875, 4072.94677734375, 2633.617431640625],
+      "no_element": {
+        "bbox": [603.3244018554688, 1776.115234375, 719.6849975585938, 1898.0279541015625],
+        "text": "47",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_47_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_47_Area.png",
+      "options_element": {
+        "bbox": [1400, 1750, 3900, 2600],
+        "text": "ロ.\nイ.\n危険 注意\nこの下に低圧電力ケーブルあり\nハ.\nニ.",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": "", "image_paths": [] },
+          "ハ": { "text": "", "image_paths": [] },
+          "ロ": { "text": "", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [700, 1750, 1450, 2000],
+        "text": "⑩で示す部分に使用するト ラフは。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_47_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_47_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "48",
+      "answer": "イ",
+      "area_id": 1,
+      "area_bbox": [305.60186767578125, 2590.590087890625, 3985.513671875, 3456.94677734375],
+      "no_element": {
+        "bbox": [603.9193725585938, 2634.977294921875, 714.4478759765625, 2753.906982421875],
+        "text": "48",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_48_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_48_Area.png",
+      "options_element": {
+        "bbox": [1400, 2580, 3900, 3450],
+        "text": "イ.\nロ.\n△危険\n200V\n40\n15\nハ\nBBW 30CM\n10 A\nOFF\n10A\nニ.",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": "", "image_paths": [] },
+          "ハ": { "text": "", "image_paths": [] },
+          "ロ": { "text": "", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [700, 2550, 1450, 2800],
+        "text": "⑩ で示す図記号の機器は。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_48_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_48_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "49",
+      "answer": "イ",
+      "area_id": 2,
+      "area_bbox": [486.3218688964844, 3423.28857421875, 4088.66162109375, 4555.60205078125],
+      "no_element": {
+        "bbox": [606.030517578125, 3481.847412109375, 724.249755859375, 3604.3876953125],
+        "text": "49",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_49_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_49_Area.png",
+      "options_element": {
+        "bbox": [1347.022705078125, 3459.42333984375, 3842.621337890625, 4407.66015625],
+        "text": "ク\n業\nも\nイ.\nハ\nニ.",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": "", "image_paths": [] },
+          "ハ": { "text": "", "image_paths": [] },
+          "ロ": { "text": null, "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [697.6309814453125, 3479.697265625, 1428.05419921875, 3938.671875],
+        "text": "19 で示すジョイントボック ス内の電線相互の接続作業 に使用されることのないも のは。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_49_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_49_Question.png",
+      "question_image_type": "question"
+    },
+    {
+      "No": "50",
+      "answer": "ロ",
+      "area_id": 3,
+      "area_bbox": [533.714111328125, 4430.49853515625, 3849.91162109375, 5385.98779296875],
+      "no_element": {
+        "bbox": [599.804443359375, 4476.19287109375, 716.7821655273438, 4599.44091796875],
+        "text": "50",
+        "category": "No"
+      },
+      "no_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_50_No.png",
+      "area_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_50_Area.png",
+      "options_element": {
+        "bbox": [1400, 4448.390625, 3860, 5400.767578125],
+        "text": "イ.\nロ.\nハ\nニ",
+        "category": "Options",
+        "options_dict": {
+          "イ": { "text": "", "image_paths": [] },
+          "ニ": { "text": "", "image_paths": [] },
+          "ハ": { "text": "", "image_paths": [] },
+          "ロ": { "text": "", "image_paths": [] }
+        }
+      },
+      "question_element": {
+        "bbox": [720, 4450, 1450, 4800],
+        "text": "20で示す図記号の電線管を モーターに接続するために 使用されるものは。",
+        "category": "Question"
+      },
+      "options_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_50_Options.png",
+      "options_image_type": "options",
+      "question_image_path": "/Users/shipro/Documents/CREATE_DATA2/20241027_co_second_q01/no_50_Question.png",
+      "question_image_type": "question"
+    }
+  ]
+}

@@ -10,7 +10,7 @@ import { transformImagePath } from '../utils/transformImagePath';
  * - JSON(Area)に保存されている text
  * を相互にコピー・保存するコンポーネント
  */
-const CorrectionDetail = forwardRef(({ area, areaIndex, onUpdateArea, propOptionCheckResult }, ref) => {
+const CorrectionDetail = forwardRef(({ area, areaIndex, onUpdateArea, propOptionCheckResult, onSplitResult }, ref) => {
     // === バウンディングボックス (質問/選択肢) ===
     const [boundingBoxes, setBoundingBoxes] = useState([]);
     const [optionBoundingBoxes, setOptionBoundingBoxes] = useState([]);
@@ -41,6 +41,8 @@ const CorrectionDetail = forwardRef(({ area, areaIndex, onUpdateArea, propOption
         // 1) 質問と選択肢の JSON テキストをリセット
         setQuestionJsonText(area.question_element?.text || '');
         setOptionsJsonText(area.options_element?.text || '');
+        setQuestionOcrText(area.question_element?.text || '');
+        setOptionsOcrText(area.options_element?.text || '');
         // 2) JSON内の options_dict をもとに optionCheckResult を初期化
         const existingDict = area.options_element?.options_dict;
         if (existingDict && Object.keys(existingDict).length > 0) {
@@ -283,6 +285,27 @@ const CorrectionDetail = forwardRef(({ area, areaIndex, onUpdateArea, propOption
         setMessage('Applied JSON text to OCR text (Options).');
     };
     // -----------------------------------------
+    // Split Options API 呼び出し (optionsOcrText を送信)
+    // -----------------------------------------
+    const handleSplitOptionsText = async () => {
+        setMessage('Splitting options text via /split_options/ ...');
+        try {
+            const resp = await axios.post('http://localhost:8000/ocr_app/api/split_options/', {
+                text: optionsOcrText, // ここでUI上の修正後テキストを送信
+            });
+            const data = resp.data; // { status, message, lines, duplicates, missing }
+            setOptionCheckResult(data);
+            if (onSplitResult) {
+                onSplitResult(data);
+            }
+            setMessage(`Split success: ${data.message ?? ''}`);
+        }
+        catch (err) {
+            console.error(err);
+            setMessage(`Split failed: ${err.message || String(err)}`);
+        }
+    };
+    // -----------------------------------------
     // 親(ManualCorrection) から呼べるメソッド (ref)
     // -----------------------------------------
     useImperativeHandle(ref, () => ({
@@ -290,12 +313,69 @@ const CorrectionDetail = forwardRef(({ area, areaIndex, onUpdateArea, propOption
         getQuestionOcrText: () => questionOcrText,
         getOptionsOcrText: () => optionsOcrText,
     }));
-    return (_jsxs("div", { style: { border: '1px solid #ccc', padding: '1rem' }, children: [_jsxs("p", { children: ["Area No: ", area.No] }), _jsxs("p", { children: ["Answer: ", area.answer] }), message && _jsx("p", { style: { color: 'blue' }, children: message }), questionImageUrl ? (_jsx("div", { style: { margin: '1rem 0' }, children: _jsx(ImageWithBoundingBoxes, { imageUrl: questionImageUrl, boundingBoxes: boundingBoxes, width: 800, height: 600 }) })) : (_jsx("p", { children: "No question image path found." })), _jsxs("div", { style: { marginTop: '1rem' }, children: [_jsx("h4", { children: "Question: OCR Normalized Text" }), _jsx("textarea", { rows: 4, cols: 60, value: questionOcrText, onChange: (e) => setQuestionOcrText(e.target.value) }), _jsx("br", {}), _jsx("button", { onClick: handleSaveQuestionOcr, disabled: !questionOcrId, children: "Save Question OCR" }), '  ', _jsx("button", { onClick: handleApplyOcrToQuestionJson, children: "Apply OCR \u2192 JSON" }), '  ', _jsx("button", { onClick: handleApplyJsonToQuestionOcr, children: "Apply JSON \u2192 OCR" })] }), _jsxs("div", { style: { marginTop: '1rem' }, children: [_jsx("h4", { children: "Question: JSON Text" }), _jsx("textarea", { rows: 4, cols: 60, value: questionJsonText, onChange: (e) => handleQuestionJsonChange(e.target.value) })] }), optionImageUrl ? (_jsx("div", { style: { margin: '1rem 0' }, children: _jsx(ImageWithBoundingBoxes, { imageUrl: optionImageUrl, boundingBoxes: optionBoundingBoxes, width: 800, height: 600 }) })) : (_jsx("p", { children: "No options image path found." })), _jsxs("div", { style: { marginTop: '1rem' }, children: [_jsx("h4", { children: "Options: OCR Normalized Text" }), _jsx("textarea", { rows: 4, cols: 60, value: optionsOcrText, onChange: (e) => setOptionsOcrText(e.target.value) }), _jsx("br", {}), _jsx("button", { onClick: handleSaveOptionsOcr, disabled: !optionsOcrId, children: "Save Options OCR" }), '  ', _jsx("button", { onClick: handleApplyOcrToOptionsJson, children: "Apply OCR \u2192 JSON" }), '  ', _jsx("button", { onClick: handleApplyJsonToOptionsOcr, children: "Apply JSON \u2192 OCR" })] }), _jsxs("div", { style: { marginTop: '1rem', backgroundColor: '#f9f9f9', padding: '1rem' }, children: [_jsx("h4", { children: "Options (Server Split Result): \u30A4 / \u30ED / \u30CF / \u30CB" }), !optionCheckResult ? (_jsx("p", { children: "No server-split or JSON-split result" })) : optionCheckResult.status === 'ok' || optionCheckResult.status === 'init' ? (_jsxs(_Fragment, { children: [_jsx("p", { style: { color: 'green' }, children: optionCheckResult.message }), Object.entries(optionCheckResult.lines)
-                                // イロハニの表示順をそろえる例 (任意)
+    return (_jsxs("div", { style: { padding: '1rem', border: '1px solid #ccc' }, children: [_jsxs("h3", { children: ["Correction Detail (Area: ", area.No, ")"] }), _jsxs("div", { style: { marginBottom: '1rem' }, children: [_jsx("h4", { children: "Question" }), _jsx("textarea", { style: {
+                            width: '100%',
+                            minHeight: '80px',
+                            marginBottom: '0.5rem',
+                            caretColor: 'black',
+                        }, value: questionOcrText, onChange: (e) => setQuestionOcrText(e.target.value) }), _jsx("br", {}), _jsx("button", { onClick: handleSaveQuestionOcr, disabled: !questionOcrId, style: {
+                            marginRight: '0.5rem',
+                            padding: '0.5rem 1rem',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                            cursor: 'pointer',
+                        }, children: "Save Question OCR" }), _jsx("button", { onClick: handleApplyOcrToQuestionJson, style: {
+                            marginRight: '0.5rem',
+                            padding: '0.5rem 1rem',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                            cursor: 'pointer',
+                        }, children: "Apply OCR \u2192 JSON" }), _jsx("button", { onClick: handleApplyJsonToQuestionOcr, style: {
+                            marginRight: '0.5rem',
+                            padding: '0.5rem 1rem',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                            cursor: 'pointer',
+                        }, children: "Apply JSON \u2192 OCR" })] }), _jsxs("div", { style: { marginTop: '1rem' }, children: [_jsx("h4", { children: "Question: JSON Text" }), _jsx("textarea", { rows: 4, cols: 60, value: questionJsonText, onChange: (e) => handleQuestionJsonChange(e.target.value) })] }), optionImageUrl ? (_jsx("div", { style: { margin: '1rem 0' }, children: _jsx(ImageWithBoundingBoxes, { imageUrl: optionImageUrl, boundingBoxes: optionBoundingBoxes, width: 800, height: 600 }) })) : (_jsx("p", { children: "No options image path found." })), _jsxs("div", { style: { marginTop: '1rem' }, children: [_jsx("h4", { children: "Options: OCR Normalized Text" }), _jsx("textarea", { rows: 4, cols: 60, style: {
+                            width: '100%',
+                            minHeight: '80px',
+                            marginBottom: '0.5rem',
+                            caretColor: 'black',
+                        }, value: optionsOcrText, onChange: (e) => setOptionsOcrText(e.target.value) }), _jsx("br", {}), _jsx("button", { onClick: handleSaveOptionsOcr, disabled: !optionsOcrId, style: {
+                            marginRight: '0.5rem',
+                            padding: '0.5rem 1rem',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                            cursor: 'pointer',
+                        }, children: "Save Options OCR" }), _jsx("button", { onClick: handleApplyOcrToOptionsJson, style: {
+                            marginRight: '0.5rem',
+                            padding: '0.5rem 1rem',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                            cursor: 'pointer',
+                        }, children: "Apply OCR \u2192 JSON" }), _jsx("button", { onClick: handleApplyJsonToOptionsOcr, style: {
+                            marginRight: '0.5rem',
+                            padding: '0.5rem 1rem',
+                            border: '1px solid #ccc',
+                            borderRadius: '4px',
+                            cursor: 'pointer',
+                        }, children: "Apply JSON \u2192 OCR" })] }), _jsx("div", { style: { marginTop: '1rem' }, children: _jsx("button", { onClick: handleSplitOptionsText, style: {
+                        marginRight: '0.5rem',
+                        padding: '0.5rem 1rem',
+                        border: '1px solid #ccc',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                    }, children: "Split Options Text (Call /split_options/)" }) }), _jsxs("div", { style: { marginTop: '1rem', backgroundColor: '#f9f9f9', padding: '1rem' }, children: [_jsx("h4", { children: "Options (Server Split Result): \u30A4 / \u30ED / \u30CF / \u30CB" }), !optionCheckResult ? (_jsx("p", { children: "No server-split or JSON-split result" })) : optionCheckResult.status === 'ok' || optionCheckResult.status === 'init' ? (_jsxs(_Fragment, { children: [_jsx("p", { style: { color: 'green' }, children: optionCheckResult.message }), Object.entries(optionCheckResult.lines)
                                 .sort(([a], [b]) => {
                                 const order = ['イ', 'ロ', 'ハ', 'ニ'];
                                 return order.indexOf(a) - order.indexOf(b);
                             })
-                                .map(([key, val]) => (_jsxs("div", { style: { marginBottom: '0.5rem' }, children: [_jsxs("h5", { style: { margin: 0 }, children: ["Key: ", key] }), _jsx("pre", { style: { whiteSpace: 'pre-wrap', marginTop: '4px' }, children: val })] }, key)))] })) : (_jsxs(_Fragment, { children: [_jsx("p", { style: { color: 'red' }, children: optionCheckResult.message }), _jsxs("ul", { children: [optionCheckResult.duplicates?.length > 0 && (_jsxs("li", { children: ["Duplicates: ", optionCheckResult.duplicates.join(',')] })), optionCheckResult.missing?.length > 0 && (_jsxs("li", { children: ["Missing: ", optionCheckResult.missing.join(',')] }))] })] }))] }), _jsxs("div", { style: { marginTop: '1rem' }, children: [_jsx("h4", { children: "Options: JSON Text" }), _jsx("textarea", { rows: 4, cols: 60, value: optionsJsonText, onChange: (e) => handleOptionsJsonChange(e.target.value) })] }), _jsx("div", { style: { marginTop: '1.5rem' }, children: _jsx("button", { onClick: handleSaveAllOcr, children: "Save All OCR (Only)" }) })] }));
+                                .map(([key, val]) => (_jsxs("div", { style: { marginBottom: '0.5rem' }, children: [_jsxs("h5", { style: { margin: 0 }, children: ["Key: ", key] }), _jsx("pre", { style: { whiteSpace: 'pre-wrap', marginTop: '4px' }, children: val })] }, key)))] })) : (_jsxs(_Fragment, { children: [_jsx("p", { style: { color: 'red' }, children: optionCheckResult.message }), _jsxs("ul", { children: [optionCheckResult.duplicates?.length > 0 && (_jsxs("li", { children: ["Duplicates: ", optionCheckResult.duplicates.join(',')] })), optionCheckResult.missing?.length > 0 && (_jsxs("li", { children: ["Missing: ", optionCheckResult.missing.join(',')] }))] })] }))] }), _jsxs("div", { style: { marginTop: '1rem' }, children: [_jsx("h4", { children: "Options: JSON Text" }), _jsx("textarea", { rows: 4, cols: 60, value: optionsJsonText, onChange: (e) => handleOptionsJsonChange(e.target.value) })] }), _jsx("div", { style: { marginTop: '1.5rem' }, children: _jsx("button", { onClick: handleSaveAllOcr, style: {
+                        marginRight: '0.5rem',
+                        padding: '0.5rem 1rem',
+                        border: '1px solid #ccc',
+                        borderRadius: '4px',
+                        cursor: 'pointer',
+                    }, children: "Save All OCR (Only)" }) })] }));
 });
 export default CorrectionDetail;

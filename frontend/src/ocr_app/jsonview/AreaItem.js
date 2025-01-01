@@ -3,6 +3,7 @@ import { jsxs as _jsxs, jsx as _jsx } from "react/jsx-runtime";
 import { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { JsonDataContext } from '../Context/JsonDataContext';
+import './AreaItem.css';
 const AreaItem = ({ areaIndex }) => {
     // Context から選択中のJSONデータを取得
     const { selectedJsonData } = useContext(JsonDataContext);
@@ -32,17 +33,11 @@ const AreaItem = ({ areaIndex }) => {
             : [];
     const optionsImagePaths = (() => {
         // (A) まず、options_dict から取得
-        const dict = area.options_element?.options_dict;
+        const dict = area.options_element?.options_dict || {};
         const fromDict = dict
             ? Object.values(dict).flatMap((entry) => entry?.image_paths || [])
             : [];
-        // (B) 従来の area.options_image_paths / area.options_image_path も拾う        +   //     必要なければスキップしてもOK
-        let fromLegacy = [];
-        if (area.options_image_paths && area.options_image_paths.length > 0) {
-            fromLegacy = area.options_image_paths;
-        }
-        // (C) 合算 (Dict優先 or 全部まとめたい場合は concat)
-        return [...fromDict, ...fromLegacy];
+        return Object.values(dict).flatMap((entry) => entry.image_paths || []);
     })();
     // OCR結果を取得して State に反映
     const fetchOCRResult = async (imagePath, setStatus, setFullText) => {
@@ -79,9 +74,9 @@ const AreaItem = ({ areaIndex }) => {
     return (_jsxs("div", { style: { border: '1px solid #ddd', padding: '0.5rem', marginBottom: '0.5rem' }, children: [_jsxs("h4", { children: ["Area No: ", area.No] }), area.area_image_path && (_jsx("div", { style: { margin: '8px 0' }, children: _jsx("img", { src: convertToMediaUrl(area.area_image_path), alt: `Area image`, style: { maxWidth: '100%', border: '1px solid #ccc' } }) })), _jsxs("p", { children: ["Answer: ", area.answer] }), _jsxs("p", { children: [_jsx("strong", { children: "Question text:" }), " ", area.question_element?.text ?? ''] }), questionImagePaths.length > 0 && (_jsx("div", { style: { display: 'flex', flexWrap: 'wrap', gap: '8px', margin: '8px 0' }, children: questionImagePaths.map((path, idx) => {
                     const qImgUrl = Array.isArray(path) ? convertToMediaUrl(path[0]) : convertToMediaUrl(path);
                     return (_jsx("img", { src: qImgUrl, alt: `Question image ${idx}`, style: { border: '1px solid #ccc' } }, `qimg-${idx}`));
-                }) })), _jsx("hr", {}), _jsxs("p", { children: [_jsx("strong", { children: "Options text:" }), " ", area.options_element?.text ?? ''] }), optionsImagePaths.length > 0 && (_jsx("div", { style: { display: 'flex', flexWrap: 'wrap', gap: '8px', margin: '8px 0' }, children: optionsImagePaths.map((path, idx) => {
+                }) })), _jsx("hr", {}), _jsxs("p", { children: [_jsx("strong", { children: "Options text:" }), " ", area.options_element?.text ?? ''] }), _jsxs("p", { children: [_jsx("strong", { children: "Options text:" }), " ", area.options_element?.text ?? ''] }), area.options_element?.options_dict && (_jsxs("div", { children: [_jsx("strong", { children: "\u9078\u629E\u80A2:" }), _jsx("ul", { children: Object.entries(area.options_element.options_dict).map(([key, value]) => (_jsxs("li", { children: [key, ". ", value.text] }, key))) })] })), optionsImagePaths.length > 0 && (_jsx("div", { style: { display: 'flex', flexWrap: 'wrap', gap: '8px', margin: '8px 0' }, children: optionsImagePaths.map((path, idx) => {
                     const oImgUrl = convertToMediaUrl(path);
                     return (_jsx("img", { src: oImgUrl, alt: `Options image ${idx}`, style: { border: '1px solid #ccc' } }, `oimg-${idx}`));
-                }) })), _jsxs("p", { children: [_jsx("strong", { children: "Options OCR Status:" }), " ", optionsOcrStatus, ' ', optionsOcrStatus === 'done' && (_jsxs("span", { children: [_jsx("br", {}), _jsx("strong", { children: "Options Full Text:" }), " ", optionsFullText] }))] })] }));
+                }) })), _jsx("hr", {}), _jsxs("p", { children: [_jsx("strong", { children: "Options OCR Status:" }), " ", optionsOcrStatus, ' ', optionsOcrStatus === 'done' && (_jsxs("span", { children: [_jsx("br", {}), _jsx("strong", { children: "Options Full Text:" }), " ", optionsFullText] }))] })] }));
 };
 export default AreaItem;

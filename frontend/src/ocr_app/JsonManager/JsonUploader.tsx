@@ -1,7 +1,7 @@
 // src/ocr_app/jsonmanager/JsonUploader.tsx
-import React, { useState } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
-
+import { JsonDataContext } from '../Context/JsonDataContext';
 /**
  * 新規JSONファイルをアップロード (multipart/form-data) + optional OCR
  */
@@ -10,9 +10,22 @@ const JsonUploader: React.FC = () => {
   const [description, setDescription] = useState('');
   const [performOCR, setPerformOCR] = useState(false);
   const [message, setMessage] = useState('');
+  const { setSelectedJsonId } = useContext(JsonDataContext);
+
+  useEffect(() => {
+    if (description) {
+      setMessage(`Description set to: ${description}`);
+    }
+  }, [description]);
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSelectedFile(e.target.files?.[0] || null);
+    if (e.target.files && e.target.files.length > 0) {
+      const file = e.target.files[0];
+      const directory_name = file.webkitRelativePath.split('/').slice(0, -1).join('/');
+      setDescription(directory_name);
+      console.log(directory_name);
+    }
   };
 
   const handleUpload = async () => {
@@ -29,7 +42,7 @@ const JsonUploader: React.FC = () => {
       formData.append('perform_ocr', performOCR ? 'true' : 'false');
 
       const response = await axios.post(
-        'http://localhost:8000/ocr_app/api/import_json/', // or /input_json/ if that's the actual URL
+        'http://localhost:8000/ocr_app/api/import_json/',
         formData,
         {
           headers: { 'Content-Type': 'multipart/form-data' }
@@ -37,6 +50,7 @@ const JsonUploader: React.FC = () => {
       );
 
       setMessage(`Success: ${JSON.stringify(response.data)}`);
+      setSelectedJsonId(response.data.json_id);
     } catch (error: any) {
       console.error(error);
       setMessage(`Failed: ${error.message || String(error)}`);

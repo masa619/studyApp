@@ -10,12 +10,15 @@ export const JsonDataContext = createContext({
     error: '',
     setSelectedJsonId: () => { },
     fetchJsonDetail: async () => { },
+    setSelectedAreaIndex: () => { },
+    selectedAreaIndex: null,
 });
 export const JsonDataProvider = ({ children }) => {
     const [selectedJsonId, setSelectedJsonId] = useState(null);
     const [selectedJsonData, setSelectedJsonData] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
+    const [selectedAreaIndex, setSelectedAreaIndex] = useState(null);
     /**
      * 指定されたIDのJSON詳細を取得
      */
@@ -62,5 +65,7 @@ export const JsonDataProvider = ({ children }) => {
             setSelectedJsonId,
             fetchJsonDetail,
             setSelectedJsonData,
+            setSelectedAreaIndex,
+            selectedAreaIndex,
         }, children: children }));
 };

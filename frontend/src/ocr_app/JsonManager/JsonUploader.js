@@ -1,7 +1,8 @@
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 // src/ocr_app/jsonmanager/JsonUploader.tsx
-import { useState } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import axios from 'axios';
+import { JsonDataContext } from '../Context/JsonDataContext';
 /**
  * 新規JSONファイルをアップロード (multipart/form-data) + optional OCR
  */
@@ -10,8 +11,20 @@ const JsonUploader = () => {
     const [description, setDescription] = useState('');
     const [performOCR, setPerformOCR] = useState(false);
     const [message, setMessage] = useState('');
+    const { setSelectedJsonId } = useContext(JsonDataContext);
+    useEffect(() => {
+        if (description) {
+            setMessage(`Description set to: ${description}`);
+        }
+    }, [description]);
     const handleFileChange = (e) => {
         setSelectedFile(e.target.files?.[0] || null);
+        if (e.target.files && e.target.files.length > 0) {
+            const file = e.target.files[0];
+            const directory_name = file.webkitRelativePath.split('/').slice(0, -1).join('/');
+            setDescription(directory_name);
+            console.log(directory_name);
+        }
     };
     const handleUpload = async () => {
         if (!selectedFile) {
@@ -24,11 +37,11 @@ const JsonUploader = () => {
             formData.append('file', selectedFile);
             formData.append('description', description);
             formData.append('perform_ocr', performOCR ? 'true' : 'false');
-            const response = await axios.post('http://localhost:8000/ocr_app/api/import_json/', // or /input_json/ if that's the actual URL
-            formData, {
+            const response = await axios.post('http://localhost:8000/ocr_app/api/import_json/', formData, {
                 headers: { 'Content-Type': 'multipart/form-data' }
             });
             setMessage(`Success: ${JSON.stringify(response.data)}`);
+            setSelectedJsonId(response.data.json_id);
         }
         catch (error) {
             console.error(error);

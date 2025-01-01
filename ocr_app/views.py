@@ -20,6 +20,7 @@ import numpy as np
 import base64
 
 from .scripts.ocr_code import convert_absolute_to_relative, unified_ocr_process
+from .scripts.option_splitter import split_options_by_iroha
 # -------------------------------------------------------
 # Utility function for Google Vision API image OCR
 # -------------------------------------------------------
@@ -77,6 +78,10 @@ class ImportJsonView(APIView):
             if isinstance(original_json_data, list):
                 for page_obj in original_json_data:
                     page_areas = page_obj.get('areas', [])
+                    for area_obj in page_areas:
+                        # area_idを削除
+                        if 'area_id' in area_obj:
+                            del area_obj['area_id']
                     flattened_areas.extend(page_areas)
             else:
                 return Response({'detail': 'Expected a list of pages'}, status=400)
@@ -232,7 +237,7 @@ class InputJSONView(APIView):
             input_json_obj.description = description
         if new_json_data is not None:
             input_json_obj.json_data = new_json_data
-
+        
         input_json_obj.save()
 
         # 必要なら、このタイミングで改めてOCRを再実行するなどの処理を挿入
@@ -421,7 +426,6 @@ def detect_bounding_box_api(request):
     expand_uniformly = str(data.get("expand_uniformly", "false")).lower() == "true"
     expand_margin = int(data.get("expand_margin", 50))
 
-    print("expand_uniformly", expand_uniformly)
     # (A) 画像読込
     img = None
     image_path = data.get("image_path")
@@ -489,9 +493,8 @@ def upload_cropped_image_api(request):
     original_image_path = request.data.get("original_image_path")
     selected_image_type = request.data.get("selected_image_type", "question")  # "question" or "options"
     json_id = request.data.get("json_id")
-    area_id = request.data.get("area_id")
+    No = request.data.get("No")
     label_name = request.data.get("label_name", "1")
-    no_number = request.data.get("no_number")
     cropped_image_base64 = request.data.get("cropped_image_base64")
     action = request.data.get("action", "add")  # "add" or "delete"
     delete_filename = request.data.get("delete_filename", None)
@@ -501,8 +504,9 @@ def upload_cropped_image_api(request):
 
     if not json_id:
         return Response({"detail": "json_id not provided"}, status=400)
-    if not area_id or not no_number:
-        return Response({"detail": "area_id or no_number not provided"}, status=400)
+    if not No :
+        print(No, "No does not provided")
+        return Response({"detail": "No does not provided"}, status=400)
 
     # "delete" の場合
     if action == "delete":
@@ -521,10 +525,10 @@ def upload_cropped_image_api(request):
     json_data = input_json_obj.json_data or {}
     areas = json_data.get("areas", [])
 
-    area = next((a for a in areas if str(a.get("area_id")) == str(area_id)), None)
+    area = next((a for a in areas if str(a.get("No")) == str(No)), None)
     if not area:
         return Response(
-            {"detail": f"Area with area_id={area_id} not found in JSON"},
+            {"detail": f"Area with No={No} not found in JSON"},
             status=status.HTTP_404_NOT_FOUND
         )
 
@@ -605,7 +609,7 @@ def upload_cropped_image_api(request):
         base_dir = os.path.dirname(fixed_path)
 
         # ファイル名生成
-        new_filename = f"no_{no_number}_{selected_image_type}_image_{label_name}.png"
+        new_filename = f"no_{No}_{selected_image_type}_image_{label_name}.png"
         new_file_path = os.path.join(base_dir, new_filename)
 
         # デコード
@@ -654,3 +658,32 @@ def upload_cropped_image_api(request):
         },
         status=200
     )
+
+# -------------------------------------------------------
+# Split Options by Iroha API
+# -------------------------------------------------------
+@api_view(['POST'])
+def split_options_api(request):
+    """
+    POST /ocr_app/api/split_options/
+    リクエストボディ:
+    {
+      "text": "イ. xxx\nロ. yyy\nハ. zzz\nニ. www"
+    }
+    レスポンス:
+    {
+      "status": "ok" or "error",
+      "message": "...",
+      "lines": {
+         "イ": "(本文...)",
+         "ロ": "(本文...)",
+         "ハ": "(本文...)",
+         "ニ": "(本文...)",
+      },
+      "duplicates": [],
+      "missing": [],
+    }
+    """
+    text = request.data.get('text', '')
+    result = split_options_by_iroha(text)
+    return Response(result, status=status.HTTP_200_OK)

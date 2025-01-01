@@ -1,17 +1,24 @@
-import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
+import { jsx as _jsx, Fragment as _Fragment, jsxs as _jsxs } from "react/jsx-runtime";
 // src/ocr_app/konva/components/SingleCroppedImagePreview.tsx
 import { useState, useRef, useCallback, useEffect } from 'react';
-const SingleCroppedImagePreview = ({ cropItem, scale = 1, children }) => {
+import { TextField, IconButton } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
+const SingleCroppedImagePreview = ({ cropItem, scale = 1, children, onLabelChange }) => {
     // 「サーバーで処理後の画像」があればそれを優先、それが無ければフロントのdataUrlを使う
     const finalSrc = cropItem.serverCroppedBase64
         ? `data:image/png;base64,${cropItem.serverCroppedBase64}`
         : cropItem.dataUrl;
     const imgRef = useRef(null);
+    const [label, setLabel] = useState(cropItem.label);
     const [naturalSize, setNaturalSize] = useState({ width: 0, height: 0 });
     const [selectedKey, setSelectedKey] = useState(cropItem.selectedIrohaKey || '');
-    // serverSavedPathなども表示するなら拡張可能
     const filteredBoxes = (cropItem.boundingBoxes || []).filter((bb) => bb.label !== 'final_box');
     const [boxStates, setBoxStates] = useState(() => filteredBoxes.map((bb) => ({ ...bb, isVisible: true })));
+    // ラベル編集用の状態
+    const [isEditing, setIsEditing] = useState(false);
+    const [editingLabel, setEditingLabel] = useState(cropItem.label);
     useEffect(() => {
         setSelectedKey(cropItem.selectedIrohaKey || '');
     }, [cropItem.selectedIrohaKey]);
@@ -33,12 +40,42 @@ const SingleCroppedImagePreview = ({ cropItem, scale = 1, children }) => {
             return box;
         }));
     }, []);
+    const handleLabelChange = (e) => {
+        const newVal = e.target.value;
+        setLabel(newVal);
+        // 親にラベル変更を通知し、親側の cropItem.label も更新しておく
+        if (onLabelChange) {
+            onLabelChange(newVal);
+        }
+    };
     // boundingBoxes が変われば再初期化
     useEffect(() => {
         setBoxStates(filteredBoxes.map((bb) => ({ ...bb, isVisible: true })));
     }, [cropItem.boundingBoxes]);
     const expandMargin = cropItem.expandMargin ?? 0;
-    return (_jsxs("div", { style: { border: '1px solid #ccc', padding: '0.5rem', display: 'inline-block' }, children: [_jsx("div", { style: { fontWeight: 'bold', marginBottom: '0.25rem' }, children: cropItem.label }), _jsxs("div", { style: { marginBottom: '0.5rem' }, children: [_jsx("label", { children: "\u9078\u629E\u30AD\u30FC: " }), _jsxs("select", { value: selectedKey, onChange: handleSelectChange, style: { marginLeft: '4px' }, children: [_jsx("option", { value: "", children: "(\u9078\u629E\u306A\u3057)" }), _jsx("option", { value: "\u30A4", children: "\u30A4" }), _jsx("option", { value: "\u30ED", children: "\u30ED" }), _jsx("option", { value: "\u30CF", children: "\u30CF" }), _jsx("option", { value: "\u30CB", children: "\u30CB" })] })] }), boxStates.length > 0 && (_jsx("div", { style: { marginBottom: '0.5rem' }, children: boxStates.map((box, idx) => (_jsxs("button", { onClick: () => toggleBoxVisibility(idx), style: {
+    // ラベル編集の確定
+    const handleLabelSubmit = () => {
+        if (onLabelChange) {
+            onLabelChange(editingLabel);
+        }
+        setIsEditing(false);
+    };
+    // ラベル編集のキャンセル
+    const handleLabelCancel = () => {
+        setEditingLabel(cropItem.label);
+        setIsEditing(false);
+    };
+    return (_jsxs("div", { style: { border: '1px solid #ccc', padding: '0.5rem', display: 'inline-block' }, children: [_jsx("div", { style: {
+                    fontWeight: 'bold',
+                    marginBottom: '0.25rem',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem'
+                }, children: isEditing ? (_jsxs(_Fragment, { children: [_jsx(TextField, { size: "small", value: editingLabel, onChange: (e) => setEditingLabel(e.target.value), onKeyPress: (e) => {
+                                if (e.key === 'Enter') {
+                                    handleLabelSubmit();
+                                }
+                            }, autoFocus: true }), _jsx(IconButton, { size: "small", onClick: handleLabelSubmit, children: _jsx(CheckIcon, {}) }), _jsx(IconButton, { size: "small", onClick: handleLabelCancel, children: _jsx(CloseIcon, {}) })] })) : (_jsxs(_Fragment, { children: [cropItem.label, _jsx(IconButton, { size: "small", onClick: () => setIsEditing(true), children: _jsx(EditIcon, {}) })] })) }), _jsxs("div", { style: { marginBottom: '0.5rem' }, children: [_jsx("label", { children: "\u9078\u629E\u30AD\u30FC: " }), _jsxs("select", { value: selectedKey, onChange: handleSelectChange, style: { marginLeft: '4px' }, children: [_jsx("option", { value: "", children: "(\u9078\u629E\u306A\u3057)" }), _jsx("option", { value: "\u30A4", children: "\u30A4" }), _jsx("option", { value: "\u30ED", children: "\u30ED" }), _jsx("option", { value: "\u30CF", children: "\u30CF" }), _jsx("option", { value: "\u30CB", children: "\u30CB" })] })] }), boxStates.length > 0 && (_jsx("div", { style: { marginBottom: '0.5rem' }, children: boxStates.map((box, idx) => (_jsxs("button", { onClick: () => toggleBoxVisibility(idx), style: {
                         marginRight: '0.5rem',
                         cursor: 'pointer',
                         backgroundColor: box.isVisible ? '#e0f7fa' : '#ffe0e0',

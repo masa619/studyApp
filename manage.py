@@ -13,7 +13,7 @@ def main():
         load_dotenv()  # 本番環境の.envを読み込む
 
     # 環境変数が設定されていない場合は開発環境をデフォルトとする
-    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'studyapp.settings.development')
+    os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'studyapp.config.settings.development')
 
     try:
         from django.core.management import execute_from_command_line

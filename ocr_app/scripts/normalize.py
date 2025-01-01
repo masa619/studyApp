@@ -10,7 +10,10 @@ def normalize_question_text(text: str) -> str:
     """
     # 自由に拡張
     text = text.replace('\r', ' ').replace('\n', ' ')
+    text = text.replace('、', '、')
+    text = text.replace(',', '、')
     text = text.strip()
+    text.replace(' ', '')
     return text
 
 def normalize_options_text(text: str) -> str:
@@ -32,16 +35,13 @@ def normalize_options_text(text: str) -> str:
             line = "ロ" + line[1:]
         elif line.startswith("ﾊ"):
             line = "ハ" + line[1:]
-        elif line.startswith("ﾆ"):
+        elif line.startswith("ﾆ") or line.startswith("二") or line.startswith("二") or line.startswith("="):
             line = "ニ" + line[1:]
-        # 先頭文字が "二" や "=" なら "ニ" に直す
-        elif line.startswith("二") or line.startswith("="):
-            line = "ニ" + line[1:]
-        # 漢字の置換
-        elif line.startswith("口") or line.startswith("ロ"):
+        elif line.startswith("口") or line.startswith("ロ") or line.startswith("□"):
             line = "ロ" + line[1:]
-        elif line.startswith("二"):
-            line = "ニ" + line[1:]
+        line = line.replace('、', '、')
+        line = line.replace(',', '、')
+        line = line.replace(' ', '')
         replaced_lines.append(line)
 
     # 改行でまとめて返す例

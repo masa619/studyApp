@@ -1,15 +1,11 @@
 // src/ocr_app/correction/ManualCorrection.tsx
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 import { InputJSONData, Area } from '../types';
 import ImageSelector from './ImageSelector';
 import CorrectionDetail from './CorrectionDetail';
-
-interface ManualCorrectionProps {
-  jsonId: number;
-  jsonData: InputJSONData; // { id, description, json_data: { areas: Area[] } }
-}
+import { JsonDataContext } from '../Context/JsonDataContext';
 /**
  * ManualCorrection コンポーネント:
  * - 左ペイン: Area一覧 (ImageSelector)
@@ -17,14 +13,12 @@ interface ManualCorrectionProps {
  * - "Run OCR" ボタン でサーバーに対し /api/trigger_ocr(mode=single) を呼ぶ
  * - "Save All Changes" ボタン で JSON を PUT 更新
  */
-const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData }) => {
-  // ローカルで編集するためのState
-  const [localData, setLocalData] = useState<InputJSONData>(jsonData);
-
-  // 選択中のAreaのインデックス
-  const [selectedAreaIndex, setSelectedAreaIndex] = useState(0);
-
-  // ステータスメッセージ (画面上部に表示)
+const ManualCorrection: React.FC = () => {
+  // JSONContextから状態を取得
+  const { selectedJsonId, selectedJsonData, setSelectedAreaIndex, selectedAreaIndex } = useContext(JsonDataContext);
+  const [jsonData, setJsonData] = useState<InputJSONData>(selectedJsonData || {id:0, description:"", json_data:{areas:[]}});
+  const [jsonId, setJsonId] = useState<number>(selectedJsonId || 0);
+  
   const [message, setMessage] = useState('');
 
   // CorrectionDetail ref
@@ -36,14 +30,14 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
 
   // jsonData が切り替わったら初期化
   useEffect(() => {
-    setLocalData(jsonData);
+    setJsonData(selectedJsonData || {id:0, description:"", json_data:{areas:[]}});
     setMessage('');
-    setSelectedAreaIndex(0);
-  }, [jsonData]);
+    setOptionCheckResult(null);
+  }, [selectedJsonData]);
 
   // areas配列を直接取得
-  const areaList = localData.json_data?.areas || [];
-  const currentArea: Area | undefined = areaList[selectedAreaIndex];
+  const areaList = jsonData.json_data?.areas || [];
+  const currentArea: Area | undefined = areaList[selectedAreaIndex || 0];
 
   // 選択肢の分割結果を保持するState
   const [optionCheckResult, setOptionCheckResult] = useState<any>(null);
@@ -51,15 +45,16 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
   // 左ペインでAreaを選択
   const handleSelectArea = (idx: number) => {
     setSelectedAreaIndex(idx);
+    setOptionCheckResult(null);
   };
 
   // 選択中のAreaオブジェクトを更新
   const handleUpdateArea = (updatedArea: Area, areaIndex: number) => {
-    const updated = { ...localData };
+    const updated = { ...jsonData };
     const newAreas = [...(updated.json_data.areas || [])];
     newAreas[areaIndex] = updatedArea;
     updated.json_data.areas = newAreas;
-    setLocalData(updated);
+    setJsonData(updated);
   };
 
   /**
@@ -142,9 +137,9 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
       console.log("qText", qText);
 
       if (currentArea) {
-        const updatedLocalData = { ...localData };
+        const updatedLocalData = { ...jsonData };
         const newAreas = [...updatedLocalData.json_data.areas];
-        const targetArea = { ...newAreas[selectedAreaIndex] };
+        const targetArea = { ...newAreas[selectedAreaIndex || 0] };
 
         // JSON の question_element / options_element を上書き
         targetArea.question_element.text = qText;
@@ -164,14 +159,14 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
           targetArea.options_element.options_dict = odict;
         }
         // ▲▲▲▲▲▲
-        newAreas[selectedAreaIndex] = targetArea;
+        newAreas[selectedAreaIndex || 0] = targetArea;
         updatedLocalData.json_data.areas = newAreas;
-        setLocalData(updatedLocalData);
+        setJsonData(updatedLocalData);
 
         // (C) JSONをPUT更新
         const payload = {
           json_id: jsonId,
-          area_id: currentArea.area_id,
+          No: currentArea.No,
           description: updatedLocalData.description,
           json_data: {
             areas: updatedLocalData.json_data.areas,
@@ -225,7 +220,7 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
       <div style={{ width: '220px', borderRight: '1px solid #ccc' }}>
         <ImageSelector
           areaList={areaList}
-          selectedAreaIndex={selectedAreaIndex}
+          selectedAreaIndex={selectedAreaIndex || 0}
           onSelectArea={handleSelectArea}
         />
       </div>
@@ -272,9 +267,12 @@ const ManualCorrection: React.FC<ManualCorrectionProps> = ({ jsonId, jsonData })
             <CorrectionDetail
               ref={correctionDetailRef}
               area={currentArea}
-              areaIndex={selectedAreaIndex}
+              areaIndex={selectedAreaIndex || 0}
               onUpdateArea={handleUpdateArea}
               propOptionCheckResult={optionCheckResult}
+              onSplitResult={(result) => {
+                setOptionCheckResult(result);
+              }}
             />
 
             {/* 一括保存ボタン */}

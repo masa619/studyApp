@@ -9,6 +9,8 @@ export interface JsonDataContextType {
   setSelectedJsonId: (id: number | null) => void;
   fetchJsonDetail: (id: number) => Promise<void>;
   setSelectedJsonData?: Dispatch<SetStateAction<InputJSONData | null>>;
+  setSelectedAreaIndex: (index: number | null) => void;
+  selectedAreaIndex: number | null;
 }
 
 // 各要素のインターフェース
@@ -28,23 +30,24 @@ export interface OptionsElement extends Element {
     image_paths: string[];
   }>;
 }
+export interface OptionDictItem {
+  text: string;
+  image_paths: string[];
+}
 
 export interface Area {
   No: string;
   answer: string;
-  area_id: number;
   area_bbox: number[];
-
   no_element: NoElement;
   question_element: QuestionElement;
   options_element: OptionsElement;
-
   area_image_path: string;
   no_image_path: string;
   question_image_path: string;
   options_image_path: string;
-  question_image_paths: string[];
-  options_image_paths: string[];
+  question_image_type?: string;
+  options_image_type?: string;
 }
 // フロント側では「areas」をトップレベルで扱う形に修正
 export interface InputJSONData {

@@ -47,6 +47,7 @@ export function useRectController(
   optionsImageFullPath?: string,
   selectedImageType?: 'Question' | 'Options',
   currentArea?: Area,
+  expandMargin: number = 50,
 ) {
   const { selectedJsonId, setSelectedJsonData } = useContext(JsonDataContext);
 
@@ -56,24 +57,103 @@ export function useRectController(
   const [rects, setRects] = useState<DrawnRect[]>([]);
   const [croppedImages, setCroppedImages] = useState<CroppedImage[]>([]);
 
-  // ラベル用
-  const labelCounterRef = useRef<number>(1);
+  // “今のArea.No” を記憶しておいて、Area or ImageType が切り替わったらリセット
+  const currentAreaNoRef = useRef<string | undefined>(undefined);
+  const prevSelectedImageTypeRef = useRef<'Question' | 'Options' | undefined>(undefined);
 
-  // イロハニ管理
+  // 「未アップロードでも一度付与したファイル名」を保持するリファレンス
+  // これがないと、JSON未保存の状態で同じファイル名が再度割り当たる可能性がある
+  const usedFilenamesRef = useRef<string[]>([]);
+
+  // イロハニ管理（Options用）
   const irohaKeys = ['イ', 'ロ', 'ハ', 'ニ'];
   const irohaIndexRef = useRef<number>(0);
 
-  // ---- (1) currentArea が変わったら必要に応じて初期化 ----
+  // =========================================================================
+  // (A) 切り替え時にリセット
+  // =========================================================================
   useEffect(() => {
-    if (!currentArea) return;
-    // 必要なら初期化処理
-    // setRects([]);
-    // setCroppedImages([]);
-    // labelCounterRef.current = 1;
-    // irohaIndexRef.current = 0;
-  }, [currentArea]);
+    const newAreaNo = currentArea?.No?.toString();
+    const newType = selectedImageType;
+    if (
+      currentAreaNoRef.current === newAreaNo &&
+      prevSelectedImageTypeRef.current === newType
+    ) {
+      // 同じエリア・タイプなら何もしない
+      return;
+    }
+    // 異なるエリア or イメージ種別 => 状態をリセット
+    setRects([]);
+    setCroppedImages([]);
+    usedFilenamesRef.current = [];
+    irohaIndexRef.current = 0;
 
-  // ---- (2) MouseDown ----
+    currentAreaNoRef.current = newAreaNo;
+    prevSelectedImageTypeRef.current = newType;
+  }, [currentArea, selectedImageType]);
+
+  // =========================================================================
+  // (B) JSONに存在するファイル名 + これまで割り当てたファイル名 をまとめて返す
+  // =========================================================================
+  const getExistingFilenames = useCallback((): string[] => {
+    if (!currentArea) return [];
+
+    let fromJson: string[] = [];
+    const areaNo = currentArea.No?.toString().padStart(1, '0') || '1';
+
+    if (selectedImageType === 'Question') {
+      // question_element.image_paths[]
+      fromJson = (currentArea.question_element?.image_paths || []).map((p) => {
+        const fname = p.split('/').pop() || '';
+        // no_1_question_image_1.png から image_1 を抽出
+        const match = fname.match(/no_\d+_question_image_(\d+)\.png$/);
+        return match ? `image_${match[1]}` : '';
+      }).filter(Boolean);
+    } else {
+      // Options => 全option_dictの image_paths を集約
+      const dict = currentArea.options_element?.options_dict || {};
+      const allPaths: string[] = [];
+      Object.values(dict).forEach((opt: any) => {
+        (opt.image_paths || []).forEach((pp: string) => {
+          const fname = pp.split('/').pop() || '';
+          // no_1_options_image_1.png から image_1 を抽出
+          const match = fname.match(/no_\d+_options_image_(\d+)\.png$/);
+          if (match) allPaths.push(`image_${match[1]}`);
+        });
+      });
+      fromJson = allPaths;
+    }
+
+    console.log('Existing filenames:', fromJson); // デバッグログ
+    // JSON上にあるファイル名 + ローカルセッション中に割り当てたファイル名
+    return [...fromJson, ...usedFilenamesRef.current];
+  }, [currentArea, selectedImageType]);
+
+  // =========================================================================
+  // (C) 次のファイル名: “image_番号” の最大 + 1
+  // =========================================================================
+  const getNextFilename = useCallback(
+    (existingFilenames: string[]): string => {
+      // 例: "image_2" => match[1] = "2"
+      const regex = /^image_(\d+)$/;
+      let maxNum = 0;
+      for (const fn of existingFilenames) {
+        const m = fn.match(regex);
+        if (m) {
+          const num = parseInt(m[1], 10);
+          if (num > maxNum) {
+            maxNum = num;
+          }
+        }
+      }
+      return `image_${maxNum + 1}`;
+    },
+    []
+  );
+
+  // =========================================================================
+  // (1) handleMouseDown
+  // =========================================================================
   const handleMouseDown = useCallback((e: KonvaEventObject<MouseEvent>) => {
     const stage = e.target.getStage();
     if (!stage) return;
@@ -84,7 +164,9 @@ export function useRectController(
     setNewRect(null);
   }, []);
 
-  // ---- (3) MouseMove ----
+  // =========================================================================
+  // (2) handleMouseMove
+  // =========================================================================
   const handleMouseMove = useCallback(
     (e: KonvaEventObject<MouseEvent>) => {
       if (!startPos) return;
@@ -104,135 +186,166 @@ export function useRectController(
     [startPos]
   );
 
-  // ---- (4) MouseUp => 矩形確定 ----
+  // =========================================================================
+  // (3) handleMouseUp => 矩形確定 + 連番ラベル
+  // =========================================================================
   const handleMouseUp = useCallback(() => {
     if (newRect) {
+      // 既存ファイル名 + まだサーバー未保存の usedFilenamesRef を合算
+      const existing = getExistingFilenames();
+      // 新しい番号
+      const nextFilename = getNextFilename(existing);
+
+      // 一時管理にも加えておく
+      usedFilenamesRef.current.push(nextFilename);
+
       const labeledRect: DrawnRect = {
         ...newRect,
-        label: `image_${labelCounterRef.current}`,
+        label: nextFilename,  // 例: "image_3"
         isCropped: false,
       };
-      labelCounterRef.current += 1;
       setRects((prev) => [...prev, labeledRect]);
     }
     setStartPos(null);
     setNewRect(null);
-  }, [newRect]);
+  }, [newRect, getExistingFilenames, getNextFilename]);
 
-  // ---- (5) Rect削除 ----
+  // =========================================================================
+  // (4) removeRect
+  // =========================================================================
   const removeRect = useCallback((index: number) => {
     setRects((prev) => prev.filter((_, i) => i !== index));
   }, []);
 
   // =========================================================================
-  // (6) handleCropRect
-  //   - ローカルCanvasで切り抜く
-  //   - イロハニキーを必要なら(Options時のみ)自動割り当て
-  //   - bounding_box API呼び出し (オプション)
+  // (5) updateRectLabel => 手動でラベルを変えたい場合
   // =========================================================================
-  const handleCropRect = useCallback(
-    async (index: number) => {
-      if (!image) return;
-      const r = rects[index];
-      if (!r) return;
+  const updateRectLabel = useCallback((index: number, newLabel: string) => {
+    setRects((prev) =>
+      prev.map((item, i) => (i === index ? { ...item, label: newLabel } : item))
+    );
+  }, []);
 
-      // (a) スケール補正
-      const scaleX = naturalWidth / scaledWidth;
-      const scaleY = naturalHeight / scaledHeight;
+  // =========================================================================
+  // (6) handleCropRect => ローカルで切り抜き
+  // =========================================================================
+  const irohaKeysRef = useRef<string[]>(irohaKeys);
 
-      const sx = r.x * scaleX;
-      const sy = r.y * scaleY;
-      const sw = r.width * scaleX;
-      const sh = r.height * scaleY;
+  const convertToRelativePath = useCallback((fullPath: string): string => {
+    // 例: CREATE_DATA2 ディレクトリ以下を取得する独自ロジック
+    const match = fullPath.match(/CREATE_DATA2\/(.*)/);
+    return match ? match[1] : fullPath;
+  }, []);
 
-      const offCanvas = document.createElement('canvas');
-      offCanvas.width = sw;
-      offCanvas.height = sh;
+  const handleCropRect = useCallback(async (index: number) => {
+    if (!image) return;
+    if (!currentArea) return;
+    const r = rects[index];
+    if (!r) return;
 
-      const ctx = offCanvas.getContext('2d');
-      if (!ctx) return;
+    // スケール補正
+    const scaleX = naturalWidth / scaledWidth;
+    const scaleY = naturalHeight / scaledHeight;
 
-      ctx.drawImage(image, sx, sy, sw, sh, 0, 0, sw, sh);
+    const sx = r.x * scaleX;
+    const sy = r.y * scaleY;
+    const sw = r.width * scaleX;
+    const sh = r.height * scaleY;
 
-      // dataUrl
-      const dataUrl = offCanvas.toDataURL('image/png');
+    const offCanvas = document.createElement('canvas');
+    offCanvas.width = sw;
+    offCanvas.height = sh;
+    const ctx = offCanvas.getContext('2d');
+    if (!ctx) return;
 
-      const base64str = dataUrl.replace(/^data:image\/(png|jpeg);base64,/, '');
-      let boundingBoxesFromServer: BoundingBox[] = [];
-            // ★★★ Options のみイロハニキーを割り当てる ★★★
-            let assignedKey = '';
-            if (selectedImageType === 'Options') {
-              assignedKey = irohaKeys[irohaIndexRef.current];
-              irohaIndexRef.current += 1;
-              if (irohaIndexRef.current >= irohaKeys.length) {
-                // 4枚目以降は最後の "ニ" のまま or ループにする
-                irohaIndexRef.current = irohaKeys.length - 1;
-              }
-            }
-            console.log('handleCropRect => assignedKey:', assignedKey);
-      try {
-        // margin=10, expand_margin=20 は例示。適宜変更/パラメータ化可能
-        const resp = await axios.post('/ocr_app/api/detect_bounding_box/', {
-          image_base64: base64str,
-          margin: 10,
-          return_base64: true,
-          expand_uniformly: true,
-          expand_margin: 50,
-        });
-        console.log('resp:', resp.data);
+    ctx.drawImage(image, sx, sy, sw, sh, 0, 0, sw, sh);
 
-        boundingBoxesFromServer = resp.data?.bounding_box_result?.bounding_boxes || [];
-        const serverBase64 = resp.data?.bounding_box_result?.final_img_base64;
-        // (c) croppedImages に追加
-        const newCropItem: CroppedImage = {
-          label: r.label || `image_${index}`,
-          dataUrl,
-          boundingBoxes: boundingBoxesFromServer,
-          serverCroppedBase64: serverBase64,
-          expandMargin: 20, // UIで描画するときに箱をoffsetしたい場合
-          selectedIrohaKey: assignedKey,
-        };
-        console.log('newCropItem:', newCropItem);
-        setCroppedImages((prev) => [...prev, newCropItem]);
-        
-        // (d) Rectリスト更新(isCropped)
-        setRects((prev) =>
-          prev.map((item, idx2) => (idx2 === index ? { ...item, isCropped: true } : item))
-        );
-      } catch (error) {
-        console.error('detect_bounding_box_api error:', error);
+    const dataUrl = offCanvas.toDataURL('image/png');
+    const base64str = dataUrl.replace(/^data:image\/(png|jpeg);base64,/, '');
+
+    // Options の場合だけ イロハを順番に割り当て
+    let assignedKey = '';
+    if (selectedImageType === 'Options') {
+      assignedKey = irohaKeysRef.current[irohaIndexRef.current];
+      irohaIndexRef.current += 1;
+      if (irohaIndexRef.current >= irohaKeysRef.current.length) {
+        irohaIndexRef.current = irohaKeysRef.current.length - 1; // or ループ
       }
+    }
 
-      return assignedKey;
-    },
-    [
-      image,
-      rects,
-      naturalWidth,
-      naturalHeight,
-      scaledWidth,
-      scaledHeight,
-      selectedImageType,
-    ]
-  );
+    // (任意) サーバーでバウンディングボックス検出
+    let boundingBoxesFromServer: BoundingBox[] = [];
+    let serverBase64 = '';
+    try {
+      const resp = await axios.post('/ocr_app/api/detect_bounding_box/', {
+        image_base64: base64str,
+        margin: 20,
+        return_base64: true,
+        expand_uniformly: true,
+        expand_margin: expandMargin,
+      });
+      boundingBoxesFromServer = resp.data?.bounding_box_result?.bounding_boxes || [];
+      serverBase64 = resp.data?.bounding_box_result?.final_img_base64;
+    } catch (error) {
+      console.error('detect_bounding_box_api error:', error);
+    }
+
+    // 元々Rectに付いてた label をそのまま流用
+    const rectLabel = r.label || 'image_1';
+
+    // ファイルパス例
+    const baseImagePath =
+      selectedImageType === 'Question' ? questionImageFullPath || '' : optionsImageFullPath || '';
+    const relativeBase = convertToRelativePath(baseImagePath).replace(/[^/]+$/, '');
+
+    const No = currentArea.No?.toString().padStart(1, '0') || '1';
+    const imageType = selectedImageType?.toLowerCase() || 'question';
+    const finalPath = `${relativeBase}no_${No}_${imageType}_${rectLabel}.png`;
+
+    // croppedImages に登録
+    const newCropItem: CroppedImage = {
+      label: rectLabel,
+      dataUrl,
+      boundingBoxes: boundingBoxesFromServer,
+      serverCroppedBase64: serverBase64,
+      expandMargin: 20,
+      selectedIrohaKey: assignedKey,
+      serverSavedPath: finalPath,
+    };
+    setCroppedImages((prev) => [...prev, newCropItem]);
+
+    // rect に isCropped = true を付与
+    setRects((prev) =>
+      prev.map((obj, i) => (i === index ? { ...obj, isCropped: true } : obj))
+    );
+
+    return assignedKey;
+  }, [
+    image,
+    rects,
+    currentArea,
+    scaledWidth,
+    scaledHeight,
+    naturalWidth,
+    naturalHeight,
+    selectedImageType,
+    questionImageFullPath,
+    optionsImageFullPath,
+    convertToRelativePath
+  ]);
 
   // =========================================================================
-  // (7) handleSaveRect => サーバーにファイル保存
+  // (7) handleSaveRect => サーバーへアップロードして JSON更新
   // =========================================================================
   const handleSaveRect = useCallback(
     async (croppedIndex: number) => {
       const cropItem = croppedImages[croppedIndex];
-      if (!cropItem) {
-        console.warn('No croppedImage found at index:', croppedIndex);
-        return;
-      }
-
+      if (!cropItem) return;
       if (!currentArea) {
-        alert('currentArea がありません');
+        alert('currentAreaがありません');
         return;
       }
-
-      // (a) originalImagePath の決定
+      // originalPathの決定
       let originalPath = '';
       if (selectedImageType === 'Question') {
         originalPath = questionImageFullPath || '';
@@ -243,45 +356,38 @@ export function useRectController(
         alert('originalImagePathが不明です');
         return;
       }
+      originalPath = convertToRelativePath(originalPath);
 
-      // (b) labelName
-      const rawLabel = cropItem.label || 'image_1';
-      const labelName = rawLabel.split('_')[1] || '1';
-      const noNumber = currentArea.No?.toString() || '1';
-      const areaId = currentArea.area_id?.toString() || '1';
-      const jsonId = selectedJsonId?.toString() || '1';
-
-      // (c) base64
+      // base64整形
       const rawBase64 = cropItem.serverCroppedBase64
         ? `data:image/png;base64,${cropItem.serverCroppedBase64}`
         : cropItem.dataUrl;
       const base64str = rawBase64.replace(/^data:image\/(png|jpeg);base64,/, '');
 
+      // labelをそのまま使う
+      const labelName = cropItem.label || 'image_1';
+      const jsonId = (selectedJsonId || 1).toString();
+
       try {
-        // (d) APIコール
+        // サーバーAPI
         const { saved_path, updated_json_data } = await uploadCroppedImage({
           originalImagePath: originalPath,
-          selectedImageType: (selectedImageType || 'Question').toLowerCase(), 
+          selectedImageType: (selectedImageType || 'Question').toLowerCase(),
           jsonId,
-          areaId,
-          labelName,
-          noNumber,
+          No: currentArea.No,           // 例: "4"
+          labelName,                    // "image_3" など
           base64: base64str,
-          // ★ Options の時だけキーを送信してもOK
-          selectedIrohaKey: selectedImageType === 'Options'
-            ? (cropItem.selectedIrohaKey ?? '')
-            : '',
+          selectedIrohaKey:
+            selectedImageType === 'Options' ? cropItem.selectedIrohaKey ?? '' : '',
         });
         console.log('Uploaded =>', saved_path);
 
-        // (e) 成功したら croppedImages を更新
+        // 成功 => croppedImages を更新（サーバー保存パスを付加）
         setCroppedImages((prev) =>
-          prev.map((ci, idx2) =>
-            idx2 === croppedIndex ? { ...ci, serverSavedPath: saved_path } : ci
-          )
+          prev.map((ci, idx2) => (idx2 === croppedIndex ? { ...ci, serverSavedPath: saved_path } : ci))
         );
 
-        // (f) Context更新 => 最新JSONに置き換え
+        // Context更新 => 最新JSONに置き換える
         if (setSelectedJsonData) {
           setSelectedJsonData((prev) => {
             if (!prev) return prev;
@@ -291,8 +397,11 @@ export function useRectController(
             };
           });
         }
-
         alert(`Saved to: ${saved_path}`);
+
+        // 保存後: Rect/CroppedImage を除去する例
+        setRects((prev) => prev.filter((r) => !r.isCropped));
+        setCroppedImages((prev) => prev.filter((_, idx2) => idx2 !== croppedIndex));
       } catch (error) {
         console.error(error);
         alert('Error while uploading cropped image');
@@ -306,50 +415,56 @@ export function useRectController(
       optionsImageFullPath,
       selectedJsonId,
       setSelectedJsonData,
+      convertToRelativePath
     ]
   );
 
   // =========================================================================
-  // (8) PreviewRect (任意)
+  // (8) handlePreviewRect
   // =========================================================================
   const handlePreviewRect = useCallback(
     (index: number) => {
+      if (!image) return;
       const r = rects[index];
-      if (!r || !image) return;
+      if (!r) return;
 
-      // 簡易プレビュー
       const offCanvas = document.createElement('canvas');
       offCanvas.width = r.width;
       offCanvas.height = r.height;
+
       const ctx = offCanvas.getContext('2d');
       if (!ctx) return;
 
       ctx.drawImage(image, r.x, r.y, r.width, r.height, 0, 0, r.width, r.height);
+
       const newTab = window.open('', '_blank');
       if (newTab) {
-        newTab.document.write(`<img src="${offCanvas.toDataURL('image/png')}" />`);
+        newTab.document.write(
+          `<img src="${offCanvas.toDataURL('image/png')}" />`
+        );
       }
     },
     [rects, image]
   );
 
   // =========================================================================
-  // (9) 全リセット
+  // (9) resetRectsAndCrops
   // =========================================================================
   const resetRectsAndCrops = useCallback(() => {
     setRects([]);
     setCroppedImages([]);
-    labelCounterRef.current = 1;
-    irohaIndexRef.current = 0; // イロハニの割り当てもリセット
+    usedFilenamesRef.current = [];
+    irohaIndexRef.current = 0;
   }, []);
 
   // =========================================================================
-  // (10) return
+  // (10) return API
   // =========================================================================
   return {
     rects,
     newRect,
     croppedImages,
+    setCroppedImages,
 
     handleMouseDown,
     handleMouseMove,
@@ -361,5 +476,6 @@ export function useRectController(
     handleSaveRect,
 
     resetRectsAndCrops,
+    updateRectLabel,
   };
 }

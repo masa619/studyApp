@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import { JsonDataContext } from '../Context/JsonDataContext';
 import { OCRResultType } from '../types';
-
+import './AreaItem.css';
 /**
  * Props: 表示したいAreaのインデックス。
  * JsonDataContextから areas[areaIndex] を取得して表示する。
@@ -48,19 +48,11 @@ const AreaItem: React.FC<Props> = ({ areaIndex }) => {
 
   const optionsImagePaths = (() => {
     // (A) まず、options_dict から取得
-    const dict = area.options_element?.options_dict;
+    const dict = area.options_element?.options_dict || {};
     const fromDict = dict
       ? Object.values(dict).flatMap((entry: any) => entry?.image_paths || [])
       : [];
-
-    // (B) 従来の area.options_image_paths / area.options_image_path も拾う        +   //     必要なければスキップしてもOK
-    let fromLegacy: string[] = [];
-    if (area.options_image_paths && area.options_image_paths.length > 0) {
-      fromLegacy = area.options_image_paths;
-    }
-
-    // (C) 合算 (Dict優先 or 全部まとめたい場合は concat)
-    return [...fromDict, ...fromLegacy];
+    return Object.values(dict).flatMap((entry) => entry.image_paths || []);
   })();
 
   // OCR結果を取得して State に反映
@@ -147,7 +139,26 @@ const AreaItem: React.FC<Props> = ({ areaIndex }) => {
       <p>
         <strong>Options text:</strong> {area.options_element?.text ?? ''}
       </p>
+      {/* 4) Optionテキスト */}
+      <p>
+        <strong>Options text:</strong> {area.options_element?.text ?? ''}
+      </p>
 
+      {/* Options Dict 表示 */}
+      {area.options_element?.options_dict && (
+        <div>
+          <strong>選択肢:</strong>
+          <ul>
+            {Object.entries(area.options_element.options_dict).map(
+              ([key, value]) => (
+                <li key={key}>
+                  {key}. {value.text}
+                </li>
+              )
+            )}
+          </ul>
+        </div>
+      )}
       {/* 5) Option複数画像（横並び） */}
       {optionsImagePaths.length > 0 && (
         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px', margin: '8px 0' }}>
@@ -166,6 +177,7 @@ const AreaItem: React.FC<Props> = ({ areaIndex }) => {
       )}
 
 
+      <hr />
 
       {/* OCR Status (Options) */}
       <p>

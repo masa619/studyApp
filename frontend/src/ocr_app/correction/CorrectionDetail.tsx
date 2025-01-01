@@ -22,6 +22,13 @@ interface Props {
     duplicates: string[];
     missing: string[];
   } | null;
+  onSplitResult: (result: {
+    status: string;
+    message: string;
+    lines: Record<string, string | null>;
+    duplicates: string[];
+    missing: string[];
+  }) => void;
 }
 
 interface CorrectionDetailExposed {
@@ -37,7 +44,7 @@ interface CorrectionDetailExposed {
  * を相互にコピー・保存するコンポーネント
  */
 const CorrectionDetail = forwardRef<CorrectionDetailExposed, Props>(
-  ({ area, areaIndex, onUpdateArea, propOptionCheckResult }, ref) => {
+  ({ area, areaIndex, onUpdateArea, propOptionCheckResult, onSplitResult }, ref) => {
 
     // === バウンディングボックス (質問/選択肢) ===
     const [boundingBoxes, setBoundingBoxes] = useState<any[]>([]);
@@ -83,6 +90,8 @@ const CorrectionDetail = forwardRef<CorrectionDetailExposed, Props>(
       // 1) 質問と選択肢の JSON テキストをリセット
       setQuestionJsonText(area.question_element?.text || '');
       setOptionsJsonText(area.options_element?.text || '');
+      setQuestionOcrText(area.question_element?.text || '');
+      setOptionsOcrText(area.options_element?.text || '');
 
       // 2) JSON内の options_dict をもとに optionCheckResult を初期化
       const existingDict = area.options_element?.options_dict;
@@ -92,7 +101,6 @@ const CorrectionDetail = forwardRef<CorrectionDetailExposed, Props>(
         for (const [key, val] of Object.entries(existingDict)) {
           linesFromDict[key] = val.text;
         }
-
         setOptionCheckResult({
           status: 'init',
           message: 'Loaded from JSON (area.options_element.options_dict)',
@@ -344,6 +352,27 @@ const CorrectionDetail = forwardRef<CorrectionDetailExposed, Props>(
     };
 
     // -----------------------------------------
+    // Split Options API 呼び出し (optionsOcrText を送信)
+    // -----------------------------------------
+    const handleSplitOptionsText = async () => {
+      setMessage('Splitting options text via /split_options/ ...');
+      try {
+        const resp = await axios.post('http://localhost:8000/ocr_app/api/split_options/', {
+          text: optionsOcrText, // ここでUI上の修正後テキストを送信
+        });
+        const data = resp.data;  // { status, message, lines, duplicates, missing }
+        setOptionCheckResult(data);
+        if (onSplitResult) {
+          onSplitResult(data);
+        }
+        setMessage(`Split success: ${data.message ?? ''}`);
+      } catch (err: any) {
+        console.error(err);
+        setMessage(`Split failed: ${err.message || String(err)}`);
+      }
+    };
+
+    // -----------------------------------------
     // 親(ManualCorrection) から呼べるメソッド (ref)
     // -----------------------------------------
     useImperativeHandle(ref, () => ({
@@ -353,44 +382,58 @@ const CorrectionDetail = forwardRef<CorrectionDetailExposed, Props>(
     }));
 
     return (
-      <div style={{ border: '1px solid #ccc', padding: '1rem' }}>
-        <p>Area No: {area.No}</p>
-        <p>Answer: {area.answer}</p>
-        {message && <p style={{ color: 'blue' }}>{message}</p>}
+      <div style={{ padding: '1rem', border: '1px solid #ccc' }}>
+        <h3>Correction Detail (Area: {area.No})</h3>
 
-        {/* 質問画像 + バウンディングボックス */}
-        {questionImageUrl ? (
-          <div style={{ margin: '1rem 0' }}>
-            <ImageWithBoundingBoxes
-              imageUrl={questionImageUrl}
-              boundingBoxes={boundingBoxes}
-              width={800}
-              height={600}
-            />
-          </div>
-        ) : (
-          <p>No question image path found.</p>
-        )}
-
-        {/* ============ 質問用のUI ============ */}
-        <div style={{ marginTop: '1rem' }}>
-          <h4>Question: OCR Normalized Text</h4>
+        {/* Question */}
+        <div style={{ marginBottom: '1rem' }}>
+          <h4>Question</h4>
           <textarea
-            rows={4}
-            cols={60}
+            style={{
+              width: '100%',
+              minHeight: '80px',
+              marginBottom: '0.5rem',
+              caretColor: 'black',
+            }}
             value={questionOcrText}
             onChange={(e) => setQuestionOcrText(e.target.value)}
           />
           <br />
-          <button onClick={handleSaveQuestionOcr} disabled={!questionOcrId}>
+          <button
+            onClick={handleSaveQuestionOcr}
+            disabled={!questionOcrId}
+            style={{
+              marginRight: '0.5rem',
+              padding: '0.5rem 1rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              cursor: 'pointer',
+            }}
+          >
             Save Question OCR
           </button>
-          {'  '}
-          <button onClick={handleApplyOcrToQuestionJson}>
+          <button
+            onClick={handleApplyOcrToQuestionJson}
+            style={{
+              marginRight: '0.5rem',
+              padding: '0.5rem 1rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              cursor: 'pointer',
+            }}
+          >
             Apply OCR → JSON
           </button>
-          {'  '}
-          <button onClick={handleApplyJsonToQuestionOcr}>
+          <button
+            onClick={handleApplyJsonToQuestionOcr}
+            style={{
+              marginRight: '0.5rem',
+              padding: '0.5rem 1rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              cursor: 'pointer',
+            }}
+          >
             Apply JSON → OCR
           </button>
         </div>
@@ -425,20 +468,68 @@ const CorrectionDetail = forwardRef<CorrectionDetailExposed, Props>(
           <textarea
             rows={4}
             cols={60}
+            style={{
+              width: '100%',
+              minHeight: '80px',
+              marginBottom: '0.5rem',
+              caretColor: 'black',
+            }}
             value={optionsOcrText}
             onChange={(e) => setOptionsOcrText(e.target.value)}
           />
           <br />
-          <button onClick={handleSaveOptionsOcr} disabled={!optionsOcrId}>
+          <button
+            onClick={handleSaveOptionsOcr}
+            disabled={!optionsOcrId}
+            style={{
+              marginRight: '0.5rem',
+              padding: '0.5rem 1rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              cursor: 'pointer',
+            }}
+          >
             Save Options OCR
           </button>
-          {'  '}
-          <button onClick={handleApplyOcrToOptionsJson}>
+          <button
+            onClick={handleApplyOcrToOptionsJson}
+            style={{
+              marginRight: '0.5rem',
+              padding: '0.5rem 1rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              cursor: 'pointer',
+            }}
+          >
             Apply OCR → JSON
           </button>
-          {'  '}
-          <button onClick={handleApplyJsonToOptionsOcr}>
+          <button
+            onClick={handleApplyJsonToOptionsOcr}
+            style={{
+              marginRight: '0.5rem',
+              padding: '0.5rem 1rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              cursor: 'pointer',
+            }}
+          >
             Apply JSON → OCR
+          </button>
+        </div>
+
+        {/* Split Options APIを叩くボタン */}
+        <div style={{ marginTop: '1rem' }}>
+          <button
+            onClick={handleSplitOptionsText}
+            style={{
+              marginRight: '0.5rem',
+              padding: '0.5rem 1rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              cursor: 'pointer',
+            }}
+          >
+            Split Options Text (Call /split_options/)
           </button>
         </div>
 
@@ -452,7 +543,6 @@ const CorrectionDetail = forwardRef<CorrectionDetailExposed, Props>(
             <>
               <p style={{ color: 'green' }}>{optionCheckResult.message}</p>
               {Object.entries(optionCheckResult.lines)
-                // イロハニの表示順をそろえる例 (任意)
                 .sort(([a], [b]) => {
                   const order = ['イ', 'ロ', 'ハ', 'ニ'];
                   return order.indexOf(a) - order.indexOf(b);
@@ -495,7 +585,16 @@ const CorrectionDetail = forwardRef<CorrectionDetailExposed, Props>(
 
         {/* OCR一括保存 (Normalized) */}
         <div style={{ marginTop: '1.5rem' }}>
-          <button onClick={handleSaveAllOcr}>
+          <button
+            onClick={handleSaveAllOcr}
+             style={{
+              marginRight: '0.5rem',
+              padding: '0.5rem 1rem',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+              cursor: 'pointer',
+            }}
+          >
             Save All OCR (Only)
           </button>
         </div>

@@ -11,7 +11,8 @@ export const JsonDataContext = createContext<JsonDataContextType>({
   error: '',
   setSelectedJsonId: () => {},
   fetchJsonDetail: async () => {},
-  
+  setSelectedAreaIndex: () => {},
+  selectedAreaIndex: null,
 });
 
 interface JsonDataProviderProps {
@@ -23,6 +24,7 @@ export const JsonDataProvider: React.FC<JsonDataProviderProps> = ({ children }) 
   const [selectedJsonData, setSelectedJsonData] = useState<InputJSONData | null>(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [selectedAreaIndex, setSelectedAreaIndex] = useState<number | null>(null);
 
   /**
    * 指定されたIDのJSON詳細を取得
@@ -76,6 +78,8 @@ export const JsonDataProvider: React.FC<JsonDataProviderProps> = ({ children }) 
         setSelectedJsonId,
         fetchJsonDetail,
         setSelectedJsonData,
+        setSelectedAreaIndex,
+        selectedAreaIndex,
       }}
     >
       {children}

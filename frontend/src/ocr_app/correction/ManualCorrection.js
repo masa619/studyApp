@@ -1,9 +1,10 @@
 import { jsx as _jsx, jsxs as _jsxs, Fragment as _Fragment } from "react/jsx-runtime";
 // src/ocr_app/correction/ManualCorrection.tsx
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
 import axios from 'axios';
 import ImageSelector from './ImageSelector';
 import CorrectionDetail from './CorrectionDetail';
+import { JsonDataContext } from '../Context/JsonDataContext';
 /**
  * ManualCorrection コンポーネント:
  * - 左ペイン: Area一覧 (ImageSelector)
@@ -11,37 +12,37 @@ import CorrectionDetail from './CorrectionDetail';
  * - "Run OCR" ボタン でサーバーに対し /api/trigger_ocr(mode=single) を呼ぶ
  * - "Save All Changes" ボタン で JSON を PUT 更新
  */
-const ManualCorrection = ({ jsonId, jsonData }) => {
-    // ローカルで編集するためのState
-    const [localData, setLocalData] = useState(jsonData);
-    // 選択中のAreaのインデックス
-    const [selectedAreaIndex, setSelectedAreaIndex] = useState(0);
-    // ステータスメッセージ (画面上部に表示)
+const ManualCorrection = () => {
+    // JSONContextから状態を取得
+    const { selectedJsonId, selectedJsonData, setSelectedAreaIndex, selectedAreaIndex } = useContext(JsonDataContext);
+    const [jsonData, setJsonData] = useState(selectedJsonData || { id: 0, description: "", json_data: { areas: [] } });
+    const [jsonId, setJsonId] = useState(selectedJsonId || 0);
     const [message, setMessage] = useState('');
     // CorrectionDetail ref
     const correctionDetailRef = useRef(null);
     // jsonData が切り替わったら初期化
     useEffect(() => {
-        setLocalData(jsonData);
+        setJsonData(selectedJsonData || { id: 0, description: "", json_data: { areas: [] } });
         setMessage('');
-        setSelectedAreaIndex(0);
-    }, [jsonData]);
+        setOptionCheckResult(null);
+    }, [selectedJsonData]);
     // areas配列を直接取得
-    const areaList = localData.json_data?.areas || [];
-    const currentArea = areaList[selectedAreaIndex];
+    const areaList = jsonData.json_data?.areas || [];
+    const currentArea = areaList[selectedAreaIndex || 0];
     // 選択肢の分割結果を保持するState
     const [optionCheckResult, setOptionCheckResult] = useState(null);
     // 左ペインでAreaを選択
     const handleSelectArea = (idx) => {
         setSelectedAreaIndex(idx);
+        setOptionCheckResult(null);
     };
     // 選択中のAreaオブジェクトを更新
     const handleUpdateArea = (updatedArea, areaIndex) => {
-        const updated = { ...localData };
+        const updated = { ...jsonData };
         const newAreas = [...(updated.json_data.areas || [])];
         newAreas[areaIndex] = updatedArea;
         updated.json_data.areas = newAreas;
-        setLocalData(updated);
+        setJsonData(updated);
     };
     /**
      * 単一画像OCR
@@ -118,9 +119,9 @@ const ManualCorrection = ({ jsonId, jsonData }) => {
             const oText = correctionDetailRef.current?.getOptionsOcrText() ?? '';
             console.log("qText", qText);
             if (currentArea) {
-                const updatedLocalData = { ...localData };
+                const updatedLocalData = { ...jsonData };
                 const newAreas = [...updatedLocalData.json_data.areas];
-                const targetArea = { ...newAreas[selectedAreaIndex] };
+                const targetArea = { ...newAreas[selectedAreaIndex || 0] };
                 // JSON の question_element / options_element を上書き
                 targetArea.question_element.text = qText;
                 targetArea.options_element.text = oText;
@@ -139,13 +140,13 @@ const ManualCorrection = ({ jsonId, jsonData }) => {
                     targetArea.options_element.options_dict = odict;
                 }
                 // ▲▲▲▲▲▲
-                newAreas[selectedAreaIndex] = targetArea;
+                newAreas[selectedAreaIndex || 0] = targetArea;
                 updatedLocalData.json_data.areas = newAreas;
-                setLocalData(updatedLocalData);
+                setJsonData(updatedLocalData);
                 // (C) JSONをPUT更新
                 const payload = {
                     json_id: jsonId,
-                    area_id: currentArea.area_id,
+                    No: currentArea.No,
                     description: updatedLocalData.description,
                     json_data: {
                         areas: updatedLocalData.json_data.areas,
@@ -188,7 +189,7 @@ const ManualCorrection = ({ jsonId, jsonData }) => {
         marginRight: 0,
         marginTop: '1rem',
     };
-    return (_jsxs("div", { style: { display: 'flex', gap: '1rem' }, children: [_jsx("div", { style: { width: '220px', borderRight: '1px solid #ccc' }, children: _jsx(ImageSelector, { areaList: areaList, selectedAreaIndex: selectedAreaIndex, onSelectArea: handleSelectArea }) }), _jsxs("div", { style: { flex: 1, padding: '1rem' }, children: [_jsxs("h2", { children: ["Manual Correction for JSON ID: ", jsonId] }), message && _jsx("p", { style: { color: 'blue' }, children: message }), currentArea ? (_jsxs(_Fragment, { children: [_jsxs("div", { style: { marginBottom: '1rem', display: 'flex', gap: '0.5rem' }, children: [_jsx("button", { onClick: () => handleRunSingleOCR(currentArea.question_image_path, 'question'), style: questionButtonStyle, onMouseEnter: (e) => {
+    return (_jsxs("div", { style: { display: 'flex', gap: '1rem' }, children: [_jsx("div", { style: { width: '220px', borderRight: '1px solid #ccc' }, children: _jsx(ImageSelector, { areaList: areaList, selectedAreaIndex: selectedAreaIndex || 0, onSelectArea: handleSelectArea }) }), _jsxs("div", { style: { flex: 1, padding: '1rem' }, children: [_jsxs("h2", { children: ["Manual Correction for JSON ID: ", jsonId] }), message && _jsx("p", { style: { color: 'blue' }, children: message }), currentArea ? (_jsxs(_Fragment, { children: [_jsxs("div", { style: { marginBottom: '1rem', display: 'flex', gap: '0.5rem' }, children: [_jsx("button", { onClick: () => handleRunSingleOCR(currentArea.question_image_path, 'question'), style: questionButtonStyle, onMouseEnter: (e) => {
                                             e.currentTarget.style.backgroundColor = '#0056b3';
                                         }, onMouseLeave: (e) => {
                                             e.currentTarget.style.backgroundColor = '#007BFF';
@@ -196,7 +197,9 @@ const ManualCorrection = ({ jsonId, jsonData }) => {
                                             e.currentTarget.style.backgroundColor = '#218838';
                                         }, onMouseLeave: (e) => {
                                             e.currentTarget.style.backgroundColor = '#28A745';
-                                        }, children: "Run OCR (Options)" })] }), _jsx(CorrectionDetail, { ref: correctionDetailRef, area: currentArea, areaIndex: selectedAreaIndex, onUpdateArea: handleUpdateArea, propOptionCheckResult: optionCheckResult }), _jsx("button", { onClick: handleSaveAll, style: saveAllButtonStyle, onMouseEnter: (e) => {
+                                        }, children: "Run OCR (Options)" })] }), _jsx(CorrectionDetail, { ref: correctionDetailRef, area: currentArea, areaIndex: selectedAreaIndex || 0, onUpdateArea: handleUpdateArea, propOptionCheckResult: optionCheckResult, onSplitResult: (result) => {
+                                    setOptionCheckResult(result);
+                                } }), _jsx("button", { onClick: handleSaveAll, style: saveAllButtonStyle, onMouseEnter: (e) => {
                                     e.currentTarget.style.backgroundColor = '#e64a19';
                                 }, onMouseLeave: (e) => {
                                     e.currentTarget.style.backgroundColor = '#FF5722';

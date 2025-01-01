@@ -205,8 +205,8 @@ def unified_ocr_process(payload: dict):
                 results.append(base_dict)
                 # ▼▼▼ ここから SINGLE WRITEBACK ▼▼▼
                 json_id = payload.get("json_id")
-                area_id = payload.get("area_id")
-                if json_id and area_id:
+                No = payload.get("No")
+                if json_id and No:
                     # JSONを取得
                     from ocr_app.models import InputJSON
                     from django.shortcuts import get_object_or_404
@@ -218,7 +218,7 @@ def unified_ocr_process(payload: dict):
                     # 該当area を特定
                     target_area = next((
                         a for a in areas 
-                        if str(a.get("area_id")) == str(area_id)
+                        if str(a.get("No")) == str(No)
                     ), None)
 
                     if target_area:

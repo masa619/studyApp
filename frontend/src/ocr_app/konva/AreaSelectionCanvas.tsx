@@ -20,10 +20,9 @@ const DEFAULT_BASE_WIDTH = 600;
 
 const AreaSelectionCanvas: React.FC = () => {
   // ========== 1) Context & State ==========
-  const { selectedJsonId, selectedJsonData, setSelectedJsonData } = useContext(JsonDataContext);
+  const { selectedJsonId, selectedJsonData, setSelectedJsonData, selectedAreaIndex, setSelectedAreaIndex } = useContext(JsonDataContext);
   const areaList = selectedJsonData?.json_data?.areas || [];
-  const [selectedAreaIndex, setSelectedAreaIndex] = useState<number>(0);
-  const currentArea = areaList[selectedAreaIndex];
+  const currentArea = areaList[selectedAreaIndex || 0];
 
   // "Question" / "Options" 切り替え
   const [selectedImageType, setSelectedImageType] =
@@ -64,6 +63,7 @@ const AreaSelectionCanvas: React.FC = () => {
   const [scale, setScale] = useState(1.0);
   const [naturalWidth, setNaturalWidth] = useState(0);
   const [naturalHeight, setNaturalHeight] = useState(0);
+  const [expandMargin, setExpandMargin] = useState(50);  // デフォルト値50
 
   useEffect(() => {
     if (status === 'loaded' && image) {
@@ -81,6 +81,7 @@ const AreaSelectionCanvas: React.FC = () => {
     rects,
     newRect,
     croppedImages,
+    setCroppedImages,
     handleMouseDown,
     handleMouseMove,
     handleMouseUp,
@@ -98,7 +99,8 @@ const AreaSelectionCanvas: React.FC = () => {
     questionImageFullPath,
     optionsImageFullPath,
     selectedImageType,
-    currentArea
+    currentArea,
+    expandMargin  // expandMarginを渡す
   );
 
   // ========== 6) 既存画像の削除 ==========
@@ -107,15 +109,13 @@ const AreaSelectionCanvas: React.FC = () => {
     if (!selectedJsonData) return;
 
     const jsonId = selectedJsonData?.id?.toString() || '1';
-    const areaId = currentArea?.area_id?.toString() || '1';
-    const noNumber = currentArea?.No?.toString() || '1';
+    const No = currentArea?.No?.toString() || '1';
 
     try {
       const resp = await deleteCroppedImage({
         selectedImageType: selectedImageType.toLowerCase(),
         jsonId,
-        areaId,
-        noNumber,
+        No,
         filePath,
       });
 
@@ -158,26 +158,9 @@ const AreaSelectionCanvas: React.FC = () => {
         {/* Area選択 UI (例: ImageSelector) */}
         <ImageSelector
           areaList={areaList}
-          selectedAreaIndex={selectedAreaIndex}
+          selectedAreaIndex={selectedAreaIndex || 0}
           onSelectArea={setSelectedAreaIndex}
         />
-
-        {/* ImageType切り替え */}
-        <div style={{ marginTop: '1rem' }}>
-          <FormControl size="small" style={{ marginBottom: '1rem' }}>
-            <InputLabel id="image-type-label">Image Type</InputLabel>
-            <Select
-              labelId="image-type-label"
-              value={selectedImageType}
-              label="Image Type"
-              onChange={(e) => setSelectedImageType(e.target.value as 'Question' | 'Options')}
-              style={{ width: 120 }}
-            >
-              <MenuItem value="Question">Question</MenuItem>
-              <MenuItem value="Options">Options</MenuItem>
-            </Select>
-          </FormControl>
-        </div>
 
         {/* 既存画像一覧 (複数) + Deleteボタン */}
         {existingImages.length > 0 && (
@@ -204,8 +187,46 @@ const AreaSelectionCanvas: React.FC = () => {
       </div>
 
       {/* ========== (右ペイン) ========== */}
+
       <div style={{ flex: 1 }}>
         <h3>Area Selection (Canvas)</h3>
+        {/* ImageType切り替え */}
+        <div style={{ marginTop: '1rem' }}>
+          <FormControl size="small" style={{ marginBottom: '1rem', marginRight: '1rem' }}>
+            <InputLabel id="image-type-label">Image Type</InputLabel>
+            <Select
+              labelId="image-type-label"
+              value={selectedImageType}
+              label="Image Type"
+              onChange={(e) => setSelectedImageType(e.target.value as 'Question' | 'Options')}
+              style={{ width: 120 }}
+            >
+              <MenuItem value="Question">Question</MenuItem>
+              <MenuItem value="Options">Options</MenuItem>
+            </Select>
+          </FormControl>
+
+          <FormControl size="small" style={{ marginBottom: '1rem' }}>
+            <InputLabel id="expand-margin-label">Expand Margin</InputLabel>
+            <Select
+              labelId="expand-margin-label"
+              value={expandMargin}
+              label="Expand Margin"
+              onChange={(e) => setExpandMargin(Number(e.target.value))}
+              style={{ width: 120 }}
+            >
+              <MenuItem value={2}>2px</MenuItem>
+              <MenuItem value={5}>5px</MenuItem>
+              <MenuItem value={10}>10px</MenuItem>
+              <MenuItem value={20}>20px</MenuItem>
+              <MenuItem value={30}>30px</MenuItem>
+              <MenuItem value={40}>40px</MenuItem>
+              <MenuItem value={50}>50px (Default)</MenuItem>
+              <MenuItem value={60}>60px</MenuItem>
+              <MenuItem value={70}>70px</MenuItem>
+            </Select>
+          </FormControl>
+        </div>
         <ScaleSlider scale={scale} setScale={setScale} />
 
         <p>
@@ -286,7 +307,17 @@ const AreaSelectionCanvas: React.FC = () => {
             <h4>Cropped Images</h4>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: '1rem' }}>
               {croppedImages.map((ci, idx) => (
-                <SingleCroppedImagePreview key={idx} cropItem={ci} scale={1.0} />
+                <SingleCroppedImagePreview 
+                  key={idx} 
+                  cropItem={ci} 
+                  scale={1.0} 
+                  onLabelChange={(newLabel: string) => {
+                    // croppedImagesの更新
+                    const newCroppedImages = [...croppedImages];
+                    newCroppedImages[idx] = { ...newCroppedImages[idx], label: newLabel };
+                    setCroppedImages(newCroppedImages);
+                  }}
+                />
               ))}
             </div>
           </div>

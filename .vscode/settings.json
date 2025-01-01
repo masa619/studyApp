@@ -52,5 +52,8 @@
     "python.analysis.extraPaths": [
         "${workspaceFolder}"
     ],
-    "python.analysis.autoImportCompletions": true
+    "python.analysis.autoImportCompletions": true,
+    "[json]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }

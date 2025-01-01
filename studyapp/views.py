@@ -11,7 +11,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 
-from .utils import load_vite_manifest
+from .src.utils import load_vite_manifest
 
 def register(request):
     if request.method == 'POST':

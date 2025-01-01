@@ -8,6 +8,7 @@ from .views import (
     trigger_ocr,
     detect_bounding_box_api,
     upload_cropped_image_api,
+    split_options_api,
 )
 
 urlpatterns = [
@@ -22,5 +23,5 @@ urlpatterns = [
     
     path('detect_bounding_box/', detect_bounding_box_api, name='detect-bounding-box'),
     path('upload_cropped_image/', upload_cropped_image_api, name='upload-cropped-image'),
-    
+    path('split_options/', split_options_api, name='split-options'),
 ]

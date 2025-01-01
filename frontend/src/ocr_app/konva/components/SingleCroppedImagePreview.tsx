@@ -1,6 +1,10 @@
 // src/ocr_app/konva/components/SingleCroppedImagePreview.tsx
 
 import React, { useState, useRef, useCallback, useEffect } from 'react';
+import { TextField, IconButton } from '@mui/material';
+import EditIcon from '@mui/icons-material/Edit';
+import CheckIcon from '@mui/icons-material/Check';
+import CloseIcon from '@mui/icons-material/Close';
 
 export interface BoundingBox {
   x: number;
@@ -29,27 +33,28 @@ interface Props {
   cropItem: CroppedImage;
   scale?: number;
   children?: React.ReactNode; // Saveボタン等を子要素で受け取る用
+  onLabelChange?: (newLabel: string) => void;
 }
 
-const SingleCroppedImagePreview: React.FC<Props> = ({ cropItem, scale = 1, children }) => {
+const SingleCroppedImagePreview: React.FC<Props> = ({ cropItem, scale = 1, children, onLabelChange }) => {
   // 「サーバーで処理後の画像」があればそれを優先、それが無ければフロントのdataUrlを使う
   const finalSrc = cropItem.serverCroppedBase64
     ? `data:image/png;base64,${cropItem.serverCroppedBase64}`
     : cropItem.dataUrl;
   const imgRef = useRef<HTMLImageElement | null>(null);
-
+  const [label, setLabel] = useState(cropItem.label);
   const [naturalSize, setNaturalSize] = useState({ width: 0, height: 0 });
-
   const [selectedKey, setSelectedKey] = useState<string>(cropItem.selectedIrohaKey || '');
-
-  // serverSavedPathなども表示するなら拡張可能
   const filteredBoxes = (cropItem.boundingBoxes || []).filter(
     (bb) => bb.label !== 'final_box'
   );
-
   const [boxStates, setBoxStates] = useState<ToggledBoundingBox[]>(() =>
     filteredBoxes.map((bb) => ({ ...bb, isVisible: true }))
   );
+
+  // ラベル編集用の状態
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingLabel, setEditingLabel] = useState(cropItem.label);
 
   useEffect(() => {
     setSelectedKey(cropItem.selectedIrohaKey || '');
@@ -77,7 +82,14 @@ const SingleCroppedImagePreview: React.FC<Props> = ({ cropItem, scale = 1, child
       })
     );
   }, []);
-
+  const handleLabelChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newVal = e.target.value;
+    setLabel(newVal);
+    // 親にラベル変更を通知し、親側の cropItem.label も更新しておく
+    if (onLabelChange) {
+      onLabelChange(newVal);
+    }
+  };
   // boundingBoxes が変われば再初期化
   useEffect(() => {
     setBoxStates(filteredBoxes.map((bb) => ({ ...bb, isVisible: true })));
@@ -85,10 +97,58 @@ const SingleCroppedImagePreview: React.FC<Props> = ({ cropItem, scale = 1, child
 
   const expandMargin = cropItem.expandMargin ?? 0;
 
+  // ラベル編集の確定
+  const handleLabelSubmit = () => {
+    if (onLabelChange) {
+      onLabelChange(editingLabel);
+    }
+    setIsEditing(false);
+  };
+
+  // ラベル編集のキャンセル
+  const handleLabelCancel = () => {
+    setEditingLabel(cropItem.label);
+    setIsEditing(false);
+  };
+
   return (
     <div style={{ border: '1px solid #ccc', padding: '0.5rem', display: 'inline-block' }}>
-      <div style={{ fontWeight: 'bold', marginBottom: '0.25rem' }}>
-        {cropItem.label}
+      {/* ラベル表示/編集 */}
+      <div style={{ 
+        fontWeight: 'bold', 
+        marginBottom: '0.25rem',
+        display: 'flex',
+        alignItems: 'center',
+        gap: '0.5rem'
+      }}>
+        {isEditing ? (
+          <>
+            <TextField
+              size="small"
+              value={editingLabel}
+              onChange={(e) => setEditingLabel(e.target.value)}
+              onKeyPress={(e) => {
+                if (e.key === 'Enter') {
+                  handleLabelSubmit();
+                }
+              }}
+              autoFocus
+            />
+            <IconButton size="small" onClick={handleLabelSubmit}>
+              <CheckIcon />
+            </IconButton>
+            <IconButton size="small" onClick={handleLabelCancel}>
+              <CloseIcon />
+            </IconButton>
+          </>
+        ) : (
+          <>
+            {cropItem.label}
+            <IconButton size="small" onClick={() => setIsEditing(true)}>
+              <EditIcon />
+            </IconButton>
+          </>
+        )}
       </div>
 
       {/* イロハニのSelect UI */}
